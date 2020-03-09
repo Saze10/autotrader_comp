@@ -309,3 +309,25 @@ AttributeError: 'NoneType' object has no attribute 'set_start_time'
 2020-03-09 22:25:02,838 [INFO   ] [EXECUTION] fd=19 login successful: name='TraderOne'
 2020-03-09 22:25:08,891 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 22:25:08,891 [INFO   ] [APP] closing event loop
+2020-03-09 22:33:01,383 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:33:01,383 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:33:01,383 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:33:01,756 [INFO   ] [EXECUTION] fd=644 accepted a new connection: peer=127.0.0.1:50645
+2020-03-09 22:33:01,756 [INFO   ] [EXECUTION] fd=836 accepted a new connection: peer=127.0.0.1:50646
+2020-03-09 22:33:01,756 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:33:01,756 [INFO   ] [EXECUTION] fd=644 login successful: name='ExampleOne'
+2020-03-09 22:33:01,757 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:33:01,757 [INFO   ] [EXECUTION] fd=836 login successful: name='ExampleTwo'
+2020-03-09 22:33:01,760 [INFO   ] [EXECUTION] fd=708 accepted a new connection: peer=127.0.0.1:50647
+2020-03-09 22:33:01,760 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:33:01,760 [INFO   ] [EXECUTION] fd=708 login successful: name='TraderOne'
+2020-03-09 22:33:21,387 [INFO   ] [CONTROLLER] market open
+2020-03-09 22:33:21,827 [INFO   ] [EXECUTION] fd=836 message frequency limit breached: now=4.370000 value=21 limit=20
+2020-03-09 22:33:21,827 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=4.370000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 22:33:21,827 [INFO   ] [COMPETITOR] 'ExampleTwo' closing execution channel at time=4.370000
+2020-03-09 22:33:22,989 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=15.940000 client_order_id=181 message='position limit breached'
+2020-03-09 22:33:22,989 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=15.940000
+2020-03-09 22:37:29,493 [INFO   ] [MARKET_EVENTS] reader thread complete after processing 1041935 market events
+2020-03-09 22:37:30,384 [INFO   ] [CONTROLLER] shutting down the match: time=2490.000000 reason='match complete'
+2020-03-09 22:37:30,385 [INFO   ] [MATCH_EVENTS] writer thread complete after processing 51440 match events
+2020-03-09 22:37:30,385 [INFO   ] [APP] closing event loop

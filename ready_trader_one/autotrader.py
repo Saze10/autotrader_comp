@@ -9,9 +9,9 @@ class AutoTrader(BaseAutoTrader):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
         
-        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
     
-        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
 
         self.op_count = 0
 
@@ -65,13 +65,13 @@ class AutoTrader(BaseAutoTrader):
 
         # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
-            self.etf_history[sequence_number] = new_entry
+            self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
-            self.future_history[sequence_number] = new_entry
+            self.future_history["history"].append(new_entry)
 
-        if len(self.etf_history) >= 202:
+        if len(self.etf_history["history"]) >= 100:
             self.collapse_history(self.etf_history)            
-        if len(self.future_history) >= 202:
+        if len(self.future_history["history"]) >= 100:
             self.collapse_history(self.future_history)
 
 
@@ -177,7 +177,7 @@ class AutoTrader(BaseAutoTrader):
         self.total_fees += fees
         
         if remaining_volume != 0:
-            if op_count < 20:
+            if self.op_count < 20:
                 self.send_amend_order(client_order_id, remaining_volume * 1.1)
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
@@ -210,22 +210,15 @@ class AutoTrader(BaseAutoTrader):
             "bid": 0
             }
             
-            new_start_key = 0
-            
-            # Loop through the history's 200 entries
-            for i in range(history["start_key"], history["start_key"]+100):
-                avg_entry["ask"] += history[i]["ask"]
-                avg_entry["bid"] += history[i]["bid"]
-                history.pop(i)
-                new_start_key = i
-
-            # Correcting this value by 1, this will be the next sequence id
-            history["start_key"] = new_start_key + 1
+            # Loop through the history's entries
+            for entry in history["history"]:
+                avg_entry["ask"] += entry["ask"]
+                avg_entry["bid"] += entry["bid"]
                 
 
             # Get the average
-            avg_entry["ask"] /= 100
-            avg_entry["bid"] /= 100
+            avg_entry["ask"] /= len(history["history"])
+            avg_entry["bid"] /= len(history["history"])
 
             # Update the average dictionary entry
             history["average"] = avg_entry
