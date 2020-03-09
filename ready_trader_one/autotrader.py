@@ -1,5 +1,7 @@
 import asyncio
 
+import numpy as np
+
 from typing import List, Tuple
 
 from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
@@ -7,13 +9,13 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 class AutoTrader(BaseAutoTrader):
 
-    etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
-    
+    etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}   
     future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
+        self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -33,36 +35,94 @@ class AutoTrader(BaseAutoTrader):
         prices are reported along with the volume available at each of those
         price levels.
         """
+            
 
-        # Entry containing ask and bid prices for given instrument
+# Entry containing ask and bid prices for given instrument
         new_entry = {
-            "ask": 0,
-            "bid": 0
+            "ask": [],
+            "bid": []
+        }
+
+
+        for i in range(5):
+# Entry containing volume and price for given ask/bid
+           new_ask_data = {
+                "volume": ask_volume[i],
+                "price": ask_prices[i]
             }
 
-        
-        # Entry containing volume and price for given ask/bid
-        new_ask_data = {
-            "volume": ask_volume[0],
-            "price": ask_prices[0]
-        }
-        
-        new_bid_data = {
-            "volume": bid_volume[0],
-            "price": bid_prices[0]
-        }
+            new_bid_data = {
+                "volume": bid_volume[i],
+                "price": bid_prices[i]
+            }
 
-        # Append data to corresponding list within entry dictionary
-        new_entry["ask"] = new_ask_data
-        new_entry["bid"] = new_bid_data
+    # Append data to corresponding list within entry dictionary
+        new_entry["ask"].append(new_ask_data)
+        new_entry["bid"].append(new_bid_data)
 
-        # Add entry to corresponding instrument dictionary
-        if instrument = Instrument.ETF:
-            etf_history[sequence_number] = new_entry
-        elif instrument = Instrument.FUTURE:
-            future_history[sequence_number] = new_entry
+    # Add entry to corresponding instrument dictionary
+        if instrument == Instrument.ETF:
+            etf_history[str(sequence_number)] = new_entry
+        elif instrument == Instrument.FUTURE:
+            future_history[str(sequence_number)] = new_entry
+
+
             
+        if len(self.future_history) < 100 or len(self.etf_history):
+            new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
+            new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
+
+            if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
+                self.send_cancel_order(self.bid_id)
+                self.bid_id = 0
+            if self.ask_id != 0 and new_ask_price not in (self.ask_price, 0):
+                self.send_cancel_order(self.ask_id)
+                self.ask_id = 0
+
+            if self.bid_id == 0 and new_bid_price != 0 and self.position < 100:
+                self.bid_id = next(self.order_ids)
+                self.bid_price = new_bid_price
+                self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.GOOD_FOR_DAY)
+
+            if self.ask_id == 0 and new_ask_price != 0 and self.position > -100:
+                self.ask_id = next(self.order_ids)
+                self.ask_price = new_ask_price
+                self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.GOOD_FOR_DAY)
+
         
+        else:
+            if instrument == Instrument.FUTURE:
+
+                total_ask_before_avg = 0
+                total_bid_before_avg = 0
+
+                for i in [0:50]:
+                    total_ask_before_avg = future_history[sequence_number-i]['ask']
+                    total_bid_before_avg = future_history[sequence_number-i]['bid']
+
+                new_ask_price = total_ask_before_avg/50
+                new_bid_price = total_bid_before_avg/50
+
+                self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                self.send_insert_order(self.ask_id, Side.SELL, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+                
+
+            elif instrument == Instrument.ETF:
+
+                total_ask_before_avg = 0
+                total_bid_before_avg = 0
+
+                for i in [0:50]:
+                    total_ask_before_avg = etf_history[sequence_number-i]['ask']
+                    total_bid_before_avg = etf_history[sequence_number-i]['bid']
+
+                new_ask_price = total_ask_before_avg/50
+                new_bid_price = total_bid_before_avg/50
+
+                self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                self.send_insert_order(self.ask_id, Side.SELL, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+
+
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
@@ -78,12 +138,12 @@ class AutoTrader(BaseAutoTrader):
 
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
-
+        
         Since every trade in the ETF is automatically hedged in the future,
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
-        pass
+        self.position += future_position + etf_position
 
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
@@ -97,25 +157,10 @@ class AutoTrader(BaseAutoTrader):
             elif client_order_id == self.ask_id:
                 self.ask_id = 0
 
-    def collapse_history(history): # Run only if history entries are greater than or equal to 202 - accounting for the two
-        if(len(history) >= 202): # Making sure we avoid key errors
-            avg_entry = {
-            "ask": 0,
-            "bid": 0
-            }
-
-            # Loop through the history's 200 entries
-            for i in range(history["start_key"], history["start_key"]+200):
-                avg_entry["ask"] += history[i]["ask"]
-                avg_entry["bid"] += history[i]["bid"]
-
-            # Get the average
-            avg_entry["ask"] /= 200
-            avg_entry["bid"] /= 200
-
-            # Update the average dictionary entry
-            history["average"] = avg_entry
-                
-            
+    def collapse_history(history): # Run only if history entries are greater than 200
+        if(len(history) >= 200):
+            new_entry = {
+                }
+            for entry in history:
                 
             
