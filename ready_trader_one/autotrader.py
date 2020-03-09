@@ -59,9 +59,7 @@ class AutoTrader(BaseAutoTrader):
         # Add entry to corresponding instrument dictionary
         if instrument = Instrument.ETF:
             etf_history[str(sequence_number)] = new_entry
-            etf_history[str(sequence_number)] = new_entry
         elif instrument = Instrument.FUTURE:
-            future_history[str(sequence_number)] = new_entry
             future_history[str(sequence_number)] = new_entry
             
         
