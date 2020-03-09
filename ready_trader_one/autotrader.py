@@ -6,6 +6,9 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 
 class AutoTrader(BaseAutoTrader):
+
+    history = {}
+    
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
@@ -28,7 +31,21 @@ class AutoTrader(BaseAutoTrader):
         prices are reported along with the volume available at each of those
         price levels.
         """
-        pass
+
+        new_entry = []
+
+        for i in range(5):
+            new_data = {
+                "instrument": instrument,
+                "sequence_number": sequence_number,
+                "volume": ask_prices[i],
+                "price": bid_prices[i],
+            }
+
+            new_entry.append(new_data)
+
+        history[str(sequence_number)] = new_entry
+        
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
