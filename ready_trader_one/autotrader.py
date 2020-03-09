@@ -53,14 +53,20 @@ class AutoTrader(BaseAutoTrader):
         
         # Entry containing volume and price for given ask/bid
         new_ask_data = {
-            "volume": ask_volumes[0],
+            "volume": [],
             "price": ask_prices[0]
         }
+
+        for v in ask_volumes:
+            new_ask_data["volume"].append(v)
         
         new_bid_data = {
-            "volume": bid_volumes[0],
+            "volume": [],
             "price": bid_prices[0]
         }
+
+        for v in bid_volumes:
+            new_bid_data["volume"].append(v)
 
         # Append data to corresponding list within entry dictionary
         new_entry["ask"] = new_ask_data
@@ -72,9 +78,9 @@ class AutoTrader(BaseAutoTrader):
         elif instrument == Instrument.FUTURE:
             self.future_history["history"].append(new_entry)
 
-        if len(self.etf_history["history"]) >= 202:
+        if len(self.etf_history["history"]) >= 200:
             self.collapse_history(self.etf_history)            
-        if len(self.future_history["history"]) >= 202:
+        if len(self.future_history["history"]) >= 200:
             self.collapse_history(self.future_history)
 
 
@@ -205,21 +211,24 @@ class AutoTrader(BaseAutoTrader):
         self.trade_tick_list.append(trade_ticks) 
 
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
-        if(len(history) >= 202): # Making sure we avoid key errors
+        if(len(history["history"]) >= 200): # Making sure we avoid key errors
             avg_entry = {
             "ask": 0,
             "bid": 0
             }
             
             # Loop through the history's entries
-            for entry in history["history"]:
-                avg_entry["ask"] += entry["ask"]
-                avg_entry["bid"] += entry["bid"]
+            for i in range(100):
+                avg_entry["ask"] += history["history"][i]["ask"]
+                avg_entry["bid"] += history["history"][i]["bid"]
                 
 
             # Get the average
-            avg_entry["ask"] /= len(history["history"])
-            avg_entry["bid"] /= len(history["history"])
+            avg_entry["ask"] /= 100
+            avg_entry["bid"] /= 100
+
+            for i in range(100):
+                del history["history"][0]
 
             # Update the average dictionary entry
             history["average"] = avg_entry
