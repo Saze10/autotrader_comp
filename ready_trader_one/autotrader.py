@@ -17,8 +17,6 @@ class AutoTrader(BaseAutoTrader):
 
         self.base_time = time.time()
         
-        trade_tick_list = []
-        
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
         self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
