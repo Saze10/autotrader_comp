@@ -149,7 +149,7 @@ class AutoTrader(BaseAutoTrader):
                 ratio_history = 0.0
 
                 for i in range(50):
-                    ratio_history += sum(self.etf_history["history"][len(self.etf_history["history"]) - i]["volume"])/(sum(self.etf_history["history"][len(self.etf_history["history"]) - i]["volume"]))
+                    ratio_history += sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"])/(sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"]))
                 
                 ratio_history /= 50
 
