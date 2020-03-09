@@ -48,12 +48,12 @@ class AutoTrader(BaseAutoTrader):
         
         # Entry containing volume and price for given ask/bid
         new_ask_data = {
-            "volume": ask_volume[0],
+            "volume": ask_volumes[0],
             "price": ask_prices[0]
         }
         
         new_bid_data = {
-            "volume": bid_volume[0],
+            "volume": bid_volumes[0],
             "price": bid_prices[0]
         }
 
@@ -188,18 +188,12 @@ class AutoTrader(BaseAutoTrader):
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
-        pass
 
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
         Each trade tick is a pair containing a price and the number of lots
         traded at that price since the last trade ticks message.
         """
-        if remaining_volume == 0:
-            if client_order_id == self.bid_id:
-                self.bid_id = 0
-            elif client_order_id == self.ask_id:
-                self.ask_id = 0
 
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history) >= 202): # Making sure we avoid key errors
