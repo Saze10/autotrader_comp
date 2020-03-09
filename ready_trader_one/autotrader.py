@@ -9,8 +9,8 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 class AutoTrader(BaseAutoTrader):
 
-    etf_history = {}
-    future_history = {}
+    etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}   
+    future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
