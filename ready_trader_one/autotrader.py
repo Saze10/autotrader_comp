@@ -15,6 +15,7 @@ class AutoTrader(BaseAutoTrader):
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
+        self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
