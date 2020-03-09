@@ -163,3 +163,11 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2020-03-09 23:33:06,585 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
 2020-03-09 23:33:11,062 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 23:33:11,063 [INFO   ] [APP] closing event loop
+2020-03-09 23:35:03,662 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-09 23:35:03,662 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-09 23:35:05,928 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:35:05,928 [INFO   ] [APP] closing event loop
+2020-03-09 23:37:24,725 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-09 23:37:24,725 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-09 23:37:25,864 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:37:25,864 [INFO   ] [APP] closing event loop
