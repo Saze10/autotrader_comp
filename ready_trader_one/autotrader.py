@@ -122,9 +122,9 @@ class AutoTrader(BaseAutoTrader):
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 #current bid to ask volume ratio
                 ratio_history = 0.0 #historic bid to ask volume ratio (past 50 order books)
-
+                
                 for i in range(50):
-                    ratio_history += sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["volume"])/(sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["volume"]))
+                    ratio_history += sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["bid"]["volume"])/(sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["ask"]["volume"]))
 
                 ratio_history /= 50
 
