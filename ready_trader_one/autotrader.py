@@ -1,14 +1,14 @@
 import asyncio
-
 from typing import List, Tuple
-
 from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
-
 import time
 
 class AutoTrader(BaseAutoTrader):
-  
+    
     def __init__(self, loop: asyncio.AbstractEventLoop):
+        """Initialise a new instance of the AutoTrader class."""
+        super(AutoTrader, self).__init__(loop)
+        
         self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
     
         self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
@@ -16,11 +16,6 @@ class AutoTrader(BaseAutoTrader):
         self.op_count = 0
 
         self.base_time = time.time()
-        
-        """Initialise a new instance of the AutoTrader class."""
-        super(AutoTrader, self).__init__(loop)
-        self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
-        self.trade_tick_list = []
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -78,29 +73,29 @@ class AutoTrader(BaseAutoTrader):
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
 
-            if op_count < 19:
+            if self.op_count < 19:
                 if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
                     self.send_cancel_order(self.bid_id)
                     self.bid_id = 0
-                    op_count += 1
+                    self.op_count += 1
                     
                 if self.ask_id != 0 and new_ask_price not in (self.ask_price, 0):
                     self.send_cancel_order(self.ask_id)
                     self.ask_id = 0
-                    op_count += 1
+                    self.op_count += 1
 
-            if op_count < 19:
-                if self.bid_id == 0 and new_bid_price != 0 and self.position < 100 and op_count < 20:
+            if self.op_count < 19:
+                if self.bid_id == 0 and new_bid_price != 0 and self.position < 100:
                     self.bid_id = next(self.order_ids)
                     self.bid_price = new_bid_price
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.GOOD_FOR_DAY)
-                    op_count += 1
+                    self.op_count += 1
 
-                if self.ask_id == 0 and new_ask_price != 0 and self.position > -100 and op_count < 20:
+                if self.ask_id == 0 and new_ask_price != 0 and self.position > -100:
                     self.ask_id = next(self.order_ids)
                     self.ask_price = new_ask_price
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.GOOD_FOR_DAY)
-                    op_count += 1
+                    self.op_count += 1
                     
 
         #mid-late game
@@ -156,7 +151,7 @@ class AutoTrader(BaseAutoTrader):
 
 
         # check if we need to reset the timer and op count - happens every seconds
-        if time.time() - base_time >= 1.0:
+        if time.time() - base_time >= 0.99999:
             base_time = time.time()
             op_count = 0
 
@@ -176,14 +171,18 @@ class AutoTrader(BaseAutoTrader):
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
-        self.position = future_position + etf_position
+        pass
 
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
         Each trade tick is a pair containing a price and the number of lots
         traded at that price since the last trade ticks message.
         """
-        self.trade_tick_list.append(trade_ticks)
+        if remaining_volume == 0:
+            if client_order_id == self.bid_id:
+                self.bid_id = 0
+            elif client_order_id == self.ask_id:
+                self.ask_id = 0
 
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history) >= 202): # Making sure we avoid key errors
