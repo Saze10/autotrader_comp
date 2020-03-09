@@ -7,7 +7,8 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 class AutoTrader(BaseAutoTrader):
 
-    history = {}
+    etf_history = {}
+    future_history = {}
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
@@ -32,19 +33,32 @@ class AutoTrader(BaseAutoTrader):
         price levels.
         """
 
-        new_entry = []
-
-        for i in range(5):
-            new_data = {
-                "instrument": instrument,
-                "sequence_number": sequence_number,
-                "volume": ask_prices[i],
-                "price": bid_prices[i],
+        new_entry = {
+            "ask": [],
+            "bid": []
             }
 
-            new_entry.append(new_data)
+        for i in range(5):
+            new_ask_data = {
+                "volume": ask_volume[i],
+                "price": ask_prices[i]
+            }
+            
+            new_bid_data = {
+                "volume": bid_volume[i],
+                "price": bid_prices[i]
+            }
 
-        history[str(sequence_number)] = new_entry
+            new_entry["ask"].append(new_ask_data)
+            new_entry["bid"].append(new_bid_data)
+
+        if instrument = Instrument.ETF:
+            etf_history[str(sequence_number)] = new_entry
+            etf_history[str(sequence_number)] = new_entry
+        elif instrument = Instrument.FUTURE:
+            future_history[str(sequence_number)] = new_entry
+            future_history[str(sequence_number)] = new_entry
+            
         
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
@@ -79,3 +93,11 @@ class AutoTrader(BaseAutoTrader):
                 self.bid_id = 0
             elif client_order_id == self.ask_id:
                 self.ask_id = 0
+
+    def collapse_history(history): # Run only if history entries are greater than 200
+        if(len(history) >= 200):
+            new_entry = {
+                }
+            for entry in history:
+                
+            
