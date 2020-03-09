@@ -122,9 +122,9 @@ class AutoTrader(BaseAutoTrader):
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 #current bid to ask volume ratio
                 ratio_history = 0.0 #historic bid to ask volume ratio (past 50 order books)
-
+                # CURRENTLY ONLY CONSIDERS FIRST VOLUME ENTRY - FIX
                 for i in range(50):
-                    ratio_history += sum(self.future_history["history"][len(self.future_history["history"]) - i]["volume"])/(sum(self.future_history["history"][len(self.future_history["history"]) - i]["volume"]))
+                    ratio_history += sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["volume"][0])/(sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["volume"][0]))
 
                 ratio_history /= 50
 
@@ -147,9 +147,9 @@ class AutoTrader(BaseAutoTrader):
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 
                 ratio_history = 0.0
-
+                # CURRENTLY ONLY CONSIDERS FIRST VOLUME ENTRY - FIX
                 for i in range(50):
-                    ratio_history += sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"])/(sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"]))
+                    ratio_history += sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"][0])/(sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"][0]))
                 
                 ratio_history /= 50
 
