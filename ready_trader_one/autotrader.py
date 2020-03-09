@@ -2,6 +2,7 @@ import asyncio
 from typing import List, Tuple
 from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 import time
+import itertools
 
 class AutoTrader(BaseAutoTrader):
     
@@ -22,6 +23,8 @@ class AutoTrader(BaseAutoTrader):
         self.trade_tick_list = []
 
         self.total_fees = 0.0
+
+        self.order_ids = itertools.count(1)
 
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
@@ -114,7 +117,7 @@ class AutoTrader(BaseAutoTrader):
                 bid_to_ask_ratio = 0.0 #current bid to ask volume ratio
                 ratio_history = 0.0 #historic bid to ask volume ratio (past 50 order books)
 
-                for i in [range(50)]:
+                for i in range(50):
                     total_ask_before_avg = self.future_history[sequence_number-i]['ask']['price'][0]
                     total_bid_before_avg = self.future_history[sequence_number-i]['bid']['price'][0]
                     ratio_history += sum(self.future_history[sequence_number-i]['bid']['volume'])/sum(self.future_history[sequence_number-i]['ask']['volume'])
@@ -141,7 +144,7 @@ class AutoTrader(BaseAutoTrader):
                 bid_to_ask_ratio = 0.0 
                 ratio_history = 0.0
 
-                for i in [range(50)]:
+                for i in range(50):
                     total_ask_before_avg = self.etf_history[sequence_number-i]['ask']['price'][0]
                     total_bid_before_avg = self.etf_history[sequence_number-i]['bid']['price'][0]
                     ratio_history += sum(self.etf_history[sequence_number-i]['bid']['volume'])/sum(self.etf_history[sequence_number-i]['ask']['volume'])
@@ -177,12 +180,12 @@ class AutoTrader(BaseAutoTrader):
         self.total_fees += fees
         
         if remaining_volume != 0:
-            if op_count < 20:
+            if self.op_count < 20:
                 self.send_amend_order(client_order_id, remaining_volume * 1.1)
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
             
-        if time.time() - base_time >= 0.99999:
+        if time.time() - self.base_time >= 0.99999:
             self.base_time = time.time()
             self.op_count = 0
 

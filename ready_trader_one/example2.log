@@ -103,3 +103,23 @@
 2020-03-09 22:25:02,836 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
 2020-03-09 22:25:08,891 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 22:25:08,891 [INFO   ] [APP] closing event loop
+2020-03-09 22:29:00,867 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-09 22:29:00,868 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-09 22:32:06,385 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 22:32:06,385 [INFO   ] [APP] closing event loop
+2020-03-09 22:44:35,252 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-09 22:44:35,253 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-09 22:44:37,373 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:44:37,373 [INFO   ] [APP] closing event loop
+2020-03-09 22:44:52,519 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-09 22:44:52,519 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-09 22:45:50,125 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:45:50,126 [INFO   ] [APP] closing event loop
+2020-03-09 22:47:18,055 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-09 22:47:18,056 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-09 22:47:54,190 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:47:54,191 [INFO   ] [APP] closing event loop
+2020-03-09 22:49:03,502 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-09 22:49:03,502 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-09 22:49:31,370 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:49:31,370 [INFO   ] [APP] closing event loop

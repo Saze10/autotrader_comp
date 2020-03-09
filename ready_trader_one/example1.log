@@ -107,3 +107,30 @@
 2020-03-09 22:25:02,836 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
 2020-03-09 22:25:08,891 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 22:25:08,891 [INFO   ] [APP] closing event loop
+2020-03-09 22:29:00,868 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:29:00,868 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:29:32,130 [WARNING] [TRADER] error with order 733: position limit breached
+2020-03-09 22:29:32,137 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 22:29:32,137 [INFO   ] [APP] closing event loop
+2020-03-09 22:44:35,252 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:44:35,253 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:44:37,373 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:44:37,373 [INFO   ] [APP] closing event loop
+2020-03-09 22:44:52,518 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:44:52,519 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:45:23,552 [WARNING] [TRADER] error with order 716: position limit breached
+2020-03-09 22:45:23,555 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 22:45:23,555 [INFO   ] [APP] closing event loop
+2020-03-09 22:47:18,055 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:47:18,055 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:47:49,253 [WARNING] [TRADER] error with order 732: position limit breached
+2020-03-09 22:47:49,254 [ERROR  ] [TRADER] lost connection on execution channel:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 714, in _read_ready
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2020-03-09 22:47:49,254 [INFO   ] [APP] closing event loop
+2020-03-09 22:49:03,501 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:49:03,502 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:49:31,370 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:49:31,370 [INFO   ] [APP] closing event loop
