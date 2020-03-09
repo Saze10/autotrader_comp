@@ -11,6 +11,7 @@ class AutoTrader(BaseAutoTrader):
 
     etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}   
     future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
@@ -45,15 +46,15 @@ class AutoTrader(BaseAutoTrader):
 
         for i in range(5):
 # Entry containing volume and price for given ask/bid
-        new_ask_data = {
-            "volume": ask_volume[i],
-            "price": ask_prices[i]
-        }
+            new_ask_data = {
+                "volume": ask_volume[i],
+                "price": ask_prices[i]
+            }
 
-        new_bid_data = {
-            "volume": bid_volume[i],
-            "price": bid_prices[i]
-        }
+            new_bid_data = {
+                "volume": bid_volume[i],
+                "price": bid_prices[i]
+            }
     # Append data to corresponding list within entry dictionary
         new_entry["ask"].append(new_ask_data)
         new_entry["bid"].append(new_bid_data)
@@ -65,8 +66,8 @@ class AutoTrader(BaseAutoTrader):
             future_history[str(sequence_number)] = new_entry
 
 
-            
-        if len(self.future_history) < 100 or len(self.etf_history):
+        #entrance 
+        if len(self.future_history) < 100 or len(self.etf_history) < 100:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
 
@@ -87,39 +88,48 @@ class AutoTrader(BaseAutoTrader):
                 self.ask_price = new_ask_price
                 self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.GOOD_FOR_DAY)
 
-        
+        #mid-late game
         else:
             if instrument == Instrument.FUTURE:
 
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
+                bid_to_ask_ratio = 0.0 
 
-                for i in [0:50]:
-                    total_ask_before_avg = future_history[sequence_number-i]['ask']
-                    total_bid_before_avg = future_history[sequence_number-i]['bid']
+                for i in [range(50)]:
+                    total_ask_before_avg = future_history[sequence_number-i]['ask']['price'][0]
+                    total_bid_before_avg = future_history[sequence_number-i]['bid']['price'][0]
 
-                new_ask_price = total_ask_before_avg/50
-                new_bid_price = total_bid_before_avg/50
+                bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
+
+                new_ask_price = (total_ask_before_avg/50)
+                new_bid_price = (total_bid_before_avg/50)
 
                 self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
-                self.send_insert_order(self.ask_id, Side.SELL, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+                self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+
+
                 
 
             elif instrument == Instrument.ETF:
 
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
+                bid_to_ask_ratio = 0.0 
 
-                for i in [0:50]:
-                    total_ask_before_avg = etf_history[sequence_number-i]['ask']
-                    total_bid_before_avg = etf_history[sequence_number-i]['bid']
+                for i in [range(50)]:
+                    total_ask_before_avg = etf_history[sequence_number-i]['ask']['price'][0]
+                    total_bid_before_avg = etf_history[sequence_number-i]['bid']['price'][0]
+
+                bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
                 new_ask_price = total_ask_before_avg/50
                 new_bid_price = total_bid_before_avg/50
 
                 self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
-                self.send_insert_order(self.ask_id, Side.SELL, new_bid_price, 1, Lifespan.KILL_AND_FILL)
-
+                self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+            
+            
 
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
