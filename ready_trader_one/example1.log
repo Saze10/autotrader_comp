@@ -2,3 +2,117 @@
 2020-03-09 11:17:45,443 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
 2020-03-09 11:17:58,033 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 11:17:58,034 [INFO   ] [APP] closing event loop
+<<<<<<< HEAD
+2020-03-09 21:29:57,718 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 21:29:57,718 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 21:32:51,233 [WARNING] [TRADER] error with order 679: position limit breached
+2020-03-09 21:32:51,236 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 21:32:51,237 [INFO   ] [APP] closing event loop
+=======
+2020-03-09 21:28:08,292 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 21:28:08,292 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 21:31:01,969 [WARNING] [TRADER] error with order 667: position limit breached
+2020-03-09 21:31:01,970 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 21:31:01,970 [INFO   ] [APP] closing event loop
+2020-03-09 21:55:55,045 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 21:55:55,046 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 21:55:55,229 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-09 21:55:55,229 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-09 21:55:55,482 [WARNING] [TRADER] error with order 3: order rejected: market not yet open
+2020-03-09 21:55:55,482 [WARNING] [TRADER] error with order 4: order rejected: market not yet open
+2020-03-09 21:55:55,736 [WARNING] [TRADER] error with order 5: order rejected: market not yet open
+2020-03-09 21:55:55,736 [WARNING] [TRADER] error with order 6: order rejected: market not yet open
+2020-03-09 21:55:55,991 [WARNING] [TRADER] error with order 7: order rejected: market not yet open
+2020-03-09 21:55:55,991 [WARNING] [TRADER] error with order 8: order rejected: market not yet open
+2020-03-09 21:55:56,231 [WARNING] [TRADER] error with order 9: order rejected: market not yet open
+2020-03-09 21:55:56,231 [WARNING] [TRADER] error with order 10: order rejected: market not yet open
+2020-03-09 21:55:56,484 [WARNING] [TRADER] error with order 11: order rejected: market not yet open
+2020-03-09 21:55:56,485 [WARNING] [TRADER] error with order 12: order rejected: market not yet open
+2020-03-09 21:55:56,736 [WARNING] [TRADER] error with order 13: order rejected: market not yet open
+2020-03-09 21:55:56,737 [WARNING] [TRADER] error with order 14: order rejected: market not yet open
+2020-03-09 21:55:56,977 [WARNING] [TRADER] error with order 15: order rejected: market not yet open
+2020-03-09 21:55:56,977 [WARNING] [TRADER] error with order 16: order rejected: market not yet open
+2020-03-09 21:55:57,233 [WARNING] [TRADER] error with order 17: order rejected: market not yet open
+2020-03-09 21:55:57,233 [WARNING] [TRADER] error with order 18: order rejected: market not yet open
+2020-03-09 21:55:57,488 [WARNING] [TRADER] error with order 19: order rejected: market not yet open
+2020-03-09 21:55:57,488 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-09 21:55:57,489 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 21:55:57,489 [INFO   ] [APP] closing event loop
+2020-03-09 21:57:43,305 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 21:57:43,305 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 21:57:43,485 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-09 21:57:43,485 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-09 21:57:43,741 [WARNING] [TRADER] error with order 3: order rejected: market not yet open
+2020-03-09 21:57:43,741 [WARNING] [TRADER] error with order 4: order rejected: market not yet open
+2020-03-09 21:57:43,980 [WARNING] [TRADER] error with order 5: order rejected: market not yet open
+2020-03-09 21:57:43,980 [WARNING] [TRADER] error with order 6: order rejected: market not yet open
+2020-03-09 21:57:44,232 [WARNING] [TRADER] error with order 7: order rejected: market not yet open
+2020-03-09 21:57:44,232 [WARNING] [TRADER] error with order 8: order rejected: market not yet open
+2020-03-09 21:57:44,485 [WARNING] [TRADER] error with order 9: order rejected: market not yet open
+2020-03-09 21:57:44,486 [WARNING] [TRADER] error with order 10: order rejected: market not yet open
+2020-03-09 21:57:44,739 [WARNING] [TRADER] error with order 11: order rejected: market not yet open
+2020-03-09 21:57:44,739 [WARNING] [TRADER] error with order 12: order rejected: market not yet open
+2020-03-09 21:57:44,978 [WARNING] [TRADER] error with order 13: order rejected: market not yet open
+2020-03-09 21:57:44,979 [WARNING] [TRADER] error with order 14: order rejected: market not yet open
+2020-03-09 21:57:45,230 [WARNING] [TRADER] error with order 15: order rejected: market not yet open
+2020-03-09 21:57:45,231 [WARNING] [TRADER] error with order 16: order rejected: market not yet open
+2020-03-09 21:57:45,483 [WARNING] [TRADER] error with order 17: order rejected: market not yet open
+2020-03-09 21:57:45,483 [WARNING] [TRADER] error with order 18: order rejected: market not yet open
+2020-03-09 21:57:45,737 [WARNING] [TRADER] error with order 19: order rejected: market not yet open
+2020-03-09 21:57:45,738 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-09 21:57:45,738 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 21:57:45,738 [INFO   ] [APP] closing event loop
+2020-03-09 22:03:15,500 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:03:15,500 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:03:15,735 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-09 22:03:15,735 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-09 22:03:15,988 [WARNING] [TRADER] error with order 3: order rejected: market not yet open
+2020-03-09 22:03:15,988 [WARNING] [TRADER] error with order 4: order rejected: market not yet open
+2020-03-09 22:03:16,227 [WARNING] [TRADER] error with order 5: order rejected: market not yet open
+2020-03-09 22:03:16,227 [WARNING] [TRADER] error with order 6: order rejected: market not yet open
+2020-03-09 22:03:16,480 [WARNING] [TRADER] error with order 7: order rejected: market not yet open
+2020-03-09 22:03:16,480 [WARNING] [TRADER] error with order 8: order rejected: market not yet open
+2020-03-09 22:03:16,733 [WARNING] [TRADER] error with order 9: order rejected: market not yet open
+2020-03-09 22:03:16,733 [WARNING] [TRADER] error with order 10: order rejected: market not yet open
+2020-03-09 22:03:16,990 [WARNING] [TRADER] error with order 11: order rejected: market not yet open
+2020-03-09 22:03:16,990 [WARNING] [TRADER] error with order 12: order rejected: market not yet open
+2020-03-09 22:03:17,230 [WARNING] [TRADER] error with order 13: order rejected: market not yet open
+2020-03-09 22:03:17,231 [WARNING] [TRADER] error with order 14: order rejected: market not yet open
+2020-03-09 22:03:17,485 [WARNING] [TRADER] error with order 15: order rejected: market not yet open
+2020-03-09 22:03:17,486 [WARNING] [TRADER] error with order 16: order rejected: market not yet open
+2020-03-09 22:03:17,738 [WARNING] [TRADER] error with order 17: order rejected: market not yet open
+2020-03-09 22:03:17,738 [WARNING] [TRADER] error with order 18: order rejected: market not yet open
+2020-03-09 22:03:17,979 [WARNING] [TRADER] error with order 19: order rejected: market not yet open
+2020-03-09 22:03:17,980 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-09 22:03:17,980 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-09 22:03:17,980 [INFO   ] [APP] closing event loop
+>>>>>>> ea35f91e75c31054889c6dfa8aa7f3227594d0a6
+2020-03-09 22:15:53,887 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:15:53,887 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:15:56,532 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:15:56,532 [INFO   ] [APP] closing event loop
+2020-03-09 22:16:28,102 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:16:28,102 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:16:29,743 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:16:29,743 [INFO   ] [APP] closing event loop
+2020-03-09 22:16:50,374 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:16:50,375 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:16:55,867 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:16:55,868 [INFO   ] [APP] closing event loop
+2020-03-09 22:21:43,194 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:21:43,194 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:21:50,704 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:21:50,705 [INFO   ] [APP] closing event loop
+2020-03-09 22:25:02,836 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:25:02,836 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:25:08,891 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:25:08,891 [INFO   ] [APP] closing event loop
+2020-03-09 22:33:01,753 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-09 22:33:01,754 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-09 22:33:22,989 [WARNING] [TRADER] error with order 181: position limit breached
+2020-03-09 22:33:22,990 [ERROR  ] [TRADER] lost connection on execution channel:
+Traceback (most recent call last):
+  File "C:\Users\Andre Calma\AppData\Local\Programs\Python\Python38-32\lib\asyncio\selector_events.py", line 846, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2020-03-09 22:33:22,991 [INFO   ] [APP] closing event loop
