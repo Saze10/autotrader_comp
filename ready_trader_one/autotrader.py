@@ -8,12 +8,17 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 class AutoTrader(BaseAutoTrader):
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
+        
+        """Initialise a new instance of the AutoTrader class."""
+        super(AutoTrader, self).__init__(loop)
+
         self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
     
         self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
         
-        """Initialise a new instance of the AutoTrader class."""
-        super(AutoTrader, self).__init__(loop)
+        self.total_fees = 0
+
+        self.operation_counter = 0
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -140,7 +145,13 @@ class AutoTrader(BaseAutoTrader):
         you receive fees for being a market maker, so fees can be negative.
         If an order is cancelled its remaining volume will be zero.
         """
-        pass
+        self.total_fees += fees
+        
+        if remaining_volume != 0:
+
+            self.send_amend_order(client_order_id,
+
+
 
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
