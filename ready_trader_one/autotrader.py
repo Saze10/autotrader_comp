@@ -21,6 +21,8 @@ class AutoTrader(BaseAutoTrader):
 
         self.trade_tick_list = []
 
+        self.total_fees = 0.0
+
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -67,10 +69,10 @@ class AutoTrader(BaseAutoTrader):
         elif instrument == Instrument.FUTURE:
             self.future_history[sequence_number] = new_entry
 
-        if len(etf_history) >= 202:
-            self.collapse_history(etf_history)            
-        if len(future_history) >= 202:
-            self.collapse_history(future_history)
+        if len(self.etf_history) >= 202:
+            self.collapse_history(self.etf_history)            
+        if len(self.future_history) >= 202:
+            self.collapse_history(self.future_history)
 
 
         #entrance 
@@ -176,7 +178,7 @@ class AutoTrader(BaseAutoTrader):
         
         if remaining_volume != 0:
             if op_count < 20:
-                self.send_amend_order(self, client_order_id, remaining_volume * 1.1)
+                self.send_amend_order(client_order_id, remaining_volume * 1.1)
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
             
@@ -199,8 +201,8 @@ class AutoTrader(BaseAutoTrader):
         Each trade tick is a pair containing a price and the number of lots
         traded at that price since the last trade ticks message.
         """
-        self.trade_tick_list.append(trade_ticks)
-        
+        self.trade_tick_list.append(trade_ticks) 
+
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history) >= 202): # Making sure we avoid key errors
             avg_entry = {

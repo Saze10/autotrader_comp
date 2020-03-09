@@ -12,6 +12,7 @@
 2020-03-09 11:17:45,451 [INFO   ] [EXECUTION] fd=22 login successful: name='ExampleTwo'
 2020-03-09 11:17:58,034 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 11:17:58,034 [INFO   ] [APP] closing event loop
+<<<<<<< HEAD
 2020-03-09 21:29:57,205 [INFO   ] [APP] exchange started with arguments={run.py}
 2020-03-09 21:29:57,205 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
 2020-03-09 21:29:57,206 [INFO   ] [CONTROLLER] starting the match
@@ -29,3 +30,282 @@
 2020-03-09 21:32:51,234 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=154.005321
 2020-03-09 21:45:24,192 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 21:45:24,192 [INFO   ] [APP] closing event loop
+=======
+2020-03-09 21:28:07,953 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 21:28:07,955 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 21:28:07,955 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 21:28:08,297 [INFO   ] [EXECUTION] fd=816 accepted a new connection: peer=127.0.0.1:50268
+2020-03-09 21:28:08,297 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 21:28:08,297 [INFO   ] [EXECUTION] fd=816 login successful: name='ExampleTwo'
+2020-03-09 21:28:08,297 [INFO   ] [EXECUTION] fd=824 accepted a new connection: peer=127.0.0.1:50269
+2020-03-09 21:28:08,298 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 21:28:08,298 [INFO   ] [EXECUTION] fd=824 login successful: name='ExampleOne'
+2020-03-09 21:28:08,299 [INFO   ] [EXECUTION] fd=828 accepted a new connection: peer=127.0.0.1:50270
+2020-03-09 21:28:08,299 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 21:28:08,299 [INFO   ] [EXECUTION] fd=828 login successful: name='TraderOne'
+2020-03-09 21:28:27,972 [INFO   ] [CONTROLLER] market open
+2020-03-09 21:31:01,969 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=154.000000 client_order_id=667 message='position limit breached'
+2020-03-09 21:31:01,969 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=154.000000
+2020-03-09 21:55:54,662 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 21:55:54,662 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 21:55:54,662 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 21:55:55,048 [INFO   ] [EXECUTION] fd=820 accepted a new connection: peer=127.0.0.1:50395
+2020-03-09 21:55:55,048 [INFO   ] [EXECUTION] fd=824 accepted a new connection: peer=127.0.0.1:50394
+2020-03-09 21:55:55,048 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 21:55:55,048 [INFO   ] [EXECUTION] fd=824 login successful: name='ExampleOne'
+2020-03-09 21:55:55,048 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 21:55:55,048 [INFO   ] [EXECUTION] fd=820 login successful: name='ExampleTwo'
+2020-03-09 21:55:55,051 [INFO   ] [EXECUTION] fd=828 accepted a new connection: peer=127.0.0.1:50396
+2020-03-09 21:55:55,051 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 21:55:55,051 [INFO   ] [EXECUTION] fd=828 login successful: name='TraderOne'
+2020-03-09 21:55:55,229 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=1 message='order rejected: market not yet open'
+2020-03-09 21:55:55,229 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=2 message='order rejected: market not yet open'
+2020-03-09 21:55:55,229 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=1 message='order rejected: market not yet open'
+2020-03-09 21:55:55,229 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=2 message='order rejected: market not yet open'
+2020-03-09 21:55:55,482 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=3 message='order rejected: market not yet open'
+2020-03-09 21:55:55,482 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=4 message='order rejected: market not yet open'
+2020-03-09 21:55:55,482 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=3 message='order rejected: market not yet open'
+2020-03-09 21:55:55,482 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=4 message='order rejected: market not yet open'
+2020-03-09 21:55:55,736 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=5 message='order rejected: market not yet open'
+2020-03-09 21:55:55,736 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=6 message='order rejected: market not yet open'
+2020-03-09 21:55:55,737 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=5 message='order rejected: market not yet open'
+2020-03-09 21:55:55,737 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=6 message='order rejected: market not yet open'
+2020-03-09 21:55:55,991 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=7 message='order rejected: market not yet open'
+2020-03-09 21:55:55,991 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=8 message='order rejected: market not yet open'
+2020-03-09 21:55:55,991 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=7 message='order rejected: market not yet open'
+2020-03-09 21:55:55,991 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=8 message='order rejected: market not yet open'
+2020-03-09 21:55:56,231 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=9 message='order rejected: market not yet open'
+2020-03-09 21:55:56,231 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=10 message='order rejected: market not yet open'
+2020-03-09 21:55:56,231 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=9 message='order rejected: market not yet open'
+2020-03-09 21:55:56,231 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=10 message='order rejected: market not yet open'
+2020-03-09 21:55:56,484 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=11 message='order rejected: market not yet open'
+2020-03-09 21:55:56,485 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=12 message='order rejected: market not yet open'
+2020-03-09 21:55:56,485 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=11 message='order rejected: market not yet open'
+2020-03-09 21:55:56,485 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=12 message='order rejected: market not yet open'
+2020-03-09 21:55:56,736 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=13 message='order rejected: market not yet open'
+2020-03-09 21:55:56,737 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=14 message='order rejected: market not yet open'
+2020-03-09 21:55:56,737 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=13 message='order rejected: market not yet open'
+2020-03-09 21:55:56,737 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=14 message='order rejected: market not yet open'
+2020-03-09 21:55:56,977 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=15 message='order rejected: market not yet open'
+2020-03-09 21:55:56,977 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=16 message='order rejected: market not yet open'
+2020-03-09 21:55:56,977 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=15 message='order rejected: market not yet open'
+2020-03-09 21:55:56,977 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=16 message='order rejected: market not yet open'
+2020-03-09 21:55:57,233 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=17 message='order rejected: market not yet open'
+2020-03-09 21:55:57,233 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=18 message='order rejected: market not yet open'
+2020-03-09 21:55:57,233 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=17 message='order rejected: market not yet open'
+2020-03-09 21:55:57,233 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=18 message='order rejected: market not yet open'
+2020-03-09 21:55:57,488 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=19 message='order rejected: market not yet open'
+2020-03-09 21:55:57,488 [INFO   ] [EXECUTION] fd=824 message frequency limit breached: now=0.000000 value=21 limit=20
+2020-03-09 21:55:57,488 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 21:55:57,488 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=0.000000
+2020-03-09 21:55:57,489 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=19 message='order rejected: market not yet open'
+2020-03-09 21:55:57,489 [INFO   ] [EXECUTION] fd=820 message frequency limit breached: now=0.000000 value=21 limit=20
+2020-03-09 21:55:57,489 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 21:55:57,489 [INFO   ] [COMPETITOR] 'ExampleTwo' closing execution channel at time=0.000000
+2020-03-09 21:56:14,677 [INFO   ] [CONTROLLER] market open
+2020-03-09 21:56:14,677 [ERROR  ] [asyncio] Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<Controller.start() done, defined at C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\controller.py:147> exception=AttributeError("'NoneType' object has no attribute 'set_start_time'")>
+Traceback (most recent call last):
+  File "C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\controller.py", line 174, in start
+    competitor.set_start_time(self.start_time)
+  File "C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\competitor.py", line 220, in set_start_time
+    self.exec_channel.set_start_time(start_time)
+AttributeError: 'NoneType' object has no attribute 'set_start_time'
+2020-03-09 21:57:42,949 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 21:57:42,949 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 21:57:42,949 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 21:57:43,308 [INFO   ] [EXECUTION] fd=584 accepted a new connection: peer=127.0.0.1:50418
+2020-03-09 21:57:43,308 [INFO   ] [EXECUTION] fd=660 accepted a new connection: peer=127.0.0.1:50417
+2020-03-09 21:57:43,308 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 21:57:43,308 [INFO   ] [EXECUTION] fd=584 login successful: name='ExampleTwo'
+2020-03-09 21:57:43,308 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 21:57:43,308 [INFO   ] [EXECUTION] fd=660 login successful: name='ExampleOne'
+2020-03-09 21:57:43,311 [INFO   ] [EXECUTION] fd=916 accepted a new connection: peer=127.0.0.1:50419
+2020-03-09 21:57:43,312 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 21:57:43,312 [INFO   ] [EXECUTION] fd=916 login successful: name='TraderOne'
+2020-03-09 21:57:43,484 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=1 message='order rejected: market not yet open'
+2020-03-09 21:57:43,484 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=2 message='order rejected: market not yet open'
+2020-03-09 21:57:43,484 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=1 message='order rejected: market not yet open'
+2020-03-09 21:57:43,485 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=2 message='order rejected: market not yet open'
+2020-03-09 21:57:43,740 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=3 message='order rejected: market not yet open'
+2020-03-09 21:57:43,741 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=4 message='order rejected: market not yet open'
+2020-03-09 21:57:43,741 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=3 message='order rejected: market not yet open'
+2020-03-09 21:57:43,741 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=4 message='order rejected: market not yet open'
+2020-03-09 21:57:43,979 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=5 message='order rejected: market not yet open'
+2020-03-09 21:57:43,980 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=6 message='order rejected: market not yet open'
+2020-03-09 21:57:43,980 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=5 message='order rejected: market not yet open'
+2020-03-09 21:57:43,980 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=6 message='order rejected: market not yet open'
+2020-03-09 21:57:44,232 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=7 message='order rejected: market not yet open'
+2020-03-09 21:57:44,232 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=8 message='order rejected: market not yet open'
+2020-03-09 21:57:44,232 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=7 message='order rejected: market not yet open'
+2020-03-09 21:57:44,232 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=8 message='order rejected: market not yet open'
+2020-03-09 21:57:44,485 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=9 message='order rejected: market not yet open'
+2020-03-09 21:57:44,485 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=10 message='order rejected: market not yet open'
+2020-03-09 21:57:44,485 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=9 message='order rejected: market not yet open'
+2020-03-09 21:57:44,485 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=10 message='order rejected: market not yet open'
+2020-03-09 21:57:44,739 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=11 message='order rejected: market not yet open'
+2020-03-09 21:57:44,739 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=12 message='order rejected: market not yet open'
+2020-03-09 21:57:44,739 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=11 message='order rejected: market not yet open'
+2020-03-09 21:57:44,739 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=12 message='order rejected: market not yet open'
+2020-03-09 21:57:44,978 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=13 message='order rejected: market not yet open'
+2020-03-09 21:57:44,978 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=14 message='order rejected: market not yet open'
+2020-03-09 21:57:44,978 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=13 message='order rejected: market not yet open'
+2020-03-09 21:57:44,978 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=14 message='order rejected: market not yet open'
+2020-03-09 21:57:45,230 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=15 message='order rejected: market not yet open'
+2020-03-09 21:57:45,230 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=16 message='order rejected: market not yet open'
+2020-03-09 21:57:45,230 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=15 message='order rejected: market not yet open'
+2020-03-09 21:57:45,230 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=16 message='order rejected: market not yet open'
+2020-03-09 21:57:45,483 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=17 message='order rejected: market not yet open'
+2020-03-09 21:57:45,483 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=18 message='order rejected: market not yet open'
+2020-03-09 21:57:45,483 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=17 message='order rejected: market not yet open'
+2020-03-09 21:57:45,483 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=18 message='order rejected: market not yet open'
+2020-03-09 21:57:45,737 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=19 message='order rejected: market not yet open'
+2020-03-09 21:57:45,737 [INFO   ] [EXECUTION] fd=584 message frequency limit breached: now=0.000000 value=21 limit=20
+2020-03-09 21:57:45,737 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 21:57:45,737 [INFO   ] [COMPETITOR] 'ExampleTwo' closing execution channel at time=0.000000
+2020-03-09 21:57:45,737 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=19 message='order rejected: market not yet open'
+2020-03-09 21:57:45,738 [INFO   ] [EXECUTION] fd=660 message frequency limit breached: now=0.000000 value=21 limit=20
+2020-03-09 21:57:45,738 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 21:57:45,738 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=0.000000
+2020-03-09 21:58:02,972 [INFO   ] [CONTROLLER] market open
+2020-03-09 21:58:02,972 [ERROR  ] [asyncio] Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<Controller.start() done, defined at C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\controller.py:147> exception=AttributeError("'NoneType' object has no attribute 'set_start_time'")>
+Traceback (most recent call last):
+  File "C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\controller.py", line 174, in start
+    competitor.set_start_time(self.start_time)
+  File "C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\competitor.py", line 220, in set_start_time
+    self.exec_channel.set_start_time(start_time)
+AttributeError: 'NoneType' object has no attribute 'set_start_time'
+2020-03-09 22:03:15,134 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:03:15,134 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:03:15,134 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:03:15,502 [INFO   ] [EXECUTION] fd=840 accepted a new connection: peer=127.0.0.1:50444
+2020-03-09 22:03:15,503 [INFO   ] [EXECUTION] fd=844 accepted a new connection: peer=127.0.0.1:50443
+2020-03-09 22:03:15,503 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:03:15,503 [INFO   ] [EXECUTION] fd=840 login successful: name='ExampleOne'
+2020-03-09 22:03:15,503 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:03:15,503 [INFO   ] [EXECUTION] fd=844 login successful: name='ExampleTwo'
+2020-03-09 22:03:15,506 [INFO   ] [EXECUTION] fd=832 accepted a new connection: peer=127.0.0.1:50445
+2020-03-09 22:03:15,506 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:03:15,506 [INFO   ] [EXECUTION] fd=832 login successful: name='TraderOne'
+2020-03-09 22:03:15,734 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=1 message='order rejected: market not yet open'
+2020-03-09 22:03:15,735 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=2 message='order rejected: market not yet open'
+2020-03-09 22:03:15,735 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=1 message='order rejected: market not yet open'
+2020-03-09 22:03:15,735 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=2 message='order rejected: market not yet open'
+2020-03-09 22:03:15,988 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=3 message='order rejected: market not yet open'
+2020-03-09 22:03:15,988 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=4 message='order rejected: market not yet open'
+2020-03-09 22:03:15,988 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=3 message='order rejected: market not yet open'
+2020-03-09 22:03:15,988 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=4 message='order rejected: market not yet open'
+2020-03-09 22:03:16,227 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=5 message='order rejected: market not yet open'
+2020-03-09 22:03:16,227 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=6 message='order rejected: market not yet open'
+2020-03-09 22:03:16,227 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=5 message='order rejected: market not yet open'
+2020-03-09 22:03:16,227 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=6 message='order rejected: market not yet open'
+2020-03-09 22:03:16,479 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=7 message='order rejected: market not yet open'
+2020-03-09 22:03:16,479 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=8 message='order rejected: market not yet open'
+2020-03-09 22:03:16,479 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=7 message='order rejected: market not yet open'
+2020-03-09 22:03:16,480 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=8 message='order rejected: market not yet open'
+2020-03-09 22:03:16,733 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=9 message='order rejected: market not yet open'
+2020-03-09 22:03:16,733 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=10 message='order rejected: market not yet open'
+2020-03-09 22:03:16,733 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=9 message='order rejected: market not yet open'
+2020-03-09 22:03:16,733 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=10 message='order rejected: market not yet open'
+2020-03-09 22:03:16,990 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=11 message='order rejected: market not yet open'
+2020-03-09 22:03:16,990 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=12 message='order rejected: market not yet open'
+2020-03-09 22:03:16,990 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=11 message='order rejected: market not yet open'
+2020-03-09 22:03:16,990 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=12 message='order rejected: market not yet open'
+2020-03-09 22:03:17,230 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=13 message='order rejected: market not yet open'
+2020-03-09 22:03:17,230 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=14 message='order rejected: market not yet open'
+2020-03-09 22:03:17,230 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=13 message='order rejected: market not yet open'
+2020-03-09 22:03:17,231 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=14 message='order rejected: market not yet open'
+2020-03-09 22:03:17,485 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=15 message='order rejected: market not yet open'
+2020-03-09 22:03:17,485 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=16 message='order rejected: market not yet open'
+2020-03-09 22:03:17,485 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=15 message='order rejected: market not yet open'
+2020-03-09 22:03:17,485 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=16 message='order rejected: market not yet open'
+2020-03-09 22:03:17,738 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=17 message='order rejected: market not yet open'
+2020-03-09 22:03:17,738 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=18 message='order rejected: market not yet open'
+2020-03-09 22:03:17,738 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=17 message='order rejected: market not yet open'
+2020-03-09 22:03:17,738 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=18 message='order rejected: market not yet open'
+2020-03-09 22:03:17,979 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=19 message='order rejected: market not yet open'
+2020-03-09 22:03:17,979 [INFO   ] [EXECUTION] fd=844 message frequency limit breached: now=0.000000 value=21 limit=20
+2020-03-09 22:03:17,979 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=0.000000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 22:03:17,979 [INFO   ] [COMPETITOR] 'ExampleTwo' closing execution channel at time=0.000000
+2020-03-09 22:03:17,979 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=19 message='order rejected: market not yet open'
+2020-03-09 22:03:17,979 [INFO   ] [EXECUTION] fd=840 message frequency limit breached: now=0.000000 value=21 limit=20
+2020-03-09 22:03:17,979 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=0.000000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 22:03:17,980 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=0.000000
+2020-03-09 22:03:35,137 [INFO   ] [CONTROLLER] market open
+2020-03-09 22:03:35,137 [ERROR  ] [asyncio] Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<Controller.start() done, defined at C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\controller.py:147> exception=AttributeError("'NoneType' object has no attribute 'set_start_time'")>
+Traceback (most recent call last):
+  File "C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\controller.py", line 174, in start
+    competitor.set_start_time(self.start_time)
+  File "C:\Users\Andre Calma\desktop\autotrader_comp\ready_trader_one\ready_trader_one\competitor.py", line 220, in set_start_time
+    self.exec_channel.set_start_time(start_time)
+AttributeError: 'NoneType' object has no attribute 'set_start_time'
+>>>>>>> ea35f91e75c31054889c6dfa8aa7f3227594d0a6
+2020-03-09 22:15:53,375 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:15:53,376 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:15:53,376 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:15:53,895 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:34844
+2020-03-09 22:15:53,896 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:15:53,897 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleOne'
+2020-03-09 22:15:53,897 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:34846
+2020-03-09 22:15:53,897 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:15:53,897 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleTwo'
+2020-03-09 22:15:56,532 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:15:56,532 [INFO   ] [APP] closing event loop
+2020-03-09 22:16:27,599 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:16:27,599 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:16:27,600 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:16:28,104 [INFO   ] [EXECUTION] fd=20 accepted a new connection: peer=127.0.0.1:34850
+2020-03-09 22:16:28,104 [INFO   ] [EXECUTION] fd=21 accepted a new connection: peer=127.0.0.1:34852
+2020-03-09 22:16:28,104 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:16:28,104 [INFO   ] [EXECUTION] fd=20 login successful: name='ExampleTwo'
+2020-03-09 22:16:28,104 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:16:28,104 [INFO   ] [EXECUTION] fd=21 login successful: name='ExampleOne'
+2020-03-09 22:16:28,106 [INFO   ] [EXECUTION] fd=22 accepted a new connection: peer=127.0.0.1:34854
+2020-03-09 22:16:28,106 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:16:28,106 [INFO   ] [EXECUTION] fd=22 login successful: name='TraderOne'
+2020-03-09 22:16:29,743 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:16:29,743 [INFO   ] [APP] closing event loop
+2020-03-09 22:16:49,863 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:16:49,863 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:16:49,864 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:16:50,381 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:34860
+2020-03-09 22:16:50,382 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:16:50,382 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleOne'
+2020-03-09 22:16:50,383 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:34862
+2020-03-09 22:16:50,383 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:16:50,384 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleTwo'
+2020-03-09 22:16:50,385 [INFO   ] [EXECUTION] fd=19 accepted a new connection: peer=127.0.0.1:34864
+2020-03-09 22:16:50,386 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:16:50,386 [INFO   ] [EXECUTION] fd=19 login successful: name='TraderOne'
+2020-03-09 22:16:55,867 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:16:55,868 [INFO   ] [APP] closing event loop
+2020-03-09 22:21:42,687 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:21:42,688 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:21:42,688 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:21:43,196 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:34878
+2020-03-09 22:21:43,196 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:34880
+2020-03-09 22:21:43,196 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:21:43,196 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleOne'
+2020-03-09 22:21:43,196 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:21:43,196 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleTwo'
+2020-03-09 22:21:43,197 [INFO   ] [EXECUTION] fd=19 accepted a new connection: peer=127.0.0.1:34882
+2020-03-09 22:21:43,197 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:21:43,197 [INFO   ] [EXECUTION] fd=19 login successful: name='TraderOne'
+2020-03-09 22:21:50,704 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:21:50,704 [INFO   ] [APP] closing event loop
+2020-03-09 22:25:02,329 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:25:02,330 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:25:02,330 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:25:02,837 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:34894
+2020-03-09 22:25:02,837 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:34892
+2020-03-09 22:25:02,838 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:25:02,838 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleTwo'
+2020-03-09 22:25:02,838 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:25:02,838 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleOne'
+2020-03-09 22:25:02,838 [INFO   ] [EXECUTION] fd=19 accepted a new connection: peer=127.0.0.1:34898
+2020-03-09 22:25:02,838 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:25:02,838 [INFO   ] [EXECUTION] fd=19 login successful: name='TraderOne'
+2020-03-09 22:25:08,891 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 22:25:08,891 [INFO   ] [APP] closing event loop
