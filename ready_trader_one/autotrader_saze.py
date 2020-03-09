@@ -5,16 +5,21 @@ from typing import List, Tuple
 from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 
+
 class AutoTrader(BaseAutoTrader):
 
-    etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
-    
-    future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
-
-    
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
+        
+        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        
+        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+
+        self.total_fees = 0
+
+        self.operation_counter = 0
+
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -96,8 +101,10 @@ class AutoTrader(BaseAutoTrader):
                 for i in [range(50)]:
                     total_ask_before_avg = future_history[sequence_number-i]['ask']['price'][0]
                     total_bid_before_avg = future_history[sequence_number-i]['bid']['price'][0]
-                    ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
+                    ratio_history += sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
 
+                
+                ratio_history = ratio_history/50
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
@@ -120,6 +127,8 @@ class AutoTrader(BaseAutoTrader):
                     total_bid_before_avg = etf_history[sequence_number-i]['bid']['price'][0]
                     ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
 
+
+                ratio_history = ratio_history/50
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
@@ -127,6 +136,10 @@ class AutoTrader(BaseAutoTrader):
 
                 self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
                 self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+
+
+                
+
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
@@ -136,7 +149,8 @@ class AutoTrader(BaseAutoTrader):
         you receive fees for being a market maker, so fees can be negative.
         If an order is cancelled its remaining volume will be zero.
         """
-        pass
+
+
 
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
@@ -156,6 +170,7 @@ class AutoTrader(BaseAutoTrader):
                 self.bid_id = 0
             elif client_order_id == self.ask_id:
                 self.ask_id = 0
+
 
     def collapse_history(history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history) >= 202): # Making sure we avoid key errors
