@@ -36,34 +36,34 @@ class AutoTrader(BaseAutoTrader):
         """
             
 
-# Entry containing ask and bid prices for given instrument
+        # Entry containing ask and bid prices for given instrument
         new_entry = {
-            "ask": [],
-            "bid": []
+            "ask": 0,
+            "bid": 0
         }
 
 
-        for i in range(5):
-# Entry containing volume and price for given ask/bid
-           new_ask_data = {
-                "volume": ask_volume[i],
-                "price": ask_prices[i]
-            }
 
-            new_bid_data = {
-                "volume": bid_volume[i],
-                "price": bid_prices[i]
-            }
+        # Entry containing volume and price for given ask/bid
+        new_ask_data = {
+            "volume": ask_volume[0],
+            "price": ask_prices[0]
+        }
 
-    # Append data to corresponding list within entry dictionary
-        new_entry["ask"].append(new_ask_data)
-        new_entry["bid"].append(new_bid_data)
+        new_bid_data = {
+            "volume": bid_volume[0],
+            "price": bid_prices[0]
+        }
 
-    # Add entry to corresponding instrument dictionary
+        # Append data to corresponding list within entry dictionary
+        new_entry["ask"] = new_ask_data
+        new_entry["bid"] = new_bid_data
+
+        # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
-            etf_history[str(sequence_number)] = new_entry
+            etf_history[sequence_number] = new_entry
         elif instrument == Instrument.FUTURE:
-            future_history[str(sequence_number)] = new_entry
+            future_history[sequence_number] = new_entry
 
 
             
@@ -156,10 +156,23 @@ class AutoTrader(BaseAutoTrader):
             elif client_order_id == self.ask_id:
                 self.ask_id = 0
 
-    def collapse_history(history): # Run only if history entries are greater than 200
-        if(len(history) >= 200):
-            new_entry = {
+    def collapse_history(history): # Run only if history entries are greater than 202 - accounting for the two avg/start key entries
+        if(len(history) >= 202):
+            avg_entry = {
+                    "ask": 0,
+                    "bid": 0
                 }
-            for entry in history:
+            for i in range(history["start_key"], history["start_key"]+200):
+                avg_entry["ask"] += history[i]["ask"]
+                avg_entry["bid"] += history[i]["bid"]
+
+                
+            # Get the average
+            avg_entry["ask"] /= 200
+            avg_entry["bid"] /= 200
+
+            # Update the average dictionary entry
+            history["average"] = avg_entry
+            
                 
             
