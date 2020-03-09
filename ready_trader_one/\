@@ -53,18 +53,11 @@ class AutoTrader(BaseAutoTrader):
                 self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.GOOD_FOR_DAY)
 
 		else:
-			if instrument == Instrument.FUTURE:
-				total_before_avg = 0
-				for i in [0:50]:
-					total_before_avg =  Future_history[sequence_number-i][0]
-				new_bid_price = total_before_avg/50
-			elif instrument == Instrument.ETF:
-				total_before_avg = 0
-				for i in [0:50]:
-					total_before_avg =  Future_history[sequence_number-i][0]
-				new_bid_price = total_before_avg/50
-				
-			
+			total_before_avg = 0
+			for i in [0:50]:
+				total_before_avg = history[sequence_number-i][0]
+			new_bid_price = total_before_avg/50
+
 
 			
 
