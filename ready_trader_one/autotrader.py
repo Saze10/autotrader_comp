@@ -217,8 +217,8 @@ class AutoTrader(BaseAutoTrader):
             
             # Loop through the history's entries
             for i in range(100):
-                avg_entry["ask"] += history["history"][i]["ask"]
-                avg_entry["bid"] += history["history"][i]["bid"]
+                avg_entry["ask"] += history["history"][i]["ask"]["price"]
+                avg_entry["bid"] += history["history"][i]["bid"]["price"]
                 
 
             # Get the average
