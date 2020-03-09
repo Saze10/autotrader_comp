@@ -1,25 +1,28 @@
 import asyncio
-
 from typing import List, Tuple
-
 from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
-
 import time
-
 
 class AutoTrader(BaseAutoTrader):
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
-        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        """Initialise a new instance of the AutoTrader class."""
+        super(AutoTrader, self).__init__(loop)
+        
+        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
     
-        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
 
         self.op_count = 0
 
         self.base_time = time.time()
         
-        """Initialise a new instance of the AutoTrader class."""
-        super(AutoTrader, self).__init__(loop)
+        self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
+
+        self.trade_tick_list = []
+
+        self.total_fees = 0.0
+
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -47,12 +50,12 @@ class AutoTrader(BaseAutoTrader):
         
         # Entry containing volume and price for given ask/bid
         new_ask_data = {
-            "volume": ask_volume[0],
+            "volume": ask_volumes[0],
             "price": ask_prices[0]
         }
         
         new_bid_data = {
-            "volume": bid_volume[0],
+            "volume": bid_volumes[0],
             "price": bid_prices[0]
         }
 
@@ -62,14 +65,14 @@ class AutoTrader(BaseAutoTrader):
 
         # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
-            etf_history[sequence_number] = new_entry
+            self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
-            future_history[sequence_number] = new_entry
+            self.future_history["history"].append(new_entry)
 
-        if len(etf_history) >= 202:
-            self.collapse_history(etf_history)            
-        if len(future_history) >= 202:
-            self.collapse_history(future_history)
+        if len(self.etf_history["history"]) >= 100:
+            self.collapse_history(self.etf_history)            
+        if len(self.future_history["history"]) >= 100:
+            self.collapse_history(self.future_history)
 
 
         #entrance 
@@ -77,29 +80,29 @@ class AutoTrader(BaseAutoTrader):
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
 
-            if op_count < 19:
+            if self.op_count < 19:
                 if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
                     self.send_cancel_order(self.bid_id)
                     self.bid_id = 0
-                    op_count += 1
+                    self.op_count += 1
                     
                 if self.ask_id != 0 and new_ask_price not in (self.ask_price, 0):
                     self.send_cancel_order(self.ask_id)
                     self.ask_id = 0
-                    op_count += 1
+                    self.op_count += 1
 
-            if op_count < 19:
-                if self.bid_id == 0 and new_bid_price != 0 and self.position < 100 and op_count < 20:
+            if self.op_count < 19:
+                if self.bid_id == 0 and new_bid_price != 0 and self.position < 100:
                     self.bid_id = next(self.order_ids)
                     self.bid_price = new_bid_price
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.GOOD_FOR_DAY)
-                    op_count += 1
+                    self.op_count += 1
 
-                if self.ask_id == 0 and new_ask_price != 0 and self.position > -100 and op_count < 20:
+                if self.ask_id == 0 and new_ask_price != 0 and self.position > -100:
                     self.ask_id = next(self.order_ids)
                     self.ask_price = new_ask_price
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.GOOD_FOR_DAY)
-                    op_count += 1
+                    self.op_count += 1
                     
 
         #mid-late game
@@ -108,23 +111,28 @@ class AutoTrader(BaseAutoTrader):
 
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
-                bid_to_ask_ratio = 0.0
-                ratio_history = 0.0
+                bid_to_ask_ratio = 0.0 #current bid to ask volume ratio
+                ratio_history = 0.0 #historic bid to ask volume ratio (past 50 order books)
 
                 for i in [range(50)]:
-                    total_ask_before_avg = future_history[sequence_number-i]['ask']['price'][0]
-                    total_bid_before_avg = future_history[sequence_number-i]['bid']['price'][0]
-                    ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
+                    total_ask_before_avg = self.future_history[sequence_number-i]['ask']['price'][0]
+                    total_bid_before_avg = self.future_history[sequence_number-i]['bid']['price'][0]
+                    ratio_history += sum(self.future_history[sequence_number-i]['bid']['volume'])/sum(self.future_history[sequence_number-i]['ask']['volume'])
+
+                ratio_history = ratio_history/50
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
                 new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
-                if op_count < 19:                    
+                if self.op_count < 20:                    
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                    self.op_count += 1
+                    
+                if self.op_count < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 2
+                    self.op_count += 1
 
             elif instrument == Instrument.ETF:
 
@@ -134,25 +142,29 @@ class AutoTrader(BaseAutoTrader):
                 ratio_history = 0.0
 
                 for i in [range(50)]:
-                    total_ask_before_avg = etf_history[sequence_number-i]['ask']['price'][0]
-                    total_bid_before_avg = etf_history[sequence_number-i]['bid']['price'][0]
-                    ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
+                    total_ask_before_avg = self.etf_history[sequence_number-i]['ask']['price'][0]
+                    total_bid_before_avg = self.etf_history[sequence_number-i]['bid']['price'][0]
+                    ratio_history += sum(self.etf_history[sequence_number-i]['bid']['volume'])/sum(self.etf_history[sequence_number-i]['ask']['volume'])
+                
+                ratio_history = ratio_history/50
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
                 new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
-                if op_count < 19:                   
+                if self.op_count < 20:                   
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                    self.op_count += 1
+                if self.op_count < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 2
+                    self.op_count += 1
 
 
         # check if we need to reset the timer and op count - happens every seconds
-        if time.time() - base_time >= 1.0:
-            base_time = time.time()
-            op_count = 0
+        if time.time() - self.base_time >= 0.99999:
+            self.base_time = time.time()
+            self.op_count = 0
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
@@ -162,7 +174,19 @@ class AutoTrader(BaseAutoTrader):
         you receive fees for being a market maker, so fees can be negative.
         If an order is cancelled its remaining volume will be zero.
         """
-        pass
+        self.total_fees += fees
+        
+        if remaining_volume != 0:
+            if self.op_count < 20:
+                self.send_amend_order(client_order_id, remaining_volume * 1.1)
+                #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
+                self.op_count += 1
+            
+        if time.time() - self.base_time >= 0.99999:
+            self.base_time = time.time()
+            self.op_count = 0
+
+        
 
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
@@ -170,18 +194,14 @@ class AutoTrader(BaseAutoTrader):
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
-        pass
+        self.position = future_position + etf_position
 
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
         Each trade tick is a pair containing a price and the number of lots
         traded at that price since the last trade ticks message.
         """
-        if remaining_volume == 0:
-            if client_order_id == self.bid_id:
-                self.bid_id = 0
-            elif client_order_id == self.ask_id:
-                self.ask_id = 0
+        self.trade_tick_list.append(trade_ticks) 
 
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history) >= 202): # Making sure we avoid key errors
@@ -190,22 +210,15 @@ class AutoTrader(BaseAutoTrader):
             "bid": 0
             }
             
-            new_start_key = 0
-            
-            # Loop through the history's 200 entries
-            for i in range(history["start_key"], history["start_key"]+100):
-                avg_entry["ask"] += history[i]["ask"]
-                avg_entry["bid"] += history[i]["bid"]
-                history.pop(i)
-                new_start_key = i
-
-            # Correcting this value by 1, this will be the next sequence id
-            history["start_key"] = new_start_key + 1
+            # Loop through the history's entries
+            for entry in history["history"]:
+                avg_entry["ask"] += entry["ask"]
+                avg_entry["bid"] += entry["bid"]
                 
 
             # Get the average
-            avg_entry["ask"] /= 100
-            avg_entry["bid"] /= 100
+            avg_entry["ask"] /= len(history["history"])
+            avg_entry["bid"] /= len(history["history"])
 
             # Update the average dictionary entry
             history["average"] = avg_entry
