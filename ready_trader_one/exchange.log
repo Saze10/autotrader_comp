@@ -393,3 +393,22 @@ Traceback (most recent call last):
 BrokenPipeError: [Errno 32] Broken pipe
 2020-03-09 22:49:31,372 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 22:49:31,373 [INFO   ] [APP] closing event loop
+2020-03-09 22:51:55,118 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:51:55,118 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":15.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:51:55,119 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:51:55,636 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:35082
+2020-03-09 22:51:55,637 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:51:55,637 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleOne'
+2020-03-09 22:51:55,638 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:35084
+2020-03-09 22:51:55,638 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:51:55,638 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleTwo'
+2020-03-09 22:51:55,642 [INFO   ] [EXECUTION] fd=19 accepted a new connection: peer=127.0.0.1:35086
+2020-03-09 22:51:55,643 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:51:55,643 [INFO   ] [EXECUTION] fd=19 login successful: name='TraderOne'
+2020-03-09 22:52:15,143 [INFO   ] [CONTROLLER] market open
+2020-03-09 22:52:25,631 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=157.304943 client_order_id=643 message='position limit breached'
+2020-03-09 22:52:25,631 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=157.304943
+2020-03-09 22:55:00,562 [INFO   ] [MARKET_EVENTS] reader thread complete after processing 1041935 market events
+2020-03-09 22:55:01,145 [INFO   ] [CONTROLLER] shutting down the match: time=2490.020735 reason='match complete'
+2020-03-09 22:55:01,146 [INFO   ] [MATCH_EVENTS] writer thread complete after processing 61698 match events
+2020-03-09 22:55:01,146 [INFO   ] [APP] closing event loop
