@@ -6,13 +6,12 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 
 class AutoTrader(BaseAutoTrader):
-
-    etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
-    
-    future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
-
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
+        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+    
+        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
 
@@ -37,7 +36,7 @@ class AutoTrader(BaseAutoTrader):
         new_entry = {
             "ask": 0,
             "bid": 0
-            }
+        }
 
         
         # Entry containing volume and price for given ask/bid
@@ -60,6 +59,11 @@ class AutoTrader(BaseAutoTrader):
             etf_history[sequence_number] = new_entry
         elif instrument == Instrument.FUTURE:
             future_history[sequence_number] = new_entry
+
+        if len(etf_history) >= 202:
+            self.collapse_history(etf_history)            
+        if len(future_history) >= 202:
+            self.collapse_history(future_history)
 
 
         #entrance 
@@ -157,25 +161,29 @@ class AutoTrader(BaseAutoTrader):
             elif client_order_id == self.ask_id:
                 self.ask_id = 0
 
-    def collapse_history(history): # Run only if history entries are greater than or equal to 202 - accounting for the two
+    def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history) >= 202): # Making sure we avoid key errors
             avg_entry = {
             "ask": 0,
             "bid": 0
             }
-
+            
+            new_start_key = 0
+            
             # Loop through the history's 200 entries
-            for i in range(history["start_key"], history["start_key"]+200):
+            for i in range(history["start_key"], history["start_key"]+100):
                 avg_entry["ask"] += history[i]["ask"]
                 avg_entry["bid"] += history[i]["bid"]
+                history.pop(i)
+                new_start_key = i
+
+            # Correcting this value by 1, this will be the next sequence id
+            history["start_key"] = new_start_key + 1
+                
 
             # Get the average
-            avg_entry["ask"] /= 200
-            avg_entry["bid"] /= 200
+            avg_entry["ask"] /= 100
+            avg_entry["bid"] /= 100
 
             # Update the average dictionary entry
             history["average"] = avg_entry
-                
-            
-                
-            
