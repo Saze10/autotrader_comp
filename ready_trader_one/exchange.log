@@ -12,3 +12,20 @@
 2020-03-09 11:17:45,451 [INFO   ] [EXECUTION] fd=22 login successful: name='ExampleTwo'
 2020-03-09 11:17:58,034 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 11:17:58,034 [INFO   ] [APP] closing event loop
+2020-03-09 21:29:57,205 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 21:29:57,205 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 21:29:57,206 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 21:29:57,723 [INFO   ] [EXECUTION] fd=20 accepted a new connection: peer=127.0.0.1:34362
+2020-03-09 21:29:57,723 [INFO   ] [EXECUTION] fd=21 accepted a new connection: peer=127.0.0.1:34364
+2020-03-09 21:29:57,724 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 21:29:57,724 [INFO   ] [EXECUTION] fd=20 login successful: name='ExampleTwo'
+2020-03-09 21:29:57,724 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 21:29:57,725 [INFO   ] [EXECUTION] fd=21 login successful: name='ExampleOne'
+2020-03-09 21:29:57,731 [INFO   ] [EXECUTION] fd=22 accepted a new connection: peer=127.0.0.1:34366
+2020-03-09 21:29:57,731 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 21:29:57,731 [INFO   ] [EXECUTION] fd=22 login successful: name='TraderOne'
+2020-03-09 21:30:17,227 [INFO   ] [CONTROLLER] market open
+2020-03-09 21:32:51,233 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=154.005321 client_order_id=679 message='position limit breached'
+2020-03-09 21:32:51,234 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=154.005321
+2020-03-09 21:45:24,192 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 21:45:24,192 [INFO   ] [APP] closing event loop
