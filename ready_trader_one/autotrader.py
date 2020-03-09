@@ -10,9 +10,9 @@ class AutoTrader(BaseAutoTrader):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
         
-        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
     
-        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
+        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
 
         self.op_count = 0
 
@@ -68,13 +68,13 @@ class AutoTrader(BaseAutoTrader):
 
         # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
-            self.etf_history[sequence_number] = new_entry
+            self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
-            self.future_history[sequence_number] = new_entry
+            self.future_history["history"].append(new_entry)
 
-        if len(self.etf_history) >= 202:
+        if len(self.etf_history["history"]) >= 202:
             self.collapse_history(self.etf_history)            
-        if len(self.future_history) >= 202:
+        if len(self.future_history["history"]) >= 202:
             self.collapse_history(self.future_history)
 
 
@@ -118,23 +118,23 @@ class AutoTrader(BaseAutoTrader):
                 ratio_history = 0.0 #historic bid to ask volume ratio (past 50 order books)
 
                 for i in range(50):
-                    total_ask_before_avg = self.future_history[sequence_number-i]['ask']['price'][0]
-                    total_bid_before_avg = self.future_history[sequence_number-i]['bid']['price'][0]
-                    ratio_history += sum(self.future_history[sequence_number-i]['bid']['volume'])/sum(self.future_history[sequence_number-i]['ask']['volume'])
+                    total_ask_before_avg += self.future_history[sequence_number-i]['ask']['price'][0]
+                    total_bid_before_avg += self.future_history[sequence_number-i]['bid']['price'][0]
+                    ratio_history += sum(self.future_history["history"][len(self.future_history["history"]) - i]["volume"])/(sum(self.future_history["history"][len(self.future_history["history"]) - i]["volume"])
 
-                ratio_history = ratio_history/50
+                ratio_history /= 50
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
-                new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
-                new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
+                new_ask_price = self.etf_history["average"]["ask"]*(1/bid_to_ask_ratio)
+                new_bid_price = self.etf_history["average"]["bid"]*bid_to_ask_ratio
 
                 if self.op_count < 20:                    
-                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
                     self.op_count += 1
                     
                 if self.op_count < 20:
-                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                     self.op_count += 1
 
             elif instrument == Instrument.ETF:
@@ -145,22 +145,20 @@ class AutoTrader(BaseAutoTrader):
                 ratio_history = 0.0
 
                 for i in range(50):
-                    total_ask_before_avg = self.etf_history[sequence_number-i]['ask']['price'][0]
-                    total_bid_before_avg = self.etf_history[sequence_number-i]['bid']['price'][0]
-                    ratio_history += sum(self.etf_history[sequence_number-i]['bid']['volume'])/sum(self.etf_history[sequence_number-i]['ask']['volume'])
+                    ratio_history += sum(self.etf_history["history"][len(self.etf_history["history"]) - i]["volume"])/(sum(self.etf_history["history"][len(self.etf_history["history"]) - i]["volume"])
                 
-                ratio_history = ratio_history/50
+                ratio_history /= 50
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
-                new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
-                new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
+                new_ask_price = self.future_history["average"]["ask"]*(1/bid_to_ask_ratio)
+                new_bid_price = self.future_history["average"]["bid"]*bid_to_ask_ratio
 
                 if self.op_count < 20:                   
-                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
                     self.op_count += 1
                 if self.op_count < 20:
-                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
+                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                     self.op_count += 1
 
 
@@ -213,22 +211,15 @@ class AutoTrader(BaseAutoTrader):
             "bid": 0
             }
             
-            new_start_key = 0
-            
-            # Loop through the history's 200 entries
-            for i in range(history["start_key"], history["start_key"]+100):
-                avg_entry["ask"] += history[i]["ask"]
-                avg_entry["bid"] += history[i]["bid"]
-                history.pop(i)
-                new_start_key = i
-
-            # Correcting this value by 1, this will be the next sequence id
-            history["start_key"] = new_start_key + 1
+            # Loop through the history's entries
+            for entry in history["history"]:
+                avg_entry["ask"] += entry["ask"]
+                avg_entry["bid"] += entry["bid"]
                 
 
             # Get the average
-            avg_entry["ask"] /= 100
-            avg_entry["bid"] /= 100
+            avg_entry["ask"] /= len(history["history"])
+            avg_entry["bid"] /= len(history["history"])
 
             # Update the average dictionary entry
             history["average"] = avg_entry

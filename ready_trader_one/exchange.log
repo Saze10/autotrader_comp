@@ -309,6 +309,7 @@ AttributeError: 'NoneType' object has no attribute 'set_start_time'
 2020-03-09 22:25:02,838 [INFO   ] [EXECUTION] fd=19 login successful: name='TraderOne'
 2020-03-09 22:25:08,891 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 22:25:08,891 [INFO   ] [APP] closing event loop
+<<<<<<< HEAD
 2020-03-09 22:29:00,355 [INFO   ] [APP] exchange started with arguments={run.py}
 2020-03-09 22:29:00,356 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":15.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
 2020-03-09 22:29:00,356 [INFO   ] [CONTROLLER] starting the match
@@ -412,3 +413,100 @@ BrokenPipeError: [Errno 32] Broken pipe
 2020-03-09 22:55:01,145 [INFO   ] [CONTROLLER] shutting down the match: time=2490.020735 reason='match complete'
 2020-03-09 22:55:01,146 [INFO   ] [MATCH_EVENTS] writer thread complete after processing 61698 match events
 2020-03-09 22:55:01,146 [INFO   ] [APP] closing event loop
+=======
+2020-03-09 22:33:01,383 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 22:33:01,383 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 22:33:01,383 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 22:33:01,756 [INFO   ] [EXECUTION] fd=644 accepted a new connection: peer=127.0.0.1:50645
+2020-03-09 22:33:01,756 [INFO   ] [EXECUTION] fd=836 accepted a new connection: peer=127.0.0.1:50646
+2020-03-09 22:33:01,756 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 22:33:01,756 [INFO   ] [EXECUTION] fd=644 login successful: name='ExampleOne'
+2020-03-09 22:33:01,757 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 22:33:01,757 [INFO   ] [EXECUTION] fd=836 login successful: name='ExampleTwo'
+2020-03-09 22:33:01,760 [INFO   ] [EXECUTION] fd=708 accepted a new connection: peer=127.0.0.1:50647
+2020-03-09 22:33:01,760 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-09 22:33:01,760 [INFO   ] [EXECUTION] fd=708 login successful: name='TraderOne'
+2020-03-09 22:33:21,387 [INFO   ] [CONTROLLER] market open
+2020-03-09 22:33:21,827 [INFO   ] [EXECUTION] fd=836 message frequency limit breached: now=4.370000 value=21 limit=20
+2020-03-09 22:33:21,827 [INFO   ] [COMPETITOR] 'ExampleTwo' sent error message: time=4.370000 client_order_id=0 message='message frequency limit breached'
+2020-03-09 22:33:21,827 [INFO   ] [COMPETITOR] 'ExampleTwo' closing execution channel at time=4.370000
+2020-03-09 22:33:22,989 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=15.940000 client_order_id=181 message='position limit breached'
+2020-03-09 22:33:22,989 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=15.940000
+2020-03-09 22:37:29,493 [INFO   ] [MARKET_EVENTS] reader thread complete after processing 1041935 market events
+2020-03-09 22:37:30,384 [INFO   ] [CONTROLLER] shutting down the match: time=2490.000000 reason='match complete'
+2020-03-09 22:37:30,385 [INFO   ] [MATCH_EVENTS] writer thread complete after processing 51440 match events
+2020-03-09 22:37:30,385 [INFO   ] [APP] closing event loop
+>>>>>>> 235a1a9bd01e7e36fd011907eaf5745be966319d
+2020-03-09 23:20:45,198 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 23:20:45,198 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":15.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 23:20:45,199 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 23:20:45,716 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:35240
+2020-03-09 23:20:45,717 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:35238
+2020-03-09 23:20:45,717 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 23:20:45,717 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleTwo'
+2020-03-09 23:20:45,718 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 23:20:45,718 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleOne'
+2020-03-09 23:20:48,913 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:20:48,913 [INFO   ] [APP] closing event loop
+2020-03-09 23:22:18,471 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 23:22:18,471 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":15.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 23:22:18,472 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 23:22:18,989 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:35250
+2020-03-09 23:22:18,991 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 23:22:18,991 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleOne'
+2020-03-09 23:22:18,991 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:35252
+2020-03-09 23:22:18,992 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 23:22:18,992 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleTwo'
+2020-03-09 23:22:26,850 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:22:26,851 [INFO   ] [APP] closing event loop
+2020-03-09 23:23:34,435 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 23:23:34,436 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":15.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 23:23:34,436 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 23:23:34,953 [INFO   ] [EXECUTION] fd=20 accepted a new connection: peer=127.0.0.1:35258
+2020-03-09 23:23:34,953 [INFO   ] [EXECUTION] fd=21 accepted a new connection: peer=127.0.0.1:35260
+2020-03-09 23:23:34,954 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-09 23:23:34,954 [INFO   ] [EXECUTION] fd=20 login successful: name='ExampleOne'
+2020-03-09 23:23:34,955 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-09 23:23:34,955 [INFO   ] [EXECUTION] fd=21 login successful: name='ExampleTwo'
+2020-03-09 23:23:49,193 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:23:49,194 [INFO   ] [APP] closing event loop
+2020-03-09 23:24:25,365 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 23:24:25,365 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 23:24:25,366 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 23:24:25,366 [ERROR  ] [asyncio] Task exception was never retrieved
+future: <Task finished coro=<Controller.start() done, defined at /home/saze/Documents/competition/ready_trader_one/ready_trader_one/controller.py:147> exception=OSError(98, "error while attempting to bind on address ('127.0.0.1', 12345): address already in use")>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/base_events.py", line 1062, in create_server
+    sock.bind(sa)
+OSError: [Errno 98] Address already in use
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/controller.py", line 153, in start
+    server = await self.event_loop.create_server(self.on_new_connection, host, port, family=socket.AF_INET)
+  File "/usr/lib/python3.6/asyncio/base_events.py", line 1066, in create_server
+    % (sa, err.strerror.lower()))
+OSError: [Errno 98] error while attempting to bind on address ('127.0.0.1', 12345): address already in use
+2020-03-09 23:24:30,728 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:24:30,729 [INFO   ] [APP] closing event loop
+2020-03-09 23:28:46,449 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-09 23:28:46,449 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":10.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-09 23:28:46,450 [INFO   ] [CONTROLLER] starting the match
+2020-03-09 23:28:46,450 [ERROR  ] [asyncio] Task exception was never retrieved
+future: <Task finished coro=<Controller.start() done, defined at /home/saze/Documents/competition/ready_trader_one/ready_trader_one/controller.py:147> exception=OSError(98, "error while attempting to bind on address ('127.0.0.1', 12345): address already in use")>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/base_events.py", line 1062, in create_server
+    sock.bind(sa)
+OSError: [Errno 98] Address already in use
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/controller.py", line 153, in start
+    server = await self.event_loop.create_server(self.on_new_connection, host, port, family=socket.AF_INET)
+  File "/usr/lib/python3.6/asyncio/base_events.py", line 1066, in create_server
+    % (sa, err.strerror.lower()))
+OSError: [Errno 98] error while attempting to bind on address ('127.0.0.1', 12345): address already in use
+2020-03-09 23:29:28,869 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:29:28,870 [INFO   ] [APP] closing event loop
