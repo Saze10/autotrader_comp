@@ -45,16 +45,15 @@ class AutoTrader(BaseAutoTrader):
 
         for i in range(5):
 # Entry containing volume and price for given ask/bid
-           new_ask_data = {
-                "volume": ask_volume[i],
-                "price": ask_prices[i]
-            }
+        new_ask_data = {
+            "volume": ask_volume[i],
+            "price": ask_prices[i]
+        }
 
-            new_bid_data = {
-                "volume": bid_volume[i],
-                "price": bid_prices[i]
-            }
-
+        new_bid_data = {
+            "volume": bid_volume[i],
+            "price": bid_prices[i]
+        }
     # Append data to corresponding list within entry dictionary
         new_entry["ask"].append(new_ask_data)
         new_entry["bid"].append(new_bid_data)
