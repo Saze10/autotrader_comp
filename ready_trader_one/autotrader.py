@@ -9,6 +9,9 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 class AutoTrader(BaseAutoTrader):
 
+    etf_history = {}
+    future_history = {}
+    
     def __init__(self, loop: asyncio.AbstractEventLoop):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
@@ -31,6 +34,42 @@ class AutoTrader(BaseAutoTrader):
         prices are reported along with the volume available at each of those
         price levels.
         """
+				
+			
+
+			
+
+        # Entry containing ask and bid prices for given instrument
+        new_entry = {
+            "ask": [],
+            "bid": []
+            }
+
+        
+        for i in range(5):
+            # Entry containing volume and price for given ask/bid
+            new_ask_data = {
+                "volume": ask_volume[i],
+                "price": ask_prices[i]
+            }
+            
+            new_bid_data = {
+                "volume": bid_volume[i],
+                "price": bid_prices[i]
+            }
+
+            # Append data to corresponding list within entry dictionary
+            new_entry["ask"].append(new_ask_data)
+            new_entry["bid"].append(new_bid_data)
+
+        # Add entry to corresponding instrument dictionary
+        if instrument = Instrument.ETF:
+            etf_history[str(sequence_number)] = new_entry
+        elif instrument = Instrument.FUTURE:
+            future_history[str(sequence_number)] = new_entry
+
+
+            
 		if len(self.history()) < 100:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
@@ -63,10 +102,6 @@ class AutoTrader(BaseAutoTrader):
 				for i in [0:50]:
 					total_before_avg =  Future_history[sequence_number-i][0]
 				new_bid_price = total_before_avg/50
-				
-			
-
-			
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
@@ -100,3 +135,11 @@ class AutoTrader(BaseAutoTrader):
                 self.bid_id = 0
             elif client_order_id == self.ask_id:
                 self.ask_id = 0
+
+    def collapse_history(history): # Run only if history entries are greater than 200
+        if(len(history) >= 200):
+            new_entry = {
+                }
+            for entry in history:
+                
+            
