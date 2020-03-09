@@ -90,16 +90,18 @@ class AutoTrader(BaseAutoTrader):
 
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
-                bid_to_ask_ratio = 0.0 
+                bid_to_ask_ratio = 0.0
+                ratio_history = 0.0
 
                 for i in [range(50)]:
                     total_ask_before_avg = future_history[sequence_number-i]['ask']['price'][0]
                     total_bid_before_avg = future_history[sequence_number-i]['bid']['price'][0]
+                    ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
-                new_ask_price = (total_ask_before_avg/50)
-                new_bid_price = (total_bid_before_avg/50)
+                new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
+                new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
                 self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
                 self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
@@ -112,15 +114,17 @@ class AutoTrader(BaseAutoTrader):
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 
+                ratio_history = 0.0
 
                 for i in [range(50)]:
                     total_ask_before_avg = etf_history[sequence_number-i]['ask']['price'][0]
                     total_bid_before_avg = etf_history[sequence_number-i]['bid']['price'][0]
+                    ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
-                new_ask_price = total_ask_before_avg/50
-                new_bid_price = total_bid_before_avg/50
+                new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
+                new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
                 self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
                 self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
