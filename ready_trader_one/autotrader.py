@@ -182,7 +182,7 @@ class AutoTrader(BaseAutoTrader):
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
             
-        if time.time() - base_time >= 0.99999:
+        if time.time() - self.base_time >= 0.99999:
             self.base_time = time.time()
             self.op_count = 0
 
