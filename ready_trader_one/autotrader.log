@@ -1,18 +1,4 @@
-2020-03-09 23:20:45,709 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:20:45,710 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:22:18,983 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:22:18,984 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:23:34,948 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:23:34,949 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:24:25,877 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:24:25,877 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:28:46,961 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:28:46,962 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:33:06,585 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:33:06,585 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:35:03,662 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:35:03,662 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:37:24,725 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:37:24,725 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
-2020-03-09 23:38:37,208 [INFO   ] [APP] autotrader started with arguments={run.py}
-2020-03-09 23:38:37,208 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
+2020-03-09 23:41:29,490 [INFO   ] [APP] autotrader started with arguments={run.py}
+2020-03-09 23:41:29,491 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
+2020-03-09 23:41:38,861 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-09 23:41:38,861 [INFO   ] [APP] closing event loop

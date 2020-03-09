@@ -183,7 +183,7 @@ class AutoTrader(BaseAutoTrader):
         
         if remaining_volume != 0:
             if self.op_count < 20:
-                self.send_amend_order(client_order_id, remaining_volume * 1.1)
+                self.send_amend_order(client_order_id, remaining_volume)
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
             
