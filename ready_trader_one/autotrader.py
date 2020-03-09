@@ -183,7 +183,7 @@ class AutoTrader(BaseAutoTrader):
         
         if remaining_volume != 0:
             if self.op_count < 20:
-                self.send_amend_order(client_order_id, remaining_volume)
+                self.send_amend_order(client_order_id, int(remaining_volume * 1.1))
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
             
@@ -217,8 +217,8 @@ class AutoTrader(BaseAutoTrader):
             
             # Loop through the history's entries
             for i in range(100):
-                avg_entry["ask"] += history["history"][i]["ask"]
-                avg_entry["bid"] += history["history"][i]["bid"]
+                avg_entry["ask"] += history["history"][i]["ask"]["price"]
+                avg_entry["bid"] += history["history"][i]["bid"]["price"]
                 
 
             # Get the average
