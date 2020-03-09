@@ -6,9 +6,8 @@ from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 
 import time
 
-
 class AutoTrader(BaseAutoTrader):
-    
+  
     def __init__(self, loop: asyncio.AbstractEventLoop):
         self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}}
     
@@ -18,8 +17,12 @@ class AutoTrader(BaseAutoTrader):
 
         self.base_time = time.time()
         
+        trade_tick_list = []
+        
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
+        self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
+        self.trade_tick_list = []
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -175,18 +178,14 @@ class AutoTrader(BaseAutoTrader):
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
-        pass
+        self.position = future_position + etf_position
 
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
         Each trade tick is a pair containing a price and the number of lots
         traded at that price since the last trade ticks message.
         """
-        if remaining_volume == 0:
-            if client_order_id == self.bid_id:
-                self.bid_id = 0
-            elif client_order_id == self.ask_id:
-                self.ask_id = 0
+        self.trade_tick_list.append(trade_ticks)
 
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history) >= 202): # Making sure we avoid key errors
