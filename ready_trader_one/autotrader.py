@@ -141,7 +141,7 @@ class AutoTrader(BaseAutoTrader):
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                     self.op_count += 1
 
-            elif instrument == Instrument.ETF:
+            elif instrument == Instrument.ETF: # Isn't this duplicate code?
 
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
@@ -149,7 +149,7 @@ class AutoTrader(BaseAutoTrader):
                 ratio_history = 0.0
 
                 for i in range(50):
-                    ratio_history += sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"])/(sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["volume"]))
+                    ratio_history += sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["bid"]["volume"])/(sum(self.etf_history["history"][len(self.etf_history["history"]) - i - 1]["ask"]["volume"]))
                 
                 ratio_history /= 50
 
