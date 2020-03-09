@@ -55,7 +55,7 @@ class AutoTrader(BaseAutoTrader):
         }
 
         for v in ask_volumes:
-            new_ask_data.append(v)
+            new_ask_data["volume"].append(v)
         
         new_bid_data = {
             "volume": [],
@@ -63,7 +63,7 @@ class AutoTrader(BaseAutoTrader):
         }
 
         for v in bid_volumes:
-            new_bid_data.append(v)
+            new_bid_data["volume"].append(v)
 
         # Append data to corresponding list within entry dictionary
         new_entry["ask"] = new_ask_data
