@@ -130,8 +130,8 @@ class AutoTrader(BaseAutoTrader):
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
-                new_ask_price = self.etf_history["average"]["ask"]*(1/bid_to_ask_ratio)
-                new_bid_price = self.etf_history["average"]["bid"]*bid_to_ask_ratio
+                new_ask_price = int(self.etf_history["average"]["ask"]*(1/bid_to_ask_ratio))
+                new_bid_price = int(self.etf_history["average"]["bid"]*bid_to_ask_ratio)
 
                 if self.op_count < 20:                    
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
