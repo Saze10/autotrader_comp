@@ -121,10 +121,13 @@ class AutoTrader(BaseAutoTrader):
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
                 new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
-                if op_count < 19:                    
+                if op_count < 20:                    
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                    op_count += 1
+                    
+                if op_count < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 2
+                    op_count += 1
 
             elif instrument == Instrument.ETF:
 
@@ -143,10 +146,12 @@ class AutoTrader(BaseAutoTrader):
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
                 new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
-                if op_count < 19:                   
+                if op_count < 20:                   
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
+                    op_count += 1
+                if op_count < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 2
+                    op_count += 1
 
 
         # check if we need to reset the timer and op count - happens every seconds
