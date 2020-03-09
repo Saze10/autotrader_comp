@@ -16,7 +16,8 @@ class AutoTrader(BaseAutoTrader):
         If the error pertains to a particular order, then the client_order_id
         will identify that order, otherwise the client_order_id will be zero.
         """
-        pass
+        self.logger.warning("error with order %d: %s", client_order_id, error_message.decode())
+        self.on_order_status_message(client_order_id, 0, 0, 0)
 
     def on_order_book_update_message(self, instrument: int, sequence_number: int, ask_prices: List[int],
                                      ask_volumes: List[int], bid_prices: List[int], bid_volumes: List[int]) -> None:
@@ -56,4 +57,8 @@ class AutoTrader(BaseAutoTrader):
         Each trade tick is a pair containing a price and the number of lots
         traded at that price since the last trade ticks message.
         """
-        pass
+        if remaining_volume == 0:
+            if client_order_id == self.bid_id:
+                self.bid_id = 0
+            elif client_order_id == self.ask_id:
+                self.ask_id = 0
