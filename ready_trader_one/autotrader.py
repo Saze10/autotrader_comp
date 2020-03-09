@@ -63,9 +63,9 @@ class AutoTrader(BaseAutoTrader):
 
         # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
-            etf_history[sequence_number] = new_entry
+            self.etf_history[sequence_number] = new_entry
         elif instrument == Instrument.FUTURE:
-            future_history[sequence_number] = new_entry
+            self.future_history[sequence_number] = new_entry
 
         if len(etf_history) >= 202:
             self.collapse_history(etf_history)            
@@ -113,22 +113,22 @@ class AutoTrader(BaseAutoTrader):
                 ratio_history = 0.0 #historic bid to ask volume ratio (past 50 order books)
 
                 for i in [range(50)]:
-                    total_ask_before_avg = future_history[sequence_number-i]['ask']['price'][0]
-                    total_bid_before_avg = future_history[sequence_number-i]['bid']['price'][0]
-                    ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
+                    total_ask_before_avg = self.future_history[sequence_number-i]['ask']['price'][0]
+                    total_bid_before_avg = self.future_history[sequence_number-i]['bid']['price'][0]
+                    ratio_history = sum(self.future_history[sequence_number-i]['bid']['volume'])/sum(self.future_history[sequence_number-i]['ask']['volume'])
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
                 new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
-                if op_count < 20:                    
+                if self.op_count < 20:                    
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 1
+                    self.op_count += 1
                     
-                if op_count < 20:
+                if self.op_count < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 1
+                    self.op_count += 1
 
             elif instrument == Instrument.ETF:
 
@@ -138,27 +138,27 @@ class AutoTrader(BaseAutoTrader):
                 ratio_history = 0.0
 
                 for i in [range(50)]:
-                    total_ask_before_avg = etf_history[sequence_number-i]['ask']['price'][0]
-                    total_bid_before_avg = etf_history[sequence_number-i]['bid']['price'][0]
-                    ratio_history = sum(future_history[sequence_number-i]['bid']['volume'])/sum(future_history[sequence_number-i]['ask']['volume'])
+                    total_ask_before_avg = self.etf_history[sequence_number-i]['ask']['price'][0]
+                    total_bid_before_avg = self.etf_history[sequence_number-i]['bid']['price'][0]
+                    ratio_history = sum(self.etf_history[sequence_number-i]['bid']['volume'])/sum(self.etf_history[sequence_number-i]['ask']['volume'])
 
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
 
                 new_ask_price = (total_ask_before_avg/50)*(1/bid_to_ask_ratio)
                 new_bid_price = (total_bid_before_avg/50)*bid_to_ask_ratio
 
-                if op_count < 20:                   
+                if self.op_count < 20:                   
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 1
-                if op_count < 20:
+                    self.op_count += 1
+                if self.op_count < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.KILL_AND_FILL)
-                    op_count += 1
+                    self.op_count += 1
 
 
         # check if we need to reset the timer and op count - happens every seconds
-        if time.time() - base_time >= 0.99999:
-            base_time = time.time()
-            op_count = 0
+        if time.time() - self.base_time >= 0.99999:
+            self.base_time = time.time()
+            self.op_count = 0
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
