@@ -33,12 +33,15 @@ class AutoTrader(BaseAutoTrader):
         price levels.
         """
 
+        # Entry containing ask and bid prices for given instrument
         new_entry = {
             "ask": [],
             "bid": []
             }
 
+        
         for i in range(5):
+            # Entry containing volume and price for given ask/bid
             new_ask_data = {
                 "volume": ask_volume[i],
                 "price": ask_prices[i]
@@ -49,9 +52,11 @@ class AutoTrader(BaseAutoTrader):
                 "price": bid_prices[i]
             }
 
+            # Append data to corresponding list within entry dictionary
             new_entry["ask"].append(new_ask_data)
             new_entry["bid"].append(new_bid_data)
 
+        # Add entry to corresponding instrument dictionary
         if instrument = Instrument.ETF:
             etf_history[str(sequence_number)] = new_entry
             etf_history[str(sequence_number)] = new_entry
