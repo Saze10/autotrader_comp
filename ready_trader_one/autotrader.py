@@ -79,7 +79,7 @@ class AutoTrader(BaseAutoTrader):
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
             
             # These MUST be done in pairs so we do checks manually
-            if self.get_projected_op_rate(2) >= 19.5:
+            if self.get_projected_op_rate(2) <= 19.5:
                 if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
                     self.send_cancel_order(self.bid_id)
                     self.bid_id = 0
@@ -90,7 +90,7 @@ class AutoTrader(BaseAutoTrader):
                     self.ask_id = 0
                     self.op_history.append(time.time())
                     
-            if self.get_projected_op_rate(2) >= 19.5:
+            if self.get_projected_op_rate(2) <= 19.5:
                 if self.bid_id == 0 and new_bid_price != 0 and self.position < 100:
                     self.bid_id = next(self.order_ids)
                     self.bid_price = new_bid_price
@@ -201,18 +201,18 @@ class AutoTrader(BaseAutoTrader):
             
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
-        if self.get_projected_op_rate() >= 19.5: # Technically should be 20 - setting it stricter for now
+        if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
             if (side == Side.BUY and position < 100) or (side == Side.SELL and position > -100):
                 self.send_insert_order(client_order_id, side, price, volume, lifespan)
                 self.op_history.append(time.time())
 
     def op_send_cancel_order(self, client_order_id: int) -> None:
-        if self.get_projected_op_rate() >= 19.5: # Technically should be 20 - setting it stricter for now
+        if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
             self.send_cancel_order(client_order_id)
             self.op_history.append(time.time())
 
     def op_send_amend_order(self, client_order_id: int, volume: int) -> None:
-        if self.get_projected_op_rate() >= 19.5: # Technically should be 20 - setting it stricter for now
+        if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
             self.send_amend_order(client_order_id, volume)
             self.op_history.append(time.time())
         
@@ -225,14 +225,7 @@ class AutoTrader(BaseAutoTrader):
                 break
         for i in range(counter):
             del self.op_history[0]
-
-    def get_projected_op_rate(self):
-        if len(self.op_history) > 0:
-            return len(self.op_history)+1/(time.time() - self.op_history[0])
-        else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
-            return 0
         
-    # Function overload - for doing multiple operations
     def get_projected_op_rate(self, num_ops): # Second parameter is the number of ops to be taken
         if len(self.op_history) > 0:
             return len(self.op_history)+num_ops/(time.time() - self.op_history[0])
