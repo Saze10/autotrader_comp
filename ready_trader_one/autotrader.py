@@ -130,8 +130,10 @@ class AutoTrader(BaseAutoTrader):
                 new_ask_price = int(self.etf_history["average"]["ask"]*(1/bid_to_ask_ratio))
                 new_bid_price = int(self.etf_history["average"]["bid"]*bid_to_ask_ratio)
                 
+                self.ask_id = next(self.order_ids)
                 self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
                 
+                self.bid_id = next(self.order_ids)
                 self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                     
             elif instrument == Instrument.ETF: # Isn't this duplicate code?
@@ -151,8 +153,9 @@ class AutoTrader(BaseAutoTrader):
                 self.ask_id = next(self.order_ids)
                 self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
 
-                self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                 self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
+                
 
         # Collapse history when number of entries is at least 200
         if len(self.etf_history["history"]) >= 200:
