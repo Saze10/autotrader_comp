@@ -3,6 +3,7 @@ from typing import List, Tuple
 from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 import time
 import itertools
+
 class AutoTrader(BaseAutoTrader):
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
@@ -22,9 +23,9 @@ class AutoTrader(BaseAutoTrader):
 
         self.base_time = time.time()
 
-        self.previous_sells = []
+        self.previous_sells = [0] * 10
 
-        self.previous_buys = []
+        self.previous_buys = [0] * 10
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -105,27 +106,37 @@ class AutoTrader(BaseAutoTrader):
                 for i in range(100):
                     ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
                 
-                ratio_history /= 50
+                ratio_history /= 50.0
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
                 
                 self.logger.warning("Current bid to ask ratio history: %d", ratio_history)
                 
                 if(self.position <= -80):
-                    new_ask_price = (int((history["average"]["ask"]*((1-ratio_history)/100)) * 100)) - (self.position * 100)
-                    new_bid_price = (int((history["average"]["bid"]*((ratio_history)/100)) * 100)) - (self.position * 100)
+                    new_ask_price = (int((history["average"]["ask"]*((ratio_history)/100)) * 100)) - (self.position * 100)
+                    new_bid_price = (int((history["average"]["bid"]*((1/ratio_history)/100)) * 100)) - (self.position * 100)
 
                 else:
-                    new_ask_price = (int((history["average"]["ask"]*((1-ratio_history)/100)) * 100)) 
-                    new_bid_price = (int((history["average"]["bid"]*((ratio_history)/100)) * 100)) 
+                    new_ask_price = (int((history["average"]["ask"]*((ratio_history)/100)) * 100)) 
+                    new_bid_price = (int((history["average"]["bid"]*((1/ratio_history)/100)) * 100)) 
                 
                 self.logger.warning("New ask price is: %d", new_ask_price)
                 self.logger.warning("New bid price is %d", new_bid_price)
+                
 
-                self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
-
-                self.bid_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
+                if self.previous_sells[0] <= self.previous_buys[0]:
+                    self.ask_id = next(self.order_ids)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
+                    for i in range(1,10):
+                        self.previous_sells[i] = self.previous_sells[i-1]
+                    self.previous_sells[0] = new_ask_price
+                
+                if self.previous_sells[0] >= self.previous_buys[0]:
+                
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
+                    for i in range(1,10):
+                        self.previous_buys[i] = self.previous_buys[i-1]
+                    self.previous_buys[0] = new_bid_price
                 
 
         #entrance 
