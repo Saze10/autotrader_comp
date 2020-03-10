@@ -68,8 +68,16 @@ class AutoTrader(BaseAutoTrader):
         
         # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
+            self.etf_history["average"]["ask"] += new_ask_data["price"]
+            self.etf_history["average"]["ask"] /= 2
+            self.etf_history["average"]["bid"] += new_bid_data["price"]
+            self.etf_history["average"]["bid"] /= 2
             self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
+            self.future_history["average"]["ask"] += new_ask_data["price"]
+            self.future_history["average"]["ask"] /= 2
+            self.future_history["average"]["bid"] += new_bid_data["price"]
+            self.future_history["average"]["bid"] /= 2
             self.future_history["history"].append(new_entry)
 
 
@@ -128,7 +136,9 @@ class AutoTrader(BaseAutoTrader):
                 
                 # Determine our ask and bid prices for our FAKs
                 new_ask_price = int(self.etf_history["average"]["ask"]*(1/bid_to_ask_ratio))
+                self.logger.warning("New ask price is: %d", new_ask_price)
                 new_bid_price = int(self.etf_history["average"]["bid"]*bid_to_ask_ratio)
+                self.logger.warning("New bid price is %d", new_bid_price)
                 
                 self.ask_id = next(self.order_ids)
                 self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
