@@ -10,19 +10,20 @@ class AutoTrader(BaseAutoTrader):
         """Initialise a new instance of the AutoTrader class."""
         super(AutoTrader, self).__init__(loop)
         
-        self.etf_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
+        # History for each instrument - contains a key for average ask/bid prices and a key for the actual history list
+        self.etf_history = {"average": {"ask":0, "bid":0}, "history":[]}
     
-        self.future_history = {"start_key": 0, "average": {"ask":0, "bid":0}, "history":[]}
+        self.future_history = {"average": {"ask":0, "bid":0}, "history":[]}
 
-        self.op_count = 0
+        self.op_count = 0 # Counter of operations - might be obsolete now that we know what "rolling one second period" means
 
-        self.base_time = time.time()
+        self.base_time = time.time() # Used to track time
         
         self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
 
-        self.trade_tick_list = []
+        self.trade_tick_list = [] # History of trade ticks
 
-        self.total_fees = 0.0
+        self.total_fees = 0.0 # Total fees collected
 
         self.order_ids = itertools.count(1)
 
@@ -43,6 +44,11 @@ class AutoTrader(BaseAutoTrader):
         prices are reported along with the volume available at each of those
         price levels.
         """
+        # check if we need to reset the timer and op count - happens every second
+        if time.time() - self.base_time >= 0.99999:
+            self.base_time = time.time()
+            self.op_count = 0
+
 
         # Entry containing ask and bid prices for given instrument
         new_entry = {
@@ -51,7 +57,7 @@ class AutoTrader(BaseAutoTrader):
         }
 
         
-        # Entry containing volume and price for given ask/bid
+        # Entries containing volume and price for given ask/bid
         new_ask_data = {
             "volume": [],
             "price": ask_prices[0]
@@ -78,6 +84,7 @@ class AutoTrader(BaseAutoTrader):
         elif instrument == Instrument.FUTURE:
             self.future_history["history"].append(new_entry)
 
+        # Collapse history when number of entries is at least 200
         if len(self.etf_history["history"]) >= 200:
             self.collapse_history(self.etf_history)            
         if len(self.future_history["history"]) >= 200:
@@ -122,17 +129,21 @@ class AutoTrader(BaseAutoTrader):
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 #current bid to ask volume ratio
                 ratio_history = 0.0 #historic bid to ask volume ratio (past 50 order books)
+
+                # sum of past 50 bid volumes/sum of past 50 ask volumes
                 
                 for i in range(50):
                     ratio_history += sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["bid"]["volume"])/(sum(self.future_history["history"][len(self.future_history["history"]) - i - 1]["ask"]["volume"]))
 
                 ratio_history /= 50
-
+                
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
-
+                
+                # Determine our ask and bid prices for our FAKs
                 new_ask_price = int(self.etf_history["average"]["ask"]*(1/bid_to_ask_ratio))
                 new_bid_price = int(self.etf_history["average"]["bid"]*bid_to_ask_ratio)
 
+                # Send orders for buy/sell if the operation counts allow
                 if self.op_count < 20:                    
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
                     self.op_count += 1
@@ -165,12 +176,6 @@ class AutoTrader(BaseAutoTrader):
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                     self.op_count += 1
 
-
-        # check if we need to reset the timer and op count - happens every seconds
-        if time.time() - self.base_time >= 0.99999:
-            self.base_time = time.time()
-            self.op_count = 0
-
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
         The fill_volume is the number of lots already traded, remaining_volume
@@ -179,18 +184,22 @@ class AutoTrader(BaseAutoTrader):
         you receive fees for being a market maker, so fees can be negative.
         If an order is cancelled its remaining volume will be zero.
         """
-        self.total_fees += fees
+        if time.time() - self.base_time >= 0.99999:
+            self.base_time = time.time()
+            self.op_count = 0
         
+        self.total_fees += fees
+
+        if fill_volume > 0:
+            self.op_count += 2
+
+        """
         if remaining_volume != 0:
             if self.op_count < 20:
                 self.send_amend_order(client_order_id, int(remaining_volume * 1.1))
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
-            
-        if time.time() - self.base_time >= 0.99999:
-            self.base_time = time.time()
-            self.op_count = 0
-
+        """
         
 
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:

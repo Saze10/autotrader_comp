@@ -195,3 +195,36 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2020-03-09 23:41:29,491 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
 2020-03-09 23:41:38,861 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-09 23:41:38,861 [INFO   ] [APP] closing event loop
+2020-03-10 10:43:01,642 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 10:43:01,643 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 10:43:22,180 [WARNING] [TRADER] error with order 133: position limit breached
+2020-03-10 10:43:22,181 [ERROR  ] [TRADER] lost connection on execution channel:
+Traceback (most recent call last):
+  File "C:\Users\Andre Calma\AppData\Local\Programs\Python\Python38-32\lib\asyncio\selector_events.py", line 846, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2020-03-10 10:43:22,190 [INFO   ] [APP] closing event loop
+2020-03-10 10:53:09,484 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 10:53:09,484 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 10:57:02,782 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 10:57:02,782 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 10:59:55,951 [WARNING] [TRADER] error with order 683: position limit breached
+2020-03-10 10:59:55,952 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 10:59:55,952 [INFO   ] [APP] closing event loop
+2020-03-10 11:17:18,938 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 11:17:18,939 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 11:27:34,636 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 11:27:34,636 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 11:30:27,546 [WARNING] [TRADER] error with order 671: position limit breached
+2020-03-10 11:30:27,547 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 11:30:27,547 [INFO   ] [APP] closing event loop
+2020-03-10 11:49:59,808 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 11:49:59,808 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 11:52:53,709 [WARNING] [TRADER] error with order 665: position limit breached
+2020-03-10 11:52:53,709 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 11:52:53,709 [INFO   ] [APP] closing event loop
+2020-03-10 12:07:46,916 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 12:07:46,917 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 12:10:40,056 [WARNING] [TRADER] error with order 677: position limit breached
+2020-03-10 12:10:40,057 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 12:10:40,057 [INFO   ] [APP] closing event loop
