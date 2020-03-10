@@ -88,6 +88,12 @@ class AutoTrader(BaseAutoTrader):
             self.future_history["history"].append(new_entry)
 
 
+        self.logger.warning("Current average ask for etf", len(self.future_history["average"]["ask"]))
+        self.logger.warning("Current average bid for etf", len(self.future_history["average"]["bid"]))
+        self.logger.warning("Current average ask for future", len(self.future_history["average"]["ask"]))
+        self.logger.warning("Current average bid for future", len(self.future_history["average"]["bid"]))
+
+
         self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
         self.logger.warning("Current ETF dictionary length: %d", len(self.etf_history["history"]))
         self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
