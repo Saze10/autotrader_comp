@@ -148,7 +148,6 @@ class AutoTrader(BaseAutoTrader):
         If an order is cancelled its remaining volume will be zero.
         """
         # Update operation history for past second
-        update_op_history()
         self.update_op_history()
 
         self.total_fees += fees
