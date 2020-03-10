@@ -1,0 +1,49 @@
+2020-03-10 17:28:32,654 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 17:28:32,655 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 17:31:26,793 [WARNING] [TRADER] error with order 687: position limit breached
+2020-03-10 17:31:26,794 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 17:31:26,794 [INFO   ] [APP] closing event loop
+2020-03-10 17:31:35,661 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 17:31:35,661 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 17:33:37,350 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 17:33:37,351 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 17:35:29,527 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 17:35:29,528 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 17:38:15,423 [WARNING] [TRADER] error with order 635: position limit breached
+2020-03-10 17:38:15,424 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 17:38:15,424 [INFO   ] [APP] closing event loop
+2020-03-10 17:39:49,229 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 17:39:49,229 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 17:42:49,537 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 17:42:49,537 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 17:54:13,666 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 17:54:13,667 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 17:56:58,026 [WARNING] [TRADER] error with order 637: position limit breached
+2020-03-10 17:56:58,027 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 17:56:58,027 [INFO   ] [APP] closing event loop
+2020-03-10 18:14:40,724 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 18:14:40,725 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 18:17:34,241 [WARNING] [TRADER] error with order 682: position limit breached
+2020-03-10 18:17:34,245 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 18:17:34,245 [INFO   ] [APP] closing event loop
+2020-03-10 18:23:08,480 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 18:23:08,481 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 18:24:07,034 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-10 18:24:07,034 [INFO   ] [APP] closing event loop
+2020-03-10 18:50:26,451 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 18:50:26,452 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 18:53:19,239 [WARNING] [TRADER] error with order 669: position limit breached
+2020-03-10 18:53:19,240 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 18:53:19,241 [INFO   ] [APP] closing event loop
+2020-03-10 18:59:20,235 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 18:59:20,236 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 18:59:23,112 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-10 18:59:23,112 [INFO   ] [APP] closing event loop
+2020-03-10 18:59:49,946 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 18:59:49,946 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 19:02:13,783 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-10 19:02:13,784 [INFO   ] [APP] closing event loop
+2020-03-10 19:04:27,125 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 19:04:27,126 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 19:07:05,126 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-10 19:07:05,126 [INFO   ] [APP] closing event loop
