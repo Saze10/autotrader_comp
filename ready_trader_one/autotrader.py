@@ -202,7 +202,7 @@ class AutoTrader(BaseAutoTrader):
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
-            if (side == Side.BUY and position < 100) or (side == Side.SELL and position > -100):
+            if (side == Side.BUY and self.position < 100) or (side == Side.SELL and self.position > -100):
                 self.send_insert_order(client_order_id, side, price, volume, lifespan)
                 self.op_history.append(time.time())
 
