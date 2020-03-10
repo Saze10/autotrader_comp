@@ -67,7 +67,7 @@ class AutoTrader(BaseAutoTrader):
         new_entry["bid"] = new_bid_data
         
         # Add entry to corresponding instrument dictionary
-        if self.etf_history["average"]["ask"] == 0 or self.future_history["average"]["ask"] == 0:
+        if self.etf_history["average"]["ask"] == 0 and self.future_history["average"]["ask"] == 0:
             if instrument == Instrument.ETF:
                 self.etf_history["average"]["ask"] == new_ask_data["price"]
                 self.etf_history["average"]["bid"] == new_bid_data["price"]
