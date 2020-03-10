@@ -60,3 +60,38 @@
 2020-03-10 20:03:24,582 [INFO   ] [APP] closing event loop
 2020-03-10 20:17:56,798 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
 2020-03-10 20:17:56,798 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 20:20:45,259 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 20:20:45,259 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 20:37:28,507 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 20:37:28,507 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 21:10:22,641 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 21:10:22,642 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 21:10:50,870 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 21:10:50,870 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 21:13:29,601 [WARNING] [TRADER] error with order 605: position limit breached
+2020-03-10 21:13:29,601 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 21:13:29,601 [INFO   ] [APP] closing event loop
+2020-03-10 21:26:49,040 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 21:26:49,040 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 21:29:41,728 [WARNING] [TRADER] error with order 676: position limit breached
+2020-03-10 21:29:41,729 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 21:29:41,729 [INFO   ] [APP] closing event loop
+2020-03-10 21:50:44,880 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 21:50:44,880 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 21:52:57,402 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 21:52:57,402 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 21:54:46,614 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 21:54:46,614 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 21:57:40,557 [WARNING] [TRADER] error with order 665: position limit breached
+2020-03-10 21:57:40,558 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 21:57:40,558 [INFO   ] [APP] closing event loop
+2020-03-10 21:59:24,508 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 21:59:24,508 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 22:02:17,997 [WARNING] [TRADER] error with order 681: position limit breached
+2020-03-10 22:02:17,997 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 22:02:17,997 [INFO   ] [APP] closing event loop
+2020-03-10 22:05:56,366 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 22:05:56,366 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 22:08:50,156 [WARNING] [TRADER] error with order 718: position limit breached
+2020-03-10 22:08:50,158 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 22:08:50,158 [INFO   ] [APP] closing event loop
