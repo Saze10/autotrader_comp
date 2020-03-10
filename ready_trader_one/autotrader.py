@@ -82,6 +82,8 @@ class AutoTrader(BaseAutoTrader):
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
             
+            self.logger.warning("I'm in entrance if statement")
+
             # These MUST be done in pairs so we do checks manually
             if self.get_projected_op_rate(2) <= 19.5:
                 if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
@@ -109,7 +111,9 @@ class AutoTrader(BaseAutoTrader):
                     
         #mid-late game
         else:
+            self.logger.warning("I'm in mid-late game if statement")
             if instrument == Instrument.FUTURE:
+                self.logger.warning("I'm in mid-late-game if future instrument")
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 #current bid to ask volume ratio
@@ -131,6 +135,7 @@ class AutoTrader(BaseAutoTrader):
                 self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                     
             elif instrument == Instrument.ETF: # Isn't this duplicate code?
+                self.logger.warning("I'm in mid-late-game if ETF instrument")
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 
@@ -143,10 +148,11 @@ class AutoTrader(BaseAutoTrader):
                 new_ask_price = int(self.future_history["average"]["ask"]*(1/bid_to_ask_ratio))
                 new_bid_price = int(self.future_history["average"]["bid"]*bid_to_ask_ratio)
                 
+                self.ask_id = next(self.order_ids)
                 self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
 
                 self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
-
+                self.bid_id = next(self.order_ids)
 
         # Collapse history when number of entries is at least 200
         if len(self.etf_history["history"]) >= 200:
@@ -181,6 +187,7 @@ class AutoTrader(BaseAutoTrader):
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
+        self.logger.warning("Our position is: %d", self.position)
         self.position = etf_position
         
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
@@ -192,6 +199,7 @@ class AutoTrader(BaseAutoTrader):
         
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history["history"]) >= 200): # Making sure we avoid key errors
+            self.logger.warning("I'm collapsing the history lolol")
             avg_entry = {
             "ask": 0,
             "bid": 0
@@ -213,8 +221,11 @@ class AutoTrader(BaseAutoTrader):
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
+            self.logger.warning("Goes through 1st if statement for op_send_insert_order")
             if (side == Side.BUY and self.position < 100) or (side == Side.SELL and self.position > -100):
+                self.logger.warning("Goes through second if statement for op_send_insert_order")
                 self.send_insert_order(client_order_id, side, price, volume, lifespan)
+                self.logger.warning("client_order_id of order is %d", client_order_id)
                 self.op_history.append(time.time())
 
     def op_send_cancel_order(self, client_order_id: int) -> None:
