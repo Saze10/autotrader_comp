@@ -31078,3 +31078,5 @@ ZeroDivisionError: float division by zero
 2020-03-10 20:05:10,089 [WARNING] [TRADER] Goes through 1st if statement for op_send_insert_order
 2020-03-10 20:05:10,089 [WARNING] [TRADER] Goes through second if statement for op_send_insert_order
 2020-03-10 20:05:10,090 [WARNING] [TRADER] client_order_id of order is 3979
+2020-03-10 20:17:56,798 [INFO   ] [APP] autotrader started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 20:17:56,799 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"TraderOne","Secret":"secret"}
