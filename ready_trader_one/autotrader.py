@@ -73,8 +73,7 @@ class AutoTrader(BaseAutoTrader):
             self.future_history["history"].append(new_entry)
             
         #entrance 
-        #if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
-        if sequence_number < 100:
+        if len(self.future_history["history"]) < 75 or len(self.etf_history["history"]) < 75:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
             
