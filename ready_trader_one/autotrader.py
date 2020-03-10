@@ -21,6 +21,10 @@ class AutoTrader(BaseAutoTrader):
         self.order_ids = itertools.count(1)
 
         self.base_time = time.time()
+
+        self.previous_sells = []
+
+        self.previous_buys = []
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -98,7 +102,7 @@ class AutoTrader(BaseAutoTrader):
                 total_bid_before_avg = 0
                 bid_to_ask_ratio = 0.0 
                 ratio_history = 0.0
-                for i in range(75):
+                for i in range(100):
                     ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
                 
                 ratio_history /= 50
@@ -106,7 +110,7 @@ class AutoTrader(BaseAutoTrader):
                 
                 self.logger.warning("Current bid to ask ratio history: %d", ratio_history)
                 
-                if(self.position >= 80 or self.position <= -80):
+                if(self.position <= -80):
                     new_ask_price = (int((history["average"]["ask"]*((1-ratio_history)/100)) * 100)) - (self.position * 100)
                     new_bid_price = (int((history["average"]["bid"]*((ratio_history)/100)) * 100)) - (self.position * 100)
 
@@ -186,6 +190,8 @@ class AutoTrader(BaseAutoTrader):
         self.update_op_history()
 
         self.total_fees += fees
+
+        self.logger.warning("Total fees: %f", self.total_fees)
 
         """
         if remaining_volume != 0:
