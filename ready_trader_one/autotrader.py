@@ -21,6 +21,10 @@ class AutoTrader(BaseAutoTrader):
         self.order_ids = itertools.count(1)
 
         self.base_time = time.time()
+
+        self.previous_sells = []
+
+        self.previous_buys = []
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -89,25 +93,33 @@ class AutoTrader(BaseAutoTrader):
         self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
 
 
-        def make_order_helper(history):            
-            total_ask_before_avg = 0
-            total_bid_before_avg = 0
-            bid_to_ask_ratio = 0.0 
-            ratio_history = 0.0
+        def make_order_helper(history):
+                total_ask_before_avg = 0
+                total_bid_before_avg = 0
+                bid_to_ask_ratio = 0.0 
+                ratio_history = 0.0
+                for i in range(100):
+                    ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
                 
-            for i in range(50):
-                ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
-            
-            ratio_history /= 50
-            bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
-            new_ask_price = (int((history["average"]["ask"]*(1/bid_to_ask_ratio))/100) * 100) - (self.position * 100)
-            new_bid_price = (int((history["average"]["bid"]*bid_to_ask_ratio)/100) * 100) - (self.position * 100)
-            
-            self.logger.warning("New ask price is: %d", new_ask_price)
-            self.logger.warning("New bid price is %d", new_bid_price)
-            self.ask_id = next(self.order_ids)
-            self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
+                ratio_history /= 50
+                bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
+                
+                self.logger.warning("Current bid to ask ratio history: %d", ratio_history)
+                
+                if(self.position <= -80):
+                    new_ask_price = (int((history["average"]["ask"]*((1-ratio_history)/100)) * 100)) - (self.position * 100)
+                    new_bid_price = (int((history["average"]["bid"]*((ratio_history)/100)) * 100)) - (self.position * 100)
 
+                else:
+                    new_ask_price = (int((history["average"]["ask"]*((1-ratio_history)/100)) * 100)) 
+                    new_bid_price = (int((history["average"]["bid"]*((ratio_history)/100)) * 100)) 
+                
+                self.logger.warning("New ask price is: %d", new_ask_price)
+                self.logger.warning("New bid price is %d", new_bid_price)
+
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
+                
             self.bid_id = next(self.order_ids)
             self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
 
@@ -175,6 +187,8 @@ class AutoTrader(BaseAutoTrader):
         self.update_op_history()
 
         self.total_fees += fees
+
+        self.logger.warning("Total fees: %f", self.total_fees)
 
         """
         if remaining_volume != 0:
