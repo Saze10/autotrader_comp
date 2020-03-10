@@ -193,10 +193,11 @@ class AutoTrader(BaseAutoTrader):
                 del history["history"][0]
             # Update the average dictionary entry
             history["average"] = avg_entry
+
     def update_op_history(self):
         counter = 0
         for entry in self.op_history:
-            if time.time() - entry >= 0.99999:
+            if time.time() - entry >= 1.1:
                 counter += 1
             else:
                 break
