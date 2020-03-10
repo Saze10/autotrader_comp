@@ -75,7 +75,8 @@ class AutoTrader(BaseAutoTrader):
 
         self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
         self.logger.warning("Current ETF dictionary length: %d", len(self.etf_history["history"]))
-            
+        self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
+
         #entrance 
         if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
@@ -97,13 +98,13 @@ class AutoTrader(BaseAutoTrader):
                 if self.bid_id == 0 and new_bid_price != 0 and self.position < 100:
                     self.bid_id = next(self.order_ids)
                     self.bid_price = new_bid_price
-                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
+                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.GOOD_FOR_DAY)
                     self.op_history.append(time.time())
                     
                 if self.ask_id == 0 and new_ask_price != 0 and self.position > -100:
                     self.ask_id = next(self.order_ids)
                     self.ask_price = new_ask_price
-                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
+                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.GOOD_FOR_DAY)
                     self.op_history.append(time.time())
                     
         #mid-late game
