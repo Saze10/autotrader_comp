@@ -15,9 +15,7 @@ class AutoTrader(BaseAutoTrader):
     
         self.future_history = {"average": {"ask":0, "bid":0}, "history":[]}
 
-        self.op_count = 0 # Counter of operations - might be obsolete now that we know what "rolling one second period" means
-
-        self.base_time = time.time() # Used to track time
+        self.op_history = [] # Counter of operations - might be obsolete now that we know what "rolling one second period" means
         
         self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
 
@@ -44,10 +42,8 @@ class AutoTrader(BaseAutoTrader):
         prices are reported along with the volume available at each of those
         price levels.
         """
-        # check if we need to reset the timer and op count - happens every second
-        if time.time() - self.base_time >= 0.99999:
-            self.base_time = time.time()
-            self.op_count = 0
+        # Update operation history for past second
+        self.update_op_history()
 
 
         # Entry containing ask and bid prices for given instrument
@@ -96,29 +92,29 @@ class AutoTrader(BaseAutoTrader):
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
 
-            if self.op_count < 19:
+            if len(self.op_history) < 19:
                 if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
                     self.send_cancel_order(self.bid_id)
                     self.bid_id = 0
-                    self.op_count += 1
+                    self.op_history.append(time.time())
                     
                 if self.ask_id != 0 and new_ask_price not in (self.ask_price, 0):
                     self.send_cancel_order(self.ask_id)
                     self.ask_id = 0
-                    self.op_count += 1
+                    self.op_history.append(time.time())
 
-            if self.op_count < 19:
+            if len(self.op_history) < 19:
                 if self.bid_id == 0 and new_bid_price != 0 and self.position < 100:
                     self.bid_id = next(self.order_ids)
                     self.bid_price = new_bid_price
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.GOOD_FOR_DAY)
-                    self.op_count += 1
+                    self.op_history.append(time.time())
 
                 if self.ask_id == 0 and new_ask_price != 0 and self.position > -100:
                     self.ask_id = next(self.order_ids)
                     self.ask_price = new_ask_price
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.GOOD_FOR_DAY)
-                    self.op_count += 1
+                    self.op_history.append(time.time())
                     
 
         #mid-late game
@@ -144,13 +140,13 @@ class AutoTrader(BaseAutoTrader):
                 new_bid_price = int(self.etf_history["average"]["bid"]*bid_to_ask_ratio)
 
                 # Send orders for buy/sell if the operation counts allow
-                if self.op_count < 20:                    
+                if len(self.op_history) < 20:                    
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_count += 1
+                    self.op_history.append(time.time())
                     
-                if self.op_count < 20:
+                if len(self.op_history) < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_count += 1
+                    self.op_history.append(time.time())
 
             elif instrument == Instrument.ETF: # Isn't this duplicate code?
 
@@ -169,12 +165,12 @@ class AutoTrader(BaseAutoTrader):
                 new_ask_price = int(self.future_history["average"]["ask"]*(1/bid_to_ask_ratio))
                 new_bid_price = int(self.future_history["average"]["bid"]*bid_to_ask_ratio)
 
-                if self.op_count < 20:                   
+                if len(self.op_history) < 20:                   
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_count += 1
-                if self.op_count < 20:
+                    self.op_history.append(time.time())
+                if len(self.op_history) < 20:
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_count += 1
+                    self.op_history.append(time.time())
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
@@ -184,14 +180,10 @@ class AutoTrader(BaseAutoTrader):
         you receive fees for being a market maker, so fees can be negative.
         If an order is cancelled its remaining volume will be zero.
         """
-        if time.time() - self.base_time >= 0.99999:
-            self.base_time = time.time()
-            self.op_count = 0
+        # Update operation history for past second
+        update_op_history()
         
         self.total_fees += fees
-
-        if fill_volume > 0:
-            self.op_count += 2
 
         """
         if remaining_volume != 0:
@@ -239,3 +231,15 @@ class AutoTrader(BaseAutoTrader):
 
             # Update the average dictionary entry
             history["average"] = avg_entry
+
+    def update_op_history(self):
+        counter = 0
+        for entry in self.op_history:
+            if time.time() - entry >= 0.99999:
+                counter += 1
+            else:
+                break
+
+        for i in range(counter):
+            del self.op_history[0]
+                
