@@ -71,7 +71,7 @@ class AutoTrader(BaseAutoTrader):
             if instrument == Instrument.ETF:
                 self.etf_history["average"]["ask"] == new_ask_data["price"]
                 self.etf_history["average"]["bid"] == new_bid_data["price"]
-            elif instrument == Instrument.future:
+            elif instrument == Instrument.FUTURE:
                 self.future_history["average"]["ask"] == new_ask_data["price"]
                 self.future_history["average"]["bid"] == new_bid_data["price"]
         else:
@@ -92,6 +92,7 @@ class AutoTrader(BaseAutoTrader):
         self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
         self.logger.warning("Current ETF dictionary length: %d", len(self.etf_history["history"]))
         self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
+
 
         def make_order_helper(history):
                 total_ask_before_avg = 0
