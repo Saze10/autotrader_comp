@@ -73,6 +73,7 @@ class AutoTrader(BaseAutoTrader):
         if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
+            
             if len(self.op_history) < 19:
                 if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
                     self.send_cancel_order(self.bid_id)
@@ -159,6 +160,11 @@ class AutoTrader(BaseAutoTrader):
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
         """
+        if remaining_volume == 0:
+            if client_order_id == self.bid_id:
+                self.bid_id = 0
+            elif client_order_id == self.ask_id:
+                self.ask_id = 0
         
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
@@ -167,6 +173,7 @@ class AutoTrader(BaseAutoTrader):
         other (i.e. future_position == -1 * etf_position).
         """
         self.position = future_position + etf_position
+        
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
         Each trade tick is a pair containing a price and the number of lots
