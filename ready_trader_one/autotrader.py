@@ -71,6 +71,10 @@ class AutoTrader(BaseAutoTrader):
             self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
             self.future_history["history"].append(new_entry)
+
+
+        self.logger.warning("Current future dictionary length: %d", len(self.future_dictionary["history"])
+        self.logger.warning("Current ETF dictionary length: %d", len(self.etf_dictionary["history"])
             
         #entrance 
         if len(self.future_history["history"]) < 75 or len(self.etf_history["history"]) < 75:
