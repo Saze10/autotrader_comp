@@ -68,8 +68,16 @@ class AutoTrader(BaseAutoTrader):
         
         # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
+            self.etf_history["average"]["ask"] += new_ask_data["price"]
+            self.etf_history["average"]["ask"] /= 2
+            self.etf_history["average"]["bid"] += new_bid_data["price"]
+            self.etf_history["average"]["bid"] /= 2
             self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
+            self.future_history["average"]["ask"] += new_ask_data["price"]
+            self.future_history["average"]["ask"] /= 2
+            self.future_history["average"]["bid"] += new_bid_data["price"]
+            self.future_history["average"]["bid"] /= 2
             self.future_history["history"].append(new_entry)
 
 
