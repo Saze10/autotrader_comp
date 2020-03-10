@@ -208,8 +208,8 @@ class AutoTrader(BaseAutoTrader):
                 avg_entry["bid"] += history["history"][i]["bid"]["price"]
                 
             # Get the average
-            avg_entry["ask"] /= 100
-            avg_entry["bid"] /= 100
+            avg_entry["ask"] /= 101
+            avg_entry["bid"] /= 101
             for i in range(100):
                 del history["history"][0]
             # Update the average dictionary entry
