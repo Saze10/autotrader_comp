@@ -8223,3 +8223,28 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2020-03-10 19:07:04,646 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=138.008403 client_order_id=1981 message='price is not a multiple of tick size'
 2020-03-10 19:07:05,126 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-10 19:07:05,126 [INFO   ] [APP] closing event loop
+2020-03-10 19:19:36,248 [INFO   ] [APP] exchange started with arguments={run.py}
+2020-03-10 19:19:36,248 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/day1.csv","MatchEventsFile":"match_events.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"ListenAddress":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Information":{"AllowBroadcast":false,"Host":"239.255.1.1","Interface":"0.0.0.0","Port":12346},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":20,"PositionLimit":100},"Traders":{"TraderOne":"secret","ExampleOne":"qwerty","ExampleTwo":"12345"}}
+2020-03-10 19:19:36,249 [INFO   ] [CONTROLLER] starting the match
+2020-03-10 19:19:36,765 [INFO   ] [EXECUTION] fd=17 accepted a new connection: peer=127.0.0.1:46376
+2020-03-10 19:19:36,765 [INFO   ] [EXECUTION] fd=18 accepted a new connection: peer=127.0.0.1:46378
+2020-03-10 19:19:36,766 [INFO   ] [CONTROLLER] 'ExampleOne' is ready!
+2020-03-10 19:19:36,766 [INFO   ] [EXECUTION] fd=17 login successful: name='ExampleOne'
+2020-03-10 19:19:36,766 [INFO   ] [CONTROLLER] 'ExampleTwo' is ready!
+2020-03-10 19:19:36,766 [INFO   ] [EXECUTION] fd=18 login successful: name='ExampleTwo'
+2020-03-10 19:19:36,771 [INFO   ] [EXECUTION] fd=19 accepted a new connection: peer=127.0.0.1:46380
+2020-03-10 19:19:36,771 [INFO   ] [CONTROLLER] 'TraderOne' is ready!
+2020-03-10 19:19:36,772 [INFO   ] [EXECUTION] fd=19 login successful: name='TraderOne'
+2020-03-10 19:19:56,273 [INFO   ] [CONTROLLER] market open
+2020-03-10 19:20:21,285 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=25.010972 client_order_id=175 message='order rejected: in cross with an existing order'
+2020-03-10 19:20:21,528 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=25.254659 client_order_id=179 message='order rejected: in cross with an existing order'
+2020-03-10 19:20:21,777 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=25.503066 client_order_id=183 message='order rejected: in cross with an existing order'
+2020-03-10 19:20:22,526 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=26.252830 client_order_id=195 message='order rejected: in cross with an existing order'
+2020-03-10 19:20:22,781 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=26.507440 client_order_id=199 message='order rejected: in cross with an existing order'
+2020-03-10 19:20:23,032 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=26.758491 client_order_id=203 message='order rejected: in cross with an existing order'
+2020-03-10 19:22:52,538 [INFO   ] [COMPETITOR] 'ExampleOne' sent error message: time=176.263502 client_order_id=919 message='position limit breached'
+2020-03-10 19:22:52,538 [INFO   ] [COMPETITOR] 'ExampleOne' closing execution channel at time=176.263502
+2020-03-10 19:27:16,786 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=440.511546 client_order_id=6822 message='position limit breached'
+2020-03-10 19:27:16,787 [INFO   ] [COMPETITOR] 'TraderOne' closing execution channel at time=440.511546
+2020-03-10 19:42:14,312 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-10 19:42:14,312 [INFO   ] [APP] closing event loop

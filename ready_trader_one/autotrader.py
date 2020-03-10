@@ -70,7 +70,7 @@ class AutoTrader(BaseAutoTrader):
         if instrument == Instrument.ETF:
             self.etf_history["average"]["ask"] += new_ask_data["price"]
             self.etf_history["average"]["ask"] /= 2
-            self.etf_history["average"]["bid"] += new_bid_data["price"]
+           self.etf_history["average"]["bid"] += new_bid_data["price"]
             self.etf_history["average"]["bid"] /= 2
             self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
@@ -95,8 +95,8 @@ class AutoTrader(BaseAutoTrader):
                 
                 ratio_history /= 50
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
-                new_ask_price = int((history["average"]["ask"]*(1/bid_to_ask_ratio))/100) * 100
-                new_bid_price = int((history["average"]["bid"]*bid_to_ask_ratio)/100) * 100
+                new_ask_price = (int((history["average"]["ask"]*(1/bid_to_ask_ratio))/100) * 100)
+                new_bid_price = (int((history["average"]["bid"]*bid_to_ask_ratio)/100) * 100)
                 
                 self.logger.warning("New ask price is: %d", new_ask_price)
                 self.logger.warning("New bid price is %d", new_bid_price)
