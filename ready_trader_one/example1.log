@@ -47,3 +47,5 @@
 2020-03-10 19:04:27,126 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
 2020-03-10 19:07:05,126 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-10 19:07:05,126 [INFO   ] [APP] closing event loop
+2020-03-10 19:42:33,355 [INFO   ] [APP] example1 started with arguments={C:\Users\Parents\Desktop\AutoComp\ready_trader_one\run.py}
+2020-03-10 19:42:33,356 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
