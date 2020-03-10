@@ -29,6 +29,7 @@ class AutoTrader(BaseAutoTrader):
         """
         self.logger.warning("error with order %d: %s", client_order_id, error_message.decode())
         self.on_order_status_message(client_order_id, 0, 0, 0)
+        
     def on_order_book_update_message(self, instrument: int, sequence_number: int, ask_prices: List[int],
                                      ask_volumes: List[int], bid_prices: List[int], bid_volumes: List[int]) -> None:
         """Called periodically to report the status of an order book.
@@ -59,22 +60,20 @@ class AutoTrader(BaseAutoTrader):
         }
         for v in bid_volumes:
             new_bid_data["volume"].append(v)
+            
         # Append data to corresponding list within entry dictionary
         new_entry["ask"] = new_ask_data
         new_entry["bid"] = new_bid_data
+        
         # Add entry to corresponding instrument dictionary
         if instrument == Instrument.ETF:
             self.etf_history["history"].append(new_entry)
         elif instrument == Instrument.FUTURE:
             self.future_history["history"].append(new_entry)
-        # Collapse history when number of entries is at least 200
-        if len(self.etf_history["history"]) >= 200:
-            self.collapse_history(self.etf_history)            
-        if len(self.future_history["history"]) >= 200:
-            self.collapse_history(self.future_history)
             
         #entrance 
-        if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
+        #if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
+        if sequence_number < 100:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
             
@@ -142,6 +141,13 @@ class AutoTrader(BaseAutoTrader):
                 self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
 
                 self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
+
+
+        # Collapse history when number of entries is at least 200
+        if len(self.etf_history["history"]) >= 200:
+            self.collapse_history(self.etf_history)            
+        if len(self.future_history["history"]) >= 200:
+            self.collapse_history(self.future_history)
                     
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
