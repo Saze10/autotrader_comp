@@ -19,6 +19,9 @@ class AutoTrader(BaseAutoTrader):
         self.trade_tick_list = [] # History of trade ticks
         self.total_fees = 0.0 # Total fees collected
         self.order_ids = itertools.count(1)
+
+        self.base_time = time.time()
+        
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
         If the error pertains to a particular order, then the client_order_id
@@ -69,12 +72,14 @@ class AutoTrader(BaseAutoTrader):
             self.collapse_history(self.etf_history)            
         if len(self.future_history["history"]) >= 200:
             self.collapse_history(self.future_history)
+            
         #entrance 
         if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0
             
-            if len(self.op_history) < 19:
+            # These MUST be done in pairs so we do checks manually
+            if self.get_projected_op_rate(2) >= 19.5:
                 if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
                     self.send_cancel_order(self.bid_id)
                     self.bid_id = 0
@@ -84,12 +89,14 @@ class AutoTrader(BaseAutoTrader):
                     self.send_cancel_order(self.ask_id)
                     self.ask_id = 0
                     self.op_history.append(time.time())
-            if len(self.op_history) < 19:
+                    
+            if self.get_projected_op_rate(2) >= 19.5:
                 if self.bid_id == 0 and new_bid_price != 0 and self.position < 100:
                     self.bid_id = next(self.order_ids)
                     self.bid_price = new_bid_price
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.GOOD_FOR_DAY)
                     self.op_history.append(time.time())
+                    
                 if self.ask_id == 0 and new_ask_price != 0 and self.position > -100:
                     self.ask_id = next(self.order_ids)
                     self.ask_price = new_ask_price
@@ -114,14 +121,11 @@ class AutoTrader(BaseAutoTrader):
                 # Determine our ask and bid prices for our FAKs
                 new_ask_price = int(self.etf_history["average"]["ask"]*(1/bid_to_ask_ratio))
                 new_bid_price = int(self.etf_history["average"]["bid"]*bid_to_ask_ratio)
-                # Send orders for buy/sell if the operation counts allow
-                if len(self.op_history) < 20:                    
-                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_history.append(time.time())
+                
+                self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
+                
+                self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
                     
-                if len(self.op_history) < 20:
-                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_history.append(time.time())
             elif instrument == Instrument.ETF: # Isn't this duplicate code?
                 total_ask_before_avg = 0
                 total_bid_before_avg = 0
@@ -134,12 +138,11 @@ class AutoTrader(BaseAutoTrader):
                 bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
                 new_ask_price = int(self.future_history["average"]["ask"]*(1/bid_to_ask_ratio))
                 new_bid_price = int(self.future_history["average"]["bid"]*bid_to_ask_ratio)
-                if len(self.op_history) < 20:                   
-                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_history.append(time.time())
-                if len(self.op_history) < 20:
-                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
-                    self.op_history.append(time.time())
+                
+                self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
+
+                self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
+                    
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
         The fill_volume is the number of lots already traded, remaining_volume
@@ -160,11 +163,6 @@ class AutoTrader(BaseAutoTrader):
                 #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
                 self.op_count += 1
         """
-        if remaining_volume == 0:
-            if client_order_id == self.bid_id:
-                self.bid_id = 0
-            elif client_order_id == self.ask_id:
-                self.ask_id = 0
         
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
@@ -172,14 +170,15 @@ class AutoTrader(BaseAutoTrader):
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
-        self.position = future_position + etf_position
+        self.position = etf_position
         
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
         Each trade tick is a pair containing a price and the number of lots
         traded at that price since the last trade ticks message.
         """
-        self.trade_tick_list.append(trade_ticks) 
+        self.trade_tick_list.append(trade_ticks)
+        
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history["history"]) >= 200): # Making sure we avoid key errors
             avg_entry = {
@@ -199,7 +198,24 @@ class AutoTrader(BaseAutoTrader):
                 del history["history"][0]
             # Update the average dictionary entry
             history["average"] = avg_entry
+            
+    # Helper functions for checking breaches
+    def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
+        if self.get_projected_op_rate() >= 19.5: # Technically should be 20 - setting it stricter for now
+            if (side == Side.BUY and position < 100) or (side == Side.SELL and position > -100):
+                self.send_insert_order(client_order_id, side, price, volume, lifespan)
+                self.op_history.append(time.time())
 
+    def op_send_cancel_order(self, client_order_id: int) -> None:
+        if self.get_projected_op_rate() >= 19.5: # Technically should be 20 - setting it stricter for now
+            self.send_cancel_order(client_order_id)
+            self.op_history.append(time.time())
+
+    def op_send_amend_order(self, client_order_id: int, volume: int) -> None:
+        if self.get_projected_op_rate() >= 19.5: # Technically should be 20 - setting it stricter for now
+            self.send_amend_order(client_order_id, volume)
+            self.op_history.append(time.time())
+        
     def update_op_history(self):
         counter = 0
         for entry in self.op_history:
@@ -209,3 +225,18 @@ class AutoTrader(BaseAutoTrader):
                 break
         for i in range(counter):
             del self.op_history[0]
+
+    def get_projected_op_rate(self):
+        if len(self.op_history) > 0:
+            return len(self.op_history)+1/(time.time() - self.op_history[0])
+        else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
+            return 0
+        
+    # Function overload - for doing multiple operations
+    def get_projected_op_rate(self, num_ops): # Second parameter is the number of ops to be taken
+        if len(self.op_history) > 0:
+            return len(self.op_history)+num_ops/(time.time() - self.op_history[0])
+        else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
+            return 0
+            
+        
