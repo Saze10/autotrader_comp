@@ -67,31 +67,21 @@ class AutoTrader(BaseAutoTrader):
         new_entry["bid"] = new_bid_data
         
         if instrument == Instrument.ETF:
-            if len(self.etf_history["history"]) > 0: 
-                self.etf_history["average"]["ask"] += new_ask_data["price"]
-                self.etf_history["average"]["ask"] /= 2
-                self.etf_history["average"]["bid"] += new_bid_data["price"]
-                self.etf_history["average"]["bid"] /= 2
-            else:
-                self.etf_history["average"]["ask"] = new_ask_data["price"]
-                self.etf_history["average"]["bid"] = new_bid_data["price"]
             self.etf_history["history"].append(new_entry)
+            if len(self.etf_history["history"]) > 150:
+                del self.etf_history["history"][0]
+            self.update_average(self.etf_history)
         elif instrument == Instrument.FUTURE:
-            if len(self.etf_history["history"]) > 0:
-                self.future_history["average"]["ask"] += new_ask_data["price"]
-                self.future_history["average"]["ask"] /= 2
-                self.future_history["average"]["bid"] += new_bid_data["price"]
-                self.future_history["average"]["bid"] /= 2
-            else:
-                self.future_history["average"]["ask"] = new_ask_data["price"]
-                self.future_history["average"]["bid"] = new_bid_data["price"]
             self.future_history["history"].append(new_entry)
+            if len(self.future_history["history"]) > 150:
+                del self.future_history["history"][0]
+            self.update_average(self.future_history)
 
 
-        self.logger.warning("Current average ask for etf: %d", int(self.future_history["average"]["ask"]))
-        self.logger.warning("Current average bid for etf: %d", int(self.future_history["average"]["bid"]))
-        self.logger.warning("Current average ask for future: %d", int(self.future_history["average"]["ask"]))
-        self.logger.warning("Current average bid for future: %d", int(self.future_history["average"]["bid"]))
+        self.logger.warning("FUTURE HISTORY AVERAGE ASK IS: %d", int(self.future_history["average"]["ask"]))
+        self.logger.warning("FUTURE HISTORY AVERAGE BID IS: %d", int(self.future_history["average"]["bid"]))
+        self.logger.warning("ETF HISTORY AVERAGE ASK IS %d", int(self.etf_history["average"]["ask"]))
+        self.logger.warning("ETF HISTORY AVERAGE BID IS %d", int(self.etf_history["average"]["bid"]))
 
 
         self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
@@ -99,27 +89,27 @@ class AutoTrader(BaseAutoTrader):
         self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
 
 
-        def make_order_helper(history):
-                total_ask_before_avg = 0
-                total_bid_before_avg = 0
-                bid_to_ask_ratio = 0.0 
-                ratio_history = 0.0
-                for i in range(50):
-                    ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
+        def make_order_helper(history):            
+            total_ask_before_avg = 0
+            total_bid_before_avg = 0
+            bid_to_ask_ratio = 0.0 
+            ratio_history = 0.0
                 
-                ratio_history /= 50
-                bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
-                new_ask_price = (int((history["average"]["ask"]*(1/bid_to_ask_ratio))/100) * 100) - (self.position * 100)
-                new_bid_price = (int((history["average"]["bid"]*bid_to_ask_ratio)/100) * 100) - (self.position * 100)
-                
-                self.logger.warning("New ask price is: %d", new_ask_price)
-                self.logger.warning("New bid price is %d", new_bid_price)
-                self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
+            for i in range(50):
+                ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
+            
+            ratio_history /= 50
+            bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
+            new_ask_price = (int((history["average"]["ask"]*(1/bid_to_ask_ratio))/100) * 100) - (self.position * 100)
+            new_bid_price = (int((history["average"]["bid"]*bid_to_ask_ratio)/100) * 100) - (self.position * 100)
+            
+            self.logger.warning("New ask price is: %d", new_ask_price)
+            self.logger.warning("New bid price is %d", new_bid_price)
+            self.ask_id = next(self.order_ids)
+            self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
 
-                self.bid_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
-                
+            self.bid_id = next(self.order_ids)
+            self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
 
         #entrance 
         if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
@@ -165,11 +155,13 @@ class AutoTrader(BaseAutoTrader):
                 self.logger.warning("I'm in mid-late-game if ETF instrument")
                 make_order_helper(self.etf_history)
 
+        """
         # Collapse history when number of entries is at least 200
         if len(self.etf_history["history"]) >= 200:
             self.collapse_history(self.etf_history)            
         if len(self.future_history["history"]) >= 200:
             self.collapse_history(self.future_history)
+        """
                     
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
@@ -228,6 +220,27 @@ class AutoTrader(BaseAutoTrader):
                 del history["history"][0]
             # Update the average dictionary entry
             history["average"] = avg_entry
+
+    def update_average(self, history):
+        depth = 0
+        
+        if len(history["history"]) < 100:
+            depth = len(history["history"])
+        else:
+            depth = 100
+        
+        avg_ask = 0
+        avg_bid = 0
+        
+        for i in range(depth):
+            avg_ask += history["history"][len(history["history"]) - 1 - i]["ask"]["price"]
+            avg_bid += history["history"][len(history["history"]) - 1 - i]["bid"]["price"]
+        
+        avg_ask /= depth
+        avg_bid /= depth
+
+        history["average"]["ask"] = avg_ask
+        history["average"]["bid"] = avg_bid
             
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
