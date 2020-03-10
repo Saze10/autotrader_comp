@@ -66,27 +66,26 @@ class AutoTrader(BaseAutoTrader):
         new_entry["ask"] = new_ask_data
         new_entry["bid"] = new_bid_data
         
-        # Add entry to corresponding instrument dictionary
-        if self.etf_history["average"]["ask"] == 0 and self.future_history["average"]["ask"] == 0:
-            if instrument == Instrument.ETF:
-                self.etf_history["average"]["ask"] == new_ask_data["price"]
-                self.etf_history["average"]["bid"] == new_bid_data["price"]
-            elif instrument == Instrument.FUTURE:
-                self.future_history["average"]["ask"] == new_ask_data["price"]
-                self.future_history["average"]["bid"] == new_bid_data["price"]
-        else:
-            if instrument == Instrument.ETF:
+        if instrument == Instrument.ETF:
+            if len(self.etf_history["history"]) > 0: 
                 self.etf_history["average"]["ask"] += new_ask_data["price"]
                 self.etf_history["average"]["ask"] /= 2
                 self.etf_history["average"]["bid"] += new_bid_data["price"]
                 self.etf_history["average"]["bid"] /= 2
-                self.etf_history["history"].append(new_entry)
-            elif instrument == Instrument.FUTURE:
+            else:
+                self.etf_history["average"]["ask"] = new_ask_data["price"]
+                self.etf_history["average"]["bid"] = new_bid_data["price"]
+            self.etf_history["history"].append(new_entry)
+        elif instrument == Instrument.FUTURE:
+            if len(self.etf_history["history"]) > 0:
                 self.future_history["average"]["ask"] += new_ask_data["price"]
                 self.future_history["average"]["ask"] /= 2
                 self.future_history["average"]["bid"] += new_bid_data["price"]
                 self.future_history["average"]["bid"] /= 2
-                self.future_history["history"].append(new_entry)
+            else:
+                self.future_history["average"]["ask"] = new_ask_data["price"]
+                self.future_history["average"]["bid"] = new_bid_data["price"]
+            self.future_history["history"].append(new_entry)
 
 
         self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
