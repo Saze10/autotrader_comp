@@ -228,3 +228,16 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2020-03-10 12:10:40,056 [WARNING] [TRADER] error with order 677: position limit breached
 2020-03-10 12:10:40,057 [INFO   ] [TRADER] lost connection on execution channel
 2020-03-10 12:10:40,057 [INFO   ] [APP] closing event loop
+2020-03-10 13:01:29,135 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 13:01:29,135 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 13:03:14,844 [ERROR  ] [TRADER] lost connection on execution channel:
+Traceback (most recent call last):
+  File "C:\Users\Amon\AppData\Local\Programs\Python\Python38-32\lib\asyncio\selector_events.py", line 846, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2020-03-10 13:03:14,845 [INFO   ] [APP] closing event loop
+2020-03-10 13:03:31,593 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-10 13:03:31,593 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 13:06:26,740 [WARNING] [TRADER] error with order 686: position limit breached
+2020-03-10 13:06:26,740 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 13:06:26,740 [INFO   ] [APP] closing event loop
