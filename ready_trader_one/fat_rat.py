@@ -150,13 +150,13 @@ class AutoTrader(BaseAutoTrader):
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[int(len(last_trading_price)/2)][0])
                     
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 5, Lifespan.GOOD_FOR_DAY)
 
                     # Make a bid at last trade price - ask bid spread
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
                     
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 5, Lifespan.GOOD_FOR_DAY)
 
             else: # Passive strategy
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
@@ -166,9 +166,9 @@ class AutoTrader(BaseAutoTrader):
 #####################################
                 if self.get_projected_op_rate(2) <= 19.5:
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 5, Lifespan.GOOD_FOR_DAY)
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 5, Lifespan.GOOD_FOR_DAY)
 ######################################
 
                     
