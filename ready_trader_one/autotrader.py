@@ -103,9 +103,9 @@ class AutoTrader(BaseAutoTrader):
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
             if trader_stance == True:
-                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (self.market_execution_rate + self.self_execution_rate)) 
+                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (self.market_execution_rate)) 
             else:
-                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (self.market_execution_rate + self.self_execution_rate))
+                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (self.market_execution_rate))
 
 
         def get_net_threshold(period):
@@ -240,8 +240,8 @@ class AutoTrader(BaseAutoTrader):
         traded at that price since the last trade ticks message.
         """
         self.trade_tick_list.append(trade_ticks)
-        self.market_execution_rate = len(trade_ticks) * 2
-        self.self_execution_rate = self.get_projected_op_rate(0)
+        self.market_execution_rate = len(trade_ticks)
+        self.self_execution_rate = 
 
 
         for key in list(self.active_order_history.keys()):
