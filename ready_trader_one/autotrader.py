@@ -132,7 +132,7 @@ class AutoTrader(BaseAutoTrader):
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
                 
                 self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
 
                 # Make a bid at last trade price
                 """
