@@ -21,6 +21,7 @@ class AutoTrader(BaseAutoTrader):
     def on_order_book_update_message(self, instrument: int, sequence_number: int, ask_prices: List[int],
                                      ask_volumes: List[int], bid_prices: List[int], bid_volumes: List[int]) -> None:
         """Called periodically to report the status of an order book."""
+        
         if instrument == Instrument.FUTURE:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] - self.position * 100 if ask_prices[0] != 0 else 0

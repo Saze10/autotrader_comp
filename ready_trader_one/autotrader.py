@@ -72,25 +72,21 @@ class AutoTrader(BaseAutoTrader):
         new_entry["bid"] = new_bid_data
         
         if instrument == Instrument.ETF:
-            if len(self.etf_history["history"]) > 0: 
-                self.etf_history["average"]["ask"] += new_ask_data["price"]
-                self.etf_history["average"]["ask"] /= 2
-                self.etf_history["average"]["bid"] += new_bid_data["price"]
-                self.etf_history["average"]["bid"] /= 2
-            else:
-                self.etf_history["average"]["ask"] = new_ask_data["price"]
-                self.etf_history["average"]["bid"] = new_bid_data["price"]
             self.etf_history["history"].append(new_entry)
+            if len(self.etf_history["history"]) > 150:
+                del self.etf_history["history"][0]
+            self.update_average(self.etf_history)
         elif instrument == Instrument.FUTURE:
-            if len(self.etf_history["history"]) > 0:
-                self.future_history["average"]["ask"] += new_ask_data["price"]
-                self.future_history["average"]["ask"] /= 2
-                self.future_history["average"]["bid"] += new_bid_data["price"]
-                self.future_history["average"]["bid"] /= 2
-            else:
-                self.future_history["average"]["ask"] = new_ask_data["price"]
-                self.future_history["average"]["bid"] = new_bid_data["price"]
             self.future_history["history"].append(new_entry)
+            if len(self.future_history["history"]) > 150:
+                del self.future_history["history"][0]
+            self.update_average(self.future_history)
+
+
+        self.logger.warning("FUTURE HISTORY AVERAGE ASK IS: %d", int(self.future_history["average"]["ask"]))
+        self.logger.warning("FUTURE HISTORY AVERAGE BID IS: %d", int(self.future_history["average"]["bid"]))
+        self.logger.warning("ETF HISTORY AVERAGE ASK IS %d", int(self.etf_history["average"]["ask"]))
+        self.logger.warning("ETF HISTORY AVERAGE BID IS %d", int(self.etf_history["average"]["bid"]))
 
 
         self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
@@ -99,46 +95,87 @@ class AutoTrader(BaseAutoTrader):
 
 
         def make_order_helper(history):
-                total_ask_before_avg = 0
-                total_bid_before_avg = 0
-                bid_to_ask_ratio = 0.0 
-                ratio_history = 0.0
-                for i in range(100):
-                    ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
-                
-                ratio_history /= 50.0
-                bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
-                
-                self.logger.warning("Current bid to ask ratio history: %d", ratio_history)
-                
-                if(self.position <= -80):
-                    new_ask_price = (int((history["average"]["ask"]*((ratio_history)/100)) * 100)) - (self.position * 100)
-                    new_bid_price = (int((history["average"]["bid"]*((1/ratio_history)/100)) * 100)) - (self.position * 100)
+            """
+            total_ask_before_avg = 0
+            total_bid_before_avg = 0
+            bid_to_ask_ratio = 0.0 
+            ratio_history = 0.0
+            for i in range(100):
+                ratio_history += sum(history["history"][len(history["history"]) - i - 1]["bid"]["volume"])/(sum(history["history"][len(history["history"]) - i - 1]["ask"]["volume"]))
+            
+            ratio_history /= 50
+            bid_to_ask_ratio = sum(bid_volumes)/sum(ask_volumes)
+            
+            self.logger.warning("Current bid to ask ratio history: %d", ratio_history)
+            
+            if(self.position <= -80):
+                new_ask_price = (int((history["average"]["ask"]*((1-ratio_history)/100)) * 100)) - (self.position * 100)
+                new_bid_price = (int((history["average"]["bid"]*((ratio_history)/100)) * 100)) - (self.position * 100)
 
-                else:
-                    new_ask_price = (int((history["average"]["ask"]*((ratio_history)/100)) * 100)) 
-                    new_bid_price = (int((history["average"]["bid"]*((1/ratio_history)/100)) * 100)) 
-                
-                self.logger.warning("New ask price is: %d", new_ask_price)
-                self.logger.warning("New bid price is %d", new_bid_price)
-                
+            else:
+                new_ask_price = (int((history["average"]["ask"]*((1-ratio_history)/100)) * 100)) 
+                new_bid_price = (int((history["average"]["bid"]*((ratio_history)/100)) * 100)) 
+            
+            self.logger.warning("New ask price is: %d", new_ask_price)
+            self.logger.warning("New bid price is %d", new_bid_price)
 
-                if self.previous_sells[0] <= self.previous_buys[0]:
-                    self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
-                    for i in range(1,10):
-                        self.previous_sells[i] = self.previous_sells[i-1]
-                    self.previous_sells[0] = new_ask_price
+            self.ask_id = next(self.order_ids)
+            self.op_send_insert_order(self.ask_id, Side.SELL, new_ask_price, 1, Lifespan.FILL_AND_KILL)
                 
-                if self.previous_sells[0] >= self.previous_buys[0]:
-                
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
-                    for i in range(1,10):
-                        self.previous_buys[i] = self.previous_buys[i-1]
-                    self.previous_buys[0] = new_bid_price
-                
+            self.bid_id = next(self.order_ids)
+            self.op_send_insert_order(self.bid_id, Side.BUY, new_bid_price, 1, Lifespan.FILL_AND_KILL)
+            """
+            pass
+        
+        
+        def order_quantity(trader_stance):
+            """trader_stance is a boolean: True = passive, False = aggressive"""
+            iif trader_stance == True:
+                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" )) 
+            else:
+                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" ))
 
+
+
+        
+        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
+            volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
+
+            last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
+            ask_bid_spread = ask_prices[0] - bid_prices[0]
+
+            if volume_difference > 0.5: # Aggressive strategy
+                # Make an ask at the last trading price
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.ask_id, Side.SELL, self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0]), 1, Lifespan.FILL_AND_KILL)
+
+                # Make a bid at last trade price - ask bid spread
+                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
+                
+                self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+
+            else: # Passive strategy
+                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
+                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
+
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
+
+                self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+
+                #TESTING GFD VS FAK TRADES
+#####################################
+                self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+######################################
+
+
+            
+        """
         #entrance 
         if len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100:
             new_bid_price = bid_prices[0] - self.position * 100 if bid_prices[0] != 0 else 0
@@ -182,12 +219,14 @@ class AutoTrader(BaseAutoTrader):
             elif instrument == Instrument.ETF: # Isn't this duplicate code?
                 self.logger.warning("I'm in mid-late-game if ETF instrument")
                 make_order_helper(self.etf_history)
-
+        """
+        """
         # Collapse history when number of entries is at least 200
         if len(self.etf_history["history"]) >= 200:
             self.collapse_history(self.etf_history)            
         if len(self.future_history["history"]) >= 200:
             self.collapse_history(self.future_history)
+        """
                     
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
@@ -248,6 +287,27 @@ class AutoTrader(BaseAutoTrader):
                 del history["history"][0]
             # Update the average dictionary entry
             history["average"] = avg_entry
+
+    def update_average(self, history):
+        depth = 0
+        
+        if len(history["history"]) < 100:
+            depth = len(history["history"])
+        else:
+            depth = 100
+        
+        avg_ask = 0
+        avg_bid = 0
+        
+        for i in range(depth):
+            avg_ask += history["history"][len(history["history"]) - 1 - i]["ask"]["price"]
+            avg_bid += history["history"][len(history["history"]) - 1 - i]["bid"]["price"]
+        
+        avg_ask /= depth
+        avg_bid /= depth
+
+        history["average"]["ask"] = avg_ask
+        history["average"]["bid"] = avg_bid
             
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
@@ -284,5 +344,7 @@ class AutoTrader(BaseAutoTrader):
             return len(self.op_history)+num_ops/(time.time() - self.op_history[0])
         else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
             return 0
-            
+
+    def round_to_trade_tick(self, integer):
+        return int(integer/100) * 100            
         
