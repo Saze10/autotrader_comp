@@ -308,7 +308,7 @@ class AutoTrader(BaseAutoTrader):
             del self.op_history[0]
         
     def get_projected_op_rate(self, num_ops): # Second parameter is the number of ops to be taken
-        if len(self.op_history) > 0:
+        if len(self.op_history) > 0 and (time.time() - self.op_history[0]) != 0:
             return (len(self.op_history)+num_ops)/(time.time() - self.op_history[0])
         else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
             return 0
