@@ -150,13 +150,13 @@ class AutoTrader(BaseAutoTrader):
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
                     
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
 
                     # Make a bid at last trade price - ask bid spread
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
                     
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.GOOD_FOR_DAY)
 
             else: # Passive strategy
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
@@ -182,6 +182,12 @@ class AutoTrader(BaseAutoTrader):
         """
         # Update operation history for past second
         self.update_op_history()
+
+        if remaining_volume > 0 and fill_volume > 0 and client_order_id in self.active_order_history.keys():
+            temp = list(self.active_order_history[client_order_id]) # Convert tuple to list
+            temp[1] = 0
+            self.active_order_history[client_order_id] = tuple(temp)
+            
 
         if remaining_volume == 0 and client_order_id in self.active_order_history.keys():
             del self.active_order_history[client_order_id]
