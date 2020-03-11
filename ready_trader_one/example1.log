@@ -325,3 +325,18 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2020-03-11 18:28:48,151 [WARNING] [TRADER] error with order 794: position limit breached
 2020-03-11 18:28:48,152 [INFO   ] [TRADER] lost connection on execution channel
 2020-03-11 18:28:48,152 [INFO   ] [APP] closing event loop
+2020-03-11 20:55:42,858 [INFO   ] [APP] example1 started with arguments={C:\Users\Parents\Desktop\AutoComp\ready_trader_one\run.py}
+2020-03-11 20:55:42,859 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 21:00:00,815 [INFO   ] [APP] example1 started with arguments={C:\Users\Parents\Desktop\AutoComp\ready_trader_one\run.py}
+2020-03-11 21:00:00,815 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 21:02:46,421 [INFO   ] [APP] example1 started with arguments={C:\Users\Parents\Desktop\AutoComp\ready_trader_one\run.py}
+2020-03-11 21:02:46,422 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 21:08:38,672 [INFO   ] [APP] example1 started with arguments={C:\Users\Parents\Desktop\AutoComp\ready_trader_one\run.py}
+2020-03-11 21:08:38,672 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 21:24:23,721 [INFO   ] [APP] example1 started with arguments={C:\Users\Parents\Desktop\AutoComp\ready_trader_one\run.py}
+2020-03-11 21:24:23,722 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 21:27:16,762 [WARNING] [TRADER] error with order 669: position limit breached
+2020-03-11 21:27:16,763 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-11 21:27:16,764 [INFO   ] [APP] closing event loop
+2020-03-11 21:31:41,017 [INFO   ] [APP] example1 started with arguments={C:\Users\Parents\Desktop\AutoComp\ready_trader_one\run.py}
+2020-03-11 21:31:41,017 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}

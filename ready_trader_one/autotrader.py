@@ -120,7 +120,7 @@ class AutoTrader(BaseAutoTrader):
                 volume_sum /= period
                 return volume_sum
 
-        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
+        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0 and instrument == Instrument.FUTURE):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
 
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
@@ -132,7 +132,7 @@ class AutoTrader(BaseAutoTrader):
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
                 
                 self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
 
                 # Make a bid at last trade price
                 """
@@ -150,13 +150,13 @@ class AutoTrader(BaseAutoTrader):
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
                     
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.FILL_AND_KILL)
 
                     # Make a bid at last trade price - ask bid spread
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
                     
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.FILL_AND_KILL)
 
             else: # Passive strategy
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
@@ -166,9 +166,9 @@ class AutoTrader(BaseAutoTrader):
 #####################################
                 if self.get_projected_op_rate(2) <= 19.5:
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.GOOD_FOR_DAY)
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
 ######################################
 
                     
