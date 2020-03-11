@@ -105,7 +105,7 @@ class AutoTrader(BaseAutoTrader):
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
             if trader_stance == True:
-                return int(min(sum(bid_volumes),sum(ask_volumes)/10000) * 0.5 * (self.number_of_matches_in_tick)) 
+                return int(min(sum(bid_volumes),sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick)) 
             else:
                 return int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
                 
