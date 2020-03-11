@@ -145,8 +145,8 @@ class AutoTrader(BaseAutoTrader):
                 else:
                     self.logger.warning(" between +-50 position statement")
                     self.bid_id = next(self.order_ids)
-                    self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
+                    self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
 
                 # Make a bid at last trade price - ask bid spread
@@ -193,8 +193,8 @@ class AutoTrader(BaseAutoTrader):
                 else:
                     self.logger.warning("between position statement passive")
                     self.bid_id = next(self.order_ids)
-                    self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
+                    self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
 
 
