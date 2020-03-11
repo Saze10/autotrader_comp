@@ -130,14 +130,24 @@ class AutoTrader(BaseAutoTrader):
         
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
-            iif trader_stance == True:
-                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" )) 
+            if trader_stance == True:
+                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (sum(self.trade_tick_list[len(self.trade_tick_list)-3 : len(self.trade_tick_list)-1]) + """need to add our volume""" )) 
             else:
-                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" ))
+                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (sum(self.trade_tick_list[len(self.trade_tick_list)-3 : len(self.trade_tick_list)-1]) + """need to add our volume""" ))
 
 
+        def get_net_threshold(period):
+            if len(self.trade_tick_list > 0)
+                volume_sum = 0
+                if period > len(self.trade_tick_list):
+                    period = len(self.trade_tick_list)
+                    
+                for i in range(period):
+                    volume_sum += sum(self.trade_tick_list[i])[1]
+                
+                volume_sum /= period
+                return volume_sum
 
-        
         if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
 
@@ -145,34 +155,51 @@ class AutoTrader(BaseAutoTrader):
             ask_bid_spread = ask_prices[0] - bid_prices[0]
 
             if volume_difference > 0.5: # Aggressive strategy
-                # Make an ask at the last trading price
-                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0]) 
                 
-                self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
+                if self.position > 75 or self.position < -75:
+                    # Make an ask at the last trading price + ask_bid_spread
+                    ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
+                    
+                    self.ask_id = next(self.order_ids)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
 
-                # Make a bid at last trade price - ask bid spread
-                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
-                
-                self.bid_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+                    # Make a bid at last trade price
+                    bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0])
+                    
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+
+                else: 
+                    # Make an ask at the last trading price
+                    ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
+                    
+                    self.ask_id = next(self.order_ids)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
+
+                    # Make a bid at last trade price - ask bid spread
+                    bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
+                    
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
 
             else: # Passive strategy
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
                 bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
 
+                """
                 self.ask_id = next(self.order_ids)
                 self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
 
                 self.bid_id = next(self.order_ids)
                 self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+                """
 
                 #TESTING GFD VS FAK TRADES
 #####################################
                 self.bid_id = next(self.order_ids)
                 self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
                 self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
 ######################################
 
 
@@ -348,5 +375,5 @@ class AutoTrader(BaseAutoTrader):
             return 0
 
     def round_to_trade_tick(self, integer):
-        return int(integer/100) * 100            
+        return int(integer/100) * 100
         
