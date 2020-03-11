@@ -32,6 +32,8 @@ class AutoTrader(BaseAutoTrader):
         self.market_execution_rate = 0
 
         self.self_execution_rate = 0
+
+        self.number_of_matches_in_tick = 0
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -103,7 +105,7 @@ class AutoTrader(BaseAutoTrader):
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
             if trader_stance == True:
-                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (self.market_execution_rate)) 
+                return int(min(sum(bid_volumes),sum(ask_volumes)) * 0.5 * (self.market_execution_rate)) 
             else:
                 return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (self.market_execution_rate))
 
@@ -185,17 +187,17 @@ class AutoTrader(BaseAutoTrader):
                 if(self.position < -50):
                     self.logger.warning(" less than -50 position statement passive")
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
                 elif(self.position > 50):
                     self.logger.warning(" more than 50 position statement passive")
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
                 else:
                     self.logger.warning("between position statement passive")
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
 
                     
@@ -214,6 +216,8 @@ class AutoTrader(BaseAutoTrader):
             del self.active_order_history[client_order_id]
 
         self.total_fees += fees
+
+        self.number_of_matches_in_tick += 1
 
         self.logger.warning("Total fees: %f", self.total_fees)
 
@@ -241,7 +245,9 @@ class AutoTrader(BaseAutoTrader):
         """
         self.trade_tick_list.append(trade_ticks)
         self.market_execution_rate = len(trade_ticks)
-        self.self_execution_rate = 
+        self.number_of_matches_in_tick = 0
+
+        #self.self_execution_rate = self.get_projected_op_rate(0)
 
 
         for key in list(self.active_order_history.keys()):

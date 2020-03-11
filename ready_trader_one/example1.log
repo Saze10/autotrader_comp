@@ -286,3 +286,16 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2020-03-11 17:09:56,355 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
 2020-03-11 17:12:10,182 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-11 17:12:10,182 [INFO   ] [APP] closing event loop
+2020-03-11 17:18:46,178 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 17:18:46,179 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 17:18:49,400 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-11 17:18:49,400 [INFO   ] [APP] closing event loop
+2020-03-11 17:19:22,534 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 17:19:22,535 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 17:20:52,998 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-11 17:20:52,998 [INFO   ] [APP] closing event loop
+2020-03-11 17:27:30,567 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 17:27:30,568 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 17:28:45,578 [WARNING] [TRADER] error with order 237: position limit breached
+2020-03-11 17:28:45,580 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-11 17:28:45,580 [INFO   ] [APP] closing event loop
