@@ -7146,3 +7146,47 @@
 2020-03-11 17:26:49,905 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
 2020-03-11 17:27:37,676 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
 2020-03-11 17:27:37,677 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:33:53,826 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:33:53,826 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:35:05,522 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:35:05,522 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:35:05,738 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-11 17:35:05,738 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-11 17:35:14,025 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:35:14,025 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:35:20,933 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:35:20,934 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:41:37,146 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:41:37,147 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:41:37,335 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-11 17:41:37,335 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-11 17:41:37,591 [WARNING] [TRADER] error with order 3: order rejected: market not yet open
+2020-03-11 17:41:37,591 [WARNING] [TRADER] error with order 4: order rejected: market not yet open
+2020-03-11 17:41:37,833 [WARNING] [TRADER] error with order 5: order rejected: market not yet open
+2020-03-11 17:41:37,833 [WARNING] [TRADER] error with order 6: order rejected: market not yet open
+2020-03-11 17:41:38,086 [WARNING] [TRADER] error with order 7: order rejected: market not yet open
+2020-03-11 17:41:38,086 [WARNING] [TRADER] error with order 8: order rejected: market not yet open
+2020-03-11 17:41:38,340 [WARNING] [TRADER] error with order 9: order rejected: market not yet open
+2020-03-11 17:41:38,340 [WARNING] [TRADER] error with order 10: order rejected: market not yet open
+2020-03-11 17:41:38,581 [WARNING] [TRADER] error with order 11: order rejected: market not yet open
+2020-03-11 17:41:38,581 [WARNING] [TRADER] error with order 12: order rejected: market not yet open
+2020-03-11 17:41:38,836 [WARNING] [TRADER] error with order 13: order rejected: market not yet open
+2020-03-11 17:41:38,836 [WARNING] [TRADER] error with order 14: order rejected: market not yet open
+2020-03-11 17:41:39,093 [WARNING] [TRADER] error with order 15: order rejected: market not yet open
+2020-03-11 17:41:39,093 [WARNING] [TRADER] error with order 16: order rejected: market not yet open
+2020-03-11 17:41:39,333 [WARNING] [TRADER] error with order 17: order rejected: market not yet open
+2020-03-11 17:41:39,334 [WARNING] [TRADER] error with order 18: order rejected: market not yet open
+2020-03-11 17:41:39,588 [WARNING] [TRADER] error with order 19: order rejected: market not yet open
+2020-03-11 17:41:39,589 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-11 17:41:39,589 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-11 17:41:39,589 [INFO   ] [APP] closing event loop
+2020-03-11 17:41:55,021 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:41:55,022 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:44:19,285 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:44:19,286 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:48:47,840 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:48:47,841 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:51:59,959 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:51:59,959 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:52:12,083 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:52:12,083 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}

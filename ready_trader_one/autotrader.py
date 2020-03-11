@@ -28,6 +28,8 @@ class AutoTrader(BaseAutoTrader):
         self.previous_sells = [0] * 10
 
         self.previous_buys = [0] * 10
+
+        self.rat_mode = False
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -125,7 +127,8 @@ class AutoTrader(BaseAutoTrader):
             ask_bid_spread = ask_prices[0] - bid_prices[0]
 
             if volume_difference > 0.5: # Aggressive strategy                
-                if self.position > 75 or self.position < -75:
+                if self.rat_mode:
+                    self.logger.warning("RAT MODE ACTIVATED")
                     # Make an ask at the last trading price + ask_bid_spread
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
                     
@@ -133,10 +136,15 @@ class AutoTrader(BaseAutoTrader):
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
 
                     # Make a bid at last trade price
+                    """
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0])
                     
                     self.bid_id = next(self.order_ids)
                     self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+                    """
+
+                    if abs(self.position) < 25:
+                        self.rat_mode = False
 
                 else: 
                     # Make an ask at the last trading price
@@ -198,6 +206,9 @@ class AutoTrader(BaseAutoTrader):
         """
         self.logger.warning("Our position is: %d", self.position)
         self.position = etf_position
+
+        if self.position > 75 or self.position < -75:
+            self.rat_mode = True
         
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
