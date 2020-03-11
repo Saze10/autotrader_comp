@@ -206,7 +206,9 @@ class AutoTrader(BaseAutoTrader):
         self.trade_tick_list.append(trade_ticks)
 
         for key in list(self.active_order_history.keys()):
-            self.active_order_history[key][1] += 1
+            temp = list(self.active_order_history[key]) # Convert tuple to list
+            temp[1] += 1
+            self.active_order_history[key] = tuple(temp)
             if self.active_order_history[key][1] > 3:
                 del self.active_order_history[key]
             
