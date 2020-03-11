@@ -7190,3 +7190,11 @@
 2020-03-11 17:51:59,959 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
 2020-03-11 17:52:12,083 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
 2020-03-11 17:52:12,083 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:59:42,652 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:59:42,652 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 18:04:05,559 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 18:04:05,559 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 18:15:39,009 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 18:15:39,009 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 18:16:32,332 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 18:16:32,332 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}

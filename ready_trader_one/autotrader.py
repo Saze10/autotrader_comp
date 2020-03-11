@@ -125,28 +125,27 @@ class AutoTrader(BaseAutoTrader):
 
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
             ask_bid_spread = ask_prices[0] - bid_prices[0]
+            
+            if self.rat_mode:
+                self.logger.warning("RAT MODE ACTIVATED")
+                # Make an ask at the last trading price + ask_bid_spread
+                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
+                
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
 
-            if volume_difference > 0.5: # Aggressive strategy                
-                if self.rat_mode:
-                    self.logger.warning("RAT MODE ACTIVATED")
-                    # Make an ask at the last trading price + ask_bid_spread
-                    ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
-                    
-                    self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
+                # Make a bid at last trade price
+                """
+                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0])
+                
+                self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+                """
 
-                    # Make a bid at last trade price
-                    """
-                    bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0])
-                    
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
-                    """
+                if abs(self.position) < 25:
+                    self.rat_mode = False
 
-                    if abs(self.position) < 25:
-                        self.rat_mode = False
-
-                else: 
+            elif volume_difference > 0.5 and self.get_projected_op_rate(2) <= 19.5: # Aggressive strategy                
                     # Make an ask at the last trading price
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
                     
@@ -165,10 +164,11 @@ class AutoTrader(BaseAutoTrader):
 
                 #TESTING GFD VS FAK TRADES
 #####################################
-                self.bid_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
-                self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                if self.get_projected_op_rate(2) <= 19.5:
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                    self.ask_id = next(self.order_ids)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
 ######################################
 
                     
@@ -275,8 +275,15 @@ class AutoTrader(BaseAutoTrader):
             if (side == Side.BUY and self.position < 100) or (side == Side.SELL and self.position > -100):
                 self.send_insert_order(client_order_id, side, price, volume, lifespan)
                 self.op_history.append(time.time())
+                
+                # Logging messages
+                if side == side.SELL:
+                    self.logger.warning("We sold!")
+                if side == side.BUY:
+                    self.logger.warning("We bought!")
                 if lifespan == Lifespan.GOOD_FOR_DAY:
                     self.active_order_history[client_order_id] = (client_order_id, 0)
+                    
 
     def op_send_cancel_order(self, client_order_id: int) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
