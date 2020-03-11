@@ -174,7 +174,7 @@ class AutoTrader(BaseAutoTrader):
         # Update operation history for past second
         self.update_op_history()
 
-        if remaining_volume == 0:
+        if remaining_volume == 0 and client_order_id in self.active_order_history.keys():
             del self.active_order_history[client_order_id]
 
         self.total_fees += fees
@@ -210,6 +210,7 @@ class AutoTrader(BaseAutoTrader):
             temp[1] += 1
             self.active_order_history[key] = tuple(temp)
             if self.active_order_history[key][1] > 3:
+                self.op_send_cancel_order(key)
                 del self.active_order_history[key]
             
                 
