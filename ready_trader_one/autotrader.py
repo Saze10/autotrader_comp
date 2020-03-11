@@ -143,7 +143,7 @@ class AutoTrader(BaseAutoTrader):
                     period = len(self.trade_tick_list)
                     
                 for i in range(period):
-                    volume_sum += sum(self.trade_tick_list[i])[1]
+                    volume_sum += sum(self.trade_tick_list[i])[1]/len(self.trade_tick_list[i])
                 
                 volume_sum /= period
                 return volume_sum
