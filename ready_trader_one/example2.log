@@ -7136,3 +7136,13 @@
 2020-03-11 16:48:07,086 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
 2020-03-11 16:48:14,020 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
 2020-03-11 16:48:14,020 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 16:56:16,440 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 16:56:16,440 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:06:29,055 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:06:29,055 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:08:42,911 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:08:42,912 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:26:49,904 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:26:49,905 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-11 17:27:37,676 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 17:27:37,677 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}

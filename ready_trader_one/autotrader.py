@@ -84,18 +84,20 @@ class AutoTrader(BaseAutoTrader):
                 del self.future_history["history"][0]
             self.update_average(self.future_history)
 
-
+        """
         self.logger.warning("FUTURE HISTORY AVERAGE ASK IS: %d", int(self.future_history["average"]["ask"]))
         self.logger.warning("FUTURE HISTORY AVERAGE BID IS: %d", int(self.future_history["average"]["bid"]))
         self.logger.warning("ETF HISTORY AVERAGE ASK IS %d", int(self.etf_history["average"]["ask"]))
         self.logger.warning("ETF HISTORY AVERAGE BID IS %d", int(self.etf_history["average"]["bid"]))
 
-
         self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
         self.logger.warning("Current ETF dictionary length: %d", len(self.etf_history["history"]))
         self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
-        
-        
+        """
+
+        self.logger.warning("Below is the active order history:")
+        self.logger.warning(str(self.active_order_history))
+                
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
             if trader_stance == True:
@@ -122,8 +124,7 @@ class AutoTrader(BaseAutoTrader):
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
             ask_bid_spread = ask_prices[0] - bid_prices[0]
 
-            if volume_difference > 0.5: # Aggressive strategy
-                
+            if volume_difference > 0.5: # Aggressive strategy                
                 if self.position > 75 or self.position < -75:
                     # Make an ask at the last trading price + ask_bid_spread
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
@@ -210,8 +211,8 @@ class AutoTrader(BaseAutoTrader):
             temp[1] += 1
             self.active_order_history[key] = tuple(temp)
             if self.active_order_history[key][1] > 3:
-                self.op_send_cancel_order(key)
-                del self.active_order_history[key]
+                if self.op_send_cancel_order(key): # This function returns true if cancel is successful
+                    del self.active_order_history[key]
             
                 
         
@@ -260,18 +261,18 @@ class AutoTrader(BaseAutoTrader):
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
-            self.logger.warning("Goes through 1st if statement for op_send_insert_order")
             if (side == Side.BUY and self.position < 100) or (side == Side.SELL and self.position > -100):
-                self.logger.warning("Goes through second if statement for op_send_insert_order")
                 self.send_insert_order(client_order_id, side, price, volume, lifespan)
-                self.logger.warning("client_order_id of order is %d", client_order_id)
                 self.op_history.append(time.time())
-                self.active_order_history[client_order_id] = (client_order_id, 0)
+                if lifespan == Lifespan.GOOD_FOR_DAY:
+                    self.active_order_history[client_order_id] = (client_order_id, 0)
 
     def op_send_cancel_order(self, client_order_id: int) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
             self.send_cancel_order(client_order_id)
             self.op_history.append(time.time())
+            return True
+        return False
 
     def op_send_amend_order(self, client_order_id: int, volume: int) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
