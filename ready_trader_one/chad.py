@@ -110,7 +110,7 @@ class AutoTrader(BaseAutoTrader):
                 return int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
                 
 
-        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
+        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0 and instrument == Instrument.FUTURE):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
 
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
