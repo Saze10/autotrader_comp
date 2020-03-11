@@ -30,6 +30,8 @@ class AutoTrader(BaseAutoTrader):
         self.previous_buys = [0] * 10
 
         self.rat_mode = False
+
+        self.number_of_matches_in_tick = 0
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -103,24 +105,12 @@ class AutoTrader(BaseAutoTrader):
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
             if trader_stance == True:
-                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (sum(self.trade_tick_list[len(self.trade_tick_list)-3 : len(self.trade_tick_list)-1]) + """need to add our volume""" )) 
+                return int(min(sum(bid_volumes),sum(ask_volumes)/10000) * 0.5 * (self.number_of_matches_in_tick)) 
             else:
-                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (sum(self.trade_tick_list[len(self.trade_tick_list)-3 : len(self.trade_tick_list)-1]) + """need to add our volume""" ))
-
-
-        def get_net_threshold(period):
-            if len(self.trade_tick_list) > 0:
-                volume_sum = 0
-                if period > len(self.trade_tick_list):
-                    period = len(self.trade_tick_list)
-                    
-                for i in range(period):
-                    volume_sum += sum(self.trade_tick_list[i])[1]/len(self.trade_tick_list[i])
+                return int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
                 
-                volume_sum /= period
-                return volume_sum
 
-        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0 and instrument == Instrument.FUTURE):
+        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
 
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
@@ -146,19 +136,22 @@ class AutoTrader(BaseAutoTrader):
                     self.rat_mode = False
 
             elif volume_difference > 0.5 and self.get_projected_op_rate(2) <= 19.5: # Aggressive strategy                
+                    order_volume = order_quantity(False)
                     # Make an ask at the last trading price
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
                     
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
                     # Make a bid at last trade price - ask bid spread
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
                     
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
             else: # Passive strategy
+
+                order_volume = order_quantity(True)
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
                 bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
 
@@ -166,9 +159,9 @@ class AutoTrader(BaseAutoTrader):
 #####################################
                 if self.get_projected_op_rate(2) <= 19.5:
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume , Lifespan.GOOD_FOR_DAY)
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 ######################################
 
                     
@@ -193,6 +186,8 @@ class AutoTrader(BaseAutoTrader):
             del self.active_order_history[client_order_id]
 
         self.total_fees += fees
+
+        self.number_of_matches_in_tick += 1
 
         self.logger.warning("Total fees: %f", self.total_fees)
 
@@ -222,6 +217,7 @@ class AutoTrader(BaseAutoTrader):
         traded at that price since the last trade ticks message.
         """
         self.trade_tick_list.append(trade_ticks)
+        self.number_of_matches_in_tick = 0
 
         for key in list(self.active_order_history.keys()):
             temp = list(self.active_order_history[key]) # Convert tuple to list
