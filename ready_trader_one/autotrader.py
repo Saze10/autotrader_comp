@@ -105,7 +105,7 @@ class AutoTrader(BaseAutoTrader):
 
 
         def get_net_threshold(period):
-            if len(self.trade_tick_list > 0):
+            if len(self.trade_tick_list > 0)
                 volume_sum = 0
                 if period > len(self.trade_tick_list):
                     period = len(self.trade_tick_list)
@@ -175,7 +175,7 @@ class AutoTrader(BaseAutoTrader):
         self.update_op_history()
 
         if remaining_volume == 0:
-            del self.active_order_list[client_order_id]
+            del self.active_order_history[client_order_id]
 
         self.total_fees += fees
 
@@ -205,10 +205,10 @@ class AutoTrader(BaseAutoTrader):
         """
         self.trade_tick_list.append(trade_ticks)
 
-        for key in list(self.active_order_list.keys()):
-            self.active_order_list[key][1] += 1
-            if self.active_order_list[key][1] > 3:
-                del self.active_order_list[key]
+        for key in list(self.active_order_history.keys()):
+            self.active_order_history[key][1] += 1
+            if self.active_order_history[key][1] > 3:
+                del self.active_order_history[key]
             
                 
         
