@@ -124,7 +124,7 @@ class AutoTrader(BaseAutoTrader):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
 
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
-            ask_bid_spread = ask_prices[0] - bid_prices[0]
+            ask_bid_spread = aask_prices[0] - bid_prices[0]
             
             if self.rat_mode:
                 self.logger.warning("RAT MODE ACTIVATED")
@@ -162,14 +162,11 @@ class AutoTrader(BaseAutoTrader):
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
                 bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
 
-                #TESTING GFD VS FAK TRADES
-#####################################
                 if self.get_projected_op_rate(2) <= 19.5:
                     self.bid_id = next(self.order_ids)
                     self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
                     self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
-######################################
 
                     
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
@@ -182,6 +179,11 @@ class AutoTrader(BaseAutoTrader):
         """
         # Update operation history for past second
         self.update_op_history()
+        
+        if fill_volume > 0 and remaining_volume > 0 and client_order_id in self.active_order_history.keys(): # When an order is partially filled - extend the time it stays up
+            temp = list(self.active_order_history[client_order_id]) # Convert tuple to list
+            temp[1] = 0
+            self.active_order_history[key] = tuple(temp)
 
         if remaining_volume == 0 and client_order_id in self.active_order_history.keys():
             del self.active_order_history[client_order_id]

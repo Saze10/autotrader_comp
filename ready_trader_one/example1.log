@@ -325,3 +325,10 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2020-03-11 18:28:48,151 [WARNING] [TRADER] error with order 794: position limit breached
 2020-03-11 18:28:48,152 [INFO   ] [TRADER] lost connection on execution channel
 2020-03-11 18:28:48,152 [INFO   ] [APP] closing event loop
+2020-03-11 19:06:40,066 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 19:06:40,067 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 19:06:50,707 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 19:06:50,707 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 19:09:46,867 [WARNING] [TRADER] error with order 675: position limit breached
+2020-03-11 19:09:46,868 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-11 19:09:46,868 [INFO   ] [APP] closing event loop
