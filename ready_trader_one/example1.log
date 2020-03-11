@@ -183,4 +183,65 @@
 2020-03-10 23:28:27,074 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
 2020-03-10 23:31:56,070 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
 2020-03-10 23:31:56,070 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+<<<<<<< HEAD
+2020-03-10 23:36:27,816 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 23:36:27,816 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 23:39:07,253 [WARNING] [TRADER] error with order 579: position limit breached
+2020-03-10 23:39:07,256 [ERROR  ] [TRADER] lost connection on execution channel:
+Traceback (most recent call last):
+  File "C:\Users\Andre Calma\AppData\Local\Programs\Python\Python38-32\lib\asyncio\selector_events.py", line 846, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2020-03-10 23:39:07,257 [INFO   ] [APP] closing event loop
+2020-03-10 23:52:33,050 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 23:52:33,050 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 23:52:47,697 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 23:52:47,697 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 23:54:22,898 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 23:54:22,898 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 23:55:56,113 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 23:55:56,113 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 23:57:31,162 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-10 23:57:31,162 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-10 23:59:26,096 [WARNING] [TRADER] error with order 425: position limit breached
+2020-03-10 23:59:26,097 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-10 23:59:26,097 [INFO   ] [APP] closing event loop
+2020-03-11 00:11:12,123 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 00:11:12,124 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 00:13:51,298 [WARNING] [TRADER] error with order 580: position limit breached
+2020-03-11 00:13:51,300 [ERROR  ] [TRADER] lost connection on execution channel:
+Traceback (most recent call last):
+  File "C:\Users\Andre Calma\AppData\Local\Programs\Python\Python38-32\lib\asyncio\selector_events.py", line 846, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2020-03-11 00:13:51,301 [INFO   ] [APP] closing event loop
+2020-03-11 00:17:18,020 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 00:17:18,020 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 00:17:28,482 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 00:17:28,482 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 00:20:19,671 [WARNING] [TRADER] error with order 730: position limit breached
+2020-03-11 00:20:19,672 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-11 00:20:19,672 [INFO   ] [APP] closing event loop
+=======
 >>>>>>> 1b80a2766b6b7b152f2680d0312f5d2609a582e9
+>>>>>>> e5c41a1e1d242e79bcbf4360be1406cdd8fb6b72
+2020-03-11 16:38:01,417 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 16:38:01,417 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 16:40:16,981 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-11 16:40:16,982 [INFO   ] [APP] closing event loop
+2020-03-11 16:41:36,266 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 16:41:36,267 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 16:41:44,755 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-11 16:41:44,756 [INFO   ] [APP] closing event loop
+2020-03-11 16:41:57,157 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 16:41:57,158 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 16:42:54,137 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-11 16:42:54,137 [INFO   ] [APP] closing event loop
+2020-03-11 16:44:30,915 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 16:44:30,915 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 16:45:35,763 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-11 16:45:35,764 [INFO   ] [APP] closing event loop
+2020-03-11 16:46:28,898 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-11 16:46:28,898 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 16:48:33,764 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-11 16:48:33,765 [INFO   ] [APP] closing event loop
