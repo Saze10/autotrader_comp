@@ -126,7 +126,7 @@ class AutoTrader(BaseAutoTrader):
                 elif self.position < -25:
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0]) 
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAYS)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
 
 
                 # Make a bid at last trade price
