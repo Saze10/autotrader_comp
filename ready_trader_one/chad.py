@@ -106,12 +106,20 @@ class AutoTrader(BaseAutoTrader):
             """trader_stance is a boolean: True = passive, False = aggressive"""
             if trader_stance == True:
                 volume = int(min(sum(bid_volumes),sum(ask_volumes))/10000 * 0.5 * (self.number_of_matches_in_tick))
+                
+                if volume == 0:
+                    volume = 1
+
                 if volume <= 5:
                     return volume
                 else:
                     return 5
             else:
                 volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
+                
+                if volume == 0:
+                    volume = 1
+
                 if volume <= 5:
                     return volume
                 else:
