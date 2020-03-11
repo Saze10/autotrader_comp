@@ -109,7 +109,7 @@ class AutoTrader(BaseAutoTrader):
 
 
         def get_net_threshold(period):
-            if len(self.trade_tick_list > 0):
+            if len(self.trade_tick_list) > 0:
                 volume_sum = 0
                 if period > len(self.trade_tick_list):
                     period = len(self.trade_tick_list)
@@ -135,12 +135,15 @@ class AutoTrader(BaseAutoTrader):
 
 
                 if(self.position < -50):
+                    self.logger.warning(" less than -50 position statement")
                     self.bid_id = next(self.order_ids)
                     self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
                 elif(self.position > 50):
+                    self.logger.warning(" more than 50 positoin statement")
                     self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
                 else:
+                    self.logger.warning(" between +-50 position statement")
                     self.bid_id = next(self.order_ids)
                     self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
@@ -180,12 +183,15 @@ class AutoTrader(BaseAutoTrader):
                 bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
                 
                 if(self.position < -50):
+                    self.logger.warning(" less than -50 position statement passive")
                     self.bid_id = next(self.order_ids)
                     self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
                 elif(self.position > 50):
+                    self.logger.warning(" more than 50 position statement passive")
                     self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
                 else:
+                    self.logger.warning("between position statement passive")
                     self.bid_id = next(self.order_ids)
                     self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
@@ -204,7 +210,7 @@ class AutoTrader(BaseAutoTrader):
         # Update operation history for past second
         self.update_op_history()
 
-        if remaining_volume == 0:
+        if remaining_volume == 0 and client_order_id in self.active_order_history.keys():
             del self.active_order_history[client_order_id]
 
         self.total_fees += fees
@@ -239,8 +245,11 @@ class AutoTrader(BaseAutoTrader):
 
 
         for key in list(self.active_order_history.keys()):
-            self.active_order_history[key][1] += 1
+            temp = list(self.active_order_history[key]) # Convert tuple to list
+            temp[1] += 1
+            self.active_order_history[key] = tuple(temp)
             if self.active_order_history[key][1] > 3:
+                self.op_send_cancel_order(key)
                 del self.active_order_history[key]
             
                 
