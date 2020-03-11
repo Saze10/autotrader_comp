@@ -3,6 +3,7 @@ from typing import List, Tuple
 from ready_trader_one import BaseAutoTrader, Instrument, Lifespan, Side
 import time
 import itertools
+
 class AutoTrader(BaseAutoTrader):
     
     def __init__(self, loop: asyncio.AbstractEventLoop):
@@ -22,9 +23,9 @@ class AutoTrader(BaseAutoTrader):
 
         self.base_time = time.time()
 
-        self.previous_sells = []
+        self.previous_sells = [0] * 10
 
-        self.previous_buys = []
+        self.previous_buys = [0] * 10
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -126,6 +127,17 @@ class AutoTrader(BaseAutoTrader):
             """
             pass
         
+        
+        def order_quantity(trader_stance):
+            """trader_stance is a boolean: True = passive, False = aggressive"""
+            iif trader_stance == True:
+                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" )) 
+            else:
+                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" ))
+
+
+
+        
         if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
 
@@ -154,7 +166,16 @@ class AutoTrader(BaseAutoTrader):
 
                 self.bid_id = next(self.order_ids)
                 self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
-                
+
+                #TESTING GFD VS FAK TRADES
+#####################################
+                self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+######################################
+
+
             
         """
         #entrance 
