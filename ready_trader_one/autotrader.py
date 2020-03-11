@@ -105,7 +105,7 @@ class AutoTrader(BaseAutoTrader):
 
 
         def get_net_threshold(period):
-            if len(self.trade_tick_list > 0)
+            if len(self.trade_tick_list) > 0
                 volume_sum = 0
                 if period > len(self.trade_tick_list):
                     period = len(self.trade_tick_list)

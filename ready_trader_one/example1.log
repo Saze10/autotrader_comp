@@ -225,3 +225,7 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 =======
 >>>>>>> 1b80a2766b6b7b152f2680d0312f5d2609a582e9
 >>>>>>> e5c41a1e1d242e79bcbf4360be1406cdd8fb6b72
+2020-03-11 16:36:08,894 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 16:36:08,894 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-11 16:36:36,271 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-11 16:36:36,271 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
