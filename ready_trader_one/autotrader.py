@@ -26,6 +26,10 @@ class AutoTrader(BaseAutoTrader):
         self.previous_sells = [0] * 10
 
         self.previous_buys = [0] * 10
+
+        self.market_execution_rate = 0
+
+        self.self_execution_rate = 0
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -130,10 +134,10 @@ class AutoTrader(BaseAutoTrader):
         
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
-            iif trader_stance == True:
-                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" )) 
+            if trader_stance == True:
+                return int(min(sum(bid_volumes), sum(ask_volumes)) * 0.5 * (self.market_execution_rate + self.self_execution_rate)) 
             else:
-                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (sum(trade_tick_list[len(trade_tick_list)-3 : len(trade_tick_list)-1]) + """need to add our volume""" ))
+                return int(abs(sum(bid_volumes)-sum(ask_volumes)) * 0.5 * (self.market_execution_rate + self.self_execution_rate))
 
 
 
@@ -147,23 +151,31 @@ class AutoTrader(BaseAutoTrader):
             if volume_difference > 0.5: # Aggressive strategy
                 # Make an ask at the last trading price
                 self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0]), 1, Lifespan.FILL_AND_KILL)
+                order_volume = order_quantity(False)
+                
+                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
+
+                self.bid_id = next(self.order_ids)
+                if(self.position < -50):
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
+                elif(self.position > 50):
+                    self.op_send_insert_order(self.ask_id, Side.SELL, self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0]), order_volume, Lifespan.FILL_AND_KILL)
+                else:
+                    self.op_send_insert_order(self.ask_id, Side.SELL, self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0]), order_volume, Lifespan.FILL_AND_KILL)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
 
                 # Make a bid at last trade price - ask bid spread
-                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
-                
-                self.bid_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
 
             else: # Passive strategy
+                order_volume = order_quantity(True)
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
                 bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
 
                 self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.FILL_AND_KILL)
 
                 self.bid_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.FILL_AND_KILL)
 
                 #TESTING GFD VS FAK TRADES
 #####################################
@@ -239,9 +251,6 @@ class AutoTrader(BaseAutoTrader):
         # Update operation history for past second
         self.update_op_history()
 
-        self.total_fees += fees
-
-        self.logger.warning("Total fees: %f", self.total_fees)
 
         """
         if remaining_volume != 0:
@@ -266,6 +275,9 @@ class AutoTrader(BaseAutoTrader):
         traded at that price since the last trade ticks message.
         """
         self.trade_tick_list.append(trade_ticks)
+        self.market_execution_rate = len(trade_ticks) * 2
+        self.self_execution_rate = self.get_projected_op_rate(0)
+
         
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history["history"]) >= 200): # Making sure we avoid key errors
@@ -341,7 +353,7 @@ class AutoTrader(BaseAutoTrader):
         
     def get_projected_op_rate(self, num_ops): # Second parameter is the number of ops to be taken
         if len(self.op_history) > 0:
-            return len(self.op_history)+num_ops/(time.time() - self.op_history[0])
+            return (len(self.op_history)+num_ops/(time.time() - self.op_history[0]))
         else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
             return 0
 
