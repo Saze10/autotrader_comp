@@ -134,8 +134,10 @@ class AutoTrader(BaseAutoTrader):
 
             if volume_difference > 0.5: # Aggressive strategy
                 # Make an ask at the last trading price
+                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0]) 
+                
                 self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0]), 1, Lifespan.FILL_AND_KILL)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.FILL_AND_KILL)
 
                 # Make a bid at last trade price - ask bid spread
                 bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
