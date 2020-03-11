@@ -105,9 +105,17 @@ class AutoTrader(BaseAutoTrader):
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
             if trader_stance == True:
-                return int(min(sum(bid_volumes),sum(ask_volumes))/10000 * 0.5 * (self.number_of_matches_in_tick)) 
+                volume = int(min(sum(bid_volumes),sum(ask_volumes))/10000 * 0.5 * (self.number_of_matches_in_tick))
+                if volume <= 5:
+                    return volume
+                else:
+                    return 5
             else:
-                return int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
+                volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
+                if volume <= 5:
+                    return volume
+                else:
+                    return 5
                 
 
         if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0 and instrument == Instrument.FUTURE):
@@ -122,11 +130,11 @@ class AutoTrader(BaseAutoTrader):
                 if self.position >= 25:
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 5, Lifespan.GOOD_FOR_DAY)
                 elif self.position <= -25:
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0]) 
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 5, Lifespan.GOOD_FOR_DAY)
 
 
                 # Make a bid at last trade price
@@ -208,7 +216,7 @@ class AutoTrader(BaseAutoTrader):
         self.logger.warning("Our position is: %d", self.position)
         self.position = etf_position
 
-        if self.position > 75 or self.position < -75:
+        if self.position > 50 or self.position < -50:
             self.rat_mode = True
         
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
