@@ -31,10 +31,13 @@
     "PositionLimit": 100
   },
   "Traders": {
-    "ExampleOne": "qwerty",
-    "ExampleTwo": "12345",
     "Rat": "12345",
+	"Rat 2": "Rat 2",
     "Chad": "12345",
-    "FatRat": "12345"
+	"Chad 2": "Chad 2",
+	"Chad 3": "Chad 3",
+    "FatRat": "12345",
+	"FatRat2": "FatRat2",
+	"FatRat3": "FatRat3"
   }
 }
