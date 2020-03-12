@@ -97,8 +97,8 @@ class AutoTrader(BaseAutoTrader):
         self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
         """
 
-        self.logger.warning("Below is the active order history:")
-        self.logger.warning(str(self.active_order_history))
+        #self.logger.warning("Below is the active order history:")
+        #self.logger.warning(str(self.active_order_history))
                 
         def order_quantity(trader_stance):
             """trader_stance is a boolean: True = passive, False = aggressive"""
@@ -127,20 +127,16 @@ class AutoTrader(BaseAutoTrader):
             ask_bid_spread = ask_prices[0] - bid_prices[0]
             
             if self.rat_mode:
-                self.logger.warning("RAT MODE ACTIVATED")
+                #self.logger.warning("RAT MODE ACTIVATED")
                 # Make an ask at the last trading price + ask_bid_spread
-                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
-                
-                self.ask_id = next(self.order_ids)
-                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 2, Lifespan.GOOD_FOR_DAY)
-
-                # Make a bid at last trade price
-                """
-                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0])
-                
-                self.bid_id = next(self.order_ids)
-                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 1, Lifespan.FILL_AND_KILL)
-                """
+                if self.position >= 25:
+                    ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
+                    self.ask_id = next(self.order_ids)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 5, Lifespan.GOOD_FOR_DAY)
+                elif self.position <= -25:
+                    bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0]) 
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 5, Lifespan.GOOD_FOR_DAY)
 
                 if abs(self.position) < 25:
                     self.rat_mode = False
@@ -188,7 +184,7 @@ class AutoTrader(BaseAutoTrader):
 
         self.total_fees += fees
 
-        self.logger.warning("Total fees: %f", self.total_fees)
+        #self.logger.warning("Total fees: %f", self.total_fees)
 
         """
         if remaining_volume != 0:
@@ -204,7 +200,7 @@ class AutoTrader(BaseAutoTrader):
         future_position and etf_position will always be the inverse of each
         other (i.e. future_position == -1 * etf_position).
         """
-        self.logger.warning("Our position is: %d", self.position)
+        #self.logger.warning("Our position is: %d", self.position)
         self.position = etf_position
 
         if self.position > 75 or self.position < -75:
@@ -226,10 +222,10 @@ class AutoTrader(BaseAutoTrader):
                     del self.active_order_history[key]
             
                 
-        
+    """
     def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
         if(len(history["history"]) >= 200): # Making sure we avoid key errors
-            self.logger.warning("I'm collapsing the history lolol")
+            #self.logger.warning("I'm collapsing the history lolol")
             avg_entry = {
             "ask": 0,
             "bid": 0
@@ -247,6 +243,7 @@ class AutoTrader(BaseAutoTrader):
                 del history["history"][0]
             # Update the average dictionary entry
             history["average"] = avg_entry
+    """
 
     def update_average(self, history):
         depth = 0
@@ -277,10 +274,10 @@ class AutoTrader(BaseAutoTrader):
                 self.op_history.append(time.time())
                 
                 # Logging messages
-                if side == side.SELL:
-                    self.logger.warning("We sold!")
-                if side == side.BUY:
-                    self.logger.warning("We bought!")
+                #if side == side.SELL:
+                    #self.logger.warning("We sold!")
+                #if side == side.BUY:
+                   # self.logger.warning("We bought!")
                 if lifespan == Lifespan.GOOD_FOR_DAY:
                     self.active_order_history[client_order_id] = (client_order_id, 0)
                     
