@@ -126,7 +126,7 @@ class AutoTrader(BaseAutoTrader):
                     return 5
                 
 
-        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0 and instrument == Instrument.FUTURE):
+        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
 
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
