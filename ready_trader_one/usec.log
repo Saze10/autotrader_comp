@@ -1,0 +1,1565 @@
+2020-03-13 22:09:50,545 [INFO   ] [APP] usec started with arguments={run.py}
+2020-03-13 22:09:50,545 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"USEC","Secret":"USEC"}
+2020-03-13 22:10:10,093 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,093 [WARNING] [TRADER] {}
+2020-03-13 22:10:10,095 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,095 [WARNING] [TRADER] {}
+2020-03-13 22:10:10,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,310 [WARNING] [TRADER] {}
+2020-03-13 22:10:10,310 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:10,311 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,311 [WARNING] [TRADER] {1: (1, 1, 346100, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:10,312 [WARNING] [TRADER] Total fees: 0.000000
+2020-03-13 22:10:10,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,559 [WARNING] [TRADER] {1: (1, 2, 346100, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:10,560 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:10,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:10,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,562 [WARNING] [TRADER] {1: (1, 3, 346100, 1, <Side.SELL: 0>), 3: (3, 1, 346100, 3, <Side.SELL: 0>), 4: (4, 1, 346000, 3, <Side.BUY: 1>)}
+2020-03-13 22:10:10,563 [WARNING] [TRADER] Total fees: 0.000000
+2020-03-13 22:10:10,564 [WARNING] [TRADER] Total fees: 208.000000
+2020-03-13 22:10:10,564 [WARNING] [TRADER] Our position is: 0
+2020-03-13 22:10:10,565 [WARNING] [TRADER] Total fees: 208.000000
+2020-03-13 22:10:10,808 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,808 [WARNING] [TRADER] {3: (3, 2, 346100, 3, <Side.SELL: 0>)}
+2020-03-13 22:10:10,808 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:10,809 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:10,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:10,809 [WARNING] [TRADER] {3: (3, 3, 346100, 3, <Side.SELL: 0>), 5: (5, 1, 345900, 11, <Side.SELL: 0>), 6: (6, 1, 345600, 11, <Side.BUY: 1>)}
+2020-03-13 22:10:10,810 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:10,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:10,810 [WARNING] [TRADER] Total fees: 346.000000
+2020-03-13 22:10:10,811 [WARNING] [TRADER] Our position is: 3
+2020-03-13 22:10:10,811 [WARNING] [TRADER] Total fees: 346.000000
+2020-03-13 22:10:10,812 [WARNING] [TRADER] Total fees: 346.000000
+2020-03-13 22:10:10,812 [WARNING] [TRADER] Total fees: 346.000000
+2020-03-13 22:10:10,812 [WARNING] [TRADER] Total fees: 346.000000
+2020-03-13 22:10:11,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,059 [WARNING] [TRADER] {5: (5, 0, 345900, 11, <Side.SELL: 0>), 6: (6, 2, 345600, 11, <Side.BUY: 1>), 7: (7, 1, 345900, 1, <Side.SELL: 0>), 8: (8, 1, 345800, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:11,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:11,059 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:11,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,060 [WARNING] [TRADER] {5: (5, 1, 345900, 11, <Side.SELL: 0>), 6: (6, 3, 345600, 11, <Side.BUY: 1>), 7: (7, 2, 345900, 1, <Side.SELL: 0>), 8: (8, 2, 345800, 1, <Side.BUY: 1>), 9: (9, 1, 346000, 19, <Side.SELL: 0>), 10: (10, 1, 345800, 19, <Side.BUY: 1>)}
+2020-03-13 22:10:11,060 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:11,060 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:11,061 [WARNING] [TRADER] Total fees: 449.000000
+2020-03-13 22:10:11,061 [WARNING] [TRADER] Our position is: 1
+2020-03-13 22:10:11,061 [WARNING] [TRADER] Total fees: 517.000000
+2020-03-13 22:10:11,062 [WARNING] [TRADER] Our position is: 0
+2020-03-13 22:10:11,062 [WARNING] [TRADER] Total fees: 517.000000
+2020-03-13 22:10:11,062 [WARNING] [TRADER] Total fees: 517.000000
+2020-03-13 22:10:11,062 [WARNING] [TRADER] Total fees: 517.000000
+2020-03-13 22:10:11,063 [WARNING] [TRADER] Total fees: 517.000000
+2020-03-13 22:10:11,063 [WARNING] [TRADER] Total fees: 517.000000
+2020-03-13 22:10:11,309 [WARNING] [TRADER] Total fees: 482.000000
+2020-03-13 22:10:11,311 [WARNING] [TRADER] Our position is: -1
+2020-03-13 22:10:11,312 [WARNING] [TRADER] Total fees: 171.000000
+2020-03-13 22:10:11,312 [WARNING] [TRADER] Our position is: 0
+2020-03-13 22:10:11,312 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,313 [WARNING] [TRADER] {5: (5, 0, 345900, 11, <Side.SELL: 0>), 7: (7, 3, 345900, 1, <Side.SELL: 0>), 9: (9, 2, 346000, 19, <Side.SELL: 0>), 10: (10, 0, 345800, 19, <Side.BUY: 1>), 11: (11, 1, 345900, 1, <Side.SELL: 0>), 12: (12, 1, 345800, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:11,313 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:11,313 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:11,314 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,314 [WARNING] [TRADER] {5: (5, 1, 345900, 11, <Side.SELL: 0>), 9: (9, 3, 346000, 19, <Side.SELL: 0>), 10: (10, 1, 345800, 19, <Side.BUY: 1>), 11: (11, 2, 345900, 1, <Side.SELL: 0>), 12: (12, 2, 345800, 1, <Side.BUY: 1>), 13: (13, 1, 345900, 31, <Side.SELL: 0>), 14: (14, 1, 345800, 31, <Side.BUY: 1>)}
+2020-03-13 22:10:11,314 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:11,314 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:11,315 [WARNING] [TRADER] Total fees: -175.000000
+2020-03-13 22:10:11,315 [WARNING] [TRADER] Our position is: 9
+2020-03-13 22:10:11,316 [WARNING] [TRADER] Total fees: -175.000000
+2020-03-13 22:10:11,316 [WARNING] [TRADER] Total fees: -175.000000
+2020-03-13 22:10:11,317 [WARNING] [TRADER] Total fees: -175.000000
+2020-03-13 22:10:11,317 [WARNING] [TRADER] error with order 15: order rejected: in cross with an existing order
+2020-03-13 22:10:11,317 [WARNING] [TRADER] Total fees: -175.000000
+2020-03-13 22:10:11,317 [WARNING] [TRADER] Total fees: -175.000000
+2020-03-13 22:10:11,559 [WARNING] [TRADER] Total fees: -798.000000
+2020-03-13 22:10:11,559 [WARNING] [TRADER] Our position is: 10
+2020-03-13 22:10:11,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,561 [WARNING] [TRADER] {5: (5, 2, 345900, 11, <Side.SELL: 0>), 9: (9, 4, 346000, 19, <Side.SELL: 0>), 10: (10, 0, 345800, 19, <Side.BUY: 1>), 11: (11, 3, 345900, 1, <Side.SELL: 0>), 12: (12, 3, 345800, 1, <Side.BUY: 1>), 13: (13, 2, 345900, 31, <Side.SELL: 0>), 14: (14, 2, 345800, 31, <Side.BUY: 1>), 16: (16, 1, 345800, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:11,562 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,562 [WARNING] [TRADER] {5: (5, 3, 345900, 11, <Side.SELL: 0>), 10: (10, 1, 345800, 19, <Side.BUY: 1>), 11: (11, 4, 345900, 1, <Side.SELL: 0>), 12: (12, 4, 345800, 1, <Side.BUY: 1>), 13: (13, 3, 345900, 31, <Side.SELL: 0>), 14: (14, 3, 345800, 31, <Side.BUY: 1>), 16: (16, 2, 345800, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:11,563 [WARNING] [TRADER] Total fees: -798.000000
+2020-03-13 22:10:11,807 [WARNING] [TRADER] Total fees: -1456.000000
+2020-03-13 22:10:11,808 [WARNING] [TRADER] Our position is: 18
+2020-03-13 22:10:11,809 [WARNING] [TRADER] Total fees: -1491.000000
+2020-03-13 22:10:11,809 [WARNING] [TRADER] Our position is: 19
+2020-03-13 22:10:11,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,811 [WARNING] [TRADER] {5: (5, 4, 345900, 11, <Side.SELL: 0>), 11: (11, 5, 345900, 1, <Side.SELL: 0>), 13: (13, 4, 345900, 31, <Side.SELL: 0>), 14: (14, 4, 345800, 31, <Side.BUY: 1>), 16: (16, 3, 345800, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:11,812 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:11,812 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:11,813 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:11,813 [WARNING] [TRADER] {11: (11, 6, 345900, 1, <Side.SELL: 0>), 13: (13, 5, 345900, 31, <Side.SELL: 0>), 14: (14, 5, 345800, 31, <Side.BUY: 1>), 16: (16, 4, 345800, 1, <Side.BUY: 1>), 17: (17, 1, 345800, 10, <Side.SELL: 0>), 18: (18, 1, 345700, 10, <Side.BUY: 1>)}
+2020-03-13 22:10:11,814 [WARNING] [TRADER] error with order 17: order rejected: in cross with an existing order
+2020-03-13 22:10:11,814 [WARNING] [TRADER] Total fees: -1491.000000
+2020-03-13 22:10:11,814 [WARNING] [TRADER] Total fees: -1491.000000
+2020-03-13 22:10:11,815 [WARNING] [TRADER] Total fees: -1423.000000
+2020-03-13 22:10:12,058 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,058 [WARNING] [TRADER] Our position is: 20
+2020-03-13 22:10:12,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,059 [WARNING] [TRADER] {11: (11, 7, 345900, 1, <Side.SELL: 0>), 13: (13, 6, 345900, 31, <Side.SELL: 0>), 14: (14, 0, 345800, 31, <Side.BUY: 1>), 16: (16, 5, 345800, 1, <Side.BUY: 1>), 18: (18, 2, 345700, 10, <Side.BUY: 1>)}
+2020-03-13 22:10:12,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:12,059 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:12,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,060 [WARNING] [TRADER] {14: (14, 1, 345800, 31, <Side.BUY: 1>), 18: (18, 3, 345700, 10, <Side.BUY: 1>), 19: (19, 1, 345800, 14, <Side.SELL: 0>), 20: (20, 1, 345700, 14, <Side.BUY: 1>)}
+2020-03-13 22:10:12,060 [WARNING] [TRADER] error with order 19: order rejected: in cross with an existing order
+2020-03-13 22:10:12,061 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,061 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,061 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,061 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,061 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,308 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,308 [WARNING] [TRADER] {14: (14, 2, 345800, 31, <Side.BUY: 1>), 18: (18, 4, 345700, 10, <Side.BUY: 1>), 20: (20, 2, 345700, 14, <Side.BUY: 1>)}
+2020-03-13 22:10:12,309 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:12,309 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:12,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,310 [WARNING] [TRADER] {14: (14, 2, 345800, 31, <Side.BUY: 1>), 18: (18, 4, 345700, 10, <Side.BUY: 1>), 20: (20, 2, 345700, 14, <Side.BUY: 1>), 21: (21, 0, 345800, 17, <Side.SELL: 0>), 22: (22, 0, 345700, 17, <Side.BUY: 1>)}
+2020-03-13 22:10:12,310 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:12,310 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:12,310 [WARNING] [TRADER] error with order 21: order rejected: in cross with an existing order
+2020-03-13 22:10:12,310 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,311 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,311 [WARNING] [TRADER] error with order 23: order rejected: in cross with an existing order
+2020-03-13 22:10:12,311 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,311 [WARNING] [TRADER] Total fees: -1527.000000
+2020-03-13 22:10:12,557 [WARNING] [TRADER] Total fees: -1666.000000
+2020-03-13 22:10:12,558 [WARNING] [TRADER] Our position is: 23
+2020-03-13 22:10:12,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,559 [WARNING] [TRADER] {14: (14, 0, 345800, 31, <Side.BUY: 1>), 18: (18, 4, 345700, 10, <Side.BUY: 1>), 20: (20, 2, 345700, 14, <Side.BUY: 1>), 22: (22, 0, 345700, 17, <Side.BUY: 1>), 24: (24, 0, 345700, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:12,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:12,559 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:12,560 [WARNING] [TRADER] error with order 25: order rejected: in cross with an existing order
+2020-03-13 22:10:12,560 [WARNING] [TRADER] Total fees: -1666.000000
+2020-03-13 22:10:12,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,561 [WARNING] [TRADER] {14: (14, 1, 345800, 31, <Side.BUY: 1>), 20: (20, 3, 345700, 14, <Side.BUY: 1>), 22: (22, 1, 345700, 17, <Side.BUY: 1>), 24: (24, 1, 345700, 1, <Side.BUY: 1>), 26: (26, 1, 345700, 34, <Side.BUY: 1>)}
+2020-03-13 22:10:12,561 [WARNING] [TRADER] Total fees: -1666.000000
+2020-03-13 22:10:12,561 [WARNING] [TRADER] Total fees: -1666.000000
+2020-03-13 22:10:12,562 [WARNING] [TRADER] Total fees: -1666.000000
+2020-03-13 22:10:12,807 [WARNING] [TRADER] Total fees: -2082.000000
+2020-03-13 22:10:12,808 [WARNING] [TRADER] Our position is: 24
+2020-03-13 22:10:12,811 [WARNING] [TRADER] Total fees: -2602.000000
+2020-03-13 22:10:12,812 [WARNING] [TRADER] Our position is: 32
+2020-03-13 22:10:12,812 [WARNING] [TRADER] Total fees: -3226.000000
+2020-03-13 22:10:12,812 [WARNING] [TRADER] Our position is: 35
+2020-03-13 22:10:12,813 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,813 [WARNING] [TRADER] {14: (14, 0, 345800, 31, <Side.BUY: 1>), 22: (22, 2, 345700, 17, <Side.BUY: 1>), 24: (24, 2, 345700, 1, <Side.BUY: 1>), 26: (26, 2, 345700, 34, <Side.BUY: 1>)}
+2020-03-13 22:10:12,814 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:12,815 [WARNING] [TRADER] {14: (14, 1, 345800, 31, <Side.BUY: 1>), 22: (22, 3, 345700, 17, <Side.BUY: 1>), 24: (24, 3, 345700, 1, <Side.BUY: 1>), 26: (26, 3, 345700, 34, <Side.BUY: 1>)}
+2020-03-13 22:10:12,815 [WARNING] [TRADER] Total fees: -3885.000000
+2020-03-13 22:10:12,815 [WARNING] [TRADER] Our position is: 38
+2020-03-13 22:10:12,817 [WARNING] [TRADER] Total fees: -3885.000000
+2020-03-13 22:10:13,058 [WARNING] [TRADER] Total fees: -4682.000000
+2020-03-13 22:10:13,059 [WARNING] [TRADER] Our position is: 39
+2020-03-13 22:10:13,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,060 [WARNING] [TRADER] {14: (14, 0, 345800, 31, <Side.BUY: 1>), 24: (24, 4, 345700, 1, <Side.BUY: 1>), 26: (26, 4, 345700, 34, <Side.BUY: 1>)}
+2020-03-13 22:10:13,060 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:13,061 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 177, in on_order_book_update_message
+    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume , Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:13,063 [WARNING] [TRADER] Total fees: -5514.000000
+2020-03-13 22:10:13,064 [WARNING] [TRADER] Our position is: 43
+2020-03-13 22:10:13,064 [WARNING] [TRADER] Total fees: -5514.000000
+2020-03-13 22:10:13,064 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,064 [WARNING] [TRADER] {14: (14, 0, 345800, 31, <Side.BUY: 1>), 27: (27, 1, 346000, 7, <Side.SELL: 0>)}
+2020-03-13 22:10:13,065 [WARNING] [TRADER] Total fees: -5514.000000
+2020-03-13 22:10:13,065 [WARNING] [TRADER] Total fees: -5514.000000
+2020-03-13 22:10:13,307 [WARNING] [TRADER] Total fees: -6484.000000
+2020-03-13 22:10:13,308 [WARNING] [TRADER] Our position is: 44
+2020-03-13 22:10:13,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,309 [WARNING] [TRADER] {14: (14, 0, 345800, 31, <Side.BUY: 1>), 27: (27, 2, 346000, 7, <Side.SELL: 0>)}
+2020-03-13 22:10:13,309 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:13,310 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:13,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,310 [WARNING] [TRADER] {14: (14, 1, 345800, 31, <Side.BUY: 1>), 27: (27, 3, 346000, 7, <Side.SELL: 0>), 29: (29, 1, 345800, 3, <Side.SELL: 0>), 30: (30, 1, 345700, 3, <Side.BUY: 1>)}
+2020-03-13 22:10:13,311 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:13,311 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:13,313 [WARNING] [TRADER] error with order 29: order rejected: in cross with an existing order
+2020-03-13 22:10:13,313 [WARNING] [TRADER] Total fees: -6484.000000
+2020-03-13 22:10:13,314 [WARNING] [TRADER] Total fees: -6484.000000
+2020-03-13 22:10:13,314 [WARNING] [TRADER] error with order 31: order rejected: in cross with an existing order
+2020-03-13 22:10:13,314 [WARNING] [TRADER] Total fees: -6484.000000
+2020-03-13 22:10:13,315 [WARNING] [TRADER] Total fees: -6484.000000
+2020-03-13 22:10:13,315 [WARNING] [TRADER] Total fees: -6484.000000
+2020-03-13 22:10:13,557 [WARNING] [TRADER] Total fees: -7489.000000
+2020-03-13 22:10:13,557 [WARNING] [TRADER] Our position is: 48
+2020-03-13 22:10:13,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,558 [WARNING] [TRADER] {14: (14, 0, 345800, 31, <Side.BUY: 1>), 30: (30, 2, 345700, 3, <Side.BUY: 1>), 32: (32, 1, 345700, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:13,558 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:13,559 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:13,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,559 [WARNING] [TRADER] {14: (14, 0, 345800, 31, <Side.BUY: 1>), 30: (30, 2, 345700, 3, <Side.BUY: 1>), 32: (32, 1, 345700, 1, <Side.BUY: 1>), 33: (33, 0, 345800, 20, <Side.SELL: 0>), 34: (34, 0, 345700, 20, <Side.BUY: 1>)}
+2020-03-13 22:10:13,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:13,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:13,560 [WARNING] [TRADER] error with order 33: order rejected: in cross with an existing order
+2020-03-13 22:10:13,561 [WARNING] [TRADER] Total fees: -7489.000000
+2020-03-13 22:10:13,561 [WARNING] [TRADER] Total fees: -7489.000000
+2020-03-13 22:10:13,561 [WARNING] [TRADER] Total fees: -7489.000000
+2020-03-13 22:10:13,562 [WARNING] [TRADER] Total fees: -7489.000000
+2020-03-13 22:10:13,808 [WARNING] [TRADER] Total fees: -8563.000000
+2020-03-13 22:10:13,808 [WARNING] [TRADER] Our position is: 49
+2020-03-13 22:10:13,810 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:13,811 [WARNING] [TRADER] Our position is: 51
+2020-03-13 22:10:13,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,812 [WARNING] [TRADER] {30: (30, 3, 345700, 3, <Side.BUY: 1>), 32: (32, 2, 345700, 1, <Side.BUY: 1>), 34: (34, 1, 345700, 20, <Side.BUY: 1>), 36: (36, 1, 345700, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:13,812 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:13,812 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:13,812 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:13,813 [WARNING] [TRADER] {30: (30, 3, 345700, 3, <Side.BUY: 1>), 32: (32, 2, 345700, 1, <Side.BUY: 1>), 34: (34, 1, 345700, 20, <Side.BUY: 1>), 36: (36, 1, 345700, 1, <Side.BUY: 1>), 37: (37, 0, 345800, 19, <Side.SELL: 0>), 38: (38, 0, 345800, 19, <Side.BUY: 1>)}
+2020-03-13 22:10:13,813 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:13,813 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:13,815 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:13,815 [WARNING] [TRADER] error with order 38: order rejected: in cross with an existing order
+2020-03-13 22:10:13,816 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:13,816 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:13,816 [WARNING] [TRADER] error with order 40: order rejected: in cross with an existing order
+2020-03-13 22:10:13,816 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:13,817 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,058 [WARNING] [TRADER] {32: (32, 3, 345700, 1, <Side.BUY: 1>), 34: (34, 2, 345700, 20, <Side.BUY: 1>), 36: (36, 2, 345700, 1, <Side.BUY: 1>), 37: (37, 1, 345800, 19, <Side.SELL: 0>), 39: (39, 1, 345800, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:14,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,059 [WARNING] [TRADER] {32: (32, 3, 345700, 1, <Side.BUY: 1>), 34: (34, 2, 345700, 20, <Side.BUY: 1>), 36: (36, 2, 345700, 1, <Side.BUY: 1>), 37: (37, 1, 345800, 19, <Side.SELL: 0>), 39: (39, 1, 345800, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:14,061 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,307 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,308 [WARNING] [TRADER] {34: (34, 3, 345700, 20, <Side.BUY: 1>), 36: (36, 3, 345700, 1, <Side.BUY: 1>), 37: (37, 2, 345800, 19, <Side.SELL: 0>), 39: (39, 2, 345800, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:14,308 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:14,308 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:14,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,309 [WARNING] [TRADER] {34: (34, 3, 345700, 20, <Side.BUY: 1>), 36: (36, 3, 345700, 1, <Side.BUY: 1>), 37: (37, 2, 345800, 19, <Side.SELL: 0>), 39: (39, 2, 345800, 1, <Side.SELL: 0>), 41: (41, 0, 345800, 3, <Side.SELL: 0>), 42: (42, 0, 345700, 3, <Side.BUY: 1>)}
+2020-03-13 22:10:14,310 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,310 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,311 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,557 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,557 [WARNING] [TRADER] {36: (36, 4, 345700, 1, <Side.BUY: 1>), 37: (37, 3, 345800, 19, <Side.SELL: 0>), 39: (39, 3, 345800, 1, <Side.SELL: 0>), 41: (41, 1, 345800, 3, <Side.SELL: 0>), 42: (42, 1, 345700, 3, <Side.BUY: 1>)}
+2020-03-13 22:10:14,558 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:14,558 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:14,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,559 [WARNING] [TRADER] {36: (36, 4, 345700, 1, <Side.BUY: 1>), 37: (37, 3, 345800, 19, <Side.SELL: 0>), 39: (39, 3, 345800, 1, <Side.SELL: 0>), 41: (41, 1, 345800, 3, <Side.SELL: 0>), 42: (42, 1, 345700, 3, <Side.BUY: 1>), 43: (43, 0, 345800, 10, <Side.SELL: 0>), 44: (44, 0, 345700, 10, <Side.BUY: 1>)}
+2020-03-13 22:10:14,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:14,559 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:14,560 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,560 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,560 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,560 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,561 [WARNING] [TRADER] Total fees: -8598.000000
+2020-03-13 22:10:14,807 [WARNING] [TRADER] Total fees: -8667.000000
+2020-03-13 22:10:14,807 [WARNING] [TRADER] Our position is: 50
+2020-03-13 22:10:14,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,809 [WARNING] [TRADER] {37: (37, 0, 345800, 19, <Side.SELL: 0>), 39: (39, 4, 345800, 1, <Side.SELL: 0>), 41: (41, 2, 345800, 3, <Side.SELL: 0>), 42: (42, 2, 345700, 3, <Side.BUY: 1>), 43: (43, 1, 345800, 10, <Side.SELL: 0>), 44: (44, 1, 345700, 10, <Side.BUY: 1>), 45: (45, 1, 345800, 1, <Side.SELL: 0>), 46: (46, 1, 345700, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:14,809 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:14,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:14,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:14,810 [WARNING] [TRADER] {37: (37, 1, 345800, 19, <Side.SELL: 0>), 41: (41, 3, 345800, 3, <Side.SELL: 0>), 42: (42, 3, 345700, 3, <Side.BUY: 1>), 43: (43, 2, 345800, 10, <Side.SELL: 0>), 44: (44, 2, 345700, 10, <Side.BUY: 1>), 45: (45, 2, 345800, 1, <Side.SELL: 0>), 46: (46, 2, 345700, 1, <Side.BUY: 1>), 47: (47, 1, 345800, 22, <Side.SELL: 0>), 48: (48, 1, 345700, 22, <Side.BUY: 1>)}
+2020-03-13 22:10:14,811 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:14,811 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:14,811 [WARNING] [TRADER] Total fees: -8771.000000
+2020-03-13 22:10:14,812 [WARNING] [TRADER] Our position is: 48
+2020-03-13 22:10:14,812 [WARNING] [TRADER] Total fees: -8771.000000
+2020-03-13 22:10:14,812 [WARNING] [TRADER] Total fees: -8771.000000
+2020-03-13 22:10:14,812 [WARNING] [TRADER] Total fees: -8771.000000
+2020-03-13 22:10:14,812 [WARNING] [TRADER] Total fees: -8771.000000
+2020-03-13 22:10:14,813 [WARNING] [TRADER] error with order 50: order rejected: active order count limit breached
+2020-03-13 22:10:14,813 [WARNING] [TRADER] Total fees: -8771.000000
+2020-03-13 22:10:15,058 [WARNING] [TRADER] Total fees: -9082.000000
+2020-03-13 22:10:15,058 [WARNING] [TRADER] Our position is: 47
+2020-03-13 22:10:15,059 [WARNING] [TRADER] Total fees: -9428.000000
+2020-03-13 22:10:15,059 [WARNING] [TRADER] Our position is: 41
+2020-03-13 22:10:15,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,061 [WARNING] [TRADER] {37: (37, 0, 345800, 19, <Side.SELL: 0>), 41: (41, 4, 345800, 3, <Side.SELL: 0>), 42: (42, 4, 345700, 3, <Side.BUY: 1>), 43: (43, 3, 345800, 10, <Side.SELL: 0>), 44: (44, 3, 345700, 10, <Side.BUY: 1>), 45: (45, 3, 345800, 1, <Side.SELL: 0>), 46: (46, 3, 345700, 1, <Side.BUY: 1>), 47: (47, 2, 345800, 22, <Side.SELL: 0>), 48: (48, 2, 345700, 22, <Side.BUY: 1>), 49: (49, 1, 345800, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:15,061 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:15,061 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:15,062 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,062 [WARNING] [TRADER] {37: (37, 1, 345800, 19, <Side.SELL: 0>), 44: (44, 4, 345700, 10, <Side.BUY: 1>), 45: (45, 4, 345800, 1, <Side.SELL: 0>), 46: (46, 4, 345700, 1, <Side.BUY: 1>), 47: (47, 3, 345800, 22, <Side.SELL: 0>), 48: (48, 3, 345700, 22, <Side.BUY: 1>), 49: (49, 2, 345800, 1, <Side.SELL: 0>), 51: (51, 1, 345700, 28, <Side.SELL: 0>), 52: (52, 1, 345700, 28, <Side.BUY: 1>)}
+2020-03-13 22:10:15,063 [WARNING] [TRADER] Total fees: -9809.000000
+2020-03-13 22:10:15,063 [WARNING] [TRADER] Our position is: 40
+2020-03-13 22:10:15,063 [WARNING] [TRADER] error with order 51: order rejected: active order count limit breached
+2020-03-13 22:10:15,064 [WARNING] [TRADER] Total fees: -9809.000000
+2020-03-13 22:10:15,064 [WARNING] [TRADER] error with order 52: order rejected: active order count limit breached
+2020-03-13 22:10:15,064 [WARNING] [TRADER] Total fees: -9809.000000
+2020-03-13 22:10:15,064 [WARNING] [TRADER] Total fees: -9809.000000
+2020-03-13 22:10:15,065 [WARNING] [TRADER] Total fees: -9809.000000
+2020-03-13 22:10:15,065 [WARNING] [TRADER] Total fees: -9809.000000
+2020-03-13 22:10:15,307 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,308 [WARNING] [TRADER] {37: (37, 0, 345800, 19, <Side.SELL: 0>), 44: (44, 5, 345700, 10, <Side.BUY: 1>), 45: (45, 5, 345800, 1, <Side.SELL: 0>), 46: (46, 5, 345700, 1, <Side.BUY: 1>), 47: (47, 4, 345800, 22, <Side.SELL: 0>), 48: (48, 4, 345700, 22, <Side.BUY: 1>), 49: (49, 3, 345800, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:15,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,309 [WARNING] [TRADER] {37: (37, 1, 345800, 19, <Side.SELL: 0>), 45: (45, 6, 345800, 1, <Side.SELL: 0>), 46: (46, 6, 345700, 1, <Side.BUY: 1>), 47: (47, 5, 345800, 22, <Side.SELL: 0>), 48: (48, 5, 345700, 22, <Side.BUY: 1>), 49: (49, 4, 345800, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:15,309 [WARNING] [TRADER] Total fees: -10225.000000
+2020-03-13 22:10:15,310 [WARNING] [TRADER] Our position is: 39
+2020-03-13 22:10:15,310 [WARNING] [TRADER] Total fees: -10225.000000
+2020-03-13 22:10:15,559 [WARNING] [TRADER] Total fees: -10260.000000
+2020-03-13 22:10:15,559 [WARNING] [TRADER] Our position is: 38
+2020-03-13 22:10:15,559 [WARNING] [TRADER] Total fees: -10329.000000
+2020-03-13 22:10:15,560 [WARNING] [TRADER] Our position is: 39
+2020-03-13 22:10:15,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,560 [WARNING] [TRADER] {37: (37, 0, 345800, 19, <Side.SELL: 0>), 45: (45, 7, 345800, 1, <Side.SELL: 0>), 47: (47, 6, 345800, 22, <Side.SELL: 0>), 48: (48, 0, 345700, 22, <Side.BUY: 1>), 49: (49, 5, 345800, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:15,561 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:15,561 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:15,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,562 [WARNING] [TRADER] {37: (37, 1, 345800, 19, <Side.SELL: 0>), 47: (47, 7, 345800, 22, <Side.SELL: 0>), 48: (48, 1, 345700, 22, <Side.BUY: 1>), 49: (49, 6, 345800, 1, <Side.SELL: 0>), 53: (53, 1, 345700, 13, <Side.SELL: 0>), 54: (54, 1, 345700, 13, <Side.BUY: 1>)}
+2020-03-13 22:10:15,562 [WARNING] [TRADER] Total fees: -10433.000000
+2020-03-13 22:10:15,562 [WARNING] [TRADER] Our position is: 41
+2020-03-13 22:10:15,563 [WARNING] [TRADER] Total fees: -10884.000000
+2020-03-13 22:10:15,563 [WARNING] [TRADER] Our position is: 42
+2020-03-13 22:10:15,563 [WARNING] [TRADER] error with order 53: order rejected: in cross with an existing order
+2020-03-13 22:10:15,563 [WARNING] [TRADER] Total fees: -10884.000000
+2020-03-13 22:10:15,564 [WARNING] [TRADER] Total fees: -10884.000000
+2020-03-13 22:10:15,564 [WARNING] [TRADER] Total fees: -10884.000000
+2020-03-13 22:10:15,807 [WARNING] [TRADER] Total fees: -11542.000000
+2020-03-13 22:10:15,808 [WARNING] [TRADER] Our position is: 41
+2020-03-13 22:10:15,809 [WARNING] [TRADER] Total fees: -11646.000000
+2020-03-13 22:10:15,809 [WARNING] [TRADER] Our position is: 35
+2020-03-13 22:10:15,809 [WARNING] [TRADER] Total fees: -11785.000000
+2020-03-13 22:10:15,810 [WARNING] [TRADER] Our position is: 32
+2020-03-13 22:10:15,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,811 [WARNING] [TRADER] {47: (47, 0, 345800, 22, <Side.SELL: 0>), 48: (48, 1, 345700, 22, <Side.BUY: 1>), 49: (49, 7, 345800, 1, <Side.SELL: 0>), 54: (54, 2, 345700, 13, <Side.BUY: 1>)}
+2020-03-13 22:10:15,811 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:15,811 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:15,812 [WARNING] [TRADER] Total fees: -11924.000000
+2020-03-13 22:10:15,812 [WARNING] [TRADER] Our position is: 31
+2020-03-13 22:10:15,812 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:15,812 [WARNING] [TRADER] {47: (47, 1, 345800, 22, <Side.SELL: 0>), 48: (48, 0, 345700, 22, <Side.BUY: 1>), 54: (54, 3, 345700, 13, <Side.BUY: 1>), 55: (55, 1, 345700, 16, <Side.SELL: 0>), 56: (56, 1, 345700, 16, <Side.BUY: 1>)}
+2020-03-13 22:10:15,813 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:15,813 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:15,814 [WARNING] [TRADER] error with order 55: order rejected: in cross with an existing order
+2020-03-13 22:10:15,814 [WARNING] [TRADER] Total fees: -11924.000000
+2020-03-13 22:10:15,814 [WARNING] [TRADER] Total fees: -11924.000000
+2020-03-13 22:10:15,814 [WARNING] [TRADER] Total fees: -11924.000000
+2020-03-13 22:10:15,815 [WARNING] [TRADER] Total fees: -11924.000000
+2020-03-13 22:10:15,815 [WARNING] [TRADER] Total fees: -11924.000000
+2020-03-13 22:10:16,057 [WARNING] [TRADER] Total fees: -12098.000000
+2020-03-13 22:10:16,058 [WARNING] [TRADER] Our position is: 32
+2020-03-13 22:10:16,061 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,061 [WARNING] [TRADER] {47: (47, 2, 345800, 22, <Side.SELL: 0>), 48: (48, 0, 345700, 22, <Side.BUY: 1>), 54: (54, 4, 345700, 13, <Side.BUY: 1>), 56: (56, 2, 345700, 16, <Side.BUY: 1>), 57: (57, 1, 345800, 1, <Side.SELL: 0>), 58: (58, 1, 345700, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:16,061 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:16,061 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:16,063 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,063 [WARNING] [TRADER] {47: (47, 3, 345800, 22, <Side.SELL: 0>), 48: (48, 1, 345700, 22, <Side.BUY: 1>), 56: (56, 3, 345700, 16, <Side.BUY: 1>), 57: (57, 2, 345800, 1, <Side.SELL: 0>), 58: (58, 2, 345700, 1, <Side.BUY: 1>), 59: (59, 1, 345800, 19, <Side.SELL: 0>), 60: (60, 1, 345600, 19, <Side.BUY: 1>)}
+2020-03-13 22:10:16,064 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:16,064 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:16,064 [WARNING] [TRADER] Total fees: -12098.000000
+2020-03-13 22:10:16,065 [WARNING] [TRADER] Total fees: -12098.000000
+2020-03-13 22:10:16,065 [WARNING] [TRADER] Total fees: -12098.000000
+2020-03-13 22:10:16,065 [WARNING] [TRADER] Total fees: -12410.000000
+2020-03-13 22:10:16,065 [WARNING] [TRADER] Our position is: 33
+2020-03-13 22:10:16,066 [WARNING] [TRADER] error with order 61: order rejected: in cross with an existing order
+2020-03-13 22:10:16,066 [WARNING] [TRADER] Total fees: -12410.000000
+2020-03-13 22:10:16,066 [WARNING] [TRADER] Total fees: -12410.000000
+2020-03-13 22:10:16,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,311 [WARNING] [TRADER] {47: (47, 4, 345800, 22, <Side.SELL: 0>), 48: (48, 0, 345700, 22, <Side.BUY: 1>), 56: (56, 4, 345700, 16, <Side.BUY: 1>), 57: (57, 3, 345800, 1, <Side.SELL: 0>), 58: (58, 3, 345700, 1, <Side.BUY: 1>), 59: (59, 2, 345800, 19, <Side.SELL: 0>), 60: (60, 2, 345600, 19, <Side.BUY: 1>), 62: (62, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:16,311 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:16,311 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:16,313 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,313 [WARNING] [TRADER] {48: (48, 1, 345700, 22, <Side.BUY: 1>), 58: (58, 4, 345700, 1, <Side.BUY: 1>), 59: (59, 3, 345800, 19, <Side.SELL: 0>), 60: (60, 3, 345600, 19, <Side.BUY: 1>), 62: (62, 2, 345600, 1, <Side.BUY: 1>), 63: (63, 1, 345700, 15, <Side.SELL: 0>), 64: (64, 1, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:16,313 [WARNING] [TRADER] error with order 63: order rejected: in cross with an existing order
+2020-03-13 22:10:16,314 [WARNING] [TRADER] Total fees: -12410.000000
+2020-03-13 22:10:16,314 [WARNING] [TRADER] Total fees: -12410.000000
+2020-03-13 22:10:16,314 [WARNING] [TRADER] Total fees: -12549.000000
+2020-03-13 22:10:16,314 [WARNING] [TRADER] Total fees: -12549.000000
+2020-03-13 22:10:16,315 [WARNING] [TRADER] Total fees: -12549.000000
+2020-03-13 22:10:16,557 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,558 [WARNING] [TRADER] {48: (48, 2, 345700, 22, <Side.BUY: 1>), 58: (58, 5, 345700, 1, <Side.BUY: 1>), 59: (59, 4, 345800, 19, <Side.SELL: 0>), 60: (60, 4, 345600, 19, <Side.BUY: 1>), 62: (62, 3, 345600, 1, <Side.BUY: 1>), 64: (64, 2, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:16,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,558 [WARNING] [TRADER] {48: (48, 3, 345700, 22, <Side.BUY: 1>), 59: (59, 5, 345800, 19, <Side.SELL: 0>), 60: (60, 5, 345600, 19, <Side.BUY: 1>), 62: (62, 4, 345600, 1, <Side.BUY: 1>), 64: (64, 3, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:16,558 [WARNING] [TRADER] Total fees: -12549.000000
+2020-03-13 22:10:16,810 [WARNING] [TRADER] Total fees: -12999.000000
+2020-03-13 22:10:16,810 [WARNING] [TRADER] Our position is: 37
+2020-03-13 22:10:16,812 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,812 [WARNING] [TRADER] {48: (48, 3, 345700, 22, <Side.BUY: 1>), 59: (59, 0, 345800, 19, <Side.SELL: 0>), 60: (60, 5, 345600, 19, <Side.BUY: 1>), 62: (62, 4, 345600, 1, <Side.BUY: 1>), 64: (64, 3, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:16,813 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:16,813 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:16,814 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:16,815 [WARNING] [TRADER] {59: (59, 1, 345800, 19, <Side.SELL: 0>), 60: (60, 6, 345600, 19, <Side.BUY: 1>), 62: (62, 5, 345600, 1, <Side.BUY: 1>), 64: (64, 4, 345600, 15, <Side.BUY: 1>), 65: (65, 1, 345700, 3, <Side.SELL: 0>), 66: (66, 1, 345600, 3, <Side.BUY: 1>)}
+2020-03-13 22:10:16,816 [WARNING] [TRADER] Total fees: -13346.000000
+2020-03-13 22:10:16,816 [WARNING] [TRADER] Our position is: 24
+2020-03-13 22:10:16,817 [WARNING] [TRADER] error with order 65: order rejected: in cross with an existing order
+2020-03-13 22:10:16,817 [WARNING] [TRADER] Total fees: -13346.000000
+2020-03-13 22:10:16,817 [WARNING] [TRADER] Total fees: -13346.000000
+2020-03-13 22:10:16,818 [WARNING] [TRADER] Total fees: -13693.000000
+2020-03-13 22:10:17,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,060 [WARNING] [TRADER] {59: (59, 2, 345800, 19, <Side.SELL: 0>), 60: (60, 7, 345600, 19, <Side.BUY: 1>), 62: (62, 6, 345600, 1, <Side.BUY: 1>), 64: (64, 5, 345600, 15, <Side.BUY: 1>), 66: (66, 2, 345600, 3, <Side.BUY: 1>)}
+2020-03-13 22:10:17,060 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:17,060 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:17,062 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,062 [WARNING] [TRADER] {59: (59, 3, 345800, 19, <Side.SELL: 0>), 66: (66, 3, 345600, 3, <Side.BUY: 1>), 67: (67, 1, 345800, 5, <Side.SELL: 0>), 68: (68, 1, 345700, 5, <Side.BUY: 1>)}
+2020-03-13 22:10:17,064 [WARNING] [TRADER] Total fees: -13693.000000
+2020-03-13 22:10:17,064 [WARNING] [TRADER] Total fees: -13693.000000
+2020-03-13 22:10:17,064 [WARNING] [TRADER] Total fees: -13693.000000
+2020-03-13 22:10:17,065 [WARNING] [TRADER] Total fees: -13693.000000
+2020-03-13 22:10:17,065 [WARNING] [TRADER] Total fees: -13693.000000
+2020-03-13 22:10:17,307 [WARNING] [TRADER] Total fees: -14178.000000
+2020-03-13 22:10:17,308 [WARNING] [TRADER] Our position is: 25
+2020-03-13 22:10:17,309 [WARNING] [TRADER] Total fees: -14213.000000
+2020-03-13 22:10:17,309 [WARNING] [TRADER] Our position is: 24
+2020-03-13 22:10:17,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,310 [WARNING] [TRADER] {59: (59, 0, 345800, 19, <Side.SELL: 0>), 66: (66, 4, 345600, 3, <Side.BUY: 1>), 67: (67, 2, 345800, 5, <Side.SELL: 0>), 68: (68, 0, 345700, 5, <Side.BUY: 1>)}
+2020-03-13 22:10:17,311 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:17,311 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:17,311 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,311 [WARNING] [TRADER] {59: (59, 0, 345800, 19, <Side.SELL: 0>), 66: (66, 4, 345600, 3, <Side.BUY: 1>), 67: (67, 2, 345800, 5, <Side.SELL: 0>), 68: (68, 0, 345700, 5, <Side.BUY: 1>), 69: (69, 0, 345700, 9, <Side.SELL: 0>), 70: (70, 0, 345600, 9, <Side.BUY: 1>)}
+2020-03-13 22:10:17,312 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:17,312 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:17,313 [WARNING] [TRADER] Total fees: -14283.000000
+2020-03-13 22:10:17,313 [WARNING] [TRADER] Our position is: 25
+2020-03-13 22:10:17,315 [WARNING] [TRADER] Total fees: -14388.000000
+2020-03-13 22:10:17,315 [WARNING] [TRADER] Our position is: 26
+2020-03-13 22:10:17,316 [WARNING] [TRADER] error with order 69: order rejected: in cross with an existing order
+2020-03-13 22:10:17,316 [WARNING] [TRADER] Total fees: -14388.000000
+2020-03-13 22:10:17,317 [WARNING] [TRADER] Total fees: -14388.000000
+2020-03-13 22:10:17,317 [WARNING] [TRADER] error with order 71: order rejected: in cross with an existing order
+2020-03-13 22:10:17,317 [WARNING] [TRADER] Total fees: -14388.000000
+2020-03-13 22:10:17,317 [WARNING] [TRADER] Total fees: -14388.000000
+2020-03-13 22:10:17,318 [WARNING] [TRADER] Total fees: -14388.000000
+2020-03-13 22:10:17,559 [WARNING] [TRADER] Total fees: -14562.000000
+2020-03-13 22:10:17,559 [WARNING] [TRADER] Our position is: 27
+2020-03-13 22:10:17,561 [WARNING] [TRADER] Total fees: -15082.000000
+2020-03-13 22:10:17,561 [WARNING] [TRADER] Our position is: 29
+2020-03-13 22:10:17,562 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,562 [WARNING] [TRADER] {59: (59, 0, 345800, 19, <Side.SELL: 0>), 67: (67, 3, 345800, 5, <Side.SELL: 0>), 70: (70, 1, 345600, 9, <Side.BUY: 1>), 72: (72, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:17,562 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:17,562 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:17,563 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,563 [WARNING] [TRADER] {59: (59, 1, 345800, 19, <Side.SELL: 0>), 70: (70, 2, 345600, 9, <Side.BUY: 1>), 72: (72, 2, 345600, 1, <Side.BUY: 1>), 73: (73, 1, 345800, 13, <Side.SELL: 0>), 74: (74, 1, 345600, 13, <Side.BUY: 1>)}
+2020-03-13 22:10:17,563 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:17,564 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:17,565 [WARNING] [TRADER] Total fees: -15082.000000
+2020-03-13 22:10:17,566 [WARNING] [TRADER] Total fees: -15082.000000
+2020-03-13 22:10:17,566 [WARNING] [TRADER] Total fees: -15082.000000
+2020-03-13 22:10:17,566 [WARNING] [TRADER] Total fees: -15082.000000
+2020-03-13 22:10:17,567 [WARNING] [TRADER] Total fees: -15082.000000
+2020-03-13 22:10:17,808 [WARNING] [TRADER] Total fees: -15117.000000
+2020-03-13 22:10:17,808 [WARNING] [TRADER] Our position is: 28
+2020-03-13 22:10:17,809 [WARNING] [TRADER] Total fees: -15152.000000
+2020-03-13 22:10:17,809 [WARNING] [TRADER] Our position is: 29
+2020-03-13 22:10:17,809 [WARNING] [TRADER] Total fees: -15776.000000
+2020-03-13 22:10:17,810 [WARNING] [TRADER] Our position is: 28
+2020-03-13 22:10:17,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,811 [WARNING] [TRADER] {59: (59, 0, 345800, 19, <Side.SELL: 0>), 70: (70, 0, 345600, 9, <Side.BUY: 1>), 72: (72, 3, 345600, 1, <Side.BUY: 1>), 73: (73, 2, 345800, 13, <Side.SELL: 0>), 74: (74, 2, 345600, 13, <Side.BUY: 1>), 76: (76, 1, 345500, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:17,812 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:17,812 [WARNING] [TRADER] {59: (59, 1, 345800, 19, <Side.SELL: 0>), 70: (70, 1, 345600, 9, <Side.BUY: 1>), 73: (73, 3, 345800, 13, <Side.SELL: 0>), 74: (74, 3, 345600, 13, <Side.BUY: 1>), 76: (76, 2, 345500, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:17,814 [WARNING] [TRADER] Total fees: -15776.000000
+2020-03-13 22:10:18,059 [WARNING] [TRADER] Total fees: -16435.000000
+2020-03-13 22:10:18,059 [WARNING] [TRADER] Our position is: 25
+2020-03-13 22:10:18,059 [WARNING] [TRADER] Total fees: -16505.000000
+2020-03-13 22:10:18,060 [WARNING] [TRADER] Our position is: 24
+2020-03-13 22:10:18,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,060 [WARNING] [TRADER] {70: (70, 0, 345600, 9, <Side.BUY: 1>), 73: (73, 4, 345800, 13, <Side.SELL: 0>), 74: (74, 4, 345600, 13, <Side.BUY: 1>), 76: (76, 3, 345500, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:18,061 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:18,061 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:18,061 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,061 [WARNING] [TRADER] {70: (70, 0, 345600, 9, <Side.BUY: 1>), 73: (73, 4, 345800, 13, <Side.SELL: 0>), 74: (74, 4, 345600, 13, <Side.BUY: 1>), 76: (76, 3, 345500, 1, <Side.BUY: 1>), 77: (77, 0, 345800, 4, <Side.SELL: 0>), 78: (78, 0, 345600, 4, <Side.BUY: 1>)}
+2020-03-13 22:10:18,062 [WARNING] [TRADER] Total fees: -16505.000000
+2020-03-13 22:10:18,062 [WARNING] [TRADER] Total fees: -16505.000000
+2020-03-13 22:10:18,063 [WARNING] [TRADER] Total fees: -16505.000000
+2020-03-13 22:10:18,306 [WARNING] [TRADER] Total fees: -16817.000000
+2020-03-13 22:10:18,306 [WARNING] [TRADER] Our position is: 25
+2020-03-13 22:10:18,306 [WARNING] [TRADER] Total fees: -16852.000000
+2020-03-13 22:10:18,307 [WARNING] [TRADER] Our position is: 32
+2020-03-13 22:10:18,307 [WARNING] [TRADER] Total fees: -17025.000000
+2020-03-13 22:10:18,307 [WARNING] [TRADER] Our position is: 33
+2020-03-13 22:10:18,307 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,307 [WARNING] [TRADER] {74: (74, 0, 345600, 13, <Side.BUY: 1>), 76: (76, 4, 345500, 1, <Side.BUY: 1>), 77: (77, 1, 345800, 4, <Side.SELL: 0>), 78: (78, 1, 345600, 4, <Side.BUY: 1>)}
+2020-03-13 22:10:18,307 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:18,307 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:18,307 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,308 [WARNING] [TRADER] {74: (74, 0, 345600, 13, <Side.BUY: 1>), 76: (76, 4, 345500, 1, <Side.BUY: 1>), 77: (77, 1, 345800, 4, <Side.SELL: 0>), 78: (78, 1, 345600, 4, <Side.BUY: 1>), 79: (79, 0, 345600, 8, <Side.SELL: 0>), 80: (80, 0, 345600, 8, <Side.BUY: 1>)}
+2020-03-13 22:10:18,308 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:18,308 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:18,308 [WARNING] [TRADER] error with order 79: order rejected: in cross with an existing order
+2020-03-13 22:10:18,308 [WARNING] [TRADER] Total fees: -17025.000000
+2020-03-13 22:10:18,309 [WARNING] [TRADER] Total fees: -17025.000000
+2020-03-13 22:10:18,309 [WARNING] [TRADER] Total fees: -17025.000000
+2020-03-13 22:10:18,309 [WARNING] [TRADER] Total fees: -17025.000000
+2020-03-13 22:10:18,309 [WARNING] [TRADER] Total fees: -17025.000000
+2020-03-13 22:10:18,557 [WARNING] [TRADER] Total fees: -17336.000000
+2020-03-13 22:10:18,557 [WARNING] [TRADER] Our position is: 37
+2020-03-13 22:10:18,559 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,559 [WARNING] [TRADER] Our position is: 41
+2020-03-13 22:10:18,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,561 [WARNING] [TRADER] {74: (74, 0, 345600, 13, <Side.BUY: 1>), 77: (77, 2, 345800, 4, <Side.SELL: 0>), 78: (78, 2, 345600, 4, <Side.BUY: 1>), 80: (80, 1, 345600, 8, <Side.BUY: 1>), 82: (82, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:18,561 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:18,561 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:18,562 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,562 [WARNING] [TRADER] {74: (74, 1, 345600, 13, <Side.BUY: 1>), 77: (77, 3, 345800, 4, <Side.SELL: 0>), 78: (78, 3, 345600, 4, <Side.BUY: 1>), 80: (80, 2, 345600, 8, <Side.BUY: 1>), 82: (82, 2, 345600, 1, <Side.BUY: 1>), 83: (83, 1, 345800, 12, <Side.SELL: 0>), 84: (84, 1, 345600, 12, <Side.BUY: 1>)}
+2020-03-13 22:10:18,563 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:18,563 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:18,566 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,566 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,567 [WARNING] [TRADER] error with order 85: order rejected: in cross with an existing order
+2020-03-13 22:10:18,567 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,567 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,568 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,810 [WARNING] [TRADER] {74: (74, 2, 345600, 13, <Side.BUY: 1>), 78: (78, 4, 345600, 4, <Side.BUY: 1>), 80: (80, 3, 345600, 8, <Side.BUY: 1>), 82: (82, 3, 345600, 1, <Side.BUY: 1>), 83: (83, 2, 345800, 12, <Side.SELL: 0>), 84: (84, 2, 345600, 12, <Side.BUY: 1>), 86: (86, 1, 345500, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:18,810 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:18,811 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:18,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:18,811 [WARNING] [TRADER] {74: (74, 3, 345600, 13, <Side.BUY: 1>), 83: (83, 3, 345800, 12, <Side.SELL: 0>), 84: (84, 3, 345600, 12, <Side.BUY: 1>), 86: (86, 2, 345500, 1, <Side.BUY: 1>), 87: (87, 1, 345700, 6, <Side.SELL: 0>), 88: (88, 1, 345500, 6, <Side.BUY: 1>)}
+2020-03-13 22:10:18,812 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,812 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,813 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,813 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:18,813 [WARNING] [TRADER] Total fees: -17371.000000
+2020-03-13 22:10:19,057 [WARNING] [TRADER] Total fees: -17786.000000
+2020-03-13 22:10:19,057 [WARNING] [TRADER] Our position is: 40
+2020-03-13 22:10:19,057 [WARNING] [TRADER] Total fees: -18236.000000
+2020-03-13 22:10:19,058 [WARNING] [TRADER] Our position is: 43
+2020-03-13 22:10:19,059 [WARNING] [TRADER] Total fees: -18616.000000
+2020-03-13 22:10:19,059 [WARNING] [TRADER] Our position is: 44
+2020-03-13 22:10:19,059 [WARNING] [TRADER] Total fees: -19031.000000
+2020-03-13 22:10:19,059 [WARNING] [TRADER] Our position is: 55
+2020-03-13 22:10:19,061 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,061 [WARNING] [TRADER] {83: (83, 4, 345800, 12, <Side.SELL: 0>), 86: (86, 3, 345500, 1, <Side.BUY: 1>), 87: (87, 2, 345700, 6, <Side.SELL: 0>), 88: (88, 2, 345500, 6, <Side.BUY: 1>)}
+2020-03-13 22:10:19,061 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,062 [WARNING] [TRADER] {83: (83, 4, 345800, 12, <Side.SELL: 0>), 86: (86, 3, 345500, 1, <Side.BUY: 1>), 87: (87, 2, 345700, 6, <Side.SELL: 0>), 88: (88, 2, 345500, 6, <Side.BUY: 1>)}
+2020-03-13 22:10:19,063 [WARNING] [TRADER] Total fees: -19031.000000
+2020-03-13 22:10:19,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,309 [WARNING] [TRADER] {86: (86, 4, 345500, 1, <Side.BUY: 1>), 87: (87, 3, 345700, 6, <Side.SELL: 0>), 88: (88, 3, 345500, 6, <Side.BUY: 1>)}
+2020-03-13 22:10:19,310 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:19,310 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:19,312 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,312 [WARNING] [TRADER] {87: (87, 4, 345700, 6, <Side.SELL: 0>), 88: (88, 4, 345500, 6, <Side.BUY: 1>), 89: (89, 1, 345500, 2, <Side.SELL: 0>), 90: (90, 1, 345500, 2, <Side.BUY: 1>)}
+2020-03-13 22:10:19,313 [WARNING] [TRADER] error with order 89: order rejected: in cross with an existing order
+2020-03-13 22:10:19,313 [WARNING] [TRADER] Total fees: -19031.000000
+2020-03-13 22:10:19,313 [WARNING] [TRADER] Total fees: -19031.000000
+2020-03-13 22:10:19,314 [WARNING] [TRADER] Total fees: -19031.000000
+2020-03-13 22:10:19,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,561 [WARNING] [TRADER] {87: (87, 5, 345700, 6, <Side.SELL: 0>), 88: (88, 5, 345500, 6, <Side.BUY: 1>), 90: (90, 2, 345500, 2, <Side.BUY: 1>)}
+2020-03-13 22:10:19,561 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:19,562 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:19,563 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,563 [WARNING] [TRADER] {90: (90, 3, 345500, 2, <Side.BUY: 1>), 91: (91, 1, 345600, 9, <Side.SELL: 0>), 92: (92, 1, 345500, 9, <Side.BUY: 1>)}
+2020-03-13 22:10:19,563 [WARNING] [TRADER] Total fees: -19066.000000
+2020-03-13 22:10:19,564 [WARNING] [TRADER] Our position is: 56
+2020-03-13 22:10:19,565 [WARNING] [TRADER] Total fees: -19136.000000
+2020-03-13 22:10:19,565 [WARNING] [TRADER] Our position is: 55
+2020-03-13 22:10:19,566 [WARNING] [TRADER] Total fees: -18514.000000
+2020-03-13 22:10:19,566 [WARNING] [TRADER] Our position is: 54
+2020-03-13 22:10:19,567 [WARNING] [TRADER] Total fees: -18514.000000
+2020-03-13 22:10:19,567 [WARNING] [TRADER] Total fees: -18584.000000
+2020-03-13 22:10:19,568 [WARNING] [TRADER] Total fees: -18584.000000
+2020-03-13 22:10:19,568 [WARNING] [TRADER] Total fees: -18584.000000
+2020-03-13 22:10:19,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,809 [WARNING] [TRADER] {92: (92, 2, 345500, 9, <Side.BUY: 1>)}
+2020-03-13 22:10:19,809 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:19,809 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:19,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:19,810 [WARNING] [TRADER] {92: (92, 2, 345500, 9, <Side.BUY: 1>), 93: (93, 0, 345700, 21, <Side.SELL: 0>), 94: (94, 0, 345600, 21, <Side.BUY: 1>)}
+2020-03-13 22:10:19,810 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:19,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:19,812 [WARNING] [TRADER] Total fees: -18584.000000
+2020-03-13 22:10:19,812 [WARNING] [TRADER] Total fees: -18584.000000
+2020-03-13 22:10:19,813 [WARNING] [TRADER] Total fees: -18584.000000
+2020-03-13 22:10:19,813 [WARNING] [TRADER] Total fees: -18584.000000
+2020-03-13 22:10:20,058 [WARNING] [TRADER] Total fees: -18861.000000
+2020-03-13 22:10:20,059 [WARNING] [TRADER] Our position is: 45
+2020-03-13 22:10:20,059 [WARNING] [TRADER] Total fees: -19242.000000
+2020-03-13 22:10:20,059 [WARNING] [TRADER] Our position is: 37
+2020-03-13 22:10:20,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,060 [WARNING] [TRADER] {92: (92, 3, 345500, 9, <Side.BUY: 1>), 93: (93, 0, 345700, 21, <Side.SELL: 0>), 94: (94, 1, 345600, 21, <Side.BUY: 1>), 95: (95, 1, 345800, 1, <Side.SELL: 0>), 96: (96, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:20,061 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:20,061 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:20,062 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,062 [WARNING] [TRADER] {92: (92, 3, 345500, 9, <Side.BUY: 1>), 93: (93, 0, 345700, 21, <Side.SELL: 0>), 94: (94, 1, 345600, 21, <Side.BUY: 1>), 95: (95, 1, 345800, 1, <Side.SELL: 0>), 96: (96, 1, 345600, 1, <Side.BUY: 1>), 97: (97, 0, 345800, 18, <Side.SELL: 0>), 98: (98, 0, 345600, 18, <Side.BUY: 1>)}
+2020-03-13 22:10:20,062 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:20,063 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:20,063 [WARNING] [TRADER] Total fees: -19658.000000
+2020-03-13 22:10:20,063 [WARNING] [TRADER] Our position is: 34
+2020-03-13 22:10:20,064 [WARNING] [TRADER] Total fees: -20109.000000
+2020-03-13 22:10:20,064 [WARNING] [TRADER] Our position is: 33
+2020-03-13 22:10:20,064 [WARNING] [TRADER] Total fees: -20109.000000
+2020-03-13 22:10:20,064 [WARNING] [TRADER] Total fees: -20109.000000
+2020-03-13 22:10:20,064 [WARNING] [TRADER] Total fees: -20109.000000
+2020-03-13 22:10:20,064 [WARNING] [TRADER] Total fees: -20109.000000
+2020-03-13 22:10:20,064 [WARNING] [TRADER] Total fees: -20109.000000
+2020-03-13 22:10:20,308 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,308 [WARNING] [TRADER] {93: (93, 1, 345700, 21, <Side.SELL: 0>), 94: (94, 2, 345600, 21, <Side.BUY: 1>), 95: (95, 2, 345800, 1, <Side.SELL: 0>), 96: (96, 2, 345600, 1, <Side.BUY: 1>), 97: (97, 1, 345800, 18, <Side.SELL: 0>), 98: (98, 1, 345600, 18, <Side.BUY: 1>), 99: (99, 1, 345800, 1, <Side.SELL: 0>), 100: (100, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:20,309 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:20,309 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:20,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,310 [WARNING] [TRADER] {93: (93, 1, 345700, 21, <Side.SELL: 0>), 94: (94, 2, 345600, 21, <Side.BUY: 1>), 95: (95, 2, 345800, 1, <Side.SELL: 0>), 96: (96, 2, 345600, 1, <Side.BUY: 1>), 97: (97, 1, 345800, 18, <Side.SELL: 0>), 98: (98, 1, 345600, 18, <Side.BUY: 1>), 99: (99, 1, 345800, 1, <Side.SELL: 0>), 100: (100, 1, 345600, 1, <Side.BUY: 1>), 101: (101, 0, 345700, 15, <Side.SELL: 0>), 102: (102, 0, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:20,311 [WARNING] [TRADER] Total fees: -20595.000000
+2020-03-13 22:10:20,311 [WARNING] [TRADER] Our position is: 32
+2020-03-13 22:10:20,312 [WARNING] [TRADER] Total fees: -20595.000000
+2020-03-13 22:10:20,312 [WARNING] [TRADER] Total fees: -20595.000000
+2020-03-13 22:10:20,557 [WARNING] [TRADER] Total fees: -21254.000000
+2020-03-13 22:10:20,558 [WARNING] [TRADER] Our position is: 31
+2020-03-13 22:10:20,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,559 [WARNING] [TRADER] {93: (93, 0, 345700, 21, <Side.SELL: 0>), 94: (94, 3, 345600, 21, <Side.BUY: 1>), 95: (95, 3, 345800, 1, <Side.SELL: 0>), 96: (96, 3, 345600, 1, <Side.BUY: 1>), 97: (97, 2, 345800, 18, <Side.SELL: 0>), 98: (98, 2, 345600, 18, <Side.BUY: 1>), 99: (99, 2, 345800, 1, <Side.SELL: 0>), 100: (100, 2, 345600, 1, <Side.BUY: 1>), 101: (101, 1, 345700, 15, <Side.SELL: 0>), 102: (102, 1, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:20,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:20,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:20,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,561 [WARNING] [TRADER] {93: (93, 0, 345700, 21, <Side.SELL: 0>), 94: (94, 3, 345600, 21, <Side.BUY: 1>), 95: (95, 3, 345800, 1, <Side.SELL: 0>), 96: (96, 3, 345600, 1, <Side.BUY: 1>), 97: (97, 2, 345800, 18, <Side.SELL: 0>), 98: (98, 2, 345600, 18, <Side.BUY: 1>), 99: (99, 2, 345800, 1, <Side.SELL: 0>), 100: (100, 2, 345600, 1, <Side.BUY: 1>), 101: (101, 1, 345700, 15, <Side.SELL: 0>), 102: (102, 1, 345600, 15, <Side.BUY: 1>), 103: (103, 0, 345700, 12, <Side.SELL: 0>), 104: (104, 0, 345600, 12, <Side.BUY: 1>)}
+2020-03-13 22:10:20,561 [WARNING] [TRADER] Total fees: -21948.000000
+2020-03-13 22:10:20,561 [WARNING] [TRADER] Our position is: 26
+2020-03-13 22:10:20,562 [WARNING] [TRADER] error with order 103: order rejected: active order count limit breached
+2020-03-13 22:10:20,562 [WARNING] [TRADER] Total fees: -21948.000000
+2020-03-13 22:10:20,562 [WARNING] [TRADER] error with order 104: order rejected: active order count limit breached
+2020-03-13 22:10:20,563 [WARNING] [TRADER] Total fees: -21948.000000
+2020-03-13 22:10:20,808 [WARNING] [TRADER] Total fees: -22677.000000
+2020-03-13 22:10:20,808 [WARNING] [TRADER] Our position is: 25
+2020-03-13 22:10:20,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,809 [WARNING] [TRADER] {94: (94, 4, 345600, 21, <Side.BUY: 1>), 95: (95, 4, 345800, 1, <Side.SELL: 0>), 96: (96, 4, 345600, 1, <Side.BUY: 1>), 97: (97, 3, 345800, 18, <Side.SELL: 0>), 98: (98, 3, 345600, 18, <Side.BUY: 1>), 99: (99, 3, 345800, 1, <Side.SELL: 0>), 100: (100, 3, 345600, 1, <Side.BUY: 1>), 101: (101, 2, 345700, 15, <Side.SELL: 0>), 102: (102, 2, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:20,810 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:20,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:20,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:20,811 [WARNING] [TRADER] {94: (94, 4, 345600, 21, <Side.BUY: 1>), 95: (95, 4, 345800, 1, <Side.SELL: 0>), 96: (96, 4, 345600, 1, <Side.BUY: 1>), 97: (97, 3, 345800, 18, <Side.SELL: 0>), 98: (98, 3, 345600, 18, <Side.BUY: 1>), 99: (99, 3, 345800, 1, <Side.SELL: 0>), 100: (100, 3, 345600, 1, <Side.BUY: 1>), 101: (101, 2, 345700, 15, <Side.SELL: 0>), 102: (102, 2, 345600, 15, <Side.BUY: 1>), 105: (105, 0, 345600, 6, <Side.SELL: 0>), 106: (106, 0, 345600, 6, <Side.BUY: 1>)}
+2020-03-13 22:10:20,811 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:20,812 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:20,812 [WARNING] [TRADER] error with order 105: order rejected: in cross with an existing order
+2020-03-13 22:10:20,812 [WARNING] [TRADER] Total fees: -22677.000000
+2020-03-13 22:10:20,812 [WARNING] [TRADER] Total fees: -22677.000000
+2020-03-13 22:10:20,812 [WARNING] [TRADER] error with order 107: order rejected: active order count limit breached
+2020-03-13 22:10:20,812 [WARNING] [TRADER] Total fees: -22677.000000
+2020-03-13 22:10:20,812 [WARNING] [TRADER] error with order 108: order rejected: active order count limit breached
+2020-03-13 22:10:20,812 [WARNING] [TRADER] Total fees: -22677.000000
+2020-03-13 22:10:20,812 [WARNING] [TRADER] Total fees: -22677.000000
+2020-03-13 22:10:21,058 [WARNING] [TRADER] Total fees: -22712.000000
+2020-03-13 22:10:21,058 [WARNING] [TRADER] Our position is: 24
+2020-03-13 22:10:21,059 [WARNING] [TRADER] Total fees: -22850.000000
+2020-03-13 22:10:21,059 [WARNING] [TRADER] Our position is: 25
+2020-03-13 22:10:21,060 [WARNING] [TRADER] Total fees: -22885.000000
+2020-03-13 22:10:21,061 [WARNING] [TRADER] Our position is: 29
+2020-03-13 22:10:21,061 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,062 [WARNING] [TRADER] {95: (95, 5, 345800, 1, <Side.SELL: 0>), 97: (97, 4, 345800, 18, <Side.SELL: 0>), 98: (98, 0, 345600, 18, <Side.BUY: 1>), 99: (99, 4, 345800, 1, <Side.SELL: 0>), 100: (100, 4, 345600, 1, <Side.BUY: 1>), 101: (101, 0, 345700, 15, <Side.SELL: 0>), 102: (102, 3, 345600, 15, <Side.BUY: 1>), 106: (106, 1, 345600, 6, <Side.BUY: 1>)}
+2020-03-13 22:10:21,062 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:21,062 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:21,063 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,063 [WARNING] [TRADER] {95: (95, 5, 345800, 1, <Side.SELL: 0>), 97: (97, 4, 345800, 18, <Side.SELL: 0>), 98: (98, 0, 345600, 18, <Side.BUY: 1>), 99: (99, 4, 345800, 1, <Side.SELL: 0>), 100: (100, 4, 345600, 1, <Side.BUY: 1>), 101: (101, 0, 345700, 15, <Side.SELL: 0>), 102: (102, 3, 345600, 15, <Side.BUY: 1>), 106: (106, 1, 345600, 6, <Side.BUY: 1>), 109: (109, 0, 345700, 25, <Side.SELL: 0>), 110: (110, 0, 345600, 25, <Side.BUY: 1>)}
+2020-03-13 22:10:21,064 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:21,064 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:21,064 [WARNING] [TRADER] Total fees: -22955.000000
+2020-03-13 22:10:21,065 [WARNING] [TRADER] Our position is: 28
+2020-03-13 22:10:21,065 [WARNING] [TRADER] Total fees: -23060.000000
+2020-03-13 22:10:21,065 [WARNING] [TRADER] Our position is: 27
+2020-03-13 22:10:21,066 [WARNING] [TRADER] Total fees: -23060.000000
+2020-03-13 22:10:21,066 [WARNING] [TRADER] Total fees: -23060.000000
+2020-03-13 22:10:21,067 [WARNING] [TRADER] error with order 111: order rejected: active order count limit breached
+2020-03-13 22:10:21,067 [WARNING] [TRADER] Total fees: -23060.000000
+2020-03-13 22:10:21,067 [WARNING] [TRADER] error with order 112: order rejected: active order count limit breached
+2020-03-13 22:10:21,067 [WARNING] [TRADER] Total fees: -23060.000000
+2020-03-13 22:10:21,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,309 [WARNING] [TRADER] {95: (95, 6, 345800, 1, <Side.SELL: 0>), 97: (97, 5, 345800, 18, <Side.SELL: 0>), 98: (98, 1, 345600, 18, <Side.BUY: 1>), 99: (99, 5, 345800, 1, <Side.SELL: 0>), 100: (100, 5, 345600, 1, <Side.BUY: 1>), 101: (101, 1, 345700, 15, <Side.SELL: 0>), 102: (102, 4, 345600, 15, <Side.BUY: 1>), 106: (106, 2, 345600, 6, <Side.BUY: 1>), 109: (109, 1, 345700, 25, <Side.SELL: 0>), 110: (110, 1, 345600, 25, <Side.BUY: 1>)}
+2020-03-13 22:10:21,309 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:21,310 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:21,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,311 [WARNING] [TRADER] {95: (95, 6, 345800, 1, <Side.SELL: 0>), 97: (97, 5, 345800, 18, <Side.SELL: 0>), 98: (98, 1, 345600, 18, <Side.BUY: 1>), 99: (99, 5, 345800, 1, <Side.SELL: 0>), 100: (100, 5, 345600, 1, <Side.BUY: 1>), 101: (101, 1, 345700, 15, <Side.SELL: 0>), 102: (102, 4, 345600, 15, <Side.BUY: 1>), 106: (106, 2, 345600, 6, <Side.BUY: 1>), 109: (109, 1, 345700, 25, <Side.SELL: 0>), 110: (110, 1, 345600, 25, <Side.BUY: 1>), 113: (113, 0, 345600, 12, <Side.SELL: 0>), 114: (114, 0, 345600, 12, <Side.BUY: 1>)}
+2020-03-13 22:10:21,311 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:21,312 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:21,312 [WARNING] [TRADER] Total fees: -23200.000000
+2020-03-13 22:10:21,312 [WARNING] [TRADER] Our position is: 26
+2020-03-13 22:10:21,313 [WARNING] [TRADER] error with order 113: order rejected: active order count limit breached
+2020-03-13 22:10:21,313 [WARNING] [TRADER] Total fees: -23200.000000
+2020-03-13 22:10:21,313 [WARNING] [TRADER] error with order 114: order rejected: active order count limit breached
+2020-03-13 22:10:21,313 [WARNING] [TRADER] Total fees: -23200.000000
+2020-03-13 22:10:21,313 [WARNING] [TRADER] error with order 115: order rejected: active order count limit breached
+2020-03-13 22:10:21,313 [WARNING] [TRADER] Total fees: -23200.000000
+2020-03-13 22:10:21,313 [WARNING] [TRADER] error with order 116: order rejected: active order count limit breached
+2020-03-13 22:10:21,313 [WARNING] [TRADER] Total fees: -23200.000000
+2020-03-13 22:10:21,313 [WARNING] [TRADER] Total fees: -23200.000000
+2020-03-13 22:10:21,557 [WARNING] [TRADER] Total fees: -23442.000000
+2020-03-13 22:10:21,558 [WARNING] [TRADER] Our position is: 25
+2020-03-13 22:10:21,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,559 [WARNING] [TRADER] {97: (97, 6, 345800, 18, <Side.SELL: 0>), 98: (98, 0, 345600, 18, <Side.BUY: 1>), 99: (99, 6, 345800, 1, <Side.SELL: 0>), 100: (100, 6, 345600, 1, <Side.BUY: 1>), 101: (101, 1, 345700, 15, <Side.SELL: 0>), 102: (102, 5, 345600, 15, <Side.BUY: 1>), 106: (106, 3, 345600, 6, <Side.BUY: 1>), 109: (109, 2, 345700, 25, <Side.SELL: 0>), 110: (110, 2, 345600, 25, <Side.BUY: 1>)}
+2020-03-13 22:10:21,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:21,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:21,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,561 [WARNING] [TRADER] {97: (97, 6, 345800, 18, <Side.SELL: 0>), 98: (98, 0, 345600, 18, <Side.BUY: 1>), 99: (99, 6, 345800, 1, <Side.SELL: 0>), 100: (100, 6, 345600, 1, <Side.BUY: 1>), 101: (101, 1, 345700, 15, <Side.SELL: 0>), 102: (102, 5, 345600, 15, <Side.BUY: 1>), 106: (106, 3, 345600, 6, <Side.BUY: 1>), 109: (109, 2, 345700, 25, <Side.SELL: 0>), 110: (110, 2, 345600, 25, <Side.BUY: 1>), 117: (117, 0, 345700, 18, <Side.SELL: 0>), 118: (118, 0, 345600, 18, <Side.BUY: 1>)}
+2020-03-13 22:10:21,561 [WARNING] [TRADER] Total fees: -23617.000000
+2020-03-13 22:10:21,561 [WARNING] [TRADER] Our position is: 28
+2020-03-13 22:10:21,561 [WARNING] [TRADER] Total fees: -23617.000000
+2020-03-13 22:10:21,562 [WARNING] [TRADER] error with order 118: order rejected: active order count limit breached
+2020-03-13 22:10:21,562 [WARNING] [TRADER] Total fees: -23617.000000
+2020-03-13 22:10:21,807 [WARNING] [TRADER] Total fees: -24138.000000
+2020-03-13 22:10:21,808 [WARNING] [TRADER] Our position is: 27
+2020-03-13 22:10:21,809 [WARNING] [TRADER] Total fees: -24449.000000
+2020-03-13 22:10:21,809 [WARNING] [TRADER] Our position is: 17
+2020-03-13 22:10:21,809 [WARNING] [TRADER] Total fees: -24898.000000
+2020-03-13 22:10:21,810 [WARNING] [TRADER] Our position is: 19
+2020-03-13 22:10:21,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,811 [WARNING] [TRADER] {97: (97, 7, 345800, 18, <Side.SELL: 0>), 98: (98, 0, 345600, 18, <Side.BUY: 1>), 99: (99, 7, 345800, 1, <Side.SELL: 0>), 100: (100, 7, 345600, 1, <Side.BUY: 1>), 102: (102, 6, 345600, 15, <Side.BUY: 1>), 106: (106, 4, 345600, 6, <Side.BUY: 1>), 109: (109, 3, 345700, 25, <Side.SELL: 0>), 110: (110, 3, 345600, 25, <Side.BUY: 1>), 117: (117, 1, 345700, 18, <Side.SELL: 0>)}
+2020-03-13 22:10:21,811 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:21,812 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:21,812 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:21,812 [WARNING] [TRADER] {97: (97, 7, 345800, 18, <Side.SELL: 0>), 98: (98, 0, 345600, 18, <Side.BUY: 1>), 99: (99, 7, 345800, 1, <Side.SELL: 0>), 100: (100, 7, 345600, 1, <Side.BUY: 1>), 102: (102, 6, 345600, 15, <Side.BUY: 1>), 106: (106, 4, 345600, 6, <Side.BUY: 1>), 109: (109, 3, 345700, 25, <Side.SELL: 0>), 110: (110, 3, 345600, 25, <Side.BUY: 1>), 117: (117, 1, 345700, 18, <Side.SELL: 0>), 119: (119, 0, 345600, 9, <Side.SELL: 0>), 120: (120, 0, 345600, 9, <Side.BUY: 1>)}
+2020-03-13 22:10:21,812 [WARNING] [TRADER] error with order 119: order rejected: in cross with an existing order
+2020-03-13 22:10:21,812 [WARNING] [TRADER] Total fees: -24898.000000
+2020-03-13 22:10:21,812 [WARNING] [TRADER] Total fees: -24898.000000
+2020-03-13 22:10:21,812 [WARNING] [TRADER] Total fees: -24898.000000
+2020-03-13 22:10:22,057 [WARNING] [TRADER] Total fees: -25520.000000
+2020-03-13 22:10:22,057 [WARNING] [TRADER] Our position is: 23
+2020-03-13 22:10:22,057 [WARNING] [TRADER] Total fees: -25555.000000
+2020-03-13 22:10:22,057 [WARNING] [TRADER] Our position is: 28
+2020-03-13 22:10:22,057 [WARNING] [TRADER] Total fees: -25624.000000
+2020-03-13 22:10:22,057 [WARNING] [TRADER] Our position is: 29
+2020-03-13 22:10:22,057 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,058 [WARNING] [TRADER] {99: (99, 8, 345800, 1, <Side.SELL: 0>), 102: (102, 0, 345600, 15, <Side.BUY: 1>), 106: (106, 5, 345600, 6, <Side.BUY: 1>), 109: (109, 4, 345700, 25, <Side.SELL: 0>), 110: (110, 4, 345600, 25, <Side.BUY: 1>), 117: (117, 2, 345700, 18, <Side.SELL: 0>), 120: (120, 1, 345600, 9, <Side.BUY: 1>)}
+2020-03-13 22:10:22,058 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:22,058 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:22,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,058 [WARNING] [TRADER] {99: (99, 8, 345800, 1, <Side.SELL: 0>), 102: (102, 0, 345600, 15, <Side.BUY: 1>), 106: (106, 5, 345600, 6, <Side.BUY: 1>), 109: (109, 4, 345700, 25, <Side.SELL: 0>), 110: (110, 4, 345600, 25, <Side.BUY: 1>), 117: (117, 2, 345700, 18, <Side.SELL: 0>), 120: (120, 1, 345600, 9, <Side.BUY: 1>), 121: (121, 0, 345600, 18, <Side.SELL: 0>), 122: (122, 0, 345600, 18, <Side.BUY: 1>)}
+2020-03-13 22:10:22,058 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:22,058 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:22,059 [WARNING] [TRADER] error with order 121: order rejected: in cross with an existing order
+2020-03-13 22:10:22,059 [WARNING] [TRADER] Total fees: -25624.000000
+2020-03-13 22:10:22,059 [WARNING] [TRADER] Total fees: -25624.000000
+2020-03-13 22:10:22,059 [WARNING] [TRADER] error with order 123: order rejected: in cross with an existing order
+2020-03-13 22:10:22,059 [WARNING] [TRADER] Total fees: -25624.000000
+2020-03-13 22:10:22,059 [WARNING] [TRADER] Total fees: -25624.000000
+2020-03-13 22:10:22,059 [WARNING] [TRADER] Total fees: -25624.000000
+2020-03-13 22:10:22,308 [WARNING] [TRADER] Total fees: -26039.000000
+2020-03-13 22:10:22,308 [WARNING] [TRADER] Our position is: 31
+2020-03-13 22:10:22,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,309 [WARNING] [TRADER] {102: (102, 1, 345600, 15, <Side.BUY: 1>), 106: (106, 6, 345600, 6, <Side.BUY: 1>), 109: (109, 0, 345700, 25, <Side.SELL: 0>), 110: (110, 5, 345600, 25, <Side.BUY: 1>), 117: (117, 3, 345700, 18, <Side.SELL: 0>), 120: (120, 2, 345600, 9, <Side.BUY: 1>), 122: (122, 1, 345600, 18, <Side.BUY: 1>), 124: (124, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:22,310 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:22,310 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:22,311 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,311 [WARNING] [TRADER] {102: (102, 2, 345600, 15, <Side.BUY: 1>), 109: (109, 1, 345700, 25, <Side.SELL: 0>), 117: (117, 4, 345700, 18, <Side.SELL: 0>), 120: (120, 3, 345600, 9, <Side.BUY: 1>), 122: (122, 2, 345600, 18, <Side.BUY: 1>), 124: (124, 2, 345600, 1, <Side.BUY: 1>), 125: (125, 1, 345600, 21, <Side.SELL: 0>), 126: (126, 1, 345600, 21, <Side.BUY: 1>)}
+2020-03-13 22:10:22,311 [WARNING] [TRADER] Total fees: -26489.000000
+2020-03-13 22:10:22,312 [WARNING] [TRADER] Our position is: 19
+2020-03-13 22:10:22,313 [WARNING] [TRADER] Total fees: -26974.000000
+2020-03-13 22:10:22,313 [WARNING] [TRADER] Our position is: 18
+2020-03-13 22:10:22,314 [WARNING] [TRADER] error with order 125: order rejected: in cross with an existing order
+2020-03-13 22:10:22,314 [WARNING] [TRADER] Total fees: -26974.000000
+2020-03-13 22:10:22,315 [WARNING] [TRADER] Total fees: -26974.000000
+2020-03-13 22:10:22,315 [WARNING] [TRADER] Total fees: -26974.000000
+2020-03-13 22:10:22,315 [WARNING] [TRADER] Total fees: -26974.000000
+2020-03-13 22:10:22,557 [WARNING] [TRADER] Total fees: -27839.000000
+2020-03-13 22:10:22,558 [WARNING] [TRADER] Our position is: 17
+2020-03-13 22:10:22,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,559 [WARNING] [TRADER] {102: (102, 3, 345600, 15, <Side.BUY: 1>), 117: (117, 5, 345700, 18, <Side.SELL: 0>), 120: (120, 4, 345600, 9, <Side.BUY: 1>), 122: (122, 3, 345600, 18, <Side.BUY: 1>), 124: (124, 3, 345600, 1, <Side.BUY: 1>), 126: (126, 2, 345600, 21, <Side.BUY: 1>)}
+2020-03-13 22:10:22,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:22,559 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:22,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,560 [WARNING] [TRADER] {122: (122, 4, 345600, 18, <Side.BUY: 1>), 124: (124, 4, 345600, 1, <Side.BUY: 1>), 126: (126, 3, 345600, 21, <Side.BUY: 1>), 127: (127, 1, 345700, 20, <Side.SELL: 0>), 128: (128, 1, 345600, 20, <Side.BUY: 1>)}
+2020-03-13 22:10:22,561 [WARNING] [TRADER] Total fees: -27943.000000
+2020-03-13 22:10:22,561 [WARNING] [TRADER] Our position is: 6
+2020-03-13 22:10:22,562 [WARNING] [TRADER] Total fees: -27978.000000
+2020-03-13 22:10:22,562 [WARNING] [TRADER] Our position is: 7
+2020-03-13 22:10:22,563 [WARNING] [TRADER] Total fees: -27978.000000
+2020-03-13 22:10:22,563 [WARNING] [TRADER] Total fees: -27978.000000
+2020-03-13 22:10:22,564 [WARNING] [TRADER] Total fees: -28082.000000
+2020-03-13 22:10:22,564 [WARNING] [TRADER] Total fees: -28117.000000
+2020-03-13 22:10:22,564 [WARNING] [TRADER] Total fees: -28117.000000
+2020-03-13 22:10:22,807 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,808 [WARNING] [TRADER] {122: (122, 5, 345600, 18, <Side.BUY: 1>), 124: (124, 5, 345600, 1, <Side.BUY: 1>), 126: (126, 4, 345600, 21, <Side.BUY: 1>), 127: (127, 2, 345700, 20, <Side.SELL: 0>), 128: (128, 2, 345600, 20, <Side.BUY: 1>)}
+2020-03-13 22:10:22,808 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:22,808 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:22,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:22,809 [WARNING] [TRADER] {122: (122, 5, 345600, 18, <Side.BUY: 1>), 124: (124, 5, 345600, 1, <Side.BUY: 1>), 126: (126, 4, 345600, 21, <Side.BUY: 1>), 127: (127, 2, 345700, 20, <Side.SELL: 0>), 128: (128, 2, 345600, 20, <Side.BUY: 1>), 129: (129, 0, 345700, 20, <Side.SELL: 0>), 130: (130, 0, 345600, 20, <Side.BUY: 1>)}
+2020-03-13 22:10:22,809 [WARNING] [TRADER] Total fees: -28152.000000
+2020-03-13 22:10:22,810 [WARNING] [TRADER] Our position is: 6
+2020-03-13 22:10:22,811 [WARNING] [TRADER] Total fees: -28152.000000
+2020-03-13 22:10:22,811 [WARNING] [TRADER] Total fees: -28152.000000
+2020-03-13 22:10:23,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,058 [WARNING] [TRADER] {122: (122, 6, 345600, 18, <Side.BUY: 1>), 124: (124, 6, 345600, 1, <Side.BUY: 1>), 126: (126, 5, 345600, 21, <Side.BUY: 1>), 127: (127, 0, 345700, 20, <Side.SELL: 0>), 128: (128, 3, 345600, 20, <Side.BUY: 1>), 129: (129, 1, 345700, 20, <Side.SELL: 0>), 130: (130, 1, 345600, 20, <Side.BUY: 1>)}
+2020-03-13 22:10:23,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:23,059 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:23,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,060 [WARNING] [TRADER] {124: (124, 7, 345600, 1, <Side.BUY: 1>), 126: (126, 6, 345600, 21, <Side.BUY: 1>), 127: (127, 1, 345700, 20, <Side.SELL: 0>), 128: (128, 4, 345600, 20, <Side.BUY: 1>), 129: (129, 2, 345700, 20, <Side.SELL: 0>), 130: (130, 2, 345600, 20, <Side.BUY: 1>), 131: (131, 1, 345700, 10, <Side.SELL: 0>), 132: (132, 1, 345500, 10, <Side.BUY: 1>)}
+2020-03-13 22:10:23,060 [WARNING] [TRADER] Total fees: -28222.000000
+2020-03-13 22:10:23,060 [WARNING] [TRADER] Our position is: 5
+2020-03-13 22:10:23,062 [WARNING] [TRADER] Total fees: -28327.000000
+2020-03-13 22:10:23,062 [WARNING] [TRADER] Our position is: 4
+2020-03-13 22:10:23,063 [WARNING] [TRADER] Total fees: -28327.000000
+2020-03-13 22:10:23,064 [WARNING] [TRADER] Total fees: -28327.000000
+2020-03-13 22:10:23,064 [WARNING] [TRADER] Total fees: -28327.000000
+2020-03-13 22:10:23,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,311 [WARNING] [TRADER] {124: (124, 8, 345600, 1, <Side.BUY: 1>), 126: (126, 7, 345600, 21, <Side.BUY: 1>), 127: (127, 0, 345700, 20, <Side.SELL: 0>), 128: (128, 5, 345600, 20, <Side.BUY: 1>), 129: (129, 3, 345700, 20, <Side.SELL: 0>), 130: (130, 3, 345600, 20, <Side.BUY: 1>), 131: (131, 2, 345700, 10, <Side.SELL: 0>), 132: (132, 2, 345500, 10, <Side.BUY: 1>)}
+2020-03-13 22:10:23,311 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:23,311 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:23,313 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,313 [WARNING] [TRADER] {127: (127, 1, 345700, 20, <Side.SELL: 0>), 129: (129, 4, 345700, 20, <Side.SELL: 0>), 130: (130, 4, 345600, 20, <Side.BUY: 1>), 131: (131, 3, 345700, 10, <Side.SELL: 0>), 132: (132, 3, 345500, 10, <Side.BUY: 1>), 133: (133, 1, 345700, 17, <Side.SELL: 0>), 134: (134, 1, 345600, 17, <Side.BUY: 1>)}
+2020-03-13 22:10:23,314 [WARNING] [TRADER] Total fees: -28467.000000
+2020-03-13 22:10:23,314 [WARNING] [TRADER] Our position is: 3
+2020-03-13 22:10:23,315 [WARNING] [TRADER] Total fees: -28467.000000
+2020-03-13 22:10:23,316 [WARNING] [TRADER] Total fees: -28467.000000
+2020-03-13 22:10:23,316 [WARNING] [TRADER] Total fees: -28467.000000
+2020-03-13 22:10:23,317 [WARNING] [TRADER] Total fees: -28467.000000
+2020-03-13 22:10:23,317 [WARNING] [TRADER] Total fees: -28467.000000
+2020-03-13 22:10:23,558 [WARNING] [TRADER] Total fees: -28642.000000
+2020-03-13 22:10:23,559 [WARNING] [TRADER] Our position is: 2
+2020-03-13 22:10:23,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,560 [WARNING] [TRADER] {127: (127, 0, 345700, 20, <Side.SELL: 0>), 129: (129, 5, 345700, 20, <Side.SELL: 0>), 130: (130, 5, 345600, 20, <Side.BUY: 1>), 131: (131, 4, 345700, 10, <Side.SELL: 0>), 132: (132, 4, 345500, 10, <Side.BUY: 1>), 133: (133, 2, 345700, 17, <Side.SELL: 0>), 134: (134, 2, 345600, 17, <Side.BUY: 1>)}
+2020-03-13 22:10:23,560 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:23,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:23,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,561 [WARNING] [TRADER] {127: (127, 0, 345700, 20, <Side.SELL: 0>), 129: (129, 5, 345700, 20, <Side.SELL: 0>), 130: (130, 5, 345600, 20, <Side.BUY: 1>), 131: (131, 4, 345700, 10, <Side.SELL: 0>), 132: (132, 4, 345500, 10, <Side.BUY: 1>), 133: (133, 2, 345700, 17, <Side.SELL: 0>), 134: (134, 2, 345600, 17, <Side.BUY: 1>), 135: (135, 0, 345700, 25, <Side.SELL: 0>), 136: (136, 0, 345600, 25, <Side.BUY: 1>)}
+2020-03-13 22:10:23,562 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:23,562 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:23,562 [WARNING] [TRADER] Total fees: -28852.000000
+2020-03-13 22:10:23,562 [WARNING] [TRADER] Our position is: 1
+2020-03-13 22:10:23,563 [WARNING] [TRADER] Total fees: -28852.000000
+2020-03-13 22:10:23,563 [WARNING] [TRADER] Total fees: -28852.000000
+2020-03-13 22:10:23,563 [WARNING] [TRADER] Total fees: -28852.000000
+2020-03-13 22:10:23,564 [WARNING] [TRADER] error with order 138: order rejected: active order count limit breached
+2020-03-13 22:10:23,564 [WARNING] [TRADER] Total fees: -28852.000000
+2020-03-13 22:10:23,807 [WARNING] [TRADER] Total fees: -29511.000000
+2020-03-13 22:10:23,808 [WARNING] [TRADER] Our position is: 0
+2020-03-13 22:10:23,808 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,809 [WARNING] [TRADER] {127: (127, 0, 345700, 20, <Side.SELL: 0>), 129: (129, 6, 345700, 20, <Side.SELL: 0>), 130: (130, 6, 345600, 20, <Side.BUY: 1>), 131: (131, 5, 345700, 10, <Side.SELL: 0>), 132: (132, 5, 345500, 10, <Side.BUY: 1>), 133: (133, 3, 345700, 17, <Side.SELL: 0>), 134: (134, 3, 345600, 17, <Side.BUY: 1>), 135: (135, 1, 345700, 25, <Side.SELL: 0>), 136: (136, 1, 345600, 25, <Side.BUY: 1>), 137: (137, 1, 345700, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:23,809 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:23,809 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:23,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:23,810 [WARNING] [TRADER] {127: (127, 0, 345700, 20, <Side.SELL: 0>), 129: (129, 6, 345700, 20, <Side.SELL: 0>), 130: (130, 6, 345600, 20, <Side.BUY: 1>), 131: (131, 5, 345700, 10, <Side.SELL: 0>), 132: (132, 5, 345500, 10, <Side.BUY: 1>), 133: (133, 3, 345700, 17, <Side.SELL: 0>), 134: (134, 3, 345600, 17, <Side.BUY: 1>), 135: (135, 1, 345700, 25, <Side.SELL: 0>), 136: (136, 1, 345600, 25, <Side.BUY: 1>), 137: (137, 1, 345700, 1, <Side.SELL: 0>), 139: (139, 0, 345700, 14, <Side.SELL: 0>), 140: (140, 0, 345600, 14, <Side.BUY: 1>)}
+2020-03-13 22:10:23,810 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:23,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:23,811 [WARNING] [TRADER] Total fees: -30205.000000
+2020-03-13 22:10:23,811 [WARNING] [TRADER] Our position is: -13
+2020-03-13 22:10:23,811 [WARNING] [TRADER] Total fees: -30205.000000
+2020-03-13 22:10:23,811 [WARNING] [TRADER] error with order 140: order rejected: active order count limit breached
+2020-03-13 22:10:23,812 [WARNING] [TRADER] Total fees: -30205.000000
+2020-03-13 22:10:23,812 [WARNING] [TRADER] error with order 141: order rejected: active order count limit breached
+2020-03-13 22:10:23,812 [WARNING] [TRADER] Total fees: -30205.000000
+2020-03-13 22:10:23,812 [WARNING] [TRADER] error with order 142: order rejected: active order count limit breached
+2020-03-13 22:10:23,812 [WARNING] [TRADER] Total fees: -30205.000000
+2020-03-13 22:10:23,813 [WARNING] [TRADER] Total fees: -30205.000000
+2020-03-13 22:10:24,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,058 [WARNING] [TRADER] {130: (130, 7, 345600, 20, <Side.BUY: 1>), 131: (131, 6, 345700, 10, <Side.SELL: 0>), 132: (132, 6, 345500, 10, <Side.BUY: 1>), 133: (133, 4, 345700, 17, <Side.SELL: 0>), 134: (134, 4, 345600, 17, <Side.BUY: 1>), 135: (135, 2, 345700, 25, <Side.SELL: 0>), 136: (136, 2, 345600, 25, <Side.BUY: 1>), 137: (137, 2, 345700, 1, <Side.SELL: 0>), 139: (139, 1, 345700, 14, <Side.SELL: 0>)}
+2020-03-13 22:10:24,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:24,059 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:24,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,060 [WARNING] [TRADER] {130: (130, 7, 345600, 20, <Side.BUY: 1>), 131: (131, 6, 345700, 10, <Side.SELL: 0>), 132: (132, 6, 345500, 10, <Side.BUY: 1>), 133: (133, 4, 345700, 17, <Side.SELL: 0>), 134: (134, 4, 345600, 17, <Side.BUY: 1>), 135: (135, 2, 345700, 25, <Side.SELL: 0>), 136: (136, 2, 345600, 25, <Side.BUY: 1>), 137: (137, 2, 345700, 1, <Side.SELL: 0>), 139: (139, 1, 345700, 14, <Side.SELL: 0>), 143: (143, 0, 345700, 18, <Side.SELL: 0>), 144: (144, 0, 345600, 18, <Side.BUY: 1>)}
+2020-03-13 22:10:24,060 [WARNING] [TRADER] Total fees: -30240.000000
+2020-03-13 22:10:24,060 [WARNING] [TRADER] Our position is: -14
+2020-03-13 22:10:24,061 [WARNING] [TRADER] Total fees: -30240.000000
+2020-03-13 22:10:24,061 [WARNING] [TRADER] error with order 144: order rejected: active order count limit breached
+2020-03-13 22:10:24,061 [WARNING] [TRADER] Total fees: -30240.000000
+2020-03-13 22:10:24,308 [WARNING] [TRADER] Total fees: -30344.000000
+2020-03-13 22:10:24,308 [WARNING] [TRADER] Our position is: -15
+2020-03-13 22:10:24,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,309 [WARNING] [TRADER] {130: (130, 8, 345600, 20, <Side.BUY: 1>), 131: (131, 0, 345700, 10, <Side.SELL: 0>), 132: (132, 7, 345500, 10, <Side.BUY: 1>), 133: (133, 5, 345700, 17, <Side.SELL: 0>), 134: (134, 5, 345600, 17, <Side.BUY: 1>), 135: (135, 3, 345700, 25, <Side.SELL: 0>), 136: (136, 3, 345600, 25, <Side.BUY: 1>), 137: (137, 3, 345700, 1, <Side.SELL: 0>), 139: (139, 2, 345700, 14, <Side.SELL: 0>), 143: (143, 1, 345700, 18, <Side.SELL: 0>)}
+2020-03-13 22:10:24,309 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:24,309 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:24,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,310 [WARNING] [TRADER] {130: (130, 8, 345600, 20, <Side.BUY: 1>), 131: (131, 0, 345700, 10, <Side.SELL: 0>), 132: (132, 7, 345500, 10, <Side.BUY: 1>), 133: (133, 5, 345700, 17, <Side.SELL: 0>), 134: (134, 5, 345600, 17, <Side.BUY: 1>), 135: (135, 3, 345700, 25, <Side.SELL: 0>), 136: (136, 3, 345600, 25, <Side.BUY: 1>), 137: (137, 3, 345700, 1, <Side.SELL: 0>), 139: (139, 2, 345700, 14, <Side.SELL: 0>), 143: (143, 1, 345700, 18, <Side.SELL: 0>), 145: (145, 0, 345700, 10, <Side.SELL: 0>), 146: (146, 0, 345600, 10, <Side.BUY: 1>)}
+2020-03-13 22:10:24,310 [WARNING] [TRADER] Total fees: -30483.000000
+2020-03-13 22:10:24,311 [WARNING] [TRADER] Our position is: -17
+2020-03-13 22:10:24,311 [WARNING] [TRADER] error with order 145: order rejected: active order count limit breached
+2020-03-13 22:10:24,311 [WARNING] [TRADER] Total fees: -30483.000000
+2020-03-13 22:10:24,311 [WARNING] [TRADER] error with order 146: order rejected: active order count limit breached
+2020-03-13 22:10:24,312 [WARNING] [TRADER] Total fees: -30483.000000
+2020-03-13 22:10:24,312 [WARNING] [TRADER] Total fees: -30483.000000
+2020-03-13 22:10:24,557 [WARNING] [TRADER] Total fees: -30760.000000
+2020-03-13 22:10:24,558 [WARNING] [TRADER] Our position is: -18
+2020-03-13 22:10:24,558 [WARNING] [TRADER] Total fees: -31072.000000
+2020-03-13 22:10:24,558 [WARNING] [TRADER] Our position is: -22
+2020-03-13 22:10:24,559 [WARNING] [TRADER] Total fees: -31419.000000
+2020-03-13 22:10:24,559 [WARNING] [TRADER] Our position is: -23
+2020-03-13 22:10:24,560 [WARNING] [TRADER] Total fees: -31834.000000
+2020-03-13 22:10:24,561 [WARNING] [TRADER] Our position is: -24
+2020-03-13 22:10:24,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,562 [WARNING] [TRADER] {132: (132, 8, 345500, 10, <Side.BUY: 1>), 133: (133, 0, 345700, 17, <Side.SELL: 0>), 134: (134, 6, 345600, 17, <Side.BUY: 1>), 135: (135, 4, 345700, 25, <Side.SELL: 0>), 136: (136, 4, 345600, 25, <Side.BUY: 1>), 137: (137, 4, 345700, 1, <Side.SELL: 0>), 139: (139, 3, 345700, 14, <Side.SELL: 0>), 143: (143, 2, 345700, 18, <Side.SELL: 0>)}
+2020-03-13 22:10:24,562 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:24,562 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:24,563 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,563 [WARNING] [TRADER] {132: (132, 8, 345500, 10, <Side.BUY: 1>), 133: (133, 0, 345700, 17, <Side.SELL: 0>), 134: (134, 6, 345600, 17, <Side.BUY: 1>), 135: (135, 4, 345700, 25, <Side.SELL: 0>), 136: (136, 4, 345600, 25, <Side.BUY: 1>), 137: (137, 4, 345700, 1, <Side.SELL: 0>), 139: (139, 3, 345700, 14, <Side.SELL: 0>), 143: (143, 2, 345700, 18, <Side.SELL: 0>), 147: (147, 0, 345700, 29, <Side.SELL: 0>), 148: (148, 0, 345600, 29, <Side.BUY: 1>)}
+2020-03-13 22:10:24,563 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:24,563 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:24,564 [WARNING] [TRADER] Total fees: -32284.000000
+2020-03-13 22:10:24,564 [WARNING] [TRADER] Our position is: -36
+2020-03-13 22:10:24,565 [WARNING] [TRADER] Total fees: -32769.000000
+2020-03-13 22:10:24,565 [WARNING] [TRADER] Our position is: -37
+2020-03-13 22:10:24,566 [WARNING] [TRADER] Total fees: -32769.000000
+2020-03-13 22:10:24,566 [WARNING] [TRADER] Total fees: -32769.000000
+2020-03-13 22:10:24,566 [WARNING] [TRADER] error with order 149: order rejected: active order count limit breached
+2020-03-13 22:10:24,567 [WARNING] [TRADER] Total fees: -32769.000000
+2020-03-13 22:10:24,567 [WARNING] [TRADER] error with order 150: order rejected: active order count limit breached
+2020-03-13 22:10:24,567 [WARNING] [TRADER] Total fees: -32769.000000
+2020-03-13 22:10:24,567 [WARNING] [TRADER] Total fees: -32769.000000
+2020-03-13 22:10:24,808 [WARNING] [TRADER] Total fees: -33358.000000
+2020-03-13 22:10:24,808 [WARNING] [TRADER] Our position is: -38
+2020-03-13 22:10:24,809 [WARNING] [TRADER] Total fees: -33496.000000
+2020-03-13 22:10:24,809 [WARNING] [TRADER] Our position is: -41
+2020-03-13 22:10:24,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,810 [WARNING] [TRADER] {134: (134, 7, 345600, 17, <Side.BUY: 1>), 135: (135, 0, 345700, 25, <Side.SELL: 0>), 136: (136, 5, 345600, 25, <Side.BUY: 1>), 137: (137, 5, 345700, 1, <Side.SELL: 0>), 139: (139, 4, 345700, 14, <Side.SELL: 0>), 143: (143, 3, 345700, 18, <Side.SELL: 0>), 147: (147, 1, 345700, 29, <Side.SELL: 0>), 148: (148, 1, 345600, 29, <Side.BUY: 1>)}
+2020-03-13 22:10:24,810 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:24,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:24,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:24,811 [WARNING] [TRADER] {134: (134, 7, 345600, 17, <Side.BUY: 1>), 135: (135, 0, 345700, 25, <Side.SELL: 0>), 136: (136, 5, 345600, 25, <Side.BUY: 1>), 137: (137, 5, 345700, 1, <Side.SELL: 0>), 139: (139, 4, 345700, 14, <Side.SELL: 0>), 143: (143, 3, 345700, 18, <Side.SELL: 0>), 147: (147, 1, 345700, 29, <Side.SELL: 0>), 148: (148, 1, 345600, 29, <Side.BUY: 1>), 151: (151, 0, 345700, 31, <Side.SELL: 0>), 152: (152, 0, 345600, 31, <Side.BUY: 1>)}
+2020-03-13 22:10:24,811 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:24,811 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:24,812 [WARNING] [TRADER] Total fees: -33669.000000
+2020-03-13 22:10:24,812 [WARNING] [TRADER] Our position is: -45
+2020-03-13 22:10:24,813 [WARNING] [TRADER] Total fees: -33669.000000
+2020-03-13 22:10:24,813 [WARNING] [TRADER] error with order 152: order rejected: active order volume limit breached
+2020-03-13 22:10:24,814 [WARNING] [TRADER] Total fees: -33669.000000
+2020-03-13 22:10:24,814 [WARNING] [TRADER] Total fees: -33669.000000
+2020-03-13 22:10:24,814 [WARNING] [TRADER] error with order 154: order rejected: active order count limit breached
+2020-03-13 22:10:24,814 [WARNING] [TRADER] Total fees: -33669.000000
+2020-03-13 22:10:25,057 [WARNING] [TRADER] Total fees: -34015.000000
+2020-03-13 22:10:25,057 [WARNING] [TRADER] Our position is: -46
+2020-03-13 22:10:25,057 [WARNING] [TRADER] Total fees: -34430.000000
+2020-03-13 22:10:25,057 [WARNING] [TRADER] Our position is: -51
+2020-03-13 22:10:25,057 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,057 [WARNING] [TRADER] {134: (134, 8, 345600, 17, <Side.BUY: 1>), 135: (135, 0, 345700, 25, <Side.SELL: 0>), 136: (136, 6, 345600, 25, <Side.BUY: 1>), 137: (137, 6, 345700, 1, <Side.SELL: 0>), 139: (139, 5, 345700, 14, <Side.SELL: 0>), 143: (143, 4, 345700, 18, <Side.SELL: 0>), 147: (147, 2, 345700, 29, <Side.SELL: 0>), 148: (148, 2, 345600, 29, <Side.BUY: 1>), 151: (151, 1, 345700, 31, <Side.SELL: 0>), 153: (153, 1, 345700, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:25,057 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:25,057 [WARNING] [TRADER] Total fees: -34880.000000
+2020-03-13 22:10:25,057 [WARNING] [TRADER] Our position is: -53
+2020-03-13 22:10:25,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,058 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>), 147: (147, 3, 345700, 29, <Side.SELL: 0>), 148: (148, 3, 345600, 29, <Side.BUY: 1>), 151: (151, 2, 345700, 31, <Side.SELL: 0>), 153: (153, 2, 345700, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:25,058 [WARNING] [TRADER] Total fees: -34880.000000
+2020-03-13 22:10:25,058 [WARNING] [TRADER] Total fees: -34880.000000
+2020-03-13 22:10:25,058 [WARNING] [TRADER] Total fees: -34880.000000
+2020-03-13 22:10:25,058 [WARNING] [TRADER] Total fees: -34880.000000
+2020-03-13 22:10:25,058 [WARNING] [TRADER] Total fees: -34880.000000
+2020-03-13 22:10:25,307 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,308 [WARNING] [TRADER] {135: (135, 1, 345700, 25, <Side.SELL: 0>), 147: (147, 4, 345700, 29, <Side.SELL: 0>), 148: (148, 4, 345600, 29, <Side.BUY: 1>), 151: (151, 3, 345700, 31, <Side.SELL: 0>), 153: (153, 3, 345700, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:25,308 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:25,308 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,308 [WARNING] [TRADER] {135: (135, 2, 345700, 25, <Side.SELL: 0>), 151: (151, 4, 345700, 31, <Side.SELL: 0>), 153: (153, 4, 345700, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:25,308 [WARNING] [TRADER] Total fees: -35365.000000
+2020-03-13 22:10:25,309 [WARNING] [TRADER] Our position is: -54
+2020-03-13 22:10:25,309 [WARNING] [TRADER] Total fees: -35885.000000
+2020-03-13 22:10:25,309 [WARNING] [TRADER] Our position is: -55
+2020-03-13 22:10:25,310 [WARNING] [TRADER] Total fees: -35885.000000
+2020-03-13 22:10:25,310 [WARNING] [TRADER] Total fees: -35885.000000
+2020-03-13 22:10:25,557 [WARNING] [TRADER] Total fees: -36543.000000
+2020-03-13 22:10:25,558 [WARNING] [TRADER] Our position is: -56
+2020-03-13 22:10:25,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,558 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>), 151: (151, 5, 345700, 31, <Side.SELL: 0>), 153: (153, 5, 345700, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:25,559 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:25,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,560 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>), 151: (151, 5, 345700, 31, <Side.SELL: 0>), 153: (153, 5, 345700, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:25,560 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:25,561 [WARNING] [TRADER] Total fees: -37236.000000
+2020-03-13 22:10:25,562 [WARNING] [TRADER] Our position is: -60
+2020-03-13 22:10:25,563 [WARNING] [TRADER] Total fees: -37236.000000
+2020-03-13 22:10:25,563 [WARNING] [TRADER] Total fees: -37236.000000
+2020-03-13 22:10:25,807 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,808 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>)}
+2020-03-13 22:10:25,808 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:25,808 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:25,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:25,809 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>), 159: (159, 0, 345700, 11, <Side.SELL: 0>), 160: (160, 0, 345600, 11, <Side.BUY: 1>)}
+2020-03-13 22:10:25,809 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:25,809 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:25,810 [WARNING] [TRADER] Total fees: -37964.000000
+2020-03-13 22:10:25,810 [WARNING] [TRADER] Our position is: -61
+2020-03-13 22:10:25,810 [WARNING] [TRADER] Total fees: -37964.000000
+2020-03-13 22:10:25,810 [WARNING] [TRADER] Total fees: -37964.000000
+2020-03-13 22:10:25,810 [WARNING] [TRADER] Total fees: -37964.000000
+2020-03-13 22:10:25,811 [WARNING] [TRADER] Total fees: -37964.000000
+2020-03-13 22:10:26,058 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,058 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>), 159: (159, 1, 345700, 11, <Side.SELL: 0>), 160: (160, 1, 345600, 11, <Side.BUY: 1>), 161: (161, 1, 345700, 1, <Side.SELL: 0>), 162: (162, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:26,058 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:26,058 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:26,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,059 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>), 159: (159, 1, 345700, 11, <Side.SELL: 0>), 160: (160, 1, 345600, 11, <Side.BUY: 1>), 161: (161, 1, 345700, 1, <Side.SELL: 0>), 162: (162, 1, 345600, 1, <Side.BUY: 1>), 163: (163, 0, 345700, 13, <Side.SELL: 0>), 164: (164, 0, 345600, 18, <Side.BUY: 1>)}
+2020-03-13 22:10:26,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:26,060 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:26,060 [WARNING] [TRADER] Total fees: -38727.000000
+2020-03-13 22:10:26,060 [WARNING] [TRADER] Our position is: -62
+2020-03-13 22:10:26,060 [WARNING] [TRADER] Total fees: -38727.000000
+2020-03-13 22:10:26,061 [WARNING] [TRADER] Total fees: -38727.000000
+2020-03-13 22:10:26,061 [WARNING] [TRADER] Total fees: -38727.000000
+2020-03-13 22:10:26,061 [WARNING] [TRADER] Total fees: -38727.000000
+2020-03-13 22:10:26,312 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,312 [WARNING] [TRADER] {135: (135, 0, 345700, 25, <Side.SELL: 0>), 159: (159, 2, 345700, 11, <Side.SELL: 0>), 160: (160, 2, 345600, 11, <Side.BUY: 1>), 161: (161, 2, 345700, 1, <Side.SELL: 0>), 162: (162, 2, 345600, 1, <Side.BUY: 1>), 163: (163, 1, 345700, 13, <Side.SELL: 0>), 164: (164, 1, 345600, 18, <Side.BUY: 1>), 165: (165, 1, 345700, 1, <Side.SELL: 0>), 166: (166, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:26,312 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:26,312 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:26,315 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,316 [WARNING] [TRADER] {135: (135, 1, 345700, 25, <Side.SELL: 0>), 159: (159, 3, 345700, 11, <Side.SELL: 0>), 160: (160, 3, 345600, 11, <Side.BUY: 1>), 161: (161, 3, 345700, 1, <Side.SELL: 0>), 162: (162, 3, 345600, 1, <Side.BUY: 1>), 163: (163, 2, 345700, 13, <Side.SELL: 0>), 164: (164, 2, 345600, 18, <Side.BUY: 1>), 165: (165, 2, 345700, 1, <Side.SELL: 0>), 166: (166, 2, 345600, 1, <Side.BUY: 1>), 167: (167, 1, 345700, 17, <Side.SELL: 0>), 168: (168, 1, 345600, 20, <Side.BUY: 1>)}
+2020-03-13 22:10:26,316 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:26,316 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:26,317 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,317 [WARNING] [TRADER] Our position is: -63
+2020-03-13 22:10:26,318 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,318 [WARNING] [TRADER] error with order 168: order rejected: active order count limit breached
+2020-03-13 22:10:26,318 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,318 [WARNING] [TRADER] error with order 169: order rejected: active order count limit breached
+2020-03-13 22:10:26,319 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,319 [WARNING] [TRADER] error with order 170: order rejected: active order count limit breached
+2020-03-13 22:10:26,319 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,319 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,319 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,320 [WARNING] [TRADER] Total fees: -39525.000000
+2020-03-13 22:10:26,559 [WARNING] [TRADER] Total fees: -40392.000000
+2020-03-13 22:10:26,559 [WARNING] [TRADER] Our position is: -64
+2020-03-13 22:10:26,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,560 [WARNING] [TRADER] {162: (162, 4, 345600, 1, <Side.BUY: 1>), 163: (163, 3, 345700, 13, <Side.SELL: 0>), 164: (164, 3, 345600, 18, <Side.BUY: 1>), 165: (165, 3, 345700, 1, <Side.SELL: 0>), 166: (166, 3, 345600, 1, <Side.BUY: 1>), 167: (167, 2, 345700, 17, <Side.SELL: 0>)}
+2020-03-13 22:10:26,560 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:26,561 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:26,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,561 [WARNING] [TRADER] {162: (162, 4, 345600, 1, <Side.BUY: 1>), 163: (163, 3, 345700, 13, <Side.SELL: 0>), 164: (164, 3, 345600, 18, <Side.BUY: 1>), 165: (165, 3, 345700, 1, <Side.SELL: 0>), 166: (166, 3, 345600, 1, <Side.BUY: 1>), 167: (167, 2, 345700, 17, <Side.SELL: 0>), 171: (171, 0, 345700, 23, <Side.SELL: 0>), 172: (172, 0, 345600, 37, <Side.BUY: 1>)}
+2020-03-13 22:10:26,562 [WARNING] [TRADER] Total fees: -40427.000000
+2020-03-13 22:10:26,562 [WARNING] [TRADER] Our position is: -66
+2020-03-13 22:10:26,563 [WARNING] [TRADER] Total fees: -40497.000000
+2020-03-13 22:10:26,563 [WARNING] [TRADER] Our position is: -67
+2020-03-13 22:10:26,564 [WARNING] [TRADER] Total fees: -40497.000000
+2020-03-13 22:10:26,565 [WARNING] [TRADER] Total fees: -40497.000000
+2020-03-13 22:10:26,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,809 [WARNING] [TRADER] {162: (162, 5, 345600, 1, <Side.BUY: 1>), 163: (163, 0, 345700, 13, <Side.SELL: 0>), 164: (164, 4, 345600, 18, <Side.BUY: 1>), 165: (165, 4, 345700, 1, <Side.SELL: 0>), 166: (166, 4, 345600, 1, <Side.BUY: 1>), 167: (167, 3, 345700, 17, <Side.SELL: 0>), 171: (171, 1, 345700, 23, <Side.SELL: 0>), 172: (172, 1, 345600, 37, <Side.BUY: 1>)}
+2020-03-13 22:10:26,809 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:26,809 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:26,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:26,811 [WARNING] [TRADER] {162: (162, 5, 345600, 1, <Side.BUY: 1>), 163: (163, 0, 345700, 13, <Side.SELL: 0>), 164: (164, 4, 345600, 18, <Side.BUY: 1>), 165: (165, 4, 345700, 1, <Side.SELL: 0>), 166: (166, 4, 345600, 1, <Side.BUY: 1>), 167: (167, 3, 345700, 17, <Side.SELL: 0>), 171: (171, 1, 345700, 23, <Side.SELL: 0>), 172: (172, 1, 345600, 37, <Side.BUY: 1>), 173: (173, 0, 345700, 15, <Side.SELL: 0>), 174: (174, 0, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:26,811 [WARNING] [TRADER] Total fees: -40602.000000
+2020-03-13 22:10:26,812 [WARNING] [TRADER] Our position is: -68
+2020-03-13 22:10:26,813 [WARNING] [TRADER] Total fees: -40602.000000
+2020-03-13 22:10:26,813 [WARNING] [TRADER] Total fees: -40602.000000
+2020-03-13 22:10:27,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,060 [WARNING] [TRADER] {162: (162, 6, 345600, 1, <Side.BUY: 1>), 163: (163, 0, 345700, 13, <Side.SELL: 0>), 164: (164, 5, 345600, 18, <Side.BUY: 1>), 165: (165, 5, 345700, 1, <Side.SELL: 0>), 166: (166, 5, 345600, 1, <Side.BUY: 1>), 167: (167, 4, 345700, 17, <Side.SELL: 0>), 171: (171, 2, 345700, 23, <Side.SELL: 0>), 172: (172, 2, 345600, 37, <Side.BUY: 1>), 173: (173, 1, 345700, 15, <Side.SELL: 0>), 174: (174, 1, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:27,060 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:27,060 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:27,063 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,063 [WARNING] [TRADER] {163: (163, 1, 345700, 13, <Side.SELL: 0>), 165: (165, 6, 345700, 1, <Side.SELL: 0>), 166: (166, 6, 345600, 1, <Side.BUY: 1>), 167: (167, 5, 345700, 17, <Side.SELL: 0>), 171: (171, 3, 345700, 23, <Side.SELL: 0>), 172: (172, 3, 345600, 37, <Side.BUY: 1>), 173: (173, 2, 345700, 15, <Side.SELL: 0>), 174: (174, 2, 345600, 15, <Side.BUY: 1>), 175: (175, 1, 345700, 12, <Side.SELL: 0>), 176: (176, 1, 345600, 12, <Side.BUY: 1>)}
+2020-03-13 22:10:27,064 [WARNING] [TRADER] Total fees: -40742.000000
+2020-03-13 22:10:27,064 [WARNING] [TRADER] Our position is: -69
+2020-03-13 22:10:27,064 [WARNING] [TRADER] error with order 175: order rejected: active order count limit breached
+2020-03-13 22:10:27,064 [WARNING] [TRADER] Total fees: -40742.000000
+2020-03-13 22:10:27,065 [WARNING] [TRADER] error with order 176: order rejected: active order count limit breached
+2020-03-13 22:10:27,065 [WARNING] [TRADER] Total fees: -40742.000000
+2020-03-13 22:10:27,065 [WARNING] [TRADER] Total fees: -40742.000000
+2020-03-13 22:10:27,065 [WARNING] [TRADER] Total fees: -40742.000000
+2020-03-13 22:10:27,307 [WARNING] [TRADER] Total fees: -41193.000000
+2020-03-13 22:10:27,308 [WARNING] [TRADER] Our position is: -70
+2020-03-13 22:10:27,308 [WARNING] [TRADER] Total fees: -41228.000000
+2020-03-13 22:10:27,309 [WARNING] [TRADER] Our position is: -79
+2020-03-13 22:10:27,309 [WARNING] [TRADER] Total fees: -41401.000000
+2020-03-13 22:10:27,309 [WARNING] [TRADER] Our position is: -80
+2020-03-13 22:10:27,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,310 [WARNING] [TRADER] {166: (166, 7, 345600, 1, <Side.BUY: 1>), 167: (167, 0, 345700, 17, <Side.SELL: 0>), 171: (171, 4, 345700, 23, <Side.SELL: 0>), 172: (172, 4, 345600, 37, <Side.BUY: 1>), 173: (173, 3, 345700, 15, <Side.SELL: 0>), 174: (174, 3, 345600, 15, <Side.BUY: 1>)}
+2020-03-13 22:10:27,311 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:27,311 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:27,311 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,311 [WARNING] [TRADER] {166: (166, 7, 345600, 1, <Side.BUY: 1>), 167: (167, 0, 345700, 17, <Side.SELL: 0>), 171: (171, 4, 345700, 23, <Side.SELL: 0>), 172: (172, 4, 345600, 37, <Side.BUY: 1>), 173: (173, 3, 345700, 15, <Side.SELL: 0>), 174: (174, 3, 345600, 15, <Side.BUY: 1>), 177: (177, 0, 345700, 13, <Side.SELL: 0>), 178: (178, 0, 345600, 33, <Side.BUY: 1>)}
+2020-03-13 22:10:27,312 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:27,312 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:27,312 [WARNING] [TRADER] Total fees: -41609.000000
+2020-03-13 22:10:27,313 [WARNING] [TRADER] Our position is: -85
+2020-03-13 22:10:27,313 [WARNING] [TRADER] Total fees: -41609.000000
+2020-03-13 22:10:27,313 [WARNING] [TRADER] Total fees: -41609.000000
+2020-03-13 22:10:27,313 [WARNING] [TRADER] Total fees: -41609.000000
+2020-03-13 22:10:27,313 [WARNING] [TRADER] Total fees: -41609.000000
+2020-03-13 22:10:27,557 [WARNING] [TRADER] Total fees: -41852.000000
+2020-03-13 22:10:27,558 [WARNING] [TRADER] Our position is: -86
+2020-03-13 22:10:27,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,559 [WARNING] [TRADER] {166: (166, 8, 345600, 1, <Side.BUY: 1>), 167: (167, 0, 345700, 17, <Side.SELL: 0>), 171: (171, 5, 345700, 23, <Side.SELL: 0>), 172: (172, 5, 345600, 37, <Side.BUY: 1>), 173: (173, 4, 345700, 15, <Side.SELL: 0>), 174: (174, 4, 345600, 15, <Side.BUY: 1>), 177: (177, 1, 345700, 13, <Side.SELL: 0>), 178: (178, 1, 345600, 33, <Side.BUY: 1>), 179: (179, 1, 345700, 1, <Side.SELL: 0>), 180: (180, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:27,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:27,559 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:27,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,560 [WARNING] [TRADER] {166: (166, 8, 345600, 1, <Side.BUY: 1>), 167: (167, 0, 345700, 17, <Side.SELL: 0>), 171: (171, 5, 345700, 23, <Side.SELL: 0>), 172: (172, 5, 345600, 37, <Side.BUY: 1>), 173: (173, 4, 345700, 15, <Side.SELL: 0>), 174: (174, 4, 345600, 15, <Side.BUY: 1>), 177: (177, 1, 345700, 13, <Side.SELL: 0>), 178: (178, 1, 345600, 33, <Side.BUY: 1>), 179: (179, 1, 345700, 1, <Side.SELL: 0>), 180: (180, 1, 345600, 1, <Side.BUY: 1>), 181: (181, 0, 345600, 25, <Side.SELL: 0>), 182: (182, 0, 345600, 25, <Side.BUY: 1>)}
+2020-03-13 22:10:27,560 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:27,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:27,561 [WARNING] [TRADER] Total fees: -42130.000000
+2020-03-13 22:10:27,561 [WARNING] [TRADER] Our position is: -87
+2020-03-13 22:10:27,561 [WARNING] [TRADER] error with order 181: order rejected: active order count limit breached
+2020-03-13 22:10:27,561 [WARNING] [TRADER] Total fees: -42130.000000
+2020-03-13 22:10:27,561 [WARNING] [TRADER] error with order 182: order rejected: active order count limit breached
+2020-03-13 22:10:27,561 [WARNING] [TRADER] Total fees: -42130.000000
+2020-03-13 22:10:27,562 [WARNING] [TRADER] error with order 183: order rejected: active order count limit breached
+2020-03-13 22:10:27,562 [WARNING] [TRADER] Total fees: -42130.000000
+2020-03-13 22:10:27,562 [WARNING] [TRADER] error with order 184: order rejected: active order count limit breached
+2020-03-13 22:10:27,562 [WARNING] [TRADER] Total fees: -42130.000000
+2020-03-13 22:10:27,563 [WARNING] [TRADER] Total fees: -42130.000000
+2020-03-13 22:10:27,808 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,808 [WARNING] [TRADER] {167: (167, 1, 345700, 17, <Side.SELL: 0>), 171: (171, 6, 345700, 23, <Side.SELL: 0>), 172: (172, 6, 345600, 37, <Side.BUY: 1>), 173: (173, 5, 345700, 15, <Side.SELL: 0>), 174: (174, 5, 345600, 15, <Side.BUY: 1>), 177: (177, 2, 345700, 13, <Side.SELL: 0>), 178: (178, 2, 345600, 33, <Side.BUY: 1>), 179: (179, 2, 345700, 1, <Side.SELL: 0>), 180: (180, 2, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:27,808 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:27,809 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:27,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:27,809 [WARNING] [TRADER] {167: (167, 1, 345700, 17, <Side.SELL: 0>), 171: (171, 6, 345700, 23, <Side.SELL: 0>), 172: (172, 6, 345600, 37, <Side.BUY: 1>), 173: (173, 5, 345700, 15, <Side.SELL: 0>), 174: (174, 5, 345600, 15, <Side.BUY: 1>), 177: (177, 2, 345700, 13, <Side.SELL: 0>), 178: (178, 2, 345600, 33, <Side.BUY: 1>), 179: (179, 2, 345700, 1, <Side.SELL: 0>), 180: (180, 2, 345600, 1, <Side.BUY: 1>), 185: (185, 0, 345700, 12, <Side.SELL: 0>), 186: (186, 0, 345600, 12, <Side.BUY: 1>)}
+2020-03-13 22:10:27,810 [WARNING] [TRADER] Total fees: -42443.000000
+2020-03-13 22:10:27,810 [WARNING] [TRADER] Our position is: -88
+2020-03-13 22:10:27,810 [WARNING] [TRADER] Total fees: -42443.000000
+2020-03-13 22:10:27,811 [WARNING] [TRADER] error with order 186: order rejected: active order count limit breached
+2020-03-13 22:10:27,811 [WARNING] [TRADER] Total fees: -42443.000000
+2020-03-13 22:10:28,057 [WARNING] [TRADER] Total fees: -42894.000000
+2020-03-13 22:10:28,058 [WARNING] [TRADER] Our position is: -89
+2020-03-13 22:10:28,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,059 [WARNING] [TRADER] {167: (167, 0, 345700, 17, <Side.SELL: 0>), 171: (171, 7, 345700, 23, <Side.SELL: 0>), 172: (172, 7, 345600, 37, <Side.BUY: 1>), 173: (173, 6, 345700, 15, <Side.SELL: 0>), 174: (174, 6, 345600, 15, <Side.BUY: 1>), 177: (177, 3, 345700, 13, <Side.SELL: 0>), 178: (178, 3, 345600, 33, <Side.BUY: 1>), 179: (179, 3, 345700, 1, <Side.SELL: 0>), 180: (180, 3, 345600, 1, <Side.BUY: 1>), 185: (185, 1, 345700, 12, <Side.SELL: 0>)}
+2020-03-13 22:10:28,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:28,060 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:28,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,060 [WARNING] [TRADER] {167: (167, 0, 345700, 17, <Side.SELL: 0>), 171: (171, 7, 345700, 23, <Side.SELL: 0>), 172: (172, 7, 345600, 37, <Side.BUY: 1>), 173: (173, 6, 345700, 15, <Side.SELL: 0>), 174: (174, 6, 345600, 15, <Side.BUY: 1>), 177: (177, 3, 345700, 13, <Side.SELL: 0>), 178: (178, 3, 345600, 33, <Side.BUY: 1>), 179: (179, 3, 345700, 1, <Side.SELL: 0>), 180: (180, 3, 345600, 1, <Side.BUY: 1>), 185: (185, 1, 345700, 12, <Side.SELL: 0>), 187: (187, 0, 345700, 12, <Side.SELL: 0>), 188: (188, 0, 345600, 13, <Side.BUY: 1>)}
+2020-03-13 22:10:28,061 [WARNING] [TRADER] Total fees: -43380.000000
+2020-03-13 22:10:28,061 [WARNING] [TRADER] Our position is: -93
+2020-03-13 22:10:28,061 [WARNING] [TRADER] error with order 187: order rejected: active order count limit breached
+2020-03-13 22:10:28,061 [WARNING] [TRADER] Total fees: -43380.000000
+2020-03-13 22:10:28,062 [WARNING] [TRADER] error with order 188: order rejected: active order count limit breached
+2020-03-13 22:10:28,062 [WARNING] [TRADER] Total fees: -43380.000000
+2020-03-13 22:10:28,308 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,309 [WARNING] [TRADER] {167: (167, 1, 345700, 17, <Side.SELL: 0>), 171: (171, 8, 345700, 23, <Side.SELL: 0>), 172: (172, 8, 345600, 37, <Side.BUY: 1>), 173: (173, 7, 345700, 15, <Side.SELL: 0>), 174: (174, 7, 345600, 15, <Side.BUY: 1>), 177: (177, 4, 345700, 13, <Side.SELL: 0>), 178: (178, 4, 345600, 33, <Side.BUY: 1>), 179: (179, 4, 345700, 1, <Side.SELL: 0>), 180: (180, 4, 345600, 1, <Side.BUY: 1>), 185: (185, 2, 345700, 12, <Side.SELL: 0>)}
+2020-03-13 22:10:28,309 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:28,309 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:28,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,310 [WARNING] [TRADER] {167: (167, 2, 345700, 17, <Side.SELL: 0>), 173: (173, 8, 345700, 15, <Side.SELL: 0>), 174: (174, 8, 345600, 15, <Side.BUY: 1>), 177: (177, 5, 345700, 13, <Side.SELL: 0>), 178: (178, 5, 345600, 33, <Side.BUY: 1>), 179: (179, 5, 345700, 1, <Side.SELL: 0>), 180: (180, 5, 345600, 1, <Side.BUY: 1>), 185: (185, 3, 345700, 12, <Side.SELL: 0>), 189: (189, 1, 345700, 4, <Side.SELL: 0>), 190: (190, 1, 345600, 4, <Side.BUY: 1>)}
+2020-03-13 22:10:28,311 [WARNING] [TRADER] Total fees: -43901.000000
+2020-03-13 22:10:28,311 [WARNING] [TRADER] Our position is: -94
+2020-03-13 22:10:28,312 [WARNING] [TRADER] error with order 189: order rejected: active order count limit breached
+2020-03-13 22:10:28,312 [WARNING] [TRADER] Total fees: -43901.000000
+2020-03-13 22:10:28,312 [WARNING] [TRADER] error with order 190: order rejected: active order count limit breached
+2020-03-13 22:10:28,312 [WARNING] [TRADER] Total fees: -43901.000000
+2020-03-13 22:10:28,313 [WARNING] [TRADER] Total fees: -43901.000000
+2020-03-13 22:10:28,313 [WARNING] [TRADER] Total fees: -43901.000000
+2020-03-13 22:10:28,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,559 [WARNING] [TRADER] {167: (167, 0, 345700, 17, <Side.SELL: 0>), 173: (173, 9, 345700, 15, <Side.SELL: 0>), 174: (174, 9, 345600, 15, <Side.BUY: 1>), 177: (177, 6, 345700, 13, <Side.SELL: 0>), 178: (178, 6, 345600, 33, <Side.BUY: 1>), 179: (179, 6, 345700, 1, <Side.SELL: 0>), 180: (180, 6, 345600, 1, <Side.BUY: 1>), 185: (185, 4, 345700, 12, <Side.SELL: 0>)}
+2020-03-13 22:10:28,559 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:28,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,560 [WARNING] [TRADER] {167: (167, 0, 345700, 17, <Side.SELL: 0>), 173: (173, 9, 345700, 15, <Side.SELL: 0>), 174: (174, 9, 345600, 15, <Side.BUY: 1>), 177: (177, 6, 345700, 13, <Side.SELL: 0>), 178: (178, 6, 345600, 33, <Side.BUY: 1>), 179: (179, 6, 345700, 1, <Side.SELL: 0>), 180: (180, 6, 345600, 1, <Side.BUY: 1>), 185: (185, 4, 345700, 12, <Side.SELL: 0>)}
+2020-03-13 22:10:28,560 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:28,561 [WARNING] [TRADER] Total fees: -44457.000000
+2020-03-13 22:10:28,561 [WARNING] [TRADER] Our position is: -95
+2020-03-13 22:10:28,562 [WARNING] [TRADER] Total fees: -44457.000000
+2020-03-13 22:10:28,563 [WARNING] [TRADER] Total fees: -44457.000000
+2020-03-13 22:10:28,563 [WARNING] [TRADER] Total fees: -44457.000000
+2020-03-13 22:10:28,563 [WARNING] [TRADER] Total fees: -44457.000000
+2020-03-13 22:10:28,808 [WARNING] [TRADER] Total fees: -44492.000000
+2020-03-13 22:10:28,808 [WARNING] [TRADER] Our position is: -96
+2020-03-13 22:10:28,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,810 [WARNING] [TRADER] {167: (167, 1, 345700, 17, <Side.SELL: 0>), 179: (179, 7, 345700, 1, <Side.SELL: 0>), 185: (185, 5, 345700, 12, <Side.SELL: 0>)}
+2020-03-13 22:10:28,810 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:28,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:28,811 [WARNING] [TRADER] {167: (167, 1, 345700, 17, <Side.SELL: 0>), 179: (179, 7, 345700, 1, <Side.SELL: 0>), 185: (185, 5, 345700, 12, <Side.SELL: 0>)}
+2020-03-13 22:10:28,812 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:28,813 [WARNING] [TRADER] Total fees: -44492.000000
+2020-03-13 22:10:28,813 [WARNING] [TRADER] Total fees: -44492.000000
+2020-03-13 22:10:29,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,059 [WARNING] [TRADER] {167: (167, 2, 345700, 17, <Side.SELL: 0>)}
+2020-03-13 22:10:29,060 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:29,061 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,062 [WARNING] [TRADER] {167: (167, 2, 345700, 17, <Side.SELL: 0>)}
+2020-03-13 22:10:29,062 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:29,308 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,308 [WARNING] [TRADER] {167: (167, 3, 345700, 17, <Side.SELL: 0>)}
+2020-03-13 22:10:29,309 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:29,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,310 [WARNING] [TRADER] {}
+2020-03-13 22:10:29,310 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:29,310 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:29,311 [WARNING] [TRADER] Total fees: -45083.000000
+2020-03-13 22:10:29,311 [WARNING] [TRADER] Our position is: -95
+2020-03-13 22:10:29,312 [WARNING] [TRADER] Total fees: -45083.000000
+2020-03-13 22:10:29,312 [WARNING] [TRADER] Total fees: -45014.000000
+2020-03-13 22:10:29,312 [WARNING] [TRADER] Our position is: -96
+2020-03-13 22:10:29,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,559 [WARNING] [TRADER] {198: (198, 1, 346000, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:29,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:29,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:29,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,560 [WARNING] [TRADER] {198: (198, 1, 346000, 1, <Side.SELL: 0>), 200: (200, 0, 345600, 4, <Side.SELL: 0>), 201: (201, 0, 345500, 11, <Side.BUY: 1>)}
+2020-03-13 22:10:29,561 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:29,561 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:29,562 [WARNING] [TRADER] Total fees: -45014.000000
+2020-03-13 22:10:29,562 [WARNING] [TRADER] Total fees: -45014.000000
+2020-03-13 22:10:29,563 [WARNING] [TRADER] Total fees: -45014.000000
+2020-03-13 22:10:29,563 [WARNING] [TRADER] Total fees: -45014.000000
+2020-03-13 22:10:29,808 [WARNING] [TRADER] Total fees: -45152.000000
+2020-03-13 22:10:29,808 [WARNING] [TRADER] Our position is: -95
+2020-03-13 22:10:29,808 [WARNING] [TRADER] Total fees: -45187.000000
+2020-03-13 22:10:29,809 [WARNING] [TRADER] Our position is: -99
+2020-03-13 22:10:29,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,809 [WARNING] [TRADER] {198: (198, 2, 346000, 1, <Side.SELL: 0>), 201: (201, 1, 345500, 11, <Side.BUY: 1>), 203: (203, 1, 345500, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:29,809 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:29,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:29,810 [WARNING] [TRADER] {198: (198, 2, 346000, 1, <Side.SELL: 0>), 201: (201, 1, 345500, 11, <Side.BUY: 1>), 203: (203, 1, 345500, 1, <Side.BUY: 1>), 205: (205, 0, 345600, 23, <Side.BUY: 1>)}
+2020-03-13 22:10:29,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:29,811 [WARNING] [TRADER] Total fees: -45187.000000
+2020-03-13 22:10:29,812 [WARNING] [TRADER] Total fees: -45187.000000
+2020-03-13 22:10:30,058 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,058 [WARNING] [TRADER] Our position is: -100
+2020-03-13 22:10:30,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,059 [WARNING] [TRADER] {198: (198, 3, 346000, 1, <Side.SELL: 0>), 201: (201, 2, 345500, 11, <Side.BUY: 1>), 203: (203, 2, 345500, 1, <Side.BUY: 1>), 205: (205, 0, 345600, 23, <Side.BUY: 1>), 207: (207, 1, 345500, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:30,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:30,060 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:30,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,060 [WARNING] [TRADER] {198: (198, 3, 346000, 1, <Side.SELL: 0>), 201: (201, 2, 345500, 11, <Side.BUY: 1>), 203: (203, 2, 345500, 1, <Side.BUY: 1>), 205: (205, 0, 345600, 23, <Side.BUY: 1>), 207: (207, 1, 345500, 1, <Side.BUY: 1>), 208: (208, 0, 345800, 11, <Side.SELL: 0>), 209: (209, 0, 345500, 11, <Side.BUY: 1>)}
+2020-03-13 22:10:30,061 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:30,061 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:30,062 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,062 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,062 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,063 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,063 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,308 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,308 [WARNING] [TRADER] {201: (201, 3, 345500, 11, <Side.BUY: 1>), 203: (203, 3, 345500, 1, <Side.BUY: 1>), 205: (205, 1, 345600, 23, <Side.BUY: 1>), 207: (207, 2, 345500, 1, <Side.BUY: 1>), 208: (208, 1, 345800, 11, <Side.SELL: 0>), 209: (209, 1, 345500, 11, <Side.BUY: 1>), 210: (210, 1, 345900, 1, <Side.SELL: 0>), 211: (211, 1, 345500, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:30,308 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:30,309 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:30,309 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,309 [WARNING] [TRADER] {201: (201, 3, 345500, 11, <Side.BUY: 1>), 203: (203, 3, 345500, 1, <Side.BUY: 1>), 205: (205, 1, 345600, 23, <Side.BUY: 1>), 207: (207, 2, 345500, 1, <Side.BUY: 1>), 208: (208, 1, 345800, 11, <Side.SELL: 0>), 209: (209, 1, 345500, 11, <Side.BUY: 1>), 210: (210, 1, 345900, 1, <Side.SELL: 0>), 211: (211, 1, 345500, 1, <Side.BUY: 1>), 212: (212, 0, 345600, 19, <Side.SELL: 0>), 213: (213, 0, 345600, 19, <Side.BUY: 1>)}
+2020-03-13 22:10:30,310 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:30,310 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:30,310 [WARNING] [TRADER] error with order 212: order rejected: in cross with an existing order
+2020-03-13 22:10:30,310 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,311 [WARNING] [TRADER] Total fees: -45360.000000
+2020-03-13 22:10:30,312 [WARNING] [TRADER] Total fees: -45291.000000
+2020-03-13 22:10:30,312 [WARNING] [TRADER] Our position is: -95
+2020-03-13 22:10:30,312 [WARNING] [TRADER] Total fees: -45291.000000
+2020-03-13 22:10:30,313 [WARNING] [TRADER] Total fees: -45291.000000
+2020-03-13 22:10:30,557 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:30,557 [WARNING] [TRADER] Our position is: -96
+2020-03-13 22:10:30,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,558 [WARNING] [TRADER] {203: (203, 4, 345500, 1, <Side.BUY: 1>), 205: (205, 0, 345600, 23, <Side.BUY: 1>), 207: (207, 3, 345500, 1, <Side.BUY: 1>), 208: (208, 2, 345800, 11, <Side.SELL: 0>), 209: (209, 2, 345500, 11, <Side.BUY: 1>), 210: (210, 2, 345900, 1, <Side.SELL: 0>), 211: (211, 2, 345500, 1, <Side.BUY: 1>), 213: (213, 1, 345600, 19, <Side.BUY: 1>), 215: (215, 1, 345600, 1, <Side.BUY: 1>)}
+2020-03-13 22:10:30,558 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:30,559 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:30,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,559 [WARNING] [TRADER] {203: (203, 4, 345500, 1, <Side.BUY: 1>), 205: (205, 0, 345600, 23, <Side.BUY: 1>), 207: (207, 3, 345500, 1, <Side.BUY: 1>), 208: (208, 2, 345800, 11, <Side.SELL: 0>), 209: (209, 2, 345500, 11, <Side.BUY: 1>), 210: (210, 2, 345900, 1, <Side.SELL: 0>), 211: (211, 2, 345500, 1, <Side.BUY: 1>), 213: (213, 1, 345600, 19, <Side.BUY: 1>), 215: (215, 1, 345600, 1, <Side.BUY: 1>), 216: (216, 0, 345800, 23, <Side.SELL: 0>), 217: (217, 0, 345600, 23, <Side.BUY: 1>)}
+2020-03-13 22:10:30,560 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:30,561 [WARNING] [TRADER] error with order 217: order rejected: active order count limit breached
+2020-03-13 22:10:30,561 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:30,561 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:30,808 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,808 [WARNING] [TRADER] {205: (205, 1, 345600, 23, <Side.BUY: 1>), 207: (207, 4, 345500, 1, <Side.BUY: 1>), 208: (208, 3, 345800, 11, <Side.SELL: 0>), 209: (209, 3, 345500, 11, <Side.BUY: 1>), 210: (210, 3, 345900, 1, <Side.SELL: 0>), 211: (211, 3, 345500, 1, <Side.BUY: 1>), 213: (213, 2, 345600, 19, <Side.BUY: 1>), 215: (215, 2, 345600, 1, <Side.BUY: 1>), 216: (216, 1, 345800, 23, <Side.SELL: 0>)}
+2020-03-13 22:10:30,808 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:30,808 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:30,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:30,809 [WARNING] [TRADER] {205: (205, 1, 345600, 23, <Side.BUY: 1>), 207: (207, 4, 345500, 1, <Side.BUY: 1>), 208: (208, 3, 345800, 11, <Side.SELL: 0>), 209: (209, 3, 345500, 11, <Side.BUY: 1>), 210: (210, 3, 345900, 1, <Side.SELL: 0>), 211: (211, 3, 345500, 1, <Side.BUY: 1>), 213: (213, 2, 345600, 19, <Side.BUY: 1>), 215: (215, 2, 345600, 1, <Side.BUY: 1>), 216: (216, 1, 345800, 23, <Side.SELL: 0>), 218: (218, 0, 345600, 11, <Side.SELL: 0>), 219: (219, 0, 345700, 11, <Side.BUY: 1>)}
+2020-03-13 22:10:30,809 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:30,810 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:30,810 [WARNING] [TRADER] error with order 218: order rejected: in cross with an existing order
+2020-03-13 22:10:30,810 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:30,811 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:30,811 [WARNING] [TRADER] error with order 220: order rejected: active order count limit breached
+2020-03-13 22:10:30,811 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:30,811 [WARNING] [TRADER] error with order 221: order rejected: active order count limit breached
+2020-03-13 22:10:30,811 [WARNING] [TRADER] Total fees: -45533.000000
+2020-03-13 22:10:31,058 [WARNING] [TRADER] Total fees: -45637.000000
+2020-03-13 22:10:31,058 [WARNING] [TRADER] Our position is: -94
+2020-03-13 22:10:31,059 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,059 [WARNING] [TRADER] {205: (205, 2, 345600, 23, <Side.BUY: 1>), 207: (207, 5, 345500, 1, <Side.BUY: 1>), 208: (208, 4, 345800, 11, <Side.SELL: 0>), 209: (209, 4, 345500, 11, <Side.BUY: 1>), 210: (210, 4, 345900, 1, <Side.SELL: 0>), 211: (211, 4, 345500, 1, <Side.BUY: 1>), 213: (213, 3, 345600, 19, <Side.BUY: 1>), 215: (215, 3, 345600, 1, <Side.BUY: 1>), 216: (216, 2, 345800, 23, <Side.SELL: 0>), 219: (219, 0, 345700, 11, <Side.BUY: 1>)}
+2020-03-13 22:10:31,059 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:31,060 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:31,060 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,061 [WARNING] [TRADER] {205: (205, 2, 345600, 23, <Side.BUY: 1>), 207: (207, 5, 345500, 1, <Side.BUY: 1>), 208: (208, 4, 345800, 11, <Side.SELL: 0>), 209: (209, 4, 345500, 11, <Side.BUY: 1>), 210: (210, 4, 345900, 1, <Side.SELL: 0>), 211: (211, 4, 345500, 1, <Side.BUY: 1>), 213: (213, 3, 345600, 19, <Side.BUY: 1>), 215: (215, 3, 345600, 1, <Side.BUY: 1>), 216: (216, 2, 345800, 23, <Side.SELL: 0>), 219: (219, 0, 345700, 11, <Side.BUY: 1>), 222: (222, 0, 345700, 19, <Side.SELL: 0>), 223: (223, 0, 345600, 19, <Side.BUY: 1>)}
+2020-03-13 22:10:31,062 [WARNING] [TRADER] error with order 222: order rejected: active order count limit breached
+2020-03-13 22:10:31,063 [WARNING] [TRADER] Total fees: -45637.000000
+2020-03-13 22:10:31,063 [WARNING] [TRADER] error with order 223: order rejected: active order count limit breached
+2020-03-13 22:10:31,063 [WARNING] [TRADER] Total fees: -45637.000000
+2020-03-13 22:10:31,307 [WARNING] [TRADER] Total fees: -45948.000000
+2020-03-13 22:10:31,308 [WARNING] [TRADER] Our position is: -91
+2020-03-13 22:10:31,308 [WARNING] [TRADER] Total fees: -46328.000000
+2020-03-13 22:10:31,309 [WARNING] [TRADER] Our position is: -85
+2020-03-13 22:10:31,309 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,310 [WARNING] [TRADER] Our position is: -83
+2020-03-13 22:10:31,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,311 [WARNING] [TRADER] {205: (205, 0, 345600, 23, <Side.BUY: 1>), 207: (207, 6, 345500, 1, <Side.BUY: 1>), 208: (208, 5, 345800, 11, <Side.SELL: 0>), 209: (209, 5, 345500, 11, <Side.BUY: 1>), 210: (210, 5, 345900, 1, <Side.SELL: 0>), 211: (211, 5, 345500, 1, <Side.BUY: 1>), 213: (213, 4, 345600, 19, <Side.BUY: 1>), 215: (215, 4, 345600, 1, <Side.BUY: 1>), 216: (216, 3, 345800, 23, <Side.SELL: 0>)}
+2020-03-13 22:10:31,311 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:31,311 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:31,312 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,312 [WARNING] [TRADER] {205: (205, 0, 345600, 23, <Side.BUY: 1>), 207: (207, 6, 345500, 1, <Side.BUY: 1>), 208: (208, 5, 345800, 11, <Side.SELL: 0>), 209: (209, 5, 345500, 11, <Side.BUY: 1>), 210: (210, 5, 345900, 1, <Side.SELL: 0>), 211: (211, 5, 345500, 1, <Side.BUY: 1>), 213: (213, 4, 345600, 19, <Side.BUY: 1>), 215: (215, 4, 345600, 1, <Side.BUY: 1>), 216: (216, 3, 345800, 23, <Side.SELL: 0>), 224: (224, 0, 345700, 20, <Side.SELL: 0>), 225: (225, 0, 345600, 20, <Side.BUY: 1>)}
+2020-03-13 22:10:31,312 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:31,312 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:31,313 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,313 [WARNING] [TRADER] error with order 225: order rejected: active order count limit breached
+2020-03-13 22:10:31,313 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,313 [WARNING] [TRADER] error with order 226: order rejected: active order count limit breached
+2020-03-13 22:10:31,314 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,314 [WARNING] [TRADER] error with order 227: order rejected: active order count limit breached
+2020-03-13 22:10:31,314 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,314 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,558 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,558 [WARNING] [TRADER] {205: (205, 1, 345600, 23, <Side.BUY: 1>), 208: (208, 6, 345800, 11, <Side.SELL: 0>), 209: (209, 6, 345500, 11, <Side.BUY: 1>), 210: (210, 6, 345900, 1, <Side.SELL: 0>), 211: (211, 6, 345500, 1, <Side.BUY: 1>), 213: (213, 5, 345600, 19, <Side.BUY: 1>), 215: (215, 5, 345600, 1, <Side.BUY: 1>), 216: (216, 4, 345800, 23, <Side.SELL: 0>), 224: (224, 1, 345700, 20, <Side.SELL: 0>)}
+2020-03-13 22:10:31,559 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:31,559 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:31,559 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,560 [WARNING] [TRADER] {205: (205, 1, 345600, 23, <Side.BUY: 1>), 208: (208, 6, 345800, 11, <Side.SELL: 0>), 209: (209, 6, 345500, 11, <Side.BUY: 1>), 210: (210, 6, 345900, 1, <Side.SELL: 0>), 211: (211, 6, 345500, 1, <Side.BUY: 1>), 213: (213, 5, 345600, 19, <Side.BUY: 1>), 215: (215, 5, 345600, 1, <Side.BUY: 1>), 216: (216, 4, 345800, 23, <Side.SELL: 0>), 224: (224, 1, 345700, 20, <Side.SELL: 0>), 228: (228, 0, 345600, 18, <Side.SELL: 0>), 229: (229, 0, 345700, 21, <Side.BUY: 1>)}
+2020-03-13 22:10:31,560 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:31,560 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:31,561 [WARNING] [TRADER] error with order 228: order rejected: in cross with an existing order
+2020-03-13 22:10:31,561 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,561 [WARNING] [TRADER] error with order 229: order rejected: in cross with an existing order
+2020-03-13 22:10:31,561 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,561 [WARNING] [TRADER] error with order 230: order rejected: in cross with an existing order
+2020-03-13 22:10:31,562 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,562 [WARNING] [TRADER] error with order 231: order rejected: in cross with an existing order
+2020-03-13 22:10:31,562 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,562 [WARNING] [TRADER] Total fees: -46605.000000
+2020-03-13 22:10:31,807 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,808 [WARNING] [TRADER] {205: (205, 2, 345600, 23, <Side.BUY: 1>), 209: (209, 7, 345500, 11, <Side.BUY: 1>), 210: (210, 7, 345900, 1, <Side.SELL: 0>), 211: (211, 7, 345500, 1, <Side.BUY: 1>), 213: (213, 6, 345600, 19, <Side.BUY: 1>), 215: (215, 6, 345600, 1, <Side.BUY: 1>), 216: (216, 5, 345800, 23, <Side.SELL: 0>), 224: (224, 2, 345700, 20, <Side.SELL: 0>)}
+2020-03-13 22:10:31,808 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:31,808 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:31,809 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:31,809 [WARNING] [TRADER] {205: (205, 2, 345600, 23, <Side.BUY: 1>), 209: (209, 7, 345500, 11, <Side.BUY: 1>), 210: (210, 7, 345900, 1, <Side.SELL: 0>), 211: (211, 7, 345500, 1, <Side.BUY: 1>), 213: (213, 6, 345600, 19, <Side.BUY: 1>), 215: (215, 6, 345600, 1, <Side.BUY: 1>), 216: (216, 5, 345800, 23, <Side.SELL: 0>), 224: (224, 2, 345700, 20, <Side.SELL: 0>), 232: (232, 0, 345800, 21, <Side.SELL: 0>), 233: (233, 0, 345700, 21, <Side.BUY: 1>)}
+2020-03-13 22:10:31,809 [WARNING] [TRADER] Total fees: -46640.000000
+2020-03-13 22:10:31,810 [WARNING] [TRADER] Our position is: -82
+2020-03-13 22:10:31,810 [WARNING] [TRADER] Total fees: -46710.000000
+2020-03-13 22:10:31,810 [WARNING] [TRADER] Our position is: -83
+2020-03-13 22:10:31,812 [WARNING] [TRADER] Total fees: -46710.000000
+2020-03-13 22:10:31,812 [WARNING] [TRADER] error with order 233: order rejected: in cross with an existing order
+2020-03-13 22:10:31,812 [WARNING] [TRADER] Total fees: -46710.000000
+2020-03-13 22:10:31,813 [WARNING] [TRADER] Total fees: -46710.000000
+2020-03-13 22:10:32,057 [WARNING] [TRADER] Total fees: -47091.000000
+2020-03-13 22:10:32,057 [WARNING] [TRADER] Our position is: -84
+2020-03-13 22:10:32,057 [WARNING] [TRADER] Total fees: -47541.000000
+2020-03-13 22:10:32,058 [WARNING] [TRADER] Our position is: -93
+2020-03-13 22:10:32,062 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,062 [WARNING] [TRADER] {205: (205, 0, 345600, 23, <Side.BUY: 1>), 210: (210, 8, 345900, 1, <Side.SELL: 0>), 211: (211, 8, 345500, 1, <Side.BUY: 1>), 213: (213, 7, 345600, 19, <Side.BUY: 1>), 215: (215, 7, 345600, 1, <Side.BUY: 1>), 216: (216, 6, 345800, 23, <Side.SELL: 0>), 224: (224, 0, 345700, 20, <Side.SELL: 0>), 232: (232, 1, 345800, 21, <Side.SELL: 0>)}
+2020-03-13 22:10:32,062 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:32,065 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,066 [WARNING] [TRADER] {205: (205, 1, 345600, 23, <Side.BUY: 1>), 216: (216, 7, 345800, 23, <Side.SELL: 0>), 224: (224, 1, 345700, 20, <Side.SELL: 0>), 232: (232, 2, 345800, 21, <Side.SELL: 0>)}
+2020-03-13 22:10:32,066 [WARNING] [TRADER] Total fees: -47957.000000
+2020-03-13 22:10:32,066 [WARNING] [TRADER] Our position is: -88
+2020-03-13 22:10:32,067 [WARNING] [TRADER] Total fees: -47957.000000
+2020-03-13 22:10:32,068 [WARNING] [TRADER] Total fees: -47957.000000
+2020-03-13 22:10:32,068 [WARNING] [TRADER] Total fees: -47957.000000
+2020-03-13 22:10:32,068 [WARNING] [TRADER] Total fees: -47957.000000
+2020-03-13 22:10:32,308 [WARNING] [TRADER] Total fees: -48511.000000
+2020-03-13 22:10:32,309 [WARNING] [TRADER] Our position is: -89
+2020-03-13 22:10:32,309 [WARNING] [TRADER] Total fees: -49100.000000
+2020-03-13 22:10:32,309 [WARNING] [TRADER] Our position is: -93
+2020-03-13 22:10:32,310 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,311 [WARNING] [TRADER] {205: (205, 2, 345600, 23, <Side.BUY: 1>), 216: (216, 8, 345800, 23, <Side.SELL: 0>), 224: (224, 0, 345700, 20, <Side.SELL: 0>), 232: (232, 3, 345800, 21, <Side.SELL: 0>)}
+2020-03-13 22:10:32,311 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:32,312 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,312 [WARNING] [TRADER] {205: (205, 2, 345600, 23, <Side.BUY: 1>), 216: (216, 8, 345800, 23, <Side.SELL: 0>), 224: (224, 0, 345700, 20, <Side.SELL: 0>), 232: (232, 3, 345800, 21, <Side.SELL: 0>)}
+2020-03-13 22:10:32,312 [ERROR  ] [asyncio] Exception in callback _SelectorDatagramTransport._read_ready()
+handle: <Handle _SelectorDatagramTransport._read_ready()>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/events.py", line 145, in _run
+    self._callback(*self._args)
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 1068, in _read_ready
+    self._protocol.datagram_received(data, addr)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 92, in datagram_received
+    self.on_order_book_update_message(inst, seq, *BOOK_PART.iter_unpack(data[ORDER_BOOK_HEADER_SIZE:]))
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 174, in on_order_book_update_message
+    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+  File "/home/saze/Documents/competition/ready_trader_one/usec.py", line 282, in op_send_insert_order
+    self.send_insert_order(client_order_id, side, price, volume, lifespan)
+  File "/home/saze/Documents/competition/ready_trader_one/ready_trader_one/base_auto_trader.py", line 167, in send_insert_order
+    INSERT_MESSAGE.pack_into(self.insert_message, HEADER_SIZE, client_order_id, side, price, volume, lifespan)
+struct.error: argument out of range
+2020-03-13 22:10:32,313 [WARNING] [TRADER] Total fees: -49724.000000
+2020-03-13 22:10:32,313 [WARNING] [TRADER] Our position is: -94
+2020-03-13 22:10:32,314 [WARNING] [TRADER] Total fees: -49724.000000
+2020-03-13 22:10:32,314 [WARNING] [TRADER] Total fees: -49724.000000
+2020-03-13 22:10:32,557 [WARNING] [TRADER] Total fees: -50417.000000
+2020-03-13 22:10:32,557 [WARNING] [TRADER] Our position is: -95
+2020-03-13 22:10:32,560 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,560 [WARNING] [TRADER] {205: (205, 3, 345600, 23, <Side.BUY: 1>)}
+2020-03-13 22:10:32,560 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:32,561 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:32,561 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,562 [WARNING] [TRADER] {237: (237, 1, 345700, 17, <Side.SELL: 0>), 238: (238, 1, 345600, 17, <Side.BUY: 1>)}
+2020-03-13 22:10:32,562 [WARNING] [TRADER] We sold!
+2020-03-13 22:10:32,562 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:32,565 [WARNING] [TRADER] Total fees: -50348.000000
+2020-03-13 22:10:32,565 [WARNING] [TRADER] Our position is: -97
+2020-03-13 22:10:32,566 [WARNING] [TRADER] Total fees: -50348.000000
+2020-03-13 22:10:32,566 [WARNING] [TRADER] Total fees: -50798.000000
+2020-03-13 22:10:32,566 [WARNING] [TRADER] Total fees: -50798.000000
+2020-03-13 22:10:32,566 [WARNING] [TRADER] Total fees: -51005.000000
+2020-03-13 22:10:32,566 [WARNING] [TRADER] Our position is: -98
+2020-03-13 22:10:32,566 [WARNING] [TRADER] error with order 240: order rejected: in cross with an existing order
+2020-03-13 22:10:32,567 [WARNING] [TRADER] Total fees: -51005.000000
+2020-03-13 22:10:32,808 [WARNING] [TRADER] Total fees: -50971.000000
+2020-03-13 22:10:32,808 [WARNING] [TRADER] Our position is: -92
+2020-03-13 22:10:32,808 [WARNING] [TRADER] Total fees: -51317.000000
+2020-03-13 22:10:32,809 [WARNING] [TRADER] Our position is: -93
+2020-03-13 22:10:32,809 [WARNING] [TRADER] error with order 237: position limit breached
+2020-03-13 22:10:32,809 [WARNING] [TRADER] Total fees: -51317.000000
+2020-03-13 22:10:32,810 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,811 [WARNING] [TRADER] {238: (238, 0, 345600, 17, <Side.BUY: 1>), 239: (239, 1, 346200, 1, <Side.SELL: 0>)}
+2020-03-13 22:10:32,811 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:32,811 [WARNING] [TRADER] Below is the active order history:
+2020-03-13 22:10:32,812 [WARNING] [TRADER] {238: (238, 0, 345600, 17, <Side.BUY: 1>), 239: (239, 1, 346200, 1, <Side.SELL: 0>), 242: (242, 0, 345600, 40, <Side.BUY: 1>)}
+2020-03-13 22:10:32,812 [WARNING] [TRADER] We bought!
+2020-03-13 22:10:32,812 [ERROR  ] [TRADER] lost connection on execution channel:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/asyncio/selector_events.py", line 752, in write
+    n = self._sock.send(data)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2020-03-13 22:10:32,813 [INFO   ] [APP] closing event loop

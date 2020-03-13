@@ -1,6 +1,6 @@
 {
   "Engine": {
-    "MarketDataFile": "data/day1.csv",
+    "MarketDataFile": "data/day3.csv",
     "MatchEventsFile": "match_events.csv",
     "Speed": 1.0,
     "TickInterval": 0.25
@@ -31,9 +31,6 @@
     "PositionLimit": 100
   },
   "Traders": {
-    "Rat": "12345",
-    "Chad": "12345",
-    "FatRat": "12345",
 	"ExampleOne": "qwerty",
 	"ExampleTwo": "12345",
 	"USEC": "USEC"

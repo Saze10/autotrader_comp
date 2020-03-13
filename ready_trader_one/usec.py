@@ -29,8 +29,6 @@ class AutoTrader(BaseAutoTrader):
 
         self.previous_buys = [0] * 10
 
-        self.rat_mode = False
-
         self.number_of_matches_in_tick = 0
         
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
@@ -88,37 +86,59 @@ class AutoTrader(BaseAutoTrader):
                 del self.future_history["history"][0]
             self.update_average(self.future_history)
 
-        """
-        self.logger.warning("FUTURE HISTORY AVERAGE ASK IS: %d", int(self.future_history["average"]["ask"]))
-        self.logger.warning("FUTURE HISTORY AVERAGE BID IS: %d", int(self.future_history["average"]["bid"]))
-        self.logger.warning("ETF HISTORY AVERAGE ASK IS %d", int(self.etf_history["average"]["ask"]))
-        self.logger.warning("ETF HISTORY AVERAGE BID IS %d", int(self.etf_history["average"]["bid"]))
-
-        self.logger.warning("Current future dictionary length: %d", len(self.future_history["history"]))
-        self.logger.warning("Current ETF dictionary length: %d", len(self.etf_history["history"]))
-        self.logger.warning("Boolean Value of if statement: %d", int(len(self.future_history["history"]) < 100 or len(self.etf_history["history"]) < 100))
-        """
 
         self.logger.warning("Below is the active order history:")
         self.logger.warning(str(self.active_order_history))
                 
-        def order_quantity(trader_stance):
-            """trader_stance is a boolean: True = passive, False = aggressive"""
-            if trader_stance == True:
+        def order_quantity(trader_stance, side):
+            """trader_stance is a boolean: True = passive, False = aggressive. 
+            side is order side (buy or sell). True = buy, False = sell"""
+            
+            if trader_stance:
                 volume = int(min(sum(bid_volumes),sum(ask_volumes))/10000 * 0.5 * (self.number_of_matches_in_tick))
                 
                 if volume == 0:
                     volume = 1
+                
+                #checking for cumulative position of active orders + current volume
+                active_order_position = check_active_order_position()
+                
+                if active_order_position + volume >= 100 and side:
+                    return 100 - active_order_position
+                elif active_order_position - volume <= -100 and not side:
+                    return 100 + active_order_position
 
                 return volume
+
+
             else:
                 volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
                 
                 if volume == 0:
                     volume = 1
 
-                return volume
+                active_order_position = check_active_order_position()
                 
+                if active_order_position + volume >= 100 and side:
+                    return 100 - active_order_position
+                elif active_order_position - volume <= -100 and not side:
+                    return 100 + active_order_position
+
+                return volume
+
+
+
+        def check_active_order_position():
+            sum_volumes = 0
+            for key in list(self.active_order_history.keys()):
+                if self.active_order_history[key][4] == Side.BUY:
+                    sum_volumes += self.active_order_history[key][3]
+                else:
+                    sum_volumes -= self.active_order_history[key][3]
+
+            return sum_volumes + self.position
+
+        
 
         if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
@@ -126,56 +146,36 @@ class AutoTrader(BaseAutoTrader):
             last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
             ask_bid_spread = ask_prices[0] - bid_prices[0]
             
-            if self.rat_mode:
-                self.logger.warning("RAT MODE ACTIVATED")
-                # Make an ask at the last trading price + ask_bid_spread
-                if self.position >= 25:
-                    ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
-                    self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 10, Lifespan.GOOD_FOR_DAY)
-                elif self.position <= -25:
-                    bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0]) 
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 10, Lifespan.GOOD_FOR_DAY)
 
-
-                # Make a bid at last trade price
+            if volume_difference > 0.5 and self.get_projected_op_rate(2) <= 19.5: # Aggressive strategy                
+                # Make an ask at the last trading price
+                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
                 
-
-                if abs(self.position) < 25:
-                    self.rat_mode = False
-
-            elif volume_difference > 0.5 and self.get_projected_op_rate(2) <= 19.5: # Aggressive strategy                
-                    order_volume = order_quantity(False)
-                    # Make an ask at the last trading price
-                    ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
                     
-                        
-                    self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+                order_volume = order_quantity(False, False)
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
-                    # Make a bid at last trade price - ask bid spread
-                    bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
-                    
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+                # Make a bid at last trade price - ask bid spread
+                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
+                
+                order_volume = order_quantity(False, True)
+                self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
             else: # Passive strategy
 
-                order_volume = order_quantity(False)
                 ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
                 bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
 
-                #TESTING GFD VS FAK TRADES
-#####################################
                 if self.get_projected_op_rate(2) <= 19.5:
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume , Lifespan.GOOD_FOR_DAY)
+                    order_volume = order_quantity(True, False)
                     self.ask_id = next(self.order_ids)
                     self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
-######################################
+                    order_volume = order_quantity(True, True)
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume , Lifespan.GOOD_FOR_DAY)
 
-                    
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
         The fill_volume is the number of lots already traded, remaining_volume
@@ -202,13 +202,6 @@ class AutoTrader(BaseAutoTrader):
 
         self.logger.warning("Total fees: %f", self.total_fees)
 
-        """
-        if remaining_volume != 0:
-            if self.op_count < 20:
-                self.send_amend_order(client_order_id, int(remaining_volume * 1.1))
-                #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
-                self.op_count += 1
-        """
         
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
@@ -219,8 +212,6 @@ class AutoTrader(BaseAutoTrader):
         self.logger.warning("Our position is: %d", self.position)
         self.position = etf_position
 
-        if self.position > 50 or self.position < -50:
-            self.rat_mode = True
         
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
@@ -285,25 +276,20 @@ class AutoTrader(BaseAutoTrader):
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
-            if (side == Side.BUY and self.position < 100) or (side == Side.SELL and self.position > -100):
-                # Attempting to correct position limits
-                if side == Side.BUY:
-                    if self.position + volume >= 100:
-                        ask_volume = 90 - self.position
-                if side == Side.SELL:
-                    if self.position - volume <= -100:
-                        ask_volume = -90 - self.position
-                        
-                self.send_insert_order(client_order_id, side, price, volume, lifespan)
-                self.op_history.append(time.time())
-                
-                # Logging messages
-                if side == side.SELL:
-                    self.logger.warning("We sold!")
-                if side == side.BUY:
-                    self.logger.warning("We bought!")
-                if lifespan == Lifespan.GOOD_FOR_DAY:
-                    self.active_order_history[client_order_id] = (client_order_id, 0)
+            # Attempting to correct position limits
+                    
+            self.send_insert_order(client_order_id, side, price, volume, lifespan)
+            self.op_history.append(time.time())
+            
+            # Logging messages
+            if side == side.SELL:
+                self.logger.warning("We sold!")
+            if side == side.BUY:
+                self.logger.warning("We bought!")
+            if lifespan == Lifespan.GOOD_FOR_DAY:
+            #tuple indices: 0 = order id, 1 = ticks elapsed on order book, 2 = price, 3 = volume, 4 = side of order 
+                self.active_order_history[client_order_id] = (client_order_id, 0, price, volume, side)
+
                     
 
     def op_send_cancel_order(self, client_order_id: int) -> None:
