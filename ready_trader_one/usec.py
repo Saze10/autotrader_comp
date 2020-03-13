@@ -119,6 +119,52 @@ class AutoTrader(BaseAutoTrader):
 
                 return volume
                 
+        def check_same_price_order(volume, ask_trading_price, bid_trading_price):
+            self.logger.warning("Checking for same price")
+            
+            ask_order_exist = False
+            bid_order_exist = False
+            ask_order_num_cancel = 0
+            bid_order_num_cancel = 0
+
+            if len(self.active_order_history) != 0:
+                #Checks for identical orders in active order_history
+                for key in list(self.active_order_history.keys()):
+                    if self.active_order_history[key][2] == 0 and self.active_order_history[key][3] == ask_trading_price:
+                        ask_order_num_cancel = key
+                        ask_order_exist = True
+
+                    if self.active_order_history[key][2] == 1 and self.active_order_history[key][3] == bid_trading_price:
+                        bid_order_num_cancel = key
+                        bid_order_exist = True
+
+                self.logger.warning("Looped through active order history to check price")
+
+                if ask_order_exist == True:
+                    self.logger.warning("Found same ask price")
+                    if self.op_send_cancel_order(ask_order_num_cancel): # This function returns true if cancel is successful
+                        self.ask_id = next(self.order_ids)
+                        self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+                        self.logger.warning("Replaced ask order with new volume")
+                else:
+                    self.ask_id = next(self.order_ids)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+
+                if bid_order_exist == True:
+                    self.logger.warning("Found same bid price")
+                    if self.op_send_cancel_order(bid_order_num_cancel): # This function returns true if cancel is successful
+                        self.bid_id = next(self.order_ids)
+                        self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+                        self.logger.warning("Replaced bid order with new volume")
+                else:
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+            else:
+                self.ask_id = next(self.order_ids)
+                self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+
+                self.bid_id = next(self.order_ids)
+                self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
         if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
             volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
@@ -131,16 +177,44 @@ class AutoTrader(BaseAutoTrader):
                 # Make an ask at the last trading price + ask_bid_spread
                 if self.position >= 25:
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + ask_bid_spread)
-                    self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 10, Lifespan.GOOD_FOR_DAY)
+                    ask_order_exist = False
+                    ask_order_num_cancel = 0
+                    
+                    for key in list(self.active_order_history.keys()):
+                        if self.active_order_history[key][2] == 0 and self.active_order_history[key][3] == ask_trading_price:
+                            ask_order_exist = True
+                            ask_order_num_cancel = key
+                            break
+
+                    if ask_order_exist == True:
+                        if self.op_send_cancel_order(ask_order_num_cancel): # This function returns true if cancel is successful
+                            self.ask_id = next(self.order_ids)
+                            self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 5, Lifespan.GOOD_FOR_DAY)
+                            self.logger.warning("Replaced ask order with new volume")
+                    else:
+                        self.ask_id = next(self.order_ids)
+                        self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 5, Lifespan.GOOD_FOR_DAY)
+
                 elif self.position <= -25:
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0]) 
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 10, Lifespan.GOOD_FOR_DAY)
+                    bid_order_exist = False
+                    bid_order_num_cancel = 0
 
-
-                # Make a bid at last trade price
-                
+                    for key in list(self.active_order_history.keys()):
+                        if self.active_order_history[key][2] == 1 and self.active_order_history[key][3] == bid_trading_price:
+                            bid_order_exist = True  
+                            bid_order_num_cancel = key
+                            break
+                        
+                    if bid_order_exist == True:
+                        if self.op_send_cancel_order(bid_order_num_cancel): # This function returns true if cancel is successful
+                            self.bid_id = next(self.order_ids)
+                            self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 5, Lifespan.GOOD_FOR_DAY)
+                            self.logger.warning("Replaced bid order with new volume")
+                        
+                    else:
+                        self.bid_id = next(self.order_ids)
+                        self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 5, Lifespan.GOOD_FOR_DAY)
 
                 if abs(self.position) < 25:
                     self.rat_mode = False
@@ -149,16 +223,11 @@ class AutoTrader(BaseAutoTrader):
                     order_volume = order_quantity(False)
                     # Make an ask at the last trading price
                     ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
-                    
-                        
-                    self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
                     # Make a bid at last trade price - ask bid spread
                     bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
-                    
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+
+                    check_same_price_order(order_volume, ask_trading_price, bid_trading_price)
 
             else: # Passive strategy
 
@@ -169,10 +238,7 @@ class AutoTrader(BaseAutoTrader):
                 #TESTING GFD VS FAK TRADES
 #####################################
                 if self.get_projected_op_rate(2) <= 19.5:
-                    self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume , Lifespan.GOOD_FOR_DAY)
-                    self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+                    check_same_price_order(order_volume, ask_trading_price, bid_trading_price)
 ######################################
 
                     
@@ -235,8 +301,7 @@ class AutoTrader(BaseAutoTrader):
             temp[1] += 1
             self.active_order_history[key] = tuple(temp)
             if self.active_order_history[key][1] > 3:
-                if self.op_send_cancel_order(key): # This function returns true if cancel is successful
-                    del self.active_order_history[key]
+                self.op_send_cancel_order(key)
             
                 
         
@@ -299,18 +364,23 @@ class AutoTrader(BaseAutoTrader):
                 
                 # Logging messages
                 if side == side.SELL:
-                    self.logger.warning("We sold!")
+                    self.logger.warning("Order num %d selling %d for %d", client_order_id, volume, price)
                 if side == side.BUY:
-                    self.logger.warning("We bought!")
+                    self.logger.warning("Order num %d buying %d for %d", client_order_id, volume, price)
                 if lifespan == Lifespan.GOOD_FOR_DAY:
-                    self.active_order_history[client_order_id] = (client_order_id, 0)
+                    self.logger.warning("Added to active order history")
+                    self.active_order_history[client_order_id] = (client_order_id, 0, int(side), price, volume)
                     
 
     def op_send_cancel_order(self, client_order_id: int) -> None:
-        if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
+        if self.get_projected_op_rate(2) <=19.5: # Technically should be 20 - setting it stricter for now
             self.send_cancel_order(client_order_id)
+            self.logger.warning("Cancelled order: %d", client_order_id)
+            #del self.active_order_history[client_order_id]
+            self.logger.warning("Deleted order %d from the active_order_list", client_order_id)
             self.op_history.append(time.time())
             return True
+            
         return False
 
     def op_send_amend_order(self, client_order_id: int, volume: int) -> None:
@@ -330,6 +400,8 @@ class AutoTrader(BaseAutoTrader):
         
     def get_projected_op_rate(self, num_ops): # Second parameter is the number of ops to be taken
         if len(self.op_history) > 0 and (time.time() - self.op_history[0]) != 0:
+            self.logger.warning("Operation limit right now is: %d", (len(self.op_history))/(time.time() - self.op_history[0]))
+            self.logger.warning("Projected operation limit is : %d", (len(self.op_history)+num_ops)/(time.time() - self.op_history[0]))
             return (len(self.op_history)+num_ops)/(time.time() - self.op_history[0])
         else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
             return 0
