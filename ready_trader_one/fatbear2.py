@@ -53,45 +53,6 @@ class AutoTrader(BaseAutoTrader):
         # Update operation history for past second
         self.update_op_history()
 
-        """
-        # Entry containing ask and bid prices for given instrument
-        new_entry = {
-            "ask": 0,
-            "bid": 0
-        }
-        
-        # Entries containing volume and price for given ask/bid
-        new_ask_data = {
-            "volume": [],
-            "price": ask_prices[0]
-        }
-        for v in ask_volumes:
-            new_ask_data["volume"].append(v)
-        
-        new_bid_data = {
-            "volume": [],
-            "price": bid_prices[0]
-        }
-        for v in bid_volumes:
-            new_bid_data["volume"].append(v)
-            
-        # Append data to corresponding list within entry dictionary
-        new_entry["ask"] = new_ask_data
-        new_entry["bid"] = new_bid_data
-        
-        if instrument == Instrument.ETF:
-            self.etf_history["history"].append(new_entry)
-            if len(self.etf_history["history"]) > 150:
-                del self.etf_history["history"][0]
-            self.update_average(self.etf_history)
-        elif instrument == Instrument.FUTURE:
-            self.future_history["history"].append(new_entry)
-            if len(self.future_history["history"]) > 150:
-                del self.future_history["history"][0]
-            self.update_average(self.future_history)
-        """
-
-
         self.logger.warning("Below is the active order history:")
         self.logger.warning(str(self.active_order_history))
 
@@ -144,7 +105,6 @@ class AutoTrader(BaseAutoTrader):
                     self.logger.warning("order_quantity returns +-: %d", volume)
                     return volume
 
-
         # Amon's layout is 0: id  1: tick number 2: side 3: price 4: volume
         # Andrew's layout is 0: id  1: tick number 2: price 3: volume 4: side
         # Change amon's things to the equivalent in andrew - should be done now
@@ -183,33 +143,74 @@ class AutoTrader(BaseAutoTrader):
                 self.predicted_hedge_price = (bid_prices[0] + ask_prices[0])/2
             elif instrument == Instrument.ETF and self.predicted_hedge_price > 0:
                 for i in range(len(bid_prices)):
-                    if self.predicted_hedge_price > bid_prices[i]:
-                        active_order_position = check_active_order_position()
-                        new_bid_volume = bid_volumes[i]
+                    if self.position <= 0:
+                        if self.predicted_hedge_price > bid_prices[i]:
+                            active_order_position = check_active_order_position()
+                            new_bid_volume = bid_volumes[i]
 
-                        self.logger.warning("Considering bid volume %d", new_bid_volume)
-                
-                        if active_order_position[0] + new_bid_volume > 90:
-                            new_bid_volume = 90 - active_order_position[0]
-                            self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
-                        if new_bid_volume > 0:
-                            self.bid_id = next(self.order_ids)
-                            self.op_send_insert_order(self.bid_id, Side.BUY, bid_prices[i], new_bid_volume, Lifespan.GOOD_FOR_DAY)
-                        
-                    if self.predicted_hedge_price < ask_prices[i]:
-                        active_order_position = check_active_order_position()
-                        new_ask_volume = ask_volumes[i]
+                            self.logger.warning("Considering bid volume %d", new_bid_volume)
+                    
+                            if active_order_position[0] + new_bid_volume > 90:
+                                new_bid_volume = 90 - active_order_position[0]
+                                self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
+                                
+                            if new_bid_volume > 0:
+                                if new_bid_volume > 20:
+                                    new_bid_volume = 20
+                                
+                                self.bid_id = next(self.order_ids)
+                                self.op_send_insert_order(self.bid_id, Side.BUY, bid_prices[i], new_bid_volume, Lifespan.GOOD_FOR_DAY)
+                            
+                        if self.predicted_hedge_price < ask_prices[i]:
+                            active_order_position = check_active_order_position()
+                            new_ask_volume = ask_volumes[i]
 
-                        self.logger.warning("Considering ask volume %d", new_ask_volume)
-                
-                        if active_order_position[1] - new_ask_volume < -90:
-                            new_ask_volume = 90 + active_order_position[1]
-                            self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
+                            self.logger.warning("Considering ask volume %d", new_ask_volume)
+                    
+                            if active_order_position[1] - new_ask_volume < -90:
+                                new_ask_volume = 90 + active_order_position[1]
+                                self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
 
-                        if new_ask_volume > 0:
-                            self.ask_id = next(self.order_ids)
-                            self.op_send_insert_order(self.ask_id, Side.SELL, ask_prices[i], new_ask_volume, Lifespan.GOOD_FOR_DAY)
+                            if new_ask_volume > 0:
+                                if new_ask_volume > 20:
+                                    new_ask_volume = 20
+                                self.ask_id = next(self.order_ids)
+                                self.op_send_insert_order(self.ask_id, Side.SELL, ask_prices[i], new_ask_volume, Lifespan.GOOD_FOR_DAY)
+                    else: # Literally the above code reversed in order
+                        if self.predicted_hedge_price < ask_prices[i]:
+                            active_order_position = check_active_order_position()
+                            new_ask_volume = ask_volumes[i]
+
+                            self.logger.warning("Considering ask volume %d", new_ask_volume)
+                    
+                            if active_order_position[1] - new_ask_volume < -90:
+                                new_ask_volume = 90 + active_order_position[1]
+                                self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
+
+                            if new_ask_volume > 0:
+                                if new_ask_volume > 20:
+                                    new_ask_volume = 20
+                                self.ask_id = next(self.order_ids)
+                                self.op_send_insert_order(self.ask_id, Side.SELL, ask_prices[i], new_ask_volume, Lifespan.GOOD_FOR_DAY)
+                                
+                        if self.predicted_hedge_price > bid_prices[i]:
+                            active_order_position = check_active_order_position()
+                            new_bid_volume = bid_volumes[i]
+
+                            self.logger.warning("Considering bid volume %d", new_bid_volume)
+                    
+                            if active_order_position[0] + new_bid_volume > 90:
+                                new_bid_volume = 90 - active_order_position[0]
+                                self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
+                                
+                            if new_bid_volume > 0:
+                                if new_bid_volume > 20:
+                                    new_bid_volume = 20
+                                
+                                self.bid_id = next(self.order_ids)
+                                self.op_send_insert_order(self.bid_id, Side.BUY, bid_prices[i], new_bid_volume, Lifespan.GOOD_FOR_DAY)
         
+        suicide_intervention()
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.

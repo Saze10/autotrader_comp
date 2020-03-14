@@ -7,3 +7,7 @@
 2020-03-14 19:38:19,862 [WARNING] [TRADER] error with order 0: message frequency limit breached
 2020-03-14 19:38:19,862 [INFO   ] [TRADER] lost connection on execution channel
 2020-03-14 19:38:19,862 [INFO   ] [APP] closing event loop
+2020-03-14 21:29:20,385 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-14 21:29:20,385 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 22:11:10,132 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 22:11:10,134 [INFO   ] [APP] closing event loop

@@ -10,3 +10,8 @@
 2020-03-14 19:34:54,363 [WARNING] [TRADER] error with order 145: position limit breached
 2020-03-14 19:34:54,363 [INFO   ] [TRADER] lost connection on execution channel
 2020-03-14 19:34:54,363 [INFO   ] [APP] closing event loop
+2020-03-14 21:29:20,386 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-14 21:29:20,386 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 21:30:18,875 [WARNING] [TRADER] error with order 154: position limit breached
+2020-03-14 21:30:18,876 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 21:30:18,876 [INFO   ] [APP] closing event loop
