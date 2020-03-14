@@ -11,13 +11,11 @@ class AutoTrader(BaseAutoTrader):
         super(AutoTrader, self).__init__(loop)
         
         # History for each instrument - contains a key for average ask/bid prices and a key for the actual history list
-        self.etf_history = {"average": {"ask":0, "bid":0}, "history":[]}
-    
-        self.future_history = {"average": {"ask":0, "bid":0}, "history":[]}
         self.op_history = []
         
         self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
         self.trade_tick_list = [] # History of trade ticks
+        self.predicted_hedge_price = 0
         self.total_fees = 0.0 # Total fees collected
         self.order_ids = itertools.count(1)
 
@@ -28,6 +26,8 @@ class AutoTrader(BaseAutoTrader):
         self.previous_sells = [0] * 10
 
         self.previous_buys = [0] * 10
+
+        self.rat_mode = False
 
         self.number_of_matches_in_tick = 0
         
@@ -50,104 +50,27 @@ class AutoTrader(BaseAutoTrader):
         """
         # Update operation history for past second
         self.update_op_history()
-        # Entry containing ask and bid prices for given instrument
-        new_entry = {
-            "ask": 0,
-            "bid": 0
-        }
-        
-        # Entries containing volume and price for given ask/bid
-        new_ask_data = {
-            "volume": [],
-            "price": ask_prices[0]
-        }
-        for v in ask_volumes:
-            new_ask_data["volume"].append(v)
-        
-        new_bid_data = {
-            "volume": [],
-            "price": bid_prices[0]
-        }
-        for v in bid_volumes:
-            new_bid_data["volume"].append(v)
-            
-        # Append data to corresponding list within entry dictionary
-        new_entry["ask"] = new_ask_data
-        new_entry["bid"] = new_bid_data
-        
-        if instrument == Instrument.ETF:
-            self.etf_history["history"].append(new_entry)
-            if len(self.etf_history["history"]) > 150:
-                del self.etf_history["history"][0]
-            self.update_average(self.etf_history)
-        elif instrument == Instrument.FUTURE:
-            self.future_history["history"].append(new_entry)
-            if len(self.future_history["history"]) > 150:
-                del self.future_history["history"][0]
-            self.update_average(self.future_history)
-
 
         self.logger.warning("Below is the active order history:")
         self.logger.warning(str(self.active_order_history))
-
-
-        def check_active_order_position():
-            sum_volumes = 0
-            for key in list(self.active_order_history.keys()):
-                if self.active_order_history[key][4] == Side.BUY:
-                    sum_volumes += self.active_order_history[key][3]
-                else:
-                    sum_volumes -= self.active_order_history[key][3]
-            self.logger.warning("active order position: %d", sum_volumes + self.position)
-            return sum_volumes + self.position
-
                 
-        def order_quantity(trader_stance, side):
-            """trader_stance is a boolean: True = passive, False = aggressive. 
-            side is order side (buy or sell). True = buy, False = sell"""
-            
-            if trader_stance:
-                volume = int(min(sum(bid_volumes),sum(ask_volumes))/9900 * 0.5 * (self.number_of_matches_in_tick))
+        def order_quantity(trader_stance):
+            """trader_stance is a boolean: True = passive, False = aggressive"""
+            if trader_stance == True:
+                volume = int(min(sum(bid_volumes),sum(ask_volumes))/10000 * 0.5 * (self.number_of_matches_in_tick))
                 
                 if volume == 0:
                     volume = 1
-                
-                #checking for cumulative position of active orders + current volume
-                active_order_position = check_active_order_position()
-                
-                if active_order_position + volume >= 99 and side:
-                    self.logger.warning("order_quantity returns: %d", 99 - active_order_position)
-                    return 99 - active_order_position
-                elif active_order_position - volume <= -99 and not side:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
-                    return 99 + active_order_position
-                else:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
-                    return volume
 
-
+                return volume
             else:
-                volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/9900) * 0.5 * (self.number_of_matches_in_tick))
+                volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
                 
                 if volume == 0:
                     volume = 1
 
-                active_order_position = check_active_order_position()
+                return volume
                 
-                if active_order_position + volume >= 99 and side:
-                    self.logger.warning("order_quantity returns: %d", 99 - active_order_position)
-                    return 99 - active_order_position
-                elif active_order_position - volume <= -99 and not side:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
-                    return 99 + active_order_position
-                else:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
-                    return volume
-
-
-        # Amon's layout is 0: id  1: tick number 2: side 3: price 4: volume
-        # Andrew's layout is 0: id  1: tick number 2: price 3: volume 4: side
-        # Change amon's things to the equivalent in andrew - should be done now
         def check_same_price_order(volume, ask_trading_price, bid_trading_price):
             self.logger.warning("Checking for same price")
             
@@ -164,19 +87,19 @@ class AutoTrader(BaseAutoTrader):
             if len(self.active_order_history) != 0:
                 #Checks for identical orders in active order_history
                 for key in list(self.active_order_history.keys()):
-                    if self.active_order_history[key][4] == 0 and self.active_order_history[key][2] == ask_trading_price:
+                    if self.active_order_history[key][2] == 0 and self.active_order_history[key][3] == ask_trading_price:
                         ask_order_num_cancel = key
-                        old_ask_order_volume = self.active_order_history[key][3]
+                        old_ask_order_volume = self.active_order_history[key][4]
                         ask_order_exist = True
-                    if self.active_order_history[key][4] == 1 and self.active_order_history[key][2] == ask_trading_price: # If we find a bid of the same price as our ask
+                    if self.active_order_history[key][2] == 1 and self.active_order_history[key][3] == ask_trading_price: # If we find a bid of the same price as our ask
                         opposite_bid_found = True
                         
 
-                    if self.active_order_history[key][4] == 1 and self.active_order_history[key][2] == bid_trading_price:
+                    if self.active_order_history[key][2] == 1 and self.active_order_history[key][3] == bid_trading_price:
                         bid_order_num_cancel = key
-                        old_bid_order_volume = self.active_order_history[key][3]
+                        old_bid_order_volume = self.active_order_history[key][4]
                         bid_order_exist = True
-                    if self.active_order_history[key][4] == 0 and self.active_order_history[key][2] == bid_trading_price: # If we find a ask of the same price as our bid
+                    if self.active_order_history[key][2] == 0 and self.active_order_history[key][3] == bid_trading_price: # If we find a ask of the same price as our bid
                         opposite_add_found = True
 
                 self.logger.warning("Looped through active order history to check price")
@@ -209,50 +132,33 @@ class AutoTrader(BaseAutoTrader):
                 self.bid_id = next(self.order_ids)
                 self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
 
-
-
-        
-
-        if (ask_volumes[0] != 0 and bid_volumes[0] != 0 and len(self.trade_tick_list) > 0):
-            volume_difference = abs(sum(bid_volumes) - sum(ask_volumes))/(sum(bid_volumes) + sum(ask_volumes)) # When this is greater than 0.5 adopt aggressive trend-following strategy, otherwise passive based on last trade
-
-            last_trading_price = self.trade_tick_list[len(self.trade_tick_list)-1]
-            ask_bid_spread = ask_prices[0] - bid_prices[0]
-            
-
-            if volume_difference > 0.5 and self.get_projected_op_rate(2) <= 19.5: # Aggressive strategy                
-                # Make an ask at the last trading price
-                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0])
-                
-                    
-                order_volume = order_quantity(False, False)
-                if order_volume > 0:
+        if len(bid_prices) > 0 and len(ask_prices) > 0:
+            if self.rat_mode:
+                #self.logger.warning("RAT MODE ACTIVATED")
+                # Make an ask at the last trading price + ask_bid_spread
+                if self.position >= 25:
+                    ask_trading_price = self.round_to_trade_tick(ask_prices[0])
                     self.ask_id = next(self.order_ids)
-                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
-
-                # Make a bid at last trade price - ask bid spread
-                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - ask_bid_spread)
-                
-                order_volume = order_quantity(False, True)
-                if order_volume > 0:
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, 5, Lifespan.GOOD_FOR_DAY)
+                elif self.position <= -25:
+                    bid_trading_price = self.round_to_trade_tick(bid_prices[0]) 
                     self.bid_id = next(self.order_ids)
-                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, 5, Lifespan.GOOD_FOR_DAY)
 
-            else: # Passive strategy
-
-                ask_trading_price = self.round_to_trade_tick(last_trading_price[len(last_trading_price)-1][0] + 0.5 * ask_bid_spread)
-                bid_trading_price = self.round_to_trade_tick(last_trading_price[0][0] - 0.5 * ask_bid_spread)
-
-                if self.get_projected_op_rate(2) <= 19.5:
-                    order_volume = order_quantity(True, False)
-                    if order_volume > 0:
-                        self.ask_id = next(self.order_ids)
-                        self.op_send_insert_order(self.ask_id, Side.SELL, ask_trading_price, order_volume, Lifespan.GOOD_FOR_DAY)
-                    order_volume = order_quantity(True, True)
-                    if order_volume > 0:
+                if abs(self.position) < 25:
+                    self.rat_mode = False
+            elif instrument == Instrument.FUTURE:
+                self.predicted_hedge_price = (bid_prices[0] + ask_prices[0])/2
+            elif instrument == Instrument.ETF and self.predicted_hedge_price > 0:
+                for p in bid_prices:
+                    if self.predicted_hedge_price > p:
                         self.bid_id = next(self.order_ids)
-                        self.op_send_insert_order(self.bid_id, Side.BUY, bid_trading_price, order_volume , Lifespan.GOOD_FOR_DAY)
-
+                        self.op_send_insert_order(self.bid_id, Side.BUY, p, 2, Lifespan.GOOD_FOR_DAY)
+                for p in ask_prices:
+                    if self.predicted_hedge_price < p:
+                        self.ask_id = next(self.order_ids)
+                        self.op_send_insert_order(self.ask_id, Side.SELL, p, 2, Lifespan.GOOD_FOR_DAY)
+                    
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
         """Called when the status of one of your orders changes.
         The fill_volume is the number of lots already traded, remaining_volume
@@ -279,6 +185,13 @@ class AutoTrader(BaseAutoTrader):
 
         self.logger.warning("Total fees: %f", self.total_fees)
 
+        """
+        if remaining_volume != 0:
+            if self.op_count < 20:
+                self.send_amend_order(client_order_id, int(remaining_volume * 1.1))
+                #dont know what the third parameter for the above should be. Need concrete position information to implement this properly 
+                self.op_count += 1
+        """
         
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
         """Called when your position changes.
@@ -289,6 +202,9 @@ class AutoTrader(BaseAutoTrader):
         self.logger.warning("Our position is: %d", self.position)
         self.position = etf_position
 
+        if self.position > 75 or self.position < -75:
+            self.rat_mode = True
+            self.predicted_hedge_price = -1
         
     def on_trade_ticks_message(self, instrument: int, trade_ticks: List[Tuple[int, int]]) -> None:
         """Called periodically to report trading activity on the market.
@@ -303,78 +219,42 @@ class AutoTrader(BaseAutoTrader):
             temp[1] += 1
             self.active_order_history[key] = tuple(temp)
             if self.active_order_history[key][1] > 3:
-                if self.op_send_cancel_order(key): # This function returns true if cancel is successful
-                    del self.active_order_history[key]
-            
-                
-        
-    def collapse_history(self, history): # Run only if history entries are greater than or equal to 202 - accounting for the two
-        if(len(history["history"]) >= 200): # Making sure we avoid key errors
-            self.logger.warning("I'm collapsing the history lolol")
-            avg_entry = {
-            "ask": 0,
-            "bid": 0
-            }
-            
-            # Loop through the history's entries
-            for i in range(100):
-                avg_entry["ask"] += history["history"][i]["ask"]["price"]
-                avg_entry["bid"] += history["history"][i]["bid"]["price"]
-                
-            # Get the average
-            avg_entry["ask"] /= 101
-            avg_entry["bid"] /= 101
-            for i in range(100):
-                del history["history"][0]
-            # Update the average dictionary entry
-            history["average"] = avg_entry
-
-    def update_average(self, history):
-        depth = 0
-        
-        if len(history["history"]) < 100:
-            depth = len(history["history"])
-        else:
-            depth = 100
-        
-        avg_ask = 0
-        avg_bid = 0
-        
-        for i in range(depth):
-            avg_ask += history["history"][len(history["history"]) - 1 - i]["ask"]["price"]
-            avg_bid += history["history"][len(history["history"]) - 1 - i]["bid"]["price"]
-        
-        avg_ask /= depth
-        avg_bid /= depth
-
-        history["average"]["ask"] = avg_ask
-        history["average"]["bid"] = avg_bid
+                self.op_send_cancel_order(key)
             
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
-            # Attempting to correct position limits
-                    
-            self.send_insert_order(client_order_id, side, price, volume, lifespan)
-            self.op_history.append(time.time())
-            
-            # Logging messages
-            if side == side.SELL:
-                self.logger.warning("We sold!")
-            if side == side.BUY:
-                self.logger.warning("We bought!")
-            #if lifespan == Lifespan.GOOD_FOR_DAY:
-            #tuple indices: 0 = order id, 1 = ticks elapsed on order book, 2 = price, 3 = volume, 4 = side of order
-            if self.execution:
-                self.active_order_history[client_order_id] = (client_order_id, 0, price, volume, side)
-
+            if (side == Side.BUY and self.position < 100) or (side == Side.SELL and self.position > -100):
+                # Attempting to correct position limits
+                if side == Side.BUY:
+                    if self.position + volume >= 100:
+                        ask_volume = 90 - self.position
+                if side == Side.SELL:
+                    if self.position - volume <= -100:
+                        ask_volume = -90 - self.position
+                        
+                self.send_insert_order(client_order_id, side, price, volume, lifespan)
+                self.op_history.append(time.time())
+                
+                # Logging messages
+                if side == side.SELL:
+                    self.logger.warning("Order num %d selling %d for %d", client_order_id, volume, price)
+                if side == side.BUY:
+                    self.logger.warning("Order num %d buying %d for %d", client_order_id, volume, price)
+                if lifespan == Lifespan.GOOD_FOR_DAY:
+                    self.logger.warning("Added to active order history")
+                    self.active_order_history[client_order_id] = (client_order_id, 0, int(side), price, volume)
                     
 
     def op_send_cancel_order(self, client_order_id: int) -> None:
-        if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
+        if self.get_projected_op_rate(2) <=19.5: # Technically should be 20 - setting it stricter for now
             self.send_cancel_order(client_order_id)
+            self.logger.warning("Cancelled order: %d", client_order_id)
+            #del self.active_order_history[client_order_id]
+            self.logger.warning("Deleted order %d from the active_order_list", client_order_id)
             self.op_history.append(time.time())
             return True
+            
         return False
 
     def op_send_amend_order(self, client_order_id: int, volume: int) -> None:
@@ -394,6 +274,8 @@ class AutoTrader(BaseAutoTrader):
         
     def get_projected_op_rate(self, num_ops): # Second parameter is the number of ops to be taken
         if len(self.op_history) > 0 and (time.time() - self.op_history[0]) != 0:
+            self.logger.warning("Operation limit right now is: %d", (len(self.op_history))/(time.time() - self.op_history[0]))
+            self.logger.warning("Projected operation limit is : %d", (len(self.op_history)+num_ops)/(time.time() - self.op_history[0]))
             return (len(self.op_history)+num_ops)/(time.time() - self.op_history[0])
         else: # If list is empty we can probably do a safe insert since op history has the operations from the past second
             return 0
