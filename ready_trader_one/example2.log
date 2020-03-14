@@ -1,13 +1,17 @@
-2020-03-14 19:19:28,932 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-14 19:19:28,933 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
-2020-03-14 19:20:31,450 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-14 19:20:31,450 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
-2020-03-14 19:33:57,848 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-14 19:33:57,849 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
-2020-03-14 19:38:19,862 [WARNING] [TRADER] error with order 0: message frequency limit breached
-2020-03-14 19:38:19,862 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-14 19:38:19,862 [INFO   ] [APP] closing event loop
-2020-03-14 21:29:20,385 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-14 21:29:20,385 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
-2020-03-14 22:11:10,132 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-14 22:11:10,134 [INFO   ] [APP] closing event loop
+2020-03-14 22:18:19,938 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-14 22:18:19,939 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 23:09:31,546 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-14 23:09:31,546 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 23:51:21,273 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 23:51:21,273 [INFO   ] [APP] closing event loop
+2020-03-14 23:58:11,756 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-14 23:58:11,756 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-15 00:02:53,986 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-15 00:02:53,987 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-15 00:02:53,987 [INFO   ] [APP] closing event loop
+2020-03-15 00:11:02,396 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 00:11:02,396 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-15 00:21:37,952 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 00:21:37,953 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-15 00:32:47,588 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 00:32:47,588 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}

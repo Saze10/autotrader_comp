@@ -127,12 +127,20 @@ class AutoTrader(BaseAutoTrader):
                     if self.position + self.active_order_history[key][3] > 90:
                         self.logger.warning("Please call suicide hotline at 13 11 14.")
                         new_volume = abs(90 - self.position)
-                        self.op_send_amend_order(key, new_volume)
+                        if new_volume > 0:
+                            if new_volume != self.active_order_history[key][3]: 
+                                self.op_send_amend_order(key, new_volume)
+                        else:
+                            self.op_send_cancel_order(key)
                 else: # Sell case
                     if self.position - self.active_order_history[key][3] < -90:
                         self.logger.warning("Please call suicide hotline at 13 11 14.")
                         new_volume = abs(- self.position - 90)
-                        self.op_send_amend_order(key, new_volume)
+                        if new_volume > 0:
+                            if new_volume != self.active_order_history[key][3]: 
+                                self.op_send_amend_order(key, new_volume)
+                        else:
+                            self.op_send_cancel_order(key)
                             
 
         suicide_intervention()
@@ -155,7 +163,8 @@ class AutoTrader(BaseAutoTrader):
                                 self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
                                 
                             if new_bid_volume > 0:
-                                if new_bid_volume > 20:
+                                
+                                if new_bid_volume > 20: # For safety
                                     new_bid_volume = 20
                                 
                                 self.bid_id = next(self.order_ids)
@@ -172,8 +181,10 @@ class AutoTrader(BaseAutoTrader):
                                 self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
 
                             if new_ask_volume > 0:
-                                if new_ask_volume > 20:
+
+                                if new_ask_volume > 20: # For safety
                                     new_ask_volume = 20
+
                                 self.ask_id = next(self.order_ids)
                                 self.op_send_insert_order(self.ask_id, Side.SELL, ask_prices[i], new_ask_volume, Lifespan.GOOD_FOR_DAY)
                     else: # Literally the above code reversed in order
@@ -188,8 +199,10 @@ class AutoTrader(BaseAutoTrader):
                                 self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
 
                             if new_ask_volume > 0:
-                                if new_ask_volume > 20:
+
+                                if new_ask_volume > 20: # For safety
                                     new_ask_volume = 20
+
                                 self.ask_id = next(self.order_ids)
                                 self.op_send_insert_order(self.ask_id, Side.SELL, ask_prices[i], new_ask_volume, Lifespan.GOOD_FOR_DAY)
                                 
@@ -204,8 +217,10 @@ class AutoTrader(BaseAutoTrader):
                                 self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
                                 
                             if new_bid_volume > 0:
-                                if new_bid_volume > 20:
+
+                                if new_bid_volume > 20: # For safety
                                     new_bid_volume = 20
+
                                 
                                 self.bid_id = next(self.order_ids)
                                 self.op_send_insert_order(self.bid_id, Side.BUY, bid_prices[i], new_bid_volume, Lifespan.GOOD_FOR_DAY)
