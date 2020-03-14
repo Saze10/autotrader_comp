@@ -100,49 +100,43 @@ class AutoTrader(BaseAutoTrader):
                 else:
                     sum_negative -= self.active_order_history[key][3]
             self.logger.warning("active order position: %d", sum_positive + sum_negative + self.position)
+            self.logger.warning("sum_positive: %d, sum_negative: %d", sum_positive, sum_negative)
             return (self.position + sum_positive, self.position + sum_negative)
-
-                
+ 
         def order_quantity(trader_stance, side):
             """trader_stance is a boolean: True = passive, False = aggressive. 
             side is order side (buy or sell). True = buy, False = sell"""
             
             if trader_stance:
-                volume = int(min(sum(bid_volumes),sum(ask_volumes))/9900 * 0.5 * (self.number_of_matches_in_tick))
-                
-                if volume == 0:
-                    volume = 1
+                volume = int(min(sum(bid_volumes),sum(ask_volumes))/10000 * 0.5 * (self.number_of_matches_in_tick))
                 
                 #checking for cumulative position of active orders + current volume
                 active_order_position = check_active_order_position()
                 
-                if active_order_position[0] + volume >= 100 and side:
-                    self.logger.warning("order_quantity returns: %d", 100 - active_order_position[0])
-                    return 100 - active_order_position[0]
-                elif active_order_position[1] - volume <= -100 and not side:
-                    self.logger.warning("order_quantity returns: %d", 100 + active_order_position[1])
-                    return 100 + active_order_position[1]
+                if active_order_position[0] + volume >= 90 and side:
+                    self.logger.warning("order_quantity returns+: %d", 90 - active_order_position[0])
+                    return 90 - active_order_position[0]
+                elif active_order_position[1] - volume <= -90 and not side:
+                    self.logger.warning("order_quantity returns -: %d", 90 + active_order_position[1])
+                    return 90 + active_order_position[1]
                 else:
-                    self.logger.warning("order_quantity returns: %d", 100 + volume)
+                    self.logger.warning("order_quantity returns +-: %d", volume)
                     return volume
 
 
             else:
                 volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
-                
-                if volume == 0:
-                    volume = 1
 
                 active_order_position = check_active_order_position()
                 
-                if active_order_position[0] + volume >= 100 and side:
-                    self.logger.warning("order_quantity returns: %d", 100 - active_order_position[0])
-                    return 100 - active_order_position[0]
-                elif active_order_position[1] - volume <= -100 and not side:
-                    self.logger.warning("order_quantity returns: %d", 100 + active_order_position[1])
-                    return 100 + active_order_position[1]
+                if active_order_position[0] + volume >= 90 and side:
+                    self.logger.warning("order_quantity returns +: %d", 90 - active_order_position[0])
+                    return 90 - active_order_position[0]
+                elif active_order_position[1] - volume <= -90 and not side:
+                    self.logger.warning("order_quantity returns -: %d", 90 + active_order_position[1])
+                    return 90 + active_order_position[1]
                 else:
-                    self.logger.warning("order_quantity returns: %d", volume)
+                    self.logger.warning("order_quantity returns +-: %d", volume)
                     return volume
 
 
@@ -157,6 +151,9 @@ class AutoTrader(BaseAutoTrader):
                     self.op_send_cancel_order(self.active_order_history[key][0])
                     self.op_send_insert_order(order_id, side, trading_price, trading_volume, Lifespan.GOOD_FOR_DAY)
                     return True
+                elif self.active_order_history[key][4] == side and self.active_order_history[key][2] == trading_price:
+                    return True
+
             return False
                 
 
@@ -229,11 +226,6 @@ class AutoTrader(BaseAutoTrader):
         if remaining_volume == 0 and client_order_id in self.active_order_history.keys():
             del self.active_order_history[client_order_id]
 
-        self.total_fees += fees
-
-        self.number_of_matches_in_tick += 1
-
-        self.logger.warning("Total fees: %f", self.total_fees)
 
         
     def on_position_change_message(self, future_position: int, etf_position: int) -> None:
@@ -307,7 +299,7 @@ class AutoTrader(BaseAutoTrader):
             
     # Helper functions for checking breaches
     def op_send_insert_order(self, client_order_id: int, side: Side, price: int, volume: int, lifespan: Lifespan) -> None:
-        if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
+        if self.get_projected_op_rate(1) <= 19.5 and len(self.active_order_history) <= 10: # Technically should be 20 - setting it stricter for now
             # Attempting to correct position limits
                     
             self.send_insert_order(client_order_id, side, price, volume, lifespan)
