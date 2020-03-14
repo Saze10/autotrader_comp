@@ -115,33 +115,33 @@ class AutoTrader(BaseAutoTrader):
                 #checking for cumulative position of active orders + current volume
                 active_order_position = check_active_order_position()
                 
-                if active_order_position + volume >= 99 and side:
-                    self.logger.warning("order_quantity returns: %d", 99 - active_order_position)
-                    return 99 - active_order_position
-                elif active_order_position - volume <= -99 and not side:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
-                    return 99 + active_order_position
+                if active_order_position + volume >= 100 and side:
+                    self.logger.warning("order_quantity returns: %d", 100 - active_order_position)
+                    return 100 - active_order_position
+                elif active_order_position - volume <= -100 and not side:
+                    self.logger.warning("order_quantity returns: %d", 100 + active_order_position)
+                    return 100 + active_order_position
                 else:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
+                    self.logger.warning("order_quantity returns: %d", 100 + active_order_position)
                     return volume
 
 
             else:
-                volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/9900) * 0.5 * (self.number_of_matches_in_tick))
+                volume = int((abs(sum(bid_volumes)-sum(ask_volumes))/10000) * 0.5 * (self.number_of_matches_in_tick))
                 
                 if volume == 0:
                     volume = 1
 
                 active_order_position = check_active_order_position()
                 
-                if active_order_position + volume >= 99 and side:
-                    self.logger.warning("order_quantity returns: %d", 99 - active_order_position)
-                    return 99 - active_order_position
-                elif active_order_position - volume <= -99 and not side:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
-                    return 99 + active_order_position
+                if active_order_position + volume >= 100 and side:
+                    self.logger.warning("order_quantity returns: %d", 100 - active_order_position)
+                    return 100 - active_order_position
+                elif active_order_position - volume <= -100 and not side:
+                    self.logger.warning("order_quantity returns: %d", 100 + active_order_position)
+                    return 100 + active_order_position
                 else:
-                    self.logger.warning("order_quantity returns: %d", 99 + active_order_position)
+                    self.logger.warning("order_quantity returns: %d", 100 + active_order_position)
                     return volume
 
 
