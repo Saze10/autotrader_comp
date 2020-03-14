@@ -98,3 +98,70 @@
 2020-03-14 12:55:34,030 [WARNING] [TRADER] error with order 165: position limit breached
 2020-03-14 12:55:34,031 [INFO   ] [TRADER] lost connection on execution channel
 2020-03-14 12:55:34,031 [INFO   ] [APP] closing event loop
+2020-03-14 14:00:20,538 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 14:00:20,538 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 14:00:21,335 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 14:00:21,335 [INFO   ] [APP] closing event loop
+2020-03-14 14:03:29,695 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 14:03:29,695 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 14:04:21,723 [WARNING] [TRADER] error with order 136: position limit breached
+2020-03-14 14:04:21,724 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 14:04:21,725 [INFO   ] [APP] closing event loop
+2020-03-14 14:50:28,040 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 14:50:28,040 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 14:51:20,569 [WARNING] [TRADER] error with order 143: position limit breached
+2020-03-14 14:51:20,570 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 14:51:20,570 [INFO   ] [APP] closing event loop
+2020-03-14 14:52:57,185 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 14:52:57,186 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 14:53:49,206 [WARNING] [TRADER] error with order 149: position limit breached
+2020-03-14 14:53:49,207 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 14:53:49,207 [INFO   ] [APP] closing event loop
+2020-03-14 14:56:43,450 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 14:56:43,451 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 14:56:43,466 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-14 14:56:43,467 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-14 14:56:43,711 [WARNING] [TRADER] error with order 3: order rejected: market not yet open
+2020-03-14 14:56:43,711 [WARNING] [TRADER] error with order 4: order rejected: market not yet open
+2020-03-14 14:56:43,965 [WARNING] [TRADER] error with order 5: order rejected: market not yet open
+2020-03-14 14:56:43,965 [WARNING] [TRADER] error with order 6: order rejected: market not yet open
+2020-03-14 14:56:44,207 [WARNING] [TRADER] error with order 7: order rejected: market not yet open
+2020-03-14 14:56:44,207 [WARNING] [TRADER] error with order 8: order rejected: market not yet open
+2020-03-14 14:56:44,462 [WARNING] [TRADER] error with order 9: order rejected: market not yet open
+2020-03-14 14:56:44,463 [WARNING] [TRADER] error with order 10: order rejected: market not yet open
+2020-03-14 14:56:44,718 [WARNING] [TRADER] error with order 11: order rejected: market not yet open
+2020-03-14 14:56:44,719 [WARNING] [TRADER] error with order 12: order rejected: market not yet open
+2020-03-14 14:56:44,960 [WARNING] [TRADER] error with order 13: order rejected: market not yet open
+2020-03-14 14:56:44,960 [WARNING] [TRADER] error with order 14: order rejected: market not yet open
+2020-03-14 14:56:45,211 [WARNING] [TRADER] error with order 15: order rejected: market not yet open
+2020-03-14 14:56:45,211 [WARNING] [TRADER] error with order 16: order rejected: market not yet open
+2020-03-14 14:56:45,456 [WARNING] [TRADER] error with order 17: order rejected: market not yet open
+2020-03-14 14:56:45,457 [WARNING] [TRADER] error with order 18: order rejected: market not yet open
+2020-03-14 14:56:45,716 [WARNING] [TRADER] error with order 19: order rejected: market not yet open
+2020-03-14 14:56:45,716 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-14 14:56:45,717 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 14:56:45,717 [INFO   ] [APP] closing event loop
+2020-03-14 14:58:53,096 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 14:58:53,097 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 14:59:46,363 [WARNING] [TRADER] error with order 154: position limit breached
+2020-03-14 14:59:46,366 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 14:59:46,366 [INFO   ] [APP] closing event loop
+2020-03-14 15:14:58,332 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 15:14:58,332 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 15:16:13,096 [WARNING] [TRADER] error with order 264: position limit breached
+2020-03-14 15:16:13,097 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 15:16:13,098 [INFO   ] [APP] closing event loop
+2020-03-14 15:18:20,216 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 15:18:20,216 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 15:19:10,236 [WARNING] [TRADER] error with order 137: position limit breached
+2020-03-14 15:19:10,237 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 15:19:10,237 [INFO   ] [APP] closing event loop
+2020-03-14 15:21:28,359 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 15:21:28,359 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 15:22:01,001 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 15:22:01,002 [INFO   ] [APP] closing event loop
+2020-03-14 15:23:46,652 [INFO   ] [APP] example1 started with arguments={run.py}
+2020-03-14 15:23:46,652 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-14 15:24:38,919 [WARNING] [TRADER] error with order 146: position limit breached
+2020-03-14 15:24:38,920 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 15:24:38,921 [INFO   ] [APP] closing event loop

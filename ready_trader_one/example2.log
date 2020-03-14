@@ -84,3 +84,63 @@
 2020-03-14 12:54:36,264 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
 2020-03-14 13:33:22,150 [INFO   ] [APP] SIGINT signal received - shutting down...
 2020-03-14 13:33:22,151 [INFO   ] [APP] closing event loop
+2020-03-14 14:00:20,538 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 14:00:20,538 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 14:00:21,335 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 14:00:21,335 [INFO   ] [APP] closing event loop
+2020-03-14 14:03:29,695 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 14:03:29,695 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 14:05:21,040 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 14:05:21,040 [INFO   ] [APP] closing event loop
+2020-03-14 14:50:28,040 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 14:50:28,040 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 14:52:28,348 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 14:52:28,348 [INFO   ] [APP] closing event loop
+2020-03-14 14:52:57,185 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 14:52:57,186 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 14:56:43,451 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 14:56:43,451 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 14:56:43,466 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-14 14:56:43,466 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-14 14:56:43,710 [WARNING] [TRADER] error with order 3: order rejected: market not yet open
+2020-03-14 14:56:43,710 [WARNING] [TRADER] error with order 4: order rejected: market not yet open
+2020-03-14 14:56:43,964 [WARNING] [TRADER] error with order 5: order rejected: market not yet open
+2020-03-14 14:56:43,965 [WARNING] [TRADER] error with order 6: order rejected: market not yet open
+2020-03-14 14:56:44,208 [WARNING] [TRADER] error with order 7: order rejected: market not yet open
+2020-03-14 14:56:44,208 [WARNING] [TRADER] error with order 8: order rejected: market not yet open
+2020-03-14 14:56:44,462 [WARNING] [TRADER] error with order 9: order rejected: market not yet open
+2020-03-14 14:56:44,462 [WARNING] [TRADER] error with order 10: order rejected: market not yet open
+2020-03-14 14:56:44,718 [WARNING] [TRADER] error with order 11: order rejected: market not yet open
+2020-03-14 14:56:44,718 [WARNING] [TRADER] error with order 12: order rejected: market not yet open
+2020-03-14 14:56:44,959 [WARNING] [TRADER] error with order 13: order rejected: market not yet open
+2020-03-14 14:56:44,959 [WARNING] [TRADER] error with order 14: order rejected: market not yet open
+2020-03-14 14:56:45,210 [WARNING] [TRADER] error with order 15: order rejected: market not yet open
+2020-03-14 14:56:45,210 [WARNING] [TRADER] error with order 16: order rejected: market not yet open
+2020-03-14 14:56:45,457 [WARNING] [TRADER] error with order 17: order rejected: market not yet open
+2020-03-14 14:56:45,457 [WARNING] [TRADER] error with order 18: order rejected: market not yet open
+2020-03-14 14:56:45,715 [WARNING] [TRADER] error with order 19: order rejected: market not yet open
+2020-03-14 14:56:45,715 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-14 14:56:45,717 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-14 14:56:45,717 [INFO   ] [APP] closing event loop
+2020-03-14 14:58:16,628 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 14:58:16,628 [INFO   ] [APP] closing event loop
+2020-03-14 14:58:53,097 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 14:58:53,098 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 15:08:53,155 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 15:08:53,155 [INFO   ] [APP] closing event loop
+2020-03-14 15:14:58,332 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 15:14:58,332 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 15:17:42,433 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 15:17:42,433 [INFO   ] [APP] closing event loop
+2020-03-14 15:18:20,216 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 15:18:20,216 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 15:20:56,060 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 15:20:56,060 [INFO   ] [APP] closing event loop
+2020-03-14 15:21:28,359 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 15:21:28,359 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 15:22:01,001 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 15:22:01,002 [INFO   ] [APP] closing event loop
+2020-03-14 15:23:46,652 [INFO   ] [APP] example2 started with arguments={run.py}
+2020-03-14 15:23:46,653 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-14 15:24:52,260 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-14 15:24:52,261 [INFO   ] [APP] closing event loop
