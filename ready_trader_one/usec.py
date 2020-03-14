@@ -100,7 +100,7 @@ class AutoTrader(BaseAutoTrader):
                 else:
                     sum_negative -= self.active_order_history[key][3]
             self.logger.warning("active order position: %d", sum_positive + sum_negative + self.position)
-            return (sum_positive, sum_negative)
+            return (self.position + sum_positive, self.position + sum_negative)
 
                 
         def order_quantity(trader_stance, side):
