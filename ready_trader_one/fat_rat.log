@@ -34652,3 +34652,7 @@
 2020-03-15 00:49:25,064 [WARNING] [TRADER] error with order 10360: order rejected: active order count limit breached
 2020-03-15 00:49:25,064 [WARNING] [TRADER] error with order 10361: order rejected: active order count limit breached
 2020-03-15 00:49:25,064 [WARNING] [TRADER] error with order 10362: order rejected: active order count limit breached
+2020-03-15 13:58:11,483 [INFO   ] [APP] fat_rat started with arguments={run.py}
+2020-03-15 13:58:11,484 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"FatRat","Secret":"12345"}
+2020-03-15 13:58:12,658 [INFO   ] [APP] SIGINT signal received - shutting down...
+2020-03-15 13:58:12,658 [INFO   ] [APP] closing event loop
