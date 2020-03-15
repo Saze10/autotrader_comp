@@ -121,7 +121,10 @@ class AutoTrader(BaseAutoTrader):
                     return 90 + active_order_position[1]
                 else:
                     self.logger.warning("order_quantity returns +-: %d", volume)
-                    return volume
+                    if volume > 0:
+                        return volume
+                    else:
+                        return 1
 
 
             else:
@@ -137,7 +140,10 @@ class AutoTrader(BaseAutoTrader):
                     return 90 + active_order_position[1]
                 else:
                     self.logger.warning("order_quantity returns +-: %d", volume)
-                    return volume
+                    if volume > 0:
+                        return volume
+                    else:
+                        return 1
 
 
         # Amon's layout is 0: id  1: tick number 2: side 3: price 4: volume
