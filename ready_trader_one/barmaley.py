@@ -347,7 +347,10 @@ class AutoTrader(BaseAutoTrader):
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
             self.send_amend_order(client_order_id, volume)
             self.op_history.append(time.time())
-            self.active_order_history[client_order_id][3] = volume
+            
+            temp = list(self.active_order_history[client_order_id]) # Convert tuple to list
+            temp[3] = volume
+            self.active_order_history[client_order_id] = tuple(temp)
         
     def update_op_history(self):
         counter = 0
