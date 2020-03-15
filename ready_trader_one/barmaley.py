@@ -141,8 +141,44 @@ class AutoTrader(BaseAutoTrader):
                                 self.op_send_amend_order(key, new_volume)
                         else:
                             self.op_send_cancel_order(key)
-                            
 
+        def insert_profitable_bid_price(hedge_price, bid_price, bid_volume):
+            if hedge_price > bid_price:
+                active_order_position = check_active_order_position()
+                new_bid_volume = bid_volume
+
+                self.logger.warning("Considering bid volume %d", new_bid_volume)
+        
+                if active_order_position[0] + new_bid_volume > 90:
+                    new_bid_volume = 90 - active_order_position[0]
+                    self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
+                    
+                if new_bid_volume > 0:
+                    
+                    if new_bid_volume > 20: # For safety
+                        new_bid_volume = 20
+                    
+                    self.bid_id = next(self.order_ids)
+                    self.op_send_insert_order(self.bid_id, Side.BUY, bid_price, new_bid_volume, Lifespan.GOOD_FOR_DAY)
+
+        def insert_profitable_ask_price(hedge_price, ask_price, ask_volume):
+            if hedge_price < ask_price:
+                active_order_position = check_active_order_position()
+                new_ask_volume = ask_volume
+
+                self.logger.warning("Considering ask volume %d", new_ask_volume)
+        
+                if active_order_position[1] - new_ask_volume < -90:
+                    new_ask_volume = 90 + active_order_position[1]
+                    self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
+
+                if new_ask_volume > 0:
+                    if new_ask_volume > 20: # For safety
+                        new_ask_volume = 20
+                        
+                    self.ask_id = next(self.order_ids)
+                    self.op_send_insert_order(self.ask_id, Side.SELL, ask_price, new_ask_volume, Lifespan.GOOD_FOR_DAY)
+                    
         suicide_intervention()
         
         # BEAR ENGINE
@@ -152,73 +188,13 @@ class AutoTrader(BaseAutoTrader):
             elif instrument == Instrument.ETF and self.predicted_hedge_price > 0:
                 for i in range(len(bid_prices)):
                     if self.position <= 0:
-                        if self.predicted_hedge_price > bid_prices[i]:
-                            active_order_position = check_active_order_position()
-                            new_bid_volume = bid_volumes[i]
-
-                            self.logger.warning("Considering bid volume %d", new_bid_volume)
-                    
-                            if active_order_position[0] + new_bid_volume > 90:
-                                new_bid_volume = 90 - active_order_position[0]
-                                self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
-                                
-                            if new_bid_volume > 0:
-                                
-                                if new_bid_volume > 20: # For safety
-                                    new_bid_volume = 20
-                                
-                                self.bid_id = next(self.order_ids)
-                                self.op_send_insert_order(self.bid_id, Side.BUY, bid_prices[i], new_bid_volume, Lifespan.GOOD_FOR_DAY)
-                            
-                        if self.predicted_hedge_price < ask_prices[i]:
-                            active_order_position = check_active_order_position()
-                            new_ask_volume = ask_volumes[i]
-
-                            self.logger.warning("Considering ask volume %d", new_ask_volume)
-                    
-                            if active_order_position[1] - new_ask_volume < -90:
-                                new_ask_volume = 90 + active_order_position[1]
-                                self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
-
-                            if new_ask_volume > 0:
-                                if new_ask_volume > 20: # For safety
-                                    new_ask_volume = 20
-                                self.ask_id = next(self.order_ids)
-                                self.op_send_insert_order(self.ask_id, Side.SELL, ask_prices[i], new_ask_volume, Lifespan.GOOD_FOR_DAY)
+                        insert_profitable_bid_price(self.predicted_hedge_price, bid_prices[i], bid_volumes[i])
+                        insert_profitable_ask_price(self.predicted_hedge_price, ask_prices[i], ask_volumes[i])
+                        
                     else: # Literally the above code reversed in order
-                        if self.predicted_hedge_price < ask_prices[i]:
-                            active_order_position = check_active_order_position()
-                            new_ask_volume = ask_volumes[i]
-
-                            self.logger.warning("Considering ask volume %d", new_ask_volume)
-                    
-                            if active_order_position[1] - new_ask_volume < -90:
-                                new_ask_volume = 90 + active_order_position[1]
-                                self.logger.warning("new_ask_volume returns -: %d", 90 + active_order_position[1])
-
-                            if new_ask_volume > 0:
-                                if new_ask_volume > 20: # For safety
-                                    new_ask_volume = 20
-                                self.ask_id = next(self.order_ids)
-                                self.op_send_insert_order(self.ask_id, Side.SELL, ask_prices[i], new_ask_volume, Lifespan.GOOD_FOR_DAY)
-                                
-                        if self.predicted_hedge_price > bid_prices[i]:
-                            active_order_position = check_active_order_position()
-                            new_bid_volume = bid_volumes[i]
-
-                            self.logger.warning("Considering bid volume %d", new_bid_volume)
-                    
-                            if active_order_position[0] + new_bid_volume > 90:
-                                new_bid_volume = 90 - active_order_position[0]
-                                self.logger.warning("new_bid_volume returns +: %d", 90 - active_order_position[0])
-                                
-                            if new_bid_volume > 0:
-                                if new_bid_volume > 20: # For safety
-                                    new_bid_volume = 20
-                                
-                                self.bid_id = next(self.order_ids)
-                                self.op_send_insert_order(self.bid_id, Side.BUY, bid_prices[i], new_bid_volume, Lifespan.GOOD_FOR_DAY)
-        
+                        insert_profitable_ask_price(self.predicted_hedge_price, ask_prices[i], ask_volumes[i])
+                        insert_profitable_bid_price(self.predicted_hedge_price, bid_prices[i], bid_volumes[i])
+                        
         suicide_intervention()
 
     def on_order_status_message(self, client_order_id: int, fill_volume: int, remaining_volume: int, fees: int) -> None:
