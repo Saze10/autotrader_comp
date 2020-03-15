@@ -1,0 +1,28 @@
+2020-03-15 22:03:50,867 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 22:03:50,867 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-15 22:37:29,250 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 22:37:29,250 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}
+2020-03-15 22:37:29,399 [WARNING] [TRADER] error with order 1: order rejected: market not yet open
+2020-03-15 22:37:29,400 [WARNING] [TRADER] error with order 2: order rejected: market not yet open
+2020-03-15 22:37:29,660 [WARNING] [TRADER] error with order 3: order rejected: market not yet open
+2020-03-15 22:37:29,660 [WARNING] [TRADER] error with order 4: order rejected: market not yet open
+2020-03-15 22:37:29,901 [WARNING] [TRADER] error with order 5: order rejected: market not yet open
+2020-03-15 22:37:29,901 [WARNING] [TRADER] error with order 6: order rejected: market not yet open
+2020-03-15 22:37:30,164 [WARNING] [TRADER] error with order 7: order rejected: market not yet open
+2020-03-15 22:37:30,164 [WARNING] [TRADER] error with order 8: order rejected: market not yet open
+2020-03-15 22:37:30,413 [WARNING] [TRADER] error with order 9: order rejected: market not yet open
+2020-03-15 22:37:30,413 [WARNING] [TRADER] error with order 10: order rejected: market not yet open
+2020-03-15 22:37:30,654 [WARNING] [TRADER] error with order 11: order rejected: market not yet open
+2020-03-15 22:37:30,654 [WARNING] [TRADER] error with order 12: order rejected: market not yet open
+2020-03-15 22:37:30,917 [WARNING] [TRADER] error with order 13: order rejected: market not yet open
+2020-03-15 22:37:30,917 [WARNING] [TRADER] error with order 14: order rejected: market not yet open
+2020-03-15 22:37:31,152 [WARNING] [TRADER] error with order 15: order rejected: market not yet open
+2020-03-15 22:37:31,153 [WARNING] [TRADER] error with order 16: order rejected: market not yet open
+2020-03-15 22:37:31,409 [WARNING] [TRADER] error with order 17: order rejected: market not yet open
+2020-03-15 22:37:31,409 [WARNING] [TRADER] error with order 18: order rejected: market not yet open
+2020-03-15 22:37:31,650 [WARNING] [TRADER] error with order 19: order rejected: market not yet open
+2020-03-15 22:37:31,650 [WARNING] [TRADER] error with order 0: message frequency limit breached
+2020-03-15 22:37:31,650 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-15 22:37:31,650 [INFO   ] [APP] closing event loop
+2020-03-15 22:37:49,191 [INFO   ] [APP] example2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 22:37:49,191 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleTwo","Secret":"12345"}

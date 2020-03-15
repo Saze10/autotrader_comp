@@ -76,18 +76,18 @@ class AutoTrader(BaseAutoTrader):
 
             active_order_position = check_active_order_position()
             
-            if active_order_position[0] + volume >= 90 and side:
-                self.logger.warning("order_quantity returns +: %d", 90 - active_order_position[0])
-                return 90 - active_order_position[0]
-            elif active_order_position[1] - volume <= -90 and not side:
-                self.logger.warning("order_quantity returns -: %d", 90 + active_order_position[1])
-                return 90 + active_order_position[1]
+            if active_order_position[0] + volume >= 80 and side:
+                self.logger.warning("order_quantity returns +: %d", 80 - active_order_position[0])
+                return 80 - active_order_position[0]
+            elif active_order_position[1] - volume <= -80 and not side:
+                self.logger.warning("order_quantity returns -: %d", 80 + active_order_position[1])
+                return 80 + active_order_position[1]
             else:
-                self.logger.warning("order_quantity returns +-: %d", volume)
+                self.logger.warning("order_quantity returns +-: %d, number of matches in tick: %d", volume, self.number_of_matches_in_tick)
                 if volume > 0:
                     return volume
 
-            return 10
+            return 20
             
 
         # Amon's layout is 0: id  1: tick number 2: side 3: price 4: volume
