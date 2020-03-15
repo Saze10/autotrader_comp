@@ -261,6 +261,8 @@ class AutoTrader(BaseAutoTrader):
         self.trade_tick_list.append(trade_ticks)
         self.number_of_matches_in_tick = 0
 
+        self.logger.warning("Most recent trade ticks: " + str(trade_ticks))
+
         for key in list(self.active_order_history.keys()):
             temp = list(self.active_order_history[key]) # Convert tuple to list
             temp[1] += 1
@@ -345,6 +347,7 @@ class AutoTrader(BaseAutoTrader):
         if self.get_projected_op_rate(1) <= 19.5: # Technically should be 20 - setting it stricter for now
             self.send_amend_order(client_order_id, volume)
             self.op_history.append(time.time())
+            self.active_order_history[client_order_id][3] = volume
         
     def update_op_history(self):
         counter = 0

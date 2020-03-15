@@ -1,47 +1,5 @@
-2020-03-14 22:18:19,930 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-14 22:18:19,930 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-14 22:19:18,129 [WARNING] [TRADER] error with order 154: position limit breached
-2020-03-14 22:19:18,130 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-14 22:19:18,130 [INFO   ] [APP] closing event loop
-2020-03-14 23:09:31,551 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-14 23:09:31,551 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-14 23:10:30,026 [WARNING] [TRADER] error with order 156: position limit breached
-2020-03-14 23:10:30,026 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-14 23:10:30,026 [INFO   ] [APP] closing event loop
-2020-03-14 23:58:11,758 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-14 23:58:11,758 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-14 23:59:11,737 [WARNING] [TRADER] error with order 152: position limit breached
-2020-03-14 23:59:11,737 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-14 23:59:11,738 [INFO   ] [APP] closing event loop
-2020-03-15 00:11:02,391 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-15 00:11:02,391 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-15 00:11:59,864 [WARNING] [TRADER] error with order 147: position limit breached
-2020-03-15 00:11:59,864 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-15 00:11:59,864 [INFO   ] [APP] closing event loop
-2020-03-15 00:21:37,960 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-15 00:21:37,960 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-15 00:22:39,168 [WARNING] [TRADER] error with order 166: position limit breached
-2020-03-15 00:22:39,169 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-15 00:22:39,169 [INFO   ] [APP] closing event loop
-2020-03-15 00:32:47,583 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-15 00:32:47,583 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-15 00:33:47,805 [WARNING] [TRADER] error with order 165: position limit breached
-2020-03-15 00:33:47,805 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-15 00:33:47,805 [INFO   ] [APP] closing event loop
-<<<<<<< HEAD
-2020-03-15 00:55:17,794 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-15 00:55:17,794 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-15 00:56:16,011 [WARNING] [TRADER] error with order 155: position limit breached
-2020-03-15 00:56:16,013 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-15 00:56:16,013 [INFO   ] [APP] closing event loop
-2020-03-15 01:12:27,415 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
-2020-03-15 01:12:27,415 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-15 01:12:57,179 [WARNING] [TRADER] error with order 0: message frequency limit breached
-2020-03-15 01:12:57,179 [INFO   ] [TRADER] lost connection on execution channel
-2020-03-15 01:12:57,179 [INFO   ] [APP] closing event loop
-=======
-2020-03-15 13:58:11,485 [INFO   ] [APP] example1 started with arguments={run.py}
-2020-03-15 13:58:11,486 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
-2020-03-15 13:58:12,657 [INFO   ] [APP] SIGINT signal received - shutting down...
-2020-03-15 13:58:12,658 [INFO   ] [APP] closing event loop
->>>>>>> 66429e436f603f1a81af86f9e6a8d1e4e09c0215
+2020-03-15 15:09:17,674 [INFO   ] [APP] example1 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 15:09:17,674 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"ExampleOne","Secret":"qwerty"}
+2020-03-15 15:11:27,428 [WARNING] [TRADER] error with order 374: position limit breached
+2020-03-15 15:11:27,429 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-15 15:11:27,429 [INFO   ] [APP] closing event loop
