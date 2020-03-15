@@ -1,0 +1,4 @@
+2020-03-15 17:00:58,950 [INFO   ] [APP] fatbear2 started with arguments={C:\Users\Andre Calma\Desktop\autotrader_comp\ready_trader_one\run.py}
+2020-03-15 17:00:58,950 [INFO   ] [APP] configuration={"Execution":{"Host":"127.0.0.1","Port":12345},"Information":{"AllowBroadcast":false,"Interface":"0.0.0.0","ListenAddress":"239.255.1.1","Port":12346},"TeamName":"FatBear2","Secret":"FatBear2"}
+2020-03-15 17:00:58,954 [INFO   ] [TRADER] lost connection on execution channel
+2020-03-15 17:00:58,954 [INFO   ] [APP] closing event loop
